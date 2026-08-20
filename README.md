@@ -42,7 +42,7 @@
 | **Frontend & UI** | **Livewire 3, Volt, Flux UI, Blade Components, Tailwind CSS, Bootstrap 5** |
 | **Database** | **MySQL / MariaDB / SQLite** |
 | **Testing Suite** | **Pest PHP & PHPUnit** (Unit & Feature Tests - 100% Passed) |
-| **Repository URL** | [github.com/MuhammadFarhanAprilianto/website](https://github.com/MuhammadFarhanAprilianto/website) |
+| **Repository URL** | [github.com/MuhammadFarhanAprilianto/global-aspek-teknika-web](https://github.com/MuhammadFarhanAprilianto/global-aspek-teknika-web) |
 
 ---
 
@@ -137,8 +137,8 @@ Proyek ini telah dikonfigurasi secara aman untuk publikasi di GitHub publik:
 
 ### 2. Kloning Repository
 ```bash
-git clone https://github.com/MuhammadFarhanAprilianto/website.git
-cd website
+git clone https://github.com/MuhammadFarhanAprilianto/global-aspek-teknika-web.git
+cd global-aspek-teknika-web
 ```
 
 ### 3. Instalasi Dependensi
