@@ -16,19 +16,6 @@
 
 ---
 
-## 🖥️ Preview & Showcase
-
-<p align="center">
-  <img src="docs/screenshots/hero_preview.png" alt="GAT Hero Preview" width="90%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
-</p>
-
-<br />
-
-<p align="center">
-  <img src="docs/screenshots/system_showcase.png" alt="GAT System Showcase" width="70%" style="border-radius: 12px;" />
-</p>
-
----
 
 ## 📌 Project Metadata
 
