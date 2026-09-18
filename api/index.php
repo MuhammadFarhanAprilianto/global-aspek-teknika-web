@@ -121,6 +121,9 @@ if ($uriPath !== '/') {
     if ($targetFile) {
         $ext = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
         $mime = $mimeTypes[$ext] ?? 'application/octet-stream';
+        while (ob_get_level()) {
+            @ob_end_clean();
+        }
         header('Content-Type: ' . $mime);
         header('Content-Length: ' . filesize($targetFile));
         header('Cache-Control: public, max-age=31536000, immutable');
