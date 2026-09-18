@@ -348,7 +348,21 @@
         }
         window.addEventListener('load', initScrollReveal);
     </script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const v = document.querySelector('video');
+            if (v) {
+                v.muted = true;
+                v.playsInline = true;
+                const playPromise = v.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Autoplay:', error);
+                    });
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

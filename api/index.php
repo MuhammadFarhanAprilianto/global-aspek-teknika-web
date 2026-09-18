@@ -124,8 +124,46 @@ if ($uriPath !== '/') {
         while (ob_get_level()) {
             @ob_end_clean();
         }
+
+        $size = filesize($targetFile);
+        $start = 0;
+        $end = $size - 1;
+
+        header('Accept-Ranges: bytes');
+
+        if (isset($_SERVER['HTTP_RANGE'])) {
+            $range = $_SERVER['HTTP_RANGE'];
+            if (preg_match('/bytes=\h*(\d+)-(\d*)[\D.*]?/i', $range, $matches)) {
+                $start = intval($matches[1]);
+                if (!empty($matches[2])) {
+                    $end = intval($matches[2]);
+                }
+            }
+            $length = $end - $start + 1;
+            http_response_code(206);
+            header("Content-Range: bytes {$start}-{$end}/{$size}");
+            header('Content-Type: ' . $mime);
+            header("Content-Length: {$length}");
+            header('Cache-Control: public, max-age=31536000');
+
+            $fp = fopen($targetFile, 'rb');
+            if ($fp) {
+                fseek($fp, $start);
+                $buffer = 1024 * 64;
+                while (!feof($fp) && ($pos = ftell($fp)) <= $end) {
+                    if ($pos + $buffer > $end) {
+                        $buffer = $end - $pos + 1;
+                    }
+                    echo fread($fp, $buffer);
+                    flush();
+                }
+                fclose($fp);
+            }
+            exit;
+        }
+
         header('Content-Type: ' . $mime);
-        header('Content-Length: ' . filesize($targetFile));
+        header('Content-Length: ' . $size);
         header('Cache-Control: public, max-age=31536000, immutable');
         readfile($targetFile);
         exit;
