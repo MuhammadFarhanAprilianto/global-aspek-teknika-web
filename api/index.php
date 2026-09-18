@@ -162,10 +162,27 @@ if ($uriPath !== '/') {
             exit;
         }
 
+        if (isset($_SERVER['REQUEST_METHOD']) && strtoupper($_SERVER['REQUEST_METHOD']) === 'HEAD') {
+            header('Content-Type: ' . $mime);
+            header('Content-Length: ' . $size);
+            header('Cache-Control: public, max-age=31536000, immutable');
+            exit;
+        }
+
         header('Content-Type: ' . $mime);
         header('Content-Length: ' . $size);
         header('Cache-Control: public, max-age=31536000, immutable');
-        readfile($targetFile);
+        $fp = fopen($targetFile, 'rb');
+        if ($fp) {
+            $buffer = 1024 * 64;
+            while (!feof($fp)) {
+                echo fread($fp, $buffer);
+                flush();
+            }
+            fclose($fp);
+        } else {
+            readfile($targetFile);
+        }
         exit;
     }
 }

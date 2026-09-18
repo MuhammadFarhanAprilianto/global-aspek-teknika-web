@@ -81,11 +81,11 @@
         class="relative w-full min-h-[75vh] sm:min-h-[85vh] lg:min-h-[92vh] xl:min-h-[96vh] bg-black text-white text-center py-44 sm:py-56 lg:py-64 xl:py-72 overflow-hidden flex items-center justify-center">
         <!-- Background Video Centered Top-Bottom-Left-Right with WebM Primary and MP4 Fallback -->
         <div class="absolute inset-0 z-0 overflow-hidden w-full h-full pointer-events-none flex items-center justify-center">
-            <video autoplay loop muted playsinline
+            <video autoplay loop muted playsinline preload="auto"
                 class="w-full h-full object-cover object-center opacity-70"
                 style="object-position: 50% 50%; object-fit: cover;">
-                <source src="{{ asset('storage/Company_Profile.webm') }}" type="video/webm">
                 <source src="{{ asset('storage/Company_Profile.mp4') }}" type="video/mp4">
+                <source src="{{ asset('storage/Company_Profile.webm') }}" type="video/webm">
             </video>
             <!-- Overlay to guarantee text contrast & cinematic depth -->
             <div class="absolute inset-0 bg-black/35 backdrop-blur-[0.5px]"></div>
