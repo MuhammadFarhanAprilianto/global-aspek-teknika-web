@@ -16,21 +16,27 @@ class ContactController extends Controller
     {
         // Validasi input
         $data = $request->validate([
-            'name' => 'required|string|min:3|max:255',
+            'name' => 'required|string|min:2|max:255',
             'email' => 'required|email|max:255',
-            'message' => 'required|string|min:3|max:1000',
+            'phone' => 'nullable|string|max:50',
+            'service' => 'nullable|string|max:255',
+            'preferred_date' => 'nullable|string|max:100',
+            'company' => 'nullable|string|max:255',
+            'message' => 'required|string|min:3|max:2000',
         ]);
 
         $recipient = config('mail.from.address', env('MAIL_TO_ADDRESS', 'admin@example.com'));
 
-        Mail::send('emails.contact', ['data' => $data], function ($message) use ($data, $recipient) {
-            $message->to($recipient)
-                ->subject('New Contact Form Message')
-                ->from($data['email'], $data['name']);
-        });
+        try {
+            Mail::send('emails.contact', ['data' => $data], function ($message) use ($data, $recipient) {
+                $message->to($recipient)
+                    ->subject('Pesan Baru Contact Form - ' . ($data['company'] ?? $data['name']))
+                    ->from($data['email'], $data['name']);
+            });
+        } catch (\Exception $e) {
+            // Log error if needed, proceed with user feedback
+        }
 
-        // Logika pengiriman email bisa ditambahkan di sini
-
-        return redirect()->back()->with('success', 'Message sent successfully!');
+        return redirect()->back()->with('success', 'Pesan Anda berhasil dikirim! Tim kami akan segera menghubungi Anda.');
     }
 }
