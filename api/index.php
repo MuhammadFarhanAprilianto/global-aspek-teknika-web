@@ -126,46 +126,58 @@ if ($uriPath !== '/') {
         }
 
         $size = filesize($targetFile);
-        $start = 0;
-        $end = $size - 1;
+        $maxChunk = 1024 * 1024; // 1MB maximum chunk per request to strictly respect Vercel payload limit
+
+        if (isset($_SERVER['REQUEST_METHOD']) && strtoupper($_SERVER['REQUEST_METHOD']) === 'HEAD') {
+            header('Accept-Ranges: bytes');
+            header('Content-Type: ' . $mime);
+            header('Content-Length: ' . $size);
+            header('Cache-Control: public, max-age=31536000, immutable');
+            exit;
+        }
 
         header('Accept-Ranges: bytes');
+        header('Cache-Control: public, max-age=31536000');
 
-        if (isset($_SERVER['HTTP_RANGE'])) {
-            $range = $_SERVER['HTTP_RANGE'];
-            if (preg_match('/bytes=\h*(\d+)-(\d*)[\D.*]?/i', $range, $matches)) {
-                $start = intval($matches[1]);
-                if (!empty($matches[2])) {
-                    $end = intval($matches[2]);
+        $isVideo = in_array($ext, ['mp4', 'webm']);
+
+        if (isset($_SERVER['HTTP_RANGE']) || ($isVideo && $size > $maxChunk)) {
+            $start = 0;
+            $end = $size - 1;
+
+            if (isset($_SERVER['HTTP_RANGE'])) {
+                $range = $_SERVER['HTTP_RANGE'];
+                if (preg_match('/bytes=\h*(\d+)-(\d*)[\D.*]?/i', $range, $matches)) {
+                    $start = intval($matches[1]);
+                    if (!empty($matches[2])) {
+                        $end = intval($matches[2]);
+                    }
                 }
             }
+
+            // Cap the chunk size to $maxChunk
+            if ($end - $start + 1 > $maxChunk) {
+                $end = min($start + $maxChunk - 1, $size - 1);
+            }
+
             $length = $end - $start + 1;
             http_response_code(206);
             header("Content-Range: bytes {$start}-{$end}/{$size}");
             header('Content-Type: ' . $mime);
             header("Content-Length: {$length}");
-            header('Cache-Control: public, max-age=31536000');
 
             $fp = fopen($targetFile, 'rb');
             if ($fp) {
                 fseek($fp, $start);
                 $buffer = 1024 * 64;
                 while (!feof($fp) && ($pos = ftell($fp)) <= $end) {
-                    if ($pos + $buffer > $end) {
-                        $buffer = $end - $pos + 1;
-                    }
-                    echo fread($fp, $buffer);
+                    $readSize = min($buffer, $end - $pos + 1);
+                    if ($readSize <= 0) break;
+                    echo fread($fp, $readSize);
                     flush();
                 }
                 fclose($fp);
             }
-            exit;
-        }
-
-        if (isset($_SERVER['REQUEST_METHOD']) && strtoupper($_SERVER['REQUEST_METHOD']) === 'HEAD') {
-            header('Content-Type: ' . $mime);
-            header('Content-Length: ' . $size);
-            header('Cache-Control: public, max-age=31536000, immutable');
             exit;
         }
 
