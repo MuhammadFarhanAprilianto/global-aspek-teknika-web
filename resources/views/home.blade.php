@@ -78,25 +78,25 @@
 
     <!-- Single Slide Hero Section with Orbital Ecosystem -->
     <section
-        class="relative w-full min-h-[calc(100vh-80px)] pt-32 pb-10 sm:pb-12 lg:pt-36 lg:pb-14 flex items-center bg-white overflow-hidden">
+        class="relative w-full min-h-[calc(100vh-92px)] pt-28 sm:pt-30 lg:pt-32 pb-8 sm:pb-10 lg:pb-12 flex items-center bg-white overflow-hidden">
         <!-- Subtle Background Ambient Radial Lighting -->
         <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-radial from-red-50/50 via-gray-100/30 to-transparent rounded-full pointer-events-none blur-3xl -z-0">
         </div>
 
         <div class="container mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
 
                 <!-- Left Column: High-Impact Typography & CTA -->
                 <div class="w-full lg:w-[55%] text-left">
                     <h1
-                        class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-[54px] font-black text-gray-950 font-['Agrandir',sans-serif] leading-[1.15] tracking-tight mb-6 text-left">
+                        class="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[44px] 2xl:text-[48px] font-black text-gray-950 font-['Agrandir',sans-serif] leading-[1.18] tracking-tight mb-4 lg:mb-5 text-left">
                         <span class="block sm:whitespace-nowrap">Empowering Industry 4.0</span>
                         <span class="block sm:whitespace-nowrap">Through Seamless Automation.</span>
                     </h1>
 
                     <p
-                        class="text-base sm:text-lg lg:text-xl text-gray-600 font-['Agrandir',sans-serif] leading-relaxed max-w-xl text-left mb-8">
+                        class="text-sm sm:text-base lg:text-[17px] xl:text-lg text-gray-600 font-['Agrandir',sans-serif] leading-relaxed max-w-xl text-left mb-6 lg:mb-7">
                         Streamline your industrial processes and integrate smart IoT telemetry with world-class
                         automation in just a few clicks.
                     </p>
@@ -104,7 +104,7 @@
                     <!-- CTA Capsule Pill Button with 600ms Red Sliding Fill Hover -->
                     <div class="flex justify-start">
                         <a href="{{ route('solution') }}"
-                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-8 py-4 text-sm sm:text-base font-medium text-white shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-all duration-1000 hover:shadow-[0_16px_35px_rgba(220,38,38,0.35)] hover:-translate-y-0.5">
+                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-black px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-medium text-white shadow-[0_10px_25px_rgba(0,0,0,0.22)] transition-all duration-1000 hover:shadow-[0_14px_30px_rgba(220,38,38,0.35)] hover:-translate-y-0.5">
                             <!-- Red slide-in layer (1000ms duration) -->
                             <span
                                 class="absolute inset-0 bg-red-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
@@ -119,9 +119,9 @@
 
                 <!-- Right Column: Orbital Diagram Ecosystem with Central 3D Laptop Mockup -->
                 <div
-                    class="w-full lg:w-[45%] flex items-center justify-center relative min-h-[360px] sm:min-h-[480px] lg:min-h-[580px]">
+                    class="w-full lg:w-[45%] flex items-center justify-center relative min-h-[320px] sm:min-h-[400px] lg:min-h-[460px] xl:min-h-[490px]">
                     <div
-                        class="relative w-[310px] h-[310px] sm:w-[440px] sm:h-[440px] lg:w-[540px] lg:h-[540px] flex items-center justify-center">
+                        class="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[470px] xl:h-[470px] flex items-center justify-center">
 
                         <!-- Ambient Soft Radial Lighting -->
                         <div
@@ -152,7 +152,7 @@
 
                         <!-- Center Core: 3D Laptop Mockup (Replacing "Orbit" text) -->
                         <div
-                            class="relative z-10 w-[230px] sm:w-[340px] lg:w-[440px] flex items-center justify-center select-none">
+                            class="relative z-10 w-[210px] sm:w-[290px] lg:w-[340px] xl:w-[370px] flex items-center justify-center select-none">
                             <img src="{{ asset('storage/Hero Section.webp') }}"
                                 alt="PT. Global Aspect Technology - Industrial Dashboard"
                                 class="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.16)] pointer-events-none">
@@ -160,9 +160,9 @@
 
                         <!-- Orbit Item 1: Top Center-Left - PLC Programming (PLC-ICON.webp) -->
                         <div
-                            class="absolute top-[8%] left-[10%] sm:top-[6%] sm:left-[14%] z-20 group cursor-pointer animate-float-2">
+                            class="absolute top-[8%] left-[10%] sm:top-[6%] sm:left-[12%] z-20 group cursor-pointer animate-float-2">
                             <div
-                                class="w-10 h-10 sm:w-14 sm:h-14 lg:w-[68px] lg:h-[68px] bg-[#18181b] rounded-xl sm:rounded-2xl lg:rounded-[22px] flex items-center justify-center p-2 sm:p-2.5 lg:p-3 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-115 border border-white/15">
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#18181b] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-115 border border-white/15">
                                 <img src="{{ asset('storage/PLC-ICON.webp') }}" alt="PLC Programming"
                                     class="w-full h-full object-contain filter drop-shadow">
                             </div>
@@ -174,9 +174,9 @@
 
                         <!-- Orbit Item 2: Top Right - Scan & Inspection (ScanSearch.webp) -->
                         <div
-                            class="absolute top-[1%] right-[10%] sm:top-[1%] sm:right-[14%] z-20 group cursor-pointer animate-float-1">
+                            class="absolute top-[1%] right-[10%] sm:top-[1%] sm:right-[12%] z-20 group cursor-pointer animate-float-1">
                             <div
-                                class="w-10 h-10 sm:w-14 sm:h-14 lg:w-[68px] lg:h-[68px] bg-[#0057ff] rounded-xl sm:rounded-2xl lg:rounded-[22px] flex items-center justify-center p-2 sm:p-2.5 lg:p-3 shadow-[0_8px_20px_rgba(0,87,255,0.4)] transition-transform duration-300 hover:scale-115">
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#0057ff] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,87,255,0.4)] transition-transform duration-300 hover:scale-115">
                                 <img src="{{ asset('storage/ScanSearch.webp') }}" alt="Scan & Inspection"
                                     class="w-full h-full object-contain filter drop-shadow">
                             </div>
@@ -188,9 +188,9 @@
 
                         <!-- Orbit Item 3: Mid Right - Content Manager (Content Manager.webp) -->
                         <div
-                            class="absolute top-[32%] -right-[4%] sm:top-[30%] sm:-right-[7%] lg:-right-[9%] z-20 group cursor-pointer animate-float-1">
+                            class="absolute top-[32%] -right-[3%] sm:top-[30%] sm:-right-[5%] lg:-right-[6%] z-20 group cursor-pointer animate-float-1">
                             <div
-                                class="w-10 h-10 sm:w-14 sm:h-14 lg:w-[68px] lg:h-[68px] bg-[#2d3139] rounded-xl sm:rounded-2xl lg:rounded-[22px] flex items-center justify-center p-2 sm:p-2.5 lg:p-3 shadow-[0_8px_20px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:scale-115 border border-white/15">
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#2d3139] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:scale-115 border border-white/15">
                                 <img src="{{ asset('storage/Content Manager.webp') }}" alt="Content Manager"
                                     class="w-full h-full object-contain filter drop-shadow">
                             </div>
@@ -204,7 +204,7 @@
                         <div
                             class="absolute top-[52%] -left-[2%] sm:top-[50%] sm:-left-[2%] z-20 group cursor-pointer animate-float-3">
                             <div
-                                class="w-10 h-10 sm:w-14 sm:h-14 lg:w-[68px] lg:h-[68px] bg-[#ea4c89] rounded-xl sm:rounded-2xl lg:rounded-[22px] flex items-center justify-center p-2 sm:p-2.5 lg:p-3 shadow-[0_8px_20px_rgba(234,76,137,0.4)] transition-transform duration-300 hover:scale-115">
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#ea4c89] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(234,76,137,0.4)] transition-transform duration-300 hover:scale-115">
                                 <img src="{{ asset('storage/Integrator System.webp') }}" alt="System Integrator"
                                     class="w-full h-full object-contain filter drop-shadow">
                             </div>
@@ -218,7 +218,7 @@
                         <div
                             class="absolute -bottom-[1%] left-[42%] sm:-bottom-[1%] sm:left-[43%] z-20 group cursor-pointer animate-float-3">
                             <div
-                                class="w-10 h-10 sm:w-14 sm:h-14 lg:w-[68px] lg:h-[68px] bg-[#111215] rounded-xl sm:rounded-2xl lg:rounded-[22px] flex items-center justify-center p-2 sm:p-2.5 lg:p-3 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-115 border border-white/15">
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#111215] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-115 border border-white/15">
                                 <img src="{{ asset('storage/Laser Marking & Inkjet Printing.webp') }}"
                                     alt="Laser Marking & Printing"
                                     class="w-full h-full object-contain filter drop-shadow">
@@ -231,9 +231,9 @@
 
                         <!-- Orbit Item 6: Bottom Right - Strapping Machine (Strapping ICON.webp) -->
                         <div
-                            class="absolute bottom-[10%] right-[6%] sm:bottom-[8%] sm:right-[10%] z-20 group cursor-pointer animate-float-2">
+                            class="absolute bottom-[10%] right-[6%] sm:bottom-[8%] sm:right-[8%] z-20 group cursor-pointer animate-float-2">
                             <div
-                                class="w-10 h-10 sm:w-14 sm:h-14 lg:w-[68px] lg:h-[68px] bg-[#dc2626] rounded-xl sm:rounded-2xl lg:rounded-[22px] flex items-center justify-center p-2 sm:p-2.5 lg:p-3 shadow-[0_8px_20px_rgba(220,38,38,0.4)] transition-transform duration-300 hover:scale-115">
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#dc2626] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(220,38,38,0.4)] transition-transform duration-300 hover:scale-115">
                                 <img src="{{ asset('storage/Strapping ICON.webp') }}" alt="Strapping Machine"
                                     class="w-full h-full object-contain filter drop-shadow">
                             </div>

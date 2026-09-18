@@ -64,22 +64,22 @@
     <!-- Scaled downwards (112px) & expanded horizontally to prevent line wrapping -->
     <!-- ========================================================================= -->
     <div id="navbar-initial"
-        class="w-full bg-white/95 backdrop-blur-md border-b border-gray-200/80 shadow-xs transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] min-h-[76px] h-[76px] sm:min-h-[96px] sm:h-[96px] lg:min-h-[112px] lg:h-[112px] flex items-center">
+        class="w-full bg-white/95 backdrop-blur-md border-b border-gray-200/80 shadow-xs transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] min-h-[68px] h-[68px] sm:min-h-[80px] sm:h-[80px] lg:min-h-[88px] lg:h-[88px] flex items-center">
         <div class="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 flex items-center justify-between gap-3 lg:gap-6">
 
             <!-- Brand Logo (Direct WebP, No Circle Wrapper) -->
             <a href="{{ route('home') }}" class="flex items-center shrink-0" title="PT. Global Aspect Technology">
                 <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="PT. Global Aspect Technology"
-                    class="h-10 sm:h-14 lg:h-20 w-auto object-contain">
+                    class="h-9 sm:h-12 lg:h-16 w-auto object-contain">
             </a>
 
-            <!-- Desktop Navigation Links (Questrial Font, Enlarged Scale & Gliding 3D Dark Glass Pill) -->
+            <!-- Desktop Navigation Links (Questrial Font, Scaled & Gliding 3D Dark Glass Pill) -->
             <nav id="nav-track-initial"
-                class="relative hidden md:flex items-center gap-7 lg:gap-9 xl:gap-10 text-lg lg:text-[21px] xl:text-[23px] font-normal tracking-wide text-gray-800 shrink-0">
+                class="relative hidden md:flex items-center gap-6 lg:gap-8 xl:gap-9 text-base lg:text-[18px] xl:text-[19px] font-normal tracking-wide text-gray-800 shrink-0">
                 <!-- Single Horizontal Gliding Dark Glass Pill Capsule -->
                 <div id="nav-pill-initial"
                     class="absolute pointer-events-none rounded-full bg-gradient-to-b from-[#24262c] to-[#121316] border border-neutral-700/60 shadow-[0_4px_14px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.22)] z-0 transition-[left,width,opacity] duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
-                    style="top: 50%; transform: translateY(-50%); height: 46px; opacity: 0; left: 0; width: 0;"></div>
+                    style="top: 50%; transform: translateY(-50%); height: 40px; opacity: 0; left: 0; width: 0;"></div>
 
                 <a href="{{ route('home') }}" data-nav-link
                     data-active="{{ request()->routeIs('home') || request()->is('/') || request()->is('home*') ? 'true' : 'false' }}"
@@ -262,7 +262,7 @@
             <!-- Right Action: Quote CTA (LabsStdio Red Gliding Button) -->
             <div class="hidden md:flex items-center shrink-0">
                 <a href="{{ route('contact') }}"
-                    class="group relative inline-flex items-center justify-center overflow-hidden px-6 lg:px-8 py-3 lg:py-3.5 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-sm sm:text-base lg:text-[17px] font-normal tracking-wider rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(220,38,38,0.4)] hover:border-red-500/60 transition-all duration-1000 active:scale-95 whitespace-nowrap shrink-0">
+                    class="group relative inline-flex items-center justify-center overflow-hidden px-5 lg:px-6 py-2.5 lg:py-3 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-xs sm:text-sm lg:text-[15px] font-normal tracking-wider rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(220,38,38,0.4)] hover:border-red-500/60 transition-all duration-1000 active:scale-95 whitespace-nowrap shrink-0">
                     <!-- Red Wipe Layer from Left to Right -->
                     <span
                         class="absolute inset-0 bg-red-600 rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
