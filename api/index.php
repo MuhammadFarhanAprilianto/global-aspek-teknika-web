@@ -42,19 +42,30 @@ putenv('APP_PACKAGES_CACHE=/tmp/bootstrap/cache/packages.php');
 putenv('APP_ROUTES_CACHE=/tmp/bootstrap/cache/routes.php');
 putenv('APP_SERVICES_CACHE=/tmp/bootstrap/cache/services.php');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
-putenv('CACHE_STORE=array');
-putenv('SESSION_DRIVER=cookie');
-putenv('LOG_CHANNEL=stderr');
+// Sanitize environment variables to prevent empty string driver errors
+$driverDefaults = [
+    'SESSION_DRIVER' => 'cookie',
+    'CACHE_STORE' => 'array',
+    'CACHE_DRIVER' => 'array',
+    'QUEUE_CONNECTION' => 'sync',
+    'LOG_CHANNEL' => 'stderr',
+    'LOG_STACK' => 'single',
+    'LOG_DEPRECATIONS_CHANNEL' => 'null',
+    'FILESYSTEM_DISK' => 'local',
+    'BROADCAST_CONNECTION' => 'log',
+    'APP_MAINTENANCE_DRIVER' => 'file',
+];
 
-// If ?test=1 is requested, output phpinfo for diagnostics
-if (isset($_GET['test'])) {
-    echo "<h1>PHP Environment Diagnostics</h1>";
-    echo "<p>PHP Version: " . PHP_VERSION . "</p>";
-    echo "<p>Loaded Extensions: " . implode(', ', get_loaded_extensions()) . "</p>";
-    exit;
+foreach ($driverDefaults as $key => $default) {
+    $val = getenv($key);
+    if ($val === false || trim((string)$val) === '' || strtolower((string)$val) === 'null') {
+        putenv("{$key}={$default}");
+        $_ENV[$key] = $default;
+        $_SERVER[$key] = $default;
+    }
 }
 
-// If DB_HOST is 127.0.0.1 (local MySQL), fallback to SQLite to prevent connection refused errors
+// If DB_HOST is 127.0.0.1 (local MySQL) or empty, fallback to SQLite to prevent connection refused errors
 $dbHost = getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? $_SERVER['DB_HOST'] ?? '');
 if ($dbHost === '127.0.0.1' || $dbHost === 'localhost' || empty($dbHost)) {
     putenv('DB_CONNECTION=sqlite');
