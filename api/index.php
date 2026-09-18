@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 // Ensure serverless storage directories exist in writable /tmp directory
 $storageDirs = [
     '/tmp/storage',
@@ -21,6 +25,12 @@ foreach ($storageDirs as $dir) {
     }
 }
 
+// Ensure SQLite database exists in /tmp if local SQLite is used
+if (!file_exists('/tmp/database.sqlite')) {
+    @touch('/tmp/database.sqlite');
+}
+
+// Set critical environment variables for serverless runtime
 putenv('VERCEL=1');
 putenv('APP_STORAGE=/tmp/storage');
 putenv('APP_CONFIG_CACHE=/tmp/bootstrap/cache/config.php');
@@ -33,13 +43,32 @@ putenv('CACHE_STORE=array');
 putenv('SESSION_DRIVER=cookie');
 putenv('LOG_CHANNEL=stderr');
 
-// Fallback APP_KEY if not explicitly provided in Vercel project environment
+// If DB_HOST is 127.0.0.1 (local MySQL), fallback to SQLite to prevent connection refused errors
+$dbHost = getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? $_SERVER['DB_HOST'] ?? '');
+if ($dbHost === '127.0.0.1' || $dbHost === 'localhost' || empty($dbHost)) {
+    putenv('DB_CONNECTION=sqlite');
+    putenv('DB_DATABASE=/tmp/database.sqlite');
+    $_ENV['DB_CONNECTION'] = 'sqlite';
+    $_ENV['DB_DATABASE'] = '/tmp/database.sqlite';
+    $_SERVER['DB_CONNECTION'] = 'sqlite';
+    $_SERVER['DB_DATABASE'] = '/tmp/database.sqlite';
+}
+
+// Fallback APP_KEY if not explicitly provided
 if (empty($_ENV['APP_KEY']) && empty($_SERVER['APP_KEY']) && !getenv('APP_KEY')) {
-    $fallbackKey = 'base64:XG8d14j+D06aQyVv8v42jC2H9Q1A7O7F+0e8d0Y1G7c=';
+    $fallbackKey = 'base64:xlyOaE4f8tKH9+30kajfb9mrGivyFNUouVKaslw0Jio=';
     putenv("APP_KEY={$fallbackKey}");
     $_ENV['APP_KEY'] = $fallbackKey;
     $_SERVER['APP_KEY'] = $fallbackKey;
 }
 
-// Forward Vercel requests to public/index.php
-require __DIR__ . '/../public/index.php';
+try {
+    // Forward Vercel requests to public/index.php
+    require __DIR__ . '/../public/index.php';
+} catch (\Throwable $e) {
+    http_response_code(500);
+    echo "<h1>Application Error</h1>";
+    echo "<p><strong>Message:</strong> " . htmlspecialchars($e->getMessage()) . "</p>";
+    echo "<p><strong>File:</strong> " . htmlspecialchars($e->getFile()) . ":" . $e->getLine() . "</p>";
+    echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
+}
