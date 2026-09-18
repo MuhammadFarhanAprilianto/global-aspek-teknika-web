@@ -84,8 +84,8 @@
             <video autoplay loop muted playsinline
                 class="w-full h-full object-cover object-center opacity-70"
                 style="object-position: 50% 50%; object-fit: cover;">
-                <source src="{{ asset('storage/Company Profile.webm') }}?v={{ time() }}" type="video/webm">
-                <source src="{{ asset('storage/Company Profile.mp4') }}?v={{ time() }}" type="video/mp4">
+                <source src="{{ asset('storage/Company_Profile.webm') }}" type="video/webm">
+                <source src="{{ asset('storage/Company_Profile.mp4') }}" type="video/mp4">
             </video>
             <!-- Overlay to guarantee text contrast & cinematic depth -->
             <div class="absolute inset-0 bg-black/35 backdrop-blur-[0.5px]"></div>

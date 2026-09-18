@@ -69,7 +69,7 @@
 
             <!-- Brand Logo (Direct WebP, No Circle Wrapper) -->
             <a href="{{ route('home') }}" class="flex items-center shrink-0" title="PT. Global Aspect Technology">
-                <img src="{{ asset('storage/Logo_Perusahaan(1).webp') }}" alt="PT. Global Aspect Technology"
+                <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="PT. Global Aspect Technology"
                     class="h-10 sm:h-14 lg:h-20 w-auto object-contain">
             </a>
 
@@ -301,7 +301,7 @@
                 <!-- Logo (Direct WebP) -->
                 <a href="{{ route('home') }}" class="flex items-center gap-2.5 pr-2 shrink-0"
                     title="PT. Global Aspect Technology">
-                    <img src="{{ asset('storage/Logo_Perusahaan(1).webp') }}" alt="GAT Logo"
+                    <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="GAT Logo"
                         class="h-8 sm:h-10 lg:h-12 w-auto object-contain">
                     <span
                         class="font-normal text-xs sm:text-base text-gray-900 tracking-tight md:hidden whitespace-nowrap">GAT</span>
@@ -519,7 +519,7 @@
                 <!-- Close Button & Brand -->
                 <div class="flex items-center justify-between pb-4 border-b border-gray-100">
                     <div class="flex items-center gap-3">
-                        <img src="{{ asset('storage/Logo_Perusahaan(1).webp') }}" alt="GAT Logo"
+                        <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="GAT Logo"
                             class="h-10 w-auto object-contain">
                         <div>
                             <h4 class="font-normal text-base text-gray-900 leading-tight">PT. Global Aspect</h4>

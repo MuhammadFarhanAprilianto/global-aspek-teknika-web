@@ -92,8 +92,8 @@
             class="absolute inset-0 z-0 overflow-hidden w-full h-full pointer-events-none flex items-center justify-center">
             <video autoplay loop muted playsinline class="w-full h-full object-cover object-center opacity-70"
                 style="object-position: 50% 50%; object-fit: cover;">
-                <source src="{{ asset('storage/ProductCompany.webm') }}?v={{ time() }}" type="video/webm">
-                <source src="{{ asset('storage/ProductCompany.mp4') }}?v={{ time() }}" type="video/mp4">
+                <source src="{{ asset('storage/ProductCompany.webm') }}" type="video/webm">
+                <source src="{{ asset('storage/ProductCompany.mp4') }}" type="video/mp4">
             </video>
             <!-- Overlay to guarantee text contrast & cinematic depth -->
             <div class="absolute inset-0 bg-black/35 backdrop-blur-[0.5px]"></div>

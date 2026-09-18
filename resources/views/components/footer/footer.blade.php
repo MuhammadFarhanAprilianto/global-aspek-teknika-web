@@ -6,7 +6,7 @@
       <!-- 1. Top: Logo & Brief Subtitle -->
       <div class="flex flex-col items-center gap-2">
         <a href="{{ route('home') }}" class="inline-flex items-center" title="PT. Global Aspect Technology">
-          <img src="{{ asset('storage/Logo_Perusahaan(1).webp') }}" alt="PT. Global Aspect Technology" class="h-9 w-auto object-contain">
+          <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="PT. Global Aspect Technology" class="h-9 w-auto object-contain">
         </a>
         <p class="text-xs text-gray-500 max-w-xs font-['Questrial',sans-serif] leading-relaxed">
           Integrated Automation, Vision Inspection &amp; IoT Systems
@@ -52,7 +52,7 @@
       <!-- Logo -->
       <div class="flex items-center">
         <a href="{{ route('home') }}" class="inline-flex items-center" title="PT. Global Aspect Technology">
-          <img src="{{ asset('storage/Logo_Perusahaan(1).webp') }}" alt="PT. Global Aspect Technology" class="h-11 lg:h-12 w-auto object-contain">
+          <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="PT. Global Aspect Technology" class="h-11 lg:h-12 w-auto object-contain">
         </a>
       </div>
 
