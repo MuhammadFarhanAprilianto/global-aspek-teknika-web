@@ -18,7 +18,7 @@
             "dest": "/public/storage/$1"
         },
         {
-            "src": "/(indonesia_dots.json|robots.txt|favicon.ico)",
+            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|mp4|webm|txt|json))$",
             "dest": "/public/$1"
         },
         {

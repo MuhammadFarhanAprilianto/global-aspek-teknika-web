@@ -84,6 +84,51 @@ if (empty($_ENV['APP_KEY']) && empty($_SERVER['APP_KEY']) && !getenv('APP_KEY'))
     $_SERVER['APP_KEY'] = $fallbackKey;
 }
 
+// Serve static files from public/ or storage/app/public/ if requested
+$requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+$parsedPath = parse_url($requestUri, PHP_URL_PATH);
+$uriPath = urldecode($parsedPath ?: '/');
+
+if ($uriPath !== '/') {
+    $mimeTypes = [
+        'css'   => 'text/css',
+        'js'    => 'application/javascript',
+        'png'   => 'image/png',
+        'jpg'   => 'image/jpeg',
+        'jpeg'  => 'image/jpeg',
+        'webp'  => 'image/webp',
+        'avif'  => 'image/avif',
+        'gif'   => 'image/gif',
+        'svg'   => 'image/svg+xml',
+        'ico'   => 'image/x-icon',
+        'mp4'   => 'video/mp4',
+        'webm'  => 'video/webm',
+        'json'  => 'application/json',
+        'woff'  => 'font/woff',
+        'woff2' => 'font/woff2',
+        'ttf'   => 'font/ttf',
+    ];
+
+    $publicFile = __DIR__ . '/../public' . $uriPath;
+    $storageFile = (str_starts_with($uriPath, '/storage/'))
+        ? __DIR__ . '/../storage/app/public/' . substr($uriPath, strlen('/storage/'))
+        : null;
+
+    $targetFile = (file_exists($publicFile) && !is_dir($publicFile))
+        ? $publicFile
+        : (($storageFile && file_exists($storageFile) && !is_dir($storageFile)) ? $storageFile : null);
+
+    if ($targetFile) {
+        $ext = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+        $mime = $mimeTypes[$ext] ?? 'application/octet-stream';
+        header('Content-Type: ' . $mime);
+        header('Content-Length: ' . filesize($targetFile));
+        header('Cache-Control: public, max-age=31536000, immutable');
+        readfile($targetFile);
+        exit;
+    }
+}
+
 try {
     // Forward Vercel requests to public/index.php
     require __DIR__ . '/../public/index.php';
