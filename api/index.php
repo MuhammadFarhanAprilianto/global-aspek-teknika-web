@@ -32,6 +32,9 @@ if (!file_exists('/tmp/database.sqlite')) {
 
 // Set critical environment variables for serverless runtime
 putenv('VERCEL=1');
+putenv('APP_DEBUG=true');
+$_ENV['APP_DEBUG'] = 'true';
+$_SERVER['APP_DEBUG'] = 'true';
 putenv('APP_STORAGE=/tmp/storage');
 putenv('APP_CONFIG_CACHE=/tmp/bootstrap/cache/config.php');
 putenv('APP_EVENTS_CACHE=/tmp/bootstrap/cache/events.php');
@@ -42,6 +45,14 @@ putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 putenv('CACHE_STORE=array');
 putenv('SESSION_DRIVER=cookie');
 putenv('LOG_CHANNEL=stderr');
+
+// If ?test=1 is requested, output phpinfo for diagnostics
+if (isset($_GET['test'])) {
+    echo "<h1>PHP Environment Diagnostics</h1>";
+    echo "<p>PHP Version: " . PHP_VERSION . "</p>";
+    echo "<p>Loaded Extensions: " . implode(', ', get_loaded_extensions()) . "</p>";
+    exit;
+}
 
 // If DB_HOST is 127.0.0.1 (local MySQL), fallback to SQLite to prevent connection refused errors
 $dbHost = getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? $_SERVER['DB_HOST'] ?? '');
