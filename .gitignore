@@ -26,3 +26,7 @@ yarn-error.log
 .DS_Store
 Thumbs.db
 scratch/
+/vendor/laravel/pint
+/vendor/phpunit
+/vendor/mockery
+/vendor/fakerphp
