@@ -2,5 +2,7 @@
 !private/
 !public/
 !public/**
+public/ProductCompany.mp4
+public/ProductCompany.webm
 !.gitignore
 
