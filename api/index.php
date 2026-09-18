@@ -44,7 +44,7 @@ putenv('APP_SERVICES_CACHE=/tmp/bootstrap/cache/services.php');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 // Sanitize environment variables to prevent empty string driver errors
 $driverDefaults = [
-    'SESSION_DRIVER' => 'cookie',
+    'SESSION_DRIVER' => 'file',
     'CACHE_STORE' => 'array',
     'CACHE_DRIVER' => 'array',
     'QUEUE_CONNECTION' => 'sync',
