@@ -81,8 +81,24 @@ class Product extends Model
      */
     public function getImageUrlAttribute(): string
     {
-        if ($this->image && file_exists(public_path('storage/' . $this->image))) {
-            return asset('storage/' . str_replace(' ', '%20', $this->image));
+        if (!empty($this->image)) {
+            if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {
+                return $this->image;
+            }
+
+            $cleanedImage = ltrim($this->image, '/');
+
+            // Cek di seluruh kemungkinan path penyimpanan:
+            // 1. base_path('storage/app/public/...') (Path direktori asli di serverless Vercel & repo)
+            // 2. public_path('storage/...') (Path symlink lokal Laravel)
+            // 3. storage_path('app/public/...') (Path storage dinamis Laravel)
+            if (
+                file_exists(base_path('storage/app/public/' . $cleanedImage)) ||
+                file_exists(public_path('storage/' . $cleanedImage)) ||
+                file_exists(storage_path('app/public/' . $cleanedImage))
+            ) {
+                return asset('storage/' . str_replace(' ', '%20', $cleanedImage));
+            }
         }
 
         return asset('storage/Logo_Perusahaan(1).png');
