@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Alur Kerja Pemesanan Website PT Global Aspek Teknologi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            width: 2400px;
+            height: 1450px;
+            padding: 45px 65px;
+            color: #0f172a;
+        }
+
+        .header-card {
+            background-color: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-left: 8px solid #2563eb;
+            border-radius: 20px;
+            padding: 24px 36px;
+            margin-bottom: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .header-card h1 {
+            font-size: 30px;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 6px;
+        }
+
+        .header-card p {
+            font-size: 16px;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .badge-info {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-size: 14px;
+            border: 1px solid #bfdbfe;
+            display: inline-block;
+        }
+
+        svg {
+            width: 100%;
+            height: 980px;
+            display: block;
+        }
+
+        /* Typography */
+        .step-num {
+            font-size: 13px;
+            font-weight: 800;
+            fill: #2563eb;
+        }
+
+        .step-num-white {
+            font-size: 13px;
+            font-weight: 800;
+            fill: #93c5fd;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            fill: #0f172a;
+            text-anchor: middle;
+            dominant-baseline: central;
+        }
+
+        .card-desc {
+            font-size: 12.5px;
+            font-weight: 500;
+            fill: #475569;
+            text-anchor: middle;
+        }
+
+        .card-title-white {
+            font-size: 15px;
+            font-weight: 700;
+            fill: #ffffff;
+            text-anchor: middle;
+            dominant-baseline: central;
+        }
+
+        .card-desc-white {
+            font-size: 12.5px;
+            font-weight: 500;
+            fill: #e0f2fe;
+            text-anchor: middle;
+        }
+
+        .decision-text {
+            font-size: 13px;
+            font-weight: 700;
+            fill: #1e40af;
+            text-anchor: middle;
+            dominant-baseline: central;
+        }
+
+        .label-arrow {
+            font-size: 12px;
+            font-weight: 800;
+            fill: #2563eb;
+        }
+
+        .bottom-banner {
+            margin-top: 25px;
+            background-color: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 22px 35px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .benefit-item h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .benefit-item p {
+            font-size: 13.5px;
+            color: #475569;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Box -->
+    <div class="header-card">
+        <div>
+            <h1>ALUR KERJA PEMESANAN WEBSITE (B2B E-COMMERCE)</h1>
+            <p>Panduan Sederhana Cara Kerja Website Baru PT Global Aspek Teknologi untuk Seluruh Tim Perusahaan</p>
+        </div>
+        <div>
+            <div class="badge-info">Sistem Siap Digunakan &amp; Terhubung ke WhatsApp Admin</div>
+        </div>
+    </div>
+
+    <!-- Main Workflow Diagram SVG -->
+    <svg viewBox="0 0 2270 980">
+        <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb" />
+            </marker>
+            <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#16a34a" />
+            </marker>
+            <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+                <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.06" />
+            </filter>
+        </defs>
+
+        <!-- ================================================================= -->
+        <!-- BARIS 1: LANGKAH DARI SISI PEMBELI (Y: 30 - 150)                  -->
+        <!-- ================================================================= -->
+
+        <!-- START: Pembeli Masuk Website -->
+        <rect x="40" y="45" width="220" height="75" rx="37.5" fill="#2563eb" filter="url(#card-shadow)" stroke="#1d4ed8" stroke-width="2"/>
+        <text x="150" y="74" class="card-title-white">Langkah 1</text>
+        <text x="150" y="95" class="card-desc-white">Pembeli Buka Website</text>
+
+        <!-- Panah 1 -> 2 -->
+        <line x1="260" y1="82" x2="330" y2="82" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 2: Lihat Produk (Harga Dirahasiakan) -->
+        <rect x="330" y="32" width="270" height="100" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="350" y="55" class="step-num">Langkah 2</text>
+        <text x="465" y="75" class="card-title">Pilih Barang di Katalog</text>
+        <text x="465" y="96" class="card-desc">Harga tidak ditampilkan eceran</text>
+        <text x="465" y="114" class="card-desc" font-weight="700" fill="#2563eb">(Menjaga rahasia tender pabrik)</text>
+
+        <!-- Panah 2 -> 3 -->
+        <line x1="600" y1="82" x2="670" y2="82" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 3: Pop-out Keterangan & Dropdown Spek -->
+        <rect x="670" y="32" width="290" height="100" rx="16" fill="#2563eb" stroke="#1d4ed8" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="690" y="55" class="step-num-white">Langkah 3</text>
+        <text x="815" y="75" class="card-title-white">Tentukan Spesifikasi Mesin</text>
+        <text x="815" y="96" class="card-desc-white">Klik dropdown untuk memilih:</text>
+        <text x="815" y="114" class="card-desc-white">Tipe PLC, Tegangan Listrik, dll.</text>
+
+        <!-- Panah 3 -> 4 -->
+        <line x1="960" y1="82" x2="1030" y2="82" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 4: Masuk Keranjang -->
+        <rect x="1030" y="32" width="270" height="100" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="1050" y="55" class="step-num">Langkah 4</text>
+        <text x="1165" y="75" class="card-title">Masukkan ke Keranjang</text>
+        <text x="1165" y="96" class="card-desc">Tentukan jumlah unit pesanan</text>
+        <text x="1165" y="114" class="card-desc">(Bisa ubah spek kapan saja)</text>
+
+        <!-- Panah 4 -> Decision -->
+        <line x1="1300" y1="82" x2="1380" y2="82" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- PILIHAN: Tambah Barang Lain? -->
+        <polygon points="1490,25 1600,82 1490,140 1380,82" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" filter="url(#card-shadow)" />
+        <text x="1490" y="76" class="decision-text">Mau Tambah</text>
+        <text x="1490" y="95" class="decision-text">Barang Lain?</text>
+
+        <!-- Loopback: Ya -> Kembali pilih barang -->
+        <path d="M 1490,25 L 1490,5 L 465,5 L 465,28" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow)" />
+        <rect x="940" y="0" width="130" height="20" fill="#ffffff" rx="4" />
+        <text x="1005" y="14" class="label-arrow" text-anchor="middle">Ya (Pilih Mesin Lain)</text>
+
+        <!-- Panah: Tidak -> Lanjut Isi Data -->
+        <path d="M 1600,82 L 1710,82 L 1710,240" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+        <text x="1625" y="72" class="label-arrow">Tidak (Lanjut)</text>
+
+        <!-- ================================================================= -->
+        <!-- BARIS 2: LANGKAH SISTEM & KEAMANAN (Y: 240 - 360, Kanan ke Kiri)   -->
+        <!-- ================================================================= -->
+
+        <!-- LANGKAH 5: Isi Data Kantor Pembeli -->
+        <rect x="1560" y="240" width="300" height="105" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="1580" y="265" class="step-num">Langkah 5</text>
+        <text x="1710" y="286" class="card-title">Pembeli Isi Data Kantor</text>
+        <text x="1710" y="308" class="card-desc">Nama PIC, Nama PT/CV Pabrik,</text>
+        <text x="1710" y="326" class="card-desc">No. WhatsApp, Alamat &amp; NPWP</text>
+
+        <!-- Panah 5 -> 6 -->
+        <line x1="1560" y1="292" x2="1470" y2="292" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 6: Sistem Menyaring Bot/Pesan Palsu -->
+        <rect x="1190" y="240" width="280" height="105" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="1210" y="265" class="step-num">Langkah 6</text>
+        <text x="1330" y="286" class="card-title">Penyaringan Keamanan</text>
+        <text x="1330" y="308" class="card-desc">Otomatis menolak pesan sampah / bot</text>
+        <text x="1330" y="326" class="card-desc">(Tanpa CAPTCHA tebak gambar)</text>
+
+        <!-- Panah 6 -> 7 -->
+        <line x1="1190" y1="292" x2="1100" y2="292" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 7: Hitung Pajak & Terbitkan Penawaran -->
+        <rect x="800" y="240" width="300" height="105" rx="16" fill="#2563eb" stroke="#1d4ed8" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="820" y="265" class="step-num-white">Langkah 7</text>
+        <text x="950" y="286" class="card-title-white">Perhitungan Pajak Resmi</text>
+        <text x="950" y="308" class="card-desc-white">Otomatis hitung Subtotal Harga</text>
+        <text x="950" y="326" class="card-desc-white">+ PPN 11% - Potongan PPh 23 (2%)</text>
+
+        <!-- Panah 7 -> 8 -->
+        <line x1="800" y1="292" x2="710" y2="292" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 8: Lembar Surat Penawaran Muncul di Layar -->
+        <rect x="420" y="240" width="290" height="105" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="440" y="265" class="step-num">Langkah 8</text>
+        <text x="565" y="286" class="card-title">Muncul Lembar Penawaran</text>
+        <text x="565" y="308" class="card-desc">Format resmi PT Global Aspek Teknologi</text>
+        <text x="565" y="326" class="card-desc">(Nomor Quote &amp; Masa Berlaku 14 Hari)</text>
+
+        <!-- Panah Turun ke Baris 3 -->
+        <path d="M 565,345 L 565,470" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- ================================================================= -->
+        <!-- BARIS 3: DOKUMEN PDF & PENGIRIMAN WHATSAPP (Y: 470 - 600)         -->
+        <!-- ================================================================= -->
+
+        <!-- LANGKAH 9: Dokumen PDF Resmi + QR Code -->
+        <rect x="410" y="470" width="310" height="110" rx="16" fill="#2563eb" stroke="#1d4ed8" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="430" y="495" class="step-num-white">Langkah 9</text>
+        <text x="565" y="517" class="card-title-white">Cetak Dokumen PDF Asli</text>
+        <text x="565" y="539" class="card-desc-white">Bisa langsung diunduh / diprint klien</text>
+        <text x="565" y="557" class="card-desc-white">Ada QR Code Anti-Pemalsuan Surat</text>
+
+        <!-- Panah 9 -> Decision PO -->
+        <line x1="720" y1="525" x2="820" y2="525" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- PILIHAN: Klien Punya File Surat PO? -->
+        <polygon points="930,470 1040,525 930,580 820,525" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" filter="url(#card-shadow)" />
+        <text x="930" y="518" class="decision-text">Sudah Terbit</text>
+        <text x="930" y="538" class="decision-text">Surat PO?</text>
+
+        <!-- Pilihan Ya: Upload PO -->
+        <line x1="1040" y1="525" x2="1140" y2="525" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+        <text x="1075" y="515" class="label-arrow">Sudah (Upload)</text>
+
+        <rect x="1140" y="470" width="260" height="110" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="1160" y="495" class="step-num">Opsi Tambahan</text>
+        <text x="1270" y="517" class="card-title">Upload Berkas Surat PO</text>
+        <text x="1270" y="539" class="card-desc">Lampiran resmi dari Finance Klien</text>
+        <text x="1270" y="557" class="card-desc">Disimpan aman di server privat</text>
+
+        <!-- Pilihan Belum: Bypass PO -->
+        <path d="M 930,580 L 930,640 L 1580,640 L 1580,580" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+        <text x="1260" y="630" class="label-arrow" text-anchor="middle">Belum Ada PO (Bisa Lanjut Tanpa PO / PO Menyusul)</text>
+
+        <!-- Panah ke Tombol Konfirmasi -->
+        <line x1="1400" y1="525" x2="1470" y2="525" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 10: Klik Konfirmasi Pesanan -->
+        <rect x="1470" y="470" width="280" height="110" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="1490" y="495" class="step-num">Langkah 10</text>
+        <text x="1610" y="517" class="card-title">Klik Tombol Konfirmasi</text>
+        <text x="1610" y="539" class="card-desc">Pembeli menyetujui penawaran</text>
+        <text x="1610" y="557" class="card-desc">Data terkunci (anti-klik ganda)</text>
+
+        <!-- Panah Turun ke Baris 4 -->
+        <path d="M 1610,580 L 1610,700" fill="none" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- ================================================================= -->
+        <!-- BARIS 4: HASIL AKHIR & TINDAK LANJUT TIM GAT (Y: 700 - 820)       -->
+        <!-- ================================================================= -->
+
+        <!-- LANGKAH 11: Mesin WhatsApp Otomatis Mengirim -->
+        <rect x="1460" y="700" width="300" height="110" rx="16" fill="#15803d" stroke="#166534" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="1480" y="725" class="step-num-white">Langkah 11</text>
+        <text x="1610" y="747" class="card-title-white">Mesin WhatsApp Mengirim</text>
+        <text x="1610" y="769" class="card-desc-white">Otomatis jalan tanpa biaya langganan</text>
+        <text x="1610" y="787" class="card-desc-white">(Bersih tanpa watermark iklan)</text>
+
+        <!-- Panah 11 -> 12 -->
+        <line x1="1460" y1="755" x2="1370" y2="755" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 12: Masuk ke HP WhatsApp Admin GAT -->
+        <rect x="1050" y="700" width="320" height="110" rx="16" fill="#2563eb" stroke="#1d4ed8" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="1070" y="725" class="step-num-white">Langkah 12</text>
+        <text x="1210" y="747" class="card-title-white">Berkas Masuk ke WA Admin</text>
+        <text x="1210" y="769" class="card-desc-white">Nomor WA Admin: 6285732021121</text>
+        <text x="1210" y="787" class="card-desc-white">Isi: File PDF Asli + Rincian Perusahaan</text>
+
+        <!-- Panah 12 -> 13 -->
+        <line x1="1050" y1="755" x2="960" y2="755" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrow)" />
+
+        <!-- LANGKAH 13: Tim Sales/Admin Follow-up Klien -->
+        <rect x="660" y="700" width="300" height="110" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#card-shadow)" />
+        <text x="680" y="725" class="step-num">Langkah 13</text>
+        <text x="810" y="747" class="card-title">Tim Admin / Sales Menghubungi</text>
+        <text x="810" y="769" class="card-desc">Cek stok / jadwal kirim pabrik</text>
+        <text x="810" y="787" class="card-desc">Hubungi nomor HP pembeli langsung</text>
+
+        <!-- Panah 13 -> Finish -->
+        <line x1="660" y1="755" x2="550" y2="755" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow-green)" />
+
+        <!-- FINISH: Transaksi Selesai -->
+        <rect x="320" y="720" width="230" height="75" rx="37.5" fill="#16a34a" filter="url(#card-shadow)" stroke="#15803d" stroke-width="2"/>
+        <text x="435" y="748" class="card-title-white">TRANSAKSI SELESAI</text>
+        <text x="435" y="770" class="card-desc-white">Barang Diproses &amp; Dikirim</text>
+    </svg>
+
+    <!-- Bottom Benefit Summary (Untuk Direksi & Seluruh Karyawan) -->
+    <div class="bottom-banner">
+        <div class="benefit-item">
+            <h4>1. Menjaga Rahasia Harga Perusahaan</h4>
+            <p>Harga mesin tidak diumbar di website publik sehingga kompetitor tidak tahu harga penawaran kita, dan pembeli tetap wajib kontak resmi untuk dapat harga.</p>
+        </div>
+        <div class="benefit-item">
+            <h4>2. Klien Terima Surat Resmi Otomatis</h4>
+            <p>Admin tidak perlu repot mengetik ulang surat penawaran dari nol. Sistem langsung menerbitkan dokumen PDF Sales Quote resmi berlogo GAT lengkap dengan pajak.</p>
+        </div>
+        <div class="benefit-item">
+            <h4>3. Hemat Biaya &amp; Terhubung Cepat</h4>
+            <p>Tidak ada biaya langganan bulanan software WhatsApp (100% gratis). Surat penawaran langsung terkirim otomatis ke WhatsApp tim Admin GAT detik itu juga.</p>
+        </div>
+    </div>
+
+</body>
+</html>

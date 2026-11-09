@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'whatsapp' => [
+        'admin_number' => env('ADMIN_WHATSAPP_NUMBER', '6285732021121'),
+        'fonnte_token' => env('FONNTE_TOKEN', 'gat-internal-wa-secret-2026'),
+        'fonnte_endpoint' => env('FONNTE_ENDPOINT', 'http://127.0.0.1:3001/send'),
+        'send_copy_to_buyer' => env('WHATSAPP_SEND_COPY_TO_BUYER', true),
+    ],
+
 ];

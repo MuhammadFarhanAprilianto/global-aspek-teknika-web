@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,36 @@ Route::get('/solution', function () {
     return view('solution');
 })->name('solution');
 
-Route::get('/product', [ProductController::class, 'indexPublic'])->name('product');
+Route::get('/product', [ProductController::class, 'indexPublic'])
+    ->middleware('throttle:60,1')
+    ->name('product');
+
+// B2B Checkout, Proforma Invoice & PO Submission (Protected via Signed URLs)
+Route::post('/checkout/initiate', [CheckoutController::class, 'initiate'])
+    ->middleware('throttle:15,1')
+    ->name('checkout.initiate');
+
+Route::get('/checkout/{order:uuid}', [CheckoutController::class, 'show'])
+    ->middleware(['signed', 'throttle:60,1'])
+    ->name('checkout.show');
+
+Route::post('/checkout/{order:uuid}/submit-po', [CheckoutController::class, 'submitPo'])
+    ->middleware(['signed', 'throttle:10,1'])
+    ->name('checkout.submit-po');
+
+Route::get('/checkout/{order:uuid}/pdf/{filename}', [CheckoutController::class, 'downloadQuotePdf'])
+    ->where('filename', '[A-Za-z0-9_\-\.]+\.pdf')
+    ->middleware(['signed', 'throttle:60,1'])
+    ->name('checkout.quote-pdf');
+
+Route::get('/checkout/{order:uuid}/po-file/{filename}', [CheckoutController::class, 'downloadPoDocument'])
+    ->where('filename', '[A-Za-z0-9_\-\.]+')
+    ->middleware(['signed', 'throttle:30,1'])
+    ->name('checkout.po-file');
+
+Route::get('/verify-invoice/{uuid}/{hash}', [CheckoutController::class, 'verify'])
+    ->middleware('throttle:30,1')
+    ->name('checkout.verify');
 
 // Contact Form
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');

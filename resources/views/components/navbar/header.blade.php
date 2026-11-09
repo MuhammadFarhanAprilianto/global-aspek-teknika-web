@@ -57,7 +57,7 @@
 
 <!-- Master Dynamic Navbar with LabsStdio Scroll Transition Logic -->
 <header id="site-header"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] font-['Questrial',sans-serif]">
+    class="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] font-['Questrial',sans-serif]">
 
     <!-- ========================================================================= -->
     <!-- STATE 1: INITIAL NAVBAR (Nempel Pada Header / At Top, scrollY <= 20)      -->
@@ -513,7 +513,7 @@
     <!-- MOBILE NAVIGATION MODAL / DRAWER                                          -->
     <!-- ========================================================================= -->
     <div id="mobile-menu"
-        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity duration-300 font-['Questrial',sans-serif]">
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] hidden transition-opacity duration-300 font-['Questrial',sans-serif]">
         <div class="min-h-screen px-4 pt-6 pb-8 flex flex-col justify-start">
             <div class="bg-white rounded-3xl shadow-2xl p-6 max-w-sm w-full mx-auto relative border border-gray-100">
                 <!-- Close Button & Brand -->
@@ -536,25 +536,8 @@
                     </button>
                 </div>
 
-                <!-- Status Badge -->
-                <div
-                    class="my-4 inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-xs font-normal border border-emerald-100">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    <span>available for projects</span>
-                </div>
-
-                <!-- Company Tagline -->
-                <p class="text-xs text-gray-600 mb-4 leading-relaxed font-normal">
-                    Integrated systems for manufacturing &amp; non-industrial sectors: automation, software, monitoring,
-                    and control.
-                </p>
-
                 <!-- Navigation Links -->
-                <div class="space-y-1 text-base font-normal">
+                <div class="mt-4 space-y-1 text-base font-normal">
                     <a href="{{ route('home') }}"
                         class="block px-3 py-2 rounded-xl text-gray-800 hover:bg-gray-100 transition {{ request()->routeIs('home') || request()->is('/') || request()->is('home*') ? 'bg-gray-100 font-medium' : '' }}">Home</a>
                     <a href="{{ route('about') }}"

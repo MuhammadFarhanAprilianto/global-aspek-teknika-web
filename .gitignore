@@ -30,3 +30,6 @@ scratch/
 /vendor/phpunit
 /vendor/mockery
 /vendor/fakerphp
+/whatsapp-gateway/node_modules
+/whatsapp-gateway/auth_info
+/vendor/pestphp/pest/.temp

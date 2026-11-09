@@ -1,0 +1,18 @@
+{
+  "name": "gat-whatsapp-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-hosted WhatsApp PDF & Order Notification Gateway for PT Global Aspek Teknologi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "express": "^4.22.3",
+    "multer": "^1.4.5-lts.2",
+    "pino": "^9.14.0",
+    "qrcode": "^1.5.4"
+  }
+}
