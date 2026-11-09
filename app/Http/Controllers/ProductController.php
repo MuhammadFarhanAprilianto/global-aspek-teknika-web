@@ -14,6 +14,14 @@ class ProductController extends Controller
      */
     public function indexPublic(Request $request)
     {
+        // Self-healing: pastikan schema tabel & data katalog produk terinisialisasi otomatis di Vercel / serverless
+        if (!\Illuminate\Support\Facades\Schema::hasTable('product_categories')) {
+            \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+            \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'ProductSeeder', '--force' => true]);
+        } elseif (ProductCategory::count() === 0) {
+            \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'ProductSeeder', '--force' => true]);
+        }
+
         $selectedCategory = $request->query('category', 'all');
         $search = trim($request->query('search', ''));
 

@@ -9,7 +9,9 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use chillerlan\QRCode\QRCode;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
@@ -19,12 +21,20 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CheckoutController extends Controller
 {
+    private function ensureTablesExist(): void
+    {
+        if (!Schema::hasTable('orders')) {
+            Artisan::call('migrate', ['--force' => true]);
+        }
+    }
+
     /**
      * Inisiasi Checkout B2B dari Pop-Up Form di halaman /product.
      * Seluruh harga satuan, subtotal DPP, dan PPN 11% dihitung 100% di sisi server dari database.
      */
     public function initiate(Request $request): RedirectResponse
     {
+        $this->ensureTablesExist();
         // 1. Keamanan Lapis 1: Honeypot Anti-Bot (Perangkap Bot Tanpa Perlu CAPTCHA)
         if (! empty($request->input('b2b_fax_reference'))) {
             return back()
@@ -374,6 +384,7 @@ class CheckoutController extends Controller
      */
     public function verify(string $uuid, string $hash): View
     {
+        $this->ensureTablesExist();
         $order = Order::where('uuid', $uuid)->first();
         $expectedShortHash = $order ? strtolower(substr($order->verification_hash, 0, 16)) : '';
         $isValid = $order !== null

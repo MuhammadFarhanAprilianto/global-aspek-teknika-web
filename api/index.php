@@ -26,8 +26,14 @@ foreach ($storageDirs as $dir) {
 }
 
 // Ensure SQLite database exists in /tmp if local SQLite is used
-if (!file_exists('/tmp/database.sqlite')) {
-    @touch('/tmp/database.sqlite');
+$sourceDb = __DIR__ . '/../database/database.sqlite';
+$targetDb = '/tmp/database.sqlite';
+if (file_exists($sourceDb) && filesize($sourceDb) > 0) {
+    if (!file_exists($targetDb) || filesize($targetDb) < filesize($sourceDb)) {
+        @copy($sourceDb, $targetDb);
+    }
+} elseif (!file_exists($targetDb)) {
+    @touch($targetDb);
 }
 
 // Set critical environment variables for serverless runtime
