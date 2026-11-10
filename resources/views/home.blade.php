@@ -83,17 +83,18 @@
 
         <div class="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 relative z-20">
             
-            <!-- 1. Top-Left Engineering Headline (Mentok ke Kiri Sesuai Padding Grid Navbar) -->
+            <!-- 1. Top-Left Engineering Headline (Mentok ke Kiri Sesuai Layout Baru) -->
             <div class="w-full text-left mb-2 sm:mb-3 pt-1 sm:pt-2">
                 <!-- Main Bold Engineering Headline -->
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.12] text-left">
-                    <span class="block">Tailored Automation &amp;</span>
-                    <span class="block text-red-600">Smart Integrated Systems.</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[56px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.10] text-left">
+                    <span class="block text-gray-950">Tailored Automation &amp;</span>
+                    <span class="block text-red-600">Smart Integrated</span>
+                    <span class="block text-red-600">Systems.</span>
                 </h1>
             </div>
 
             <!-- 2. Centerpiece Stage: Transparent Hardware Sensor Unit with CAD Blueprint Lines -->
-            <div class="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center select-none py-1 sm:py-2">
+            <div class="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center select-none py-1 sm:py-2 -mt-1 sm:-mt-3 lg:-mt-5">
                 <div class="relative w-full flex items-center justify-center">
                     <picture>
                         <source srcset="{{ asset('images/HeroSection01_transparent.webp') }}" type="image/webp">
@@ -102,8 +103,8 @@
                             class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)]">
                     </picture>
 
-                    <!-- Technical Sub-Narrative Placed ABOVE Gambar 2 (Top-Left above Mounting Bracket & Dimension 18.5) -->
-                    <div class="hidden md:block absolute top-2 sm:top-4 lg:top-6 left-0 sm:left-2 lg:left-6 max-w-[270px] lg:max-w-[310px] text-left pointer-events-auto z-20">
+                    <!-- Technical Sub-Narrative Placed in Lower-Right (Samping Connection Interface, Posisi Semula yang Sudah Benar) -->
+                    <div class="hidden md:block absolute bottom-4 lg:bottom-8 right-0 md:translate-x-8 lg:translate-x-12 max-w-[270px] lg:max-w-[310px] text-left pointer-events-auto z-20">
                         <div class="text-[11px] lg:text-xs font-bold text-gray-900 uppercase tracking-wider font-['Poppins']">
                             Machine Vision &amp; AI Integration
                         </div>
