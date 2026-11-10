@@ -102,9 +102,14 @@
 
                     <!-- Dual CTAs -->
                     <div class="flex flex-wrap items-center gap-3 sm:gap-4 justify-start mb-6 lg:mb-8">
-                        <!-- Primary CTA (Red Wipe Button to /product) -->
+                        <!-- Primary CTA (Gliding Red Wipe Pill Button matching Get A Quote, No Upward Jump) -->
                         <a href="{{ route('product') }}"
-                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-red-600 px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-semibold text-white shadow-[0_10px_25px_rgba(220,38,38,0.3)] transition-all duration-300 hover:bg-red-700 hover:shadow-[0_14px_30px_rgba(220,38,38,0.45)] hover:-translate-y-0.5">
+                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-[#24262c] to-[#121316] px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-medium text-white border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(220,38,38,0.4)] hover:border-red-500/60 transition-all duration-1000 active:scale-95">
+                            <!-- Red Wipe Layer from Left to Right -->
+                            <span
+                                class="absolute inset-0 bg-red-600 rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+
+                            <!-- Text & Icon Layer -->
                             <span class="relative z-10 flex items-center gap-2 font-['Poppins']">
                                 <span>Explore Machinery & Quotes</span>
                                 <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,10 +118,13 @@
                             </span>
                         </a>
 
-                        <!-- Secondary CTA (Outline Button to Consultation / Contact) -->
+                        <!-- Secondary CTA (Gliding Dark Wipe Outline Pill Button, No Upward Jump) -->
                         <a href="{{ route('contact') }}"
-                            class="inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-medium text-gray-800 shadow-sm transition-all duration-300 hover:bg-gray-50 hover:border-gray-400 hover:text-black hover:-translate-y-0.5 font-['Poppins']">
-                            <span>Engineering Consultation</span>
+                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-gray-300 bg-white px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-medium text-gray-800 shadow-sm transition-all duration-700 hover:border-neutral-900 hover:text-white active:scale-95 font-['Poppins']">
+                            <!-- Dark Wipe Layer from Left to Right -->
+                            <span
+                                class="absolute inset-0 bg-neutral-900 rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+                            <span class="relative z-10 transition-colors duration-300">Engineering Consultation</span>
                         </a>
                     </div>
 
