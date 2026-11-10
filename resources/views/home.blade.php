@@ -151,132 +151,88 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Orbital Diagram Ecosystem with Central 3D Laptop Mockup -->
+                <!-- Right Column: 3D Smart Factory Digital Twin Diorama (GAT Version 1) -->
                 <div
-                    class="w-full lg:w-[45%] flex items-center justify-center relative min-h-[320px] sm:min-h-[400px] lg:min-h-[460px] xl:min-h-[490px]">
+                    class="w-full lg:w-[48%] xl:w-[50%] flex items-center justify-center relative min-h-[380px] sm:min-h-[460px] lg:min-h-[520px]">
+                    
+                    <!-- Ambient Soft Glow Behind Diorama -->
                     <div
-                        class="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[470px] xl:h-[470px] flex items-center justify-center">
+                        class="absolute -inset-6 bg-gradient-to-tr from-red-500/10 via-blue-500/8 to-transparent rounded-full blur-3xl pointer-events-none -z-10">
+                    </div>
 
-                        <!-- Ambient Soft Radial Lighting -->
-                        <div
-                            class="absolute -inset-10 bg-gradient-to-tr from-red-500/10 via-blue-500/5 to-transparent rounded-full blur-3xl pointer-events-none">
+                    <!-- 3D Interactive Diorama Stage (Parallax Tilt on Mouse Move) -->
+                    <div id="hero-diorama-stage" class="relative w-full max-w-[620px] [perspective:1400px] select-none py-2">
+                        
+                        <!-- 3D Rotatable Wrapper -->
+                        <div class="hero-diorama-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out">
+                            
+                            <!-- Base 3D Diorama Image (Seamless on Canvas, No Box/Border) -->
+                            <div class="relative w-full flex items-center justify-center">
+                                <img src="{{ asset('storage/gat_3d_smart_factory_diorama.webp') }}" 
+                                    alt="PT Global Aspect Technology - 3D Smart Factory Digital Twin Diorama"
+                                    class="w-full h-auto object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.08)] transition-transform duration-700 hover:scale-[1.02]">
+                            </div>
+
+                            <!-- Animated Scanning Laser Beam (Over Machine Vision Conveyor) -->
+                            <div class="absolute top-[48%] left-[28%] sm:left-[30%] w-24 sm:w-32 h-1 pointer-events-none [transform:translateZ(30px)]">
+                                <!-- Laser Line -->
+                                <div class="w-full h-[2px] bg-red-500 shadow-[0_0_12px_#ef4444,0_0_24px_#ef4444] animate-laser-pulse"></div>
+                                <!-- Laser Scanning Fan / Area Glow -->
+                                <div class="w-full h-8 bg-gradient-to-b from-red-500/25 via-red-500/10 to-transparent -mt-1 animate-laser-fan"></div>
+                            </div>
+
+                            <!-- Floating 3D Hotspot Badge 1: Machine Vision (Over Conveyor Line) -->
+                            <div class="absolute top-[32%] left-[4%] sm:left-[6%] z-20 diorama-float-pin-1 [transform:translateZ(55px)] pointer-events-auto">
+                                <div class="group backdrop-blur-xl bg-white/92 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl border border-white/80 shadow-[0_12px_30px_rgba(0,0,0,0.12)] flex items-center gap-2.5 transition-all duration-300 hover:scale-105 hover:border-red-300">
+                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center shrink-0">
+                                        <svg class="w-4 h-4 text-red-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="text-xs sm:text-sm font-bold text-gray-900 font-['Poppins']">Machine Vision</span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+                                        </div>
+                                        <div class="text-[10px] text-gray-500 font-['Poppins']">1,200 PPM · Sub-Micron QA</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Floating 3D Hotspot Badge 2: Tier-1 PLC (Over Control Cabinets) -->
+                            <div class="absolute top-[16%] right-[6%] sm:right-[10%] z-20 diorama-float-pin-2 [transform:translateZ(65px)] pointer-events-auto">
+                                <div class="group backdrop-blur-xl bg-gray-950/92 text-white px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl border border-white/15 shadow-[0_15px_35px_rgba(0,0,0,0.25)] flex items-center gap-2.5 transition-all duration-300 hover:scale-105 hover:border-cyan-400">
+                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-cyan-950 border border-cyan-500/40 flex items-center justify-center shrink-0">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs sm:text-sm font-bold text-white font-['Poppins']">Tier-1 PLC Sync</div>
+                                        <div class="text-[10px] text-gray-300 font-['Poppins']">Siemens · Omron · Mitsubishi</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Floating 3D Hotspot Badge 3: Realtime OEE (Bottom Right) -->
+                            <div class="absolute bottom-[4%] right-[2%] sm:right-[6%] z-30 diorama-float-pin-3 [transform:translateZ(75px)] pointer-events-auto">
+                                <div class="group backdrop-blur-xl bg-white/92 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl border border-white/80 shadow-[0_15px_35px_rgba(0,0,0,0.12)] flex items-center gap-2.5 transition-all duration-300 hover:scale-105 hover:border-emerald-300">
+                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
+                                        <div class="relative flex items-center justify-center">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping absolute opacity-75"></span>
+                                            <span class="w-2 h-2 rounded-full bg-emerald-600 relative"></span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="text-xs sm:text-sm font-bold text-gray-900 font-['Poppins']">OEE Realtime</span>
+                                            <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-[10px] font-bold text-emerald-800">98.4%</span>
+                                        </div>
+                                        <div class="text-[10px] text-gray-500 font-['Poppins']">IoT Cloud Telemetry</div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-
-                        <!-- SVG Orbit Ellipses & Trajectory Lines -->
-                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 500 500"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Orbit 1 (Tilted -28 deg) -->
-                            <ellipse cx="250" cy="250" rx="225" ry="95" transform="rotate(-28 250 250)" stroke="#E2E8F0"
-                                stroke-width="1.6" />
-                            <!-- Orbit 2 (Tilted +28 deg) -->
-                            <ellipse cx="250" cy="250" rx="225" ry="105" transform="rotate(28 250 250)" stroke="#E2E8F0"
-                                stroke-width="1.6" />
-                            <!-- Orbit 3 (Tilted +75 deg) -->
-                            <ellipse cx="250" cy="250" rx="215" ry="100" transform="rotate(75 250 250)" stroke="#CBD5E1"
-                                stroke-width="1.4" stroke-opacity="0.8" />
-
-                            <!-- Subtle Connection Dotted Guide Lines -->
-                            <line x1="250" y1="250" x2="395" y2="40" stroke="#E2E8F0" stroke-width="1.2"
-                                stroke-dasharray="3 3" opacity="0.6" />
-                            <line x1="250" y1="250" x2="65" y2="280" stroke="#E2E8F0" stroke-width="1.2"
-                                stroke-dasharray="3 3" opacity="0.6" />
-                            <line x1="250" y1="250" x2="435" y2="380" stroke="#E2E8F0" stroke-width="1.2"
-                                stroke-dasharray="3 3" opacity="0.6" />
-                        </svg>
-
-                        <!-- Center Core: 3D Laptop Mockup (Replacing "Orbit" text) -->
-                        <div
-                            class="relative z-10 w-[210px] sm:w-[290px] lg:w-[340px] xl:w-[370px] flex items-center justify-center select-none">
-                            <img src="{{ asset('storage/Hero Section.webp') }}"
-                                alt="PT. Global Aspect Technology - Industrial Dashboard"
-                                class="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.16)] pointer-events-none">
-                        </div>
-
-                        <!-- Orbit Item 1: Top Center-Left - PLC Programming (PLC-ICON.webp) -->
-                        <div
-                            class="absolute top-[8%] left-[10%] sm:top-[6%] sm:left-[12%] z-20 group cursor-pointer animate-float-2">
-                            <div
-                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#18181b] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-115 border border-white/15">
-                                <img src="{{ asset('storage/PLC-ICON.webp') }}" alt="PLC Programming"
-                                    class="w-full h-full object-contain filter drop-shadow">
-                            </div>
-                            <div
-                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
-                                PLC Programming
-                            </div>
-                        </div>
-
-                        <!-- Orbit Item 2: Top Right - Scan & Inspection (ScanSearch.webp) -->
-                        <div
-                            class="absolute top-[1%] right-[10%] sm:top-[1%] sm:right-[12%] z-20 group cursor-pointer animate-float-1">
-                            <div
-                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#0057ff] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,87,255,0.4)] transition-transform duration-300 hover:scale-115">
-                                <img src="{{ asset('storage/ScanSearch.webp') }}" alt="Scan & Inspection"
-                                    class="w-full h-full object-contain filter drop-shadow">
-                            </div>
-                            <div
-                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
-                                Scan & Inspection
-                            </div>
-                        </div>
-
-                        <!-- Orbit Item 3: Mid Right - Content Manager (Content Manager.webp) -->
-                        <div
-                            class="absolute top-[32%] -right-[3%] sm:top-[30%] sm:-right-[5%] lg:-right-[6%] z-20 group cursor-pointer animate-float-1">
-                            <div
-                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#2d3139] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:scale-115 border border-white/15">
-                                <img src="{{ asset('storage/Content Manager.webp') }}" alt="Content Manager"
-                                    class="w-full h-full object-contain filter drop-shadow">
-                            </div>
-                            <div
-                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
-                                Content Manager
-                            </div>
-                        </div>
-
-                        <!-- Orbit Item 4: Mid Left - Integrator System (Integrator System.webp) -->
-                        <div
-                            class="absolute top-[52%] -left-[2%] sm:top-[50%] sm:-left-[2%] z-20 group cursor-pointer animate-float-3">
-                            <div
-                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#ea4c89] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(234,76,137,0.4)] transition-transform duration-300 hover:scale-115">
-                                <img src="{{ asset('storage/Integrator System.webp') }}" alt="System Integrator"
-                                    class="w-full h-full object-contain filter drop-shadow">
-                            </div>
-                            <div
-                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
-                                System Integrator
-                            </div>
-                        </div>
-
-                        <!-- Orbit Item 5: Bottom Center - Laser Marking & Printing (Laser Marking & Inkjet Printing.webp) -->
-                        <div
-                            class="absolute -bottom-[1%] left-[42%] sm:-bottom-[1%] sm:left-[43%] z-20 group cursor-pointer animate-float-3">
-                            <div
-                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#111215] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-115 border border-white/15">
-                                <img src="{{ asset('storage/Laser Marking & Inkjet Printing.webp') }}"
-                                    alt="Laser Marking & Printing"
-                                    class="w-full h-full object-contain filter drop-shadow">
-                            </div>
-                            <div
-                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
-                                Laser Marking & Printing
-                            </div>
-                        </div>
-
-                        <!-- Orbit Item 6: Bottom Right - Strapping Machine (Strapping ICON.webp) -->
-                        <div
-                            class="absolute bottom-[10%] right-[6%] sm:bottom-[8%] sm:right-[8%] z-20 group cursor-pointer animate-float-2">
-                            <div
-                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#dc2626] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(220,38,38,0.4)] transition-transform duration-300 hover:scale-115">
-                                <img src="{{ asset('storage/Strapping ICON.webp') }}" alt="Strapping Machine"
-                                    class="w-full h-full object-contain filter drop-shadow">
-                            </div>
-                            <div
-                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
-                                Strapping Machine
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
@@ -332,6 +288,56 @@
 
         .animate-float-3 {
             animation: floatSlow3 5.5s ease-in-out infinite 1.5s;
+        }
+
+        /* 3D Smart Factory Diorama Animations */
+        @keyframes laserPulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translateY(0px) scaleX(0.95);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(12px) scaleX(1.05);
+            }
+        }
+        @keyframes laserFan {
+            0%, 100% {
+                opacity: 0.2;
+                transform: translateY(0px);
+            }
+            50% {
+                opacity: 0.65;
+                transform: translateY(12px);
+            }
+        }
+        .animate-laser-pulse {
+            animation: laserPulse 2.8s ease-in-out infinite;
+        }
+        .animate-laser-fan {
+            animation: laserFan 2.8s ease-in-out infinite;
+        }
+
+        @keyframes dioramaPin1 {
+            0%, 100% { transform: translateY(0px) translateZ(55px); }
+            50% { transform: translateY(-7px) translateZ(65px); }
+        }
+        @keyframes dioramaPin2 {
+            0%, 100% { transform: translateY(0px) translateZ(65px); }
+            50% { transform: translateY(8px) translateZ(75px); }
+        }
+        @keyframes dioramaPin3 {
+            0%, 100% { transform: translateY(0px) translateZ(75px); }
+            50% { transform: translateY(-6px) translateZ(85px); }
+        }
+        .diorama-float-pin-1 {
+            animation: dioramaPin1 5.5s ease-in-out infinite;
+        }
+        .diorama-float-pin-2 {
+            animation: dioramaPin2 6s ease-in-out infinite 0.8s;
+        }
+        .diorama-float-pin-3 {
+            animation: dioramaPin3 5s ease-in-out infinite 1.5s;
         }
     </style>
 
@@ -886,6 +892,44 @@
             initScrollReveal();
         }
         window.addEventListener('load', initScrollReveal);
+    </script>
+
+    <!-- Interactive 3D Diorama Parallax Tilt -->
+    <script>
+        (function() {
+            const stage = document.getElementById('hero-diorama-stage');
+            if (!stage) return;
+            const card = stage.querySelector('.hero-diorama-card');
+            if (!card) return;
+
+            let bounds = null;
+            function updateBounds() {
+                bounds = stage.getBoundingClientRect();
+            }
+            window.addEventListener('resize', updateBounds);
+            window.addEventListener('scroll', updateBounds, { passive: true });
+
+            stage.addEventListener('mouseenter', () => {
+                updateBounds();
+                card.style.transition = 'transform 0.15s ease-out';
+            });
+
+            stage.addEventListener('mousemove', (e) => {
+                if (!bounds) updateBounds();
+                const mouseX = e.clientX - bounds.left;
+                const mouseY = e.clientY - bounds.top;
+                const xPct = (mouseX / bounds.width) - 0.5;
+                const yPct = (mouseY / bounds.height) - 0.5;
+                const rotX = -yPct * 12; // -6deg to +6deg
+                const rotY = xPct * 16;  // -8deg to +8deg
+                card.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+            });
+
+            stage.addEventListener('mouseleave', () => {
+                card.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+                card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            });
+        })();
     </script>
 </body>
 
