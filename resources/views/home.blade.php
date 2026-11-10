@@ -110,14 +110,6 @@
                         <p class="text-[11px] lg:text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-1">
                             Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for 24/7 reliability.
                         </p>
-                        <div class="mt-2.5">
-                            <a href="{{ route('product') }}" class="group inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 hover:text-red-700 transition font-['Poppins']">
-                                <span>Explore Solutions</span>
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
@@ -129,11 +121,6 @@
                     <p class="text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-1">
                         Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for 24/7 reliability.
                     </p>
-                    <div class="mt-2.5">
-                        <a href="{{ route('product') }}" class="inline-flex items-center gap-1 text-xs font-semibold text-red-600 font-['Poppins']">
-                            <span>Explore Solutions &rarr;</span>
-                        </a>
-                    </div>
                 </div>
             </div>
 
