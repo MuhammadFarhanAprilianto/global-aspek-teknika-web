@@ -83,8 +83,8 @@
 
         <div class="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 relative z-20">
             
-            <!-- 1. Top-Left Engineering Headline (Mentok ke Kiri Sesuai Layout Baru) -->
-            <div class="w-full text-left mb-2 sm:mb-3 pt-1 sm:pt-2">
+            <!-- 1. Top-Left Engineering Headline (Digeser Kebawahan Sesuai Permintaan) -->
+            <div class="w-full text-left mb-3 sm:mb-4 pt-4 sm:pt-6 lg:pt-8">
                 <!-- Main Bold Engineering Headline -->
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[56px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.10] text-left">
                     <span class="block text-gray-950">Tailored Automation &amp;</span>
