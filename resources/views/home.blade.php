@@ -92,51 +92,49 @@
                 </h1>
             </div>
 
-            <!-- 2. Centerpiece Stage: Transparent Hardware Sensor Unit with CAD Blueprint Lines (Static, No Hover Movement) -->
-            <div class="relative w-full max-w-4xl mx-auto flex items-center justify-center select-none py-1 sm:py-2">
-                <picture>
-                    <source srcset="{{ asset('images/HeroSection01_transparent.webp') }}" type="image/webp">
-                    <img src="{{ asset('images/HeroSection01_transparent.png') }}" 
-                        alt="PT Global Aspect Technology - Smart Optical Vision & Inspection System"
-                        class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)]">
-                </picture>
-            </div>
+            <!-- 2. Centerpiece Stage: Transparent Hardware Sensor Unit with CAD Blueprint Lines -->
+            <div class="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center select-none py-1 sm:py-2">
+                <div class="relative w-full flex items-center justify-center">
+                    <picture>
+                        <source srcset="{{ asset('images/HeroSection01_transparent.webp') }}" type="image/webp">
+                        <img src="{{ asset('images/HeroSection01_transparent.png') }}" 
+                            alt="PT Global Aspect Technology - Smart Optical Vision & Inspection System"
+                            class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)]">
+                    </picture>
 
-            <!-- 3. Bottom Flanking Elements (Matching Sevensense Bottom-Left & Bottom-Right) -->
-            <div class="w-full max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 sm:pt-8 border-t border-gray-100">
-                
-                <!-- Bottom-Left: Sub-narrative with Micro-icon -->
-                <div class="flex items-start gap-3 max-w-sm text-left">
-                    <div class="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center shrink-0 text-red-600 shadow-xs">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="text-[11px] font-bold text-gray-900 uppercase tracking-wider font-['Poppins']">Machine Vision &amp; AI Integration</div>
-                        <p class="text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-0.5">
+                    <!-- Technical Sub-Narrative Placed in the Gambar 3 Area (Lower-Right near Connection Interface) -->
+                    <div class="hidden md:block absolute bottom-4 lg:bottom-8 right-2 lg:right-6 max-w-[280px] lg:max-w-[320px] text-left pointer-events-auto">
+                        <div class="text-[11px] lg:text-xs font-bold text-gray-900 uppercase tracking-wider font-['Poppins']">
+                            Machine Vision &amp; AI Integration
+                        </div>
+                        <p class="text-[11px] lg:text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-1">
                             Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for 24/7 reliability.
                         </p>
+                        <div class="mt-2.5">
+                            <a href="{{ route('product') }}" class="group inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 hover:text-red-700 transition font-['Poppins']">
+                                <span>Explore Solutions</span>
+                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Bottom-Right: Interactive CTA Action with Red Arrow Pill Button -->
-                <div class="flex items-center gap-4">
-                    <div class="text-right hidden sm:block">
-                        <div class="text-xs sm:text-sm font-bold text-gray-950 font-['Poppins']">Explore Solutions</div>
-                        <div class="text-[11px] text-gray-500 font-['Poppins']">Instant Official PDF Quotation</div>
+                <!-- Mobile View for Technical Sub-Narrative (Cleanly positioned below image on small screens) -->
+                <div class="md:hidden w-full max-w-sm text-left mt-4 px-2">
+                    <div class="text-xs font-bold text-gray-900 uppercase tracking-wider font-['Poppins']">
+                        Machine Vision &amp; AI Integration
                     </div>
-                    <a href="{{ route('product') }}" 
-                        class="group relative inline-flex items-center gap-2.5 rounded-full bg-gradient-to-b from-[#24262c] to-[#121316] pl-5 pr-2 py-2 text-xs sm:text-sm font-medium text-white border border-neutral-700/60 shadow-lg shadow-black/15 hover:shadow-red-600/25 hover:border-red-500/60 transition-all duration-300 active:scale-95">
-                        <span class="font-['Poppins'] font-semibold sm:hidden">Explore Solutions</span>
-                        <span class="w-8 h-8 rounded-full bg-red-600 group-hover:bg-red-500 text-white flex items-center justify-center shadow-md transition-transform duration-300 group-hover:rotate-45">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                            </svg>
-                        </span>
-                    </a>
+                    <p class="text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-1">
+                        Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for 24/7 reliability.
+                    </p>
+                    <div class="mt-2.5">
+                        <a href="{{ route('product') }}" class="inline-flex items-center gap-1 text-xs font-semibold text-red-600 font-['Poppins']">
+                            <span>Explore Solutions &rarr;</span>
+                        </a>
+                    </div>
                 </div>
-
             </div>
 
         </div>
