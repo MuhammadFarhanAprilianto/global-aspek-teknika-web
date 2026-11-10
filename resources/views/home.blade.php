@@ -79,26 +79,12 @@
     <!-- Single Slide Hero Section with Orbital Ecosystem -->
     <!-- Single Slide Hero Section (Inspired by Sevensense Robotics Blueprint Layout) -->
     <section
-        class="relative w-full min-h-[calc(100vh-92px)] pt-32 sm:pt-36 lg:pt-40 pb-12 sm:pb-14 lg:pb-16 flex items-center bg-white overflow-hidden">
-        
-        <!-- Technical CAD Crosshair Markers & Coordinate Annotations (Like Sevensense) -->
-        <div class="absolute inset-0 pointer-events-none z-0 max-w-7xl mx-auto px-6 select-none opacity-40 hidden sm:block">
-            <span class="absolute top-36 left-8 font-mono text-[10px] text-gray-400 tracking-widest">+ 01 / GAT_SYS</span>
-            <span class="absolute top-36 right-8 font-mono text-[10px] text-gray-400 tracking-widest">COORD: 36.5 x 100 +</span>
-            <span class="absolute bottom-12 left-8 font-mono text-[10px] text-gray-400 tracking-widest">+ OPTICAL_QA_AI</span>
-            <span class="absolute bottom-12 right-8 font-mono text-[10px] text-gray-400 tracking-widest">[EXP_VIEW] +</span>
-        </div>
+        class="relative w-full min-h-[calc(100vh-92px)] pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-14 lg:pb-16 flex items-center bg-white overflow-hidden">
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            <!-- 1. Top-Center Engineering Headline (Matching Sevensense: "Autonomy for your Robots") -->
+            <!-- 1. Top-Center Engineering Headline -->
             <div class="text-center max-w-4xl mx-auto mb-4 sm:mb-6">
-                <!-- Status Badge -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/60 text-red-600 text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-3.5 shadow-xs">
-                    <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
-                    <span>Industrial Vision &amp; Tier-1 Automation</span>
-                </div>
-
                 <!-- Main Bold Engineering Headline -->
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.12]">
                     Tailored Automation &amp;<br class="hidden sm:inline">
