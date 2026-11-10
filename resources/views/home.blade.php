@@ -83,12 +83,12 @@
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            <!-- 1. Top-Center Engineering Headline -->
-            <div class="text-center max-w-4xl mx-auto mb-4 sm:mb-6">
+            <!-- 1. Top-Left Engineering Headline (Rata Kiri Atas, Posisi Proporsional dengan Gambar) -->
+            <div class="w-full max-w-5xl mx-auto text-left mb-4 sm:mb-6 lg:mb-8 pt-2 sm:pt-4">
                 <!-- Main Bold Engineering Headline -->
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.12]">
-                    Tailored Automation &amp;<br class="hidden sm:inline">
-                    <span class="text-red-600">Smart Integrated Systems.</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.14] text-left">
+                    <span class="block">Tailored Automation &amp;</span>
+                    <span class="block text-red-600">Smart Integrated Systems.</span>
                 </h1>
             </div>
 
