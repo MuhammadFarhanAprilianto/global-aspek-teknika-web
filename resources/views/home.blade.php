@@ -151,74 +151,132 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Standalone 3D Multi-Device Object (No Box Frame, Free-Floating on Canvas) -->
+                <!-- Right Column: Orbital Diagram Ecosystem with Central 3D Laptop Mockup -->
                 <div
-                    class="w-full lg:w-[48%] xl:w-[50%] flex items-center justify-center relative min-h-[360px] sm:min-h-[440px] lg:min-h-[480px]">
-                    
-                    <!-- Subtle Ambient Depth Glow Behind 3D Object -->
+                    class="w-full lg:w-[45%] flex items-center justify-center relative min-h-[320px] sm:min-h-[400px] lg:min-h-[460px] xl:min-h-[490px]">
                     <div
-                        class="absolute -inset-4 sm:-inset-8 bg-gradient-to-tr from-red-500/10 via-blue-500/6 to-transparent rounded-full blur-3xl pointer-events-none -z-10">
-                    </div>
+                        class="relative w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] xl:w-[470px] xl:h-[470px] flex items-center justify-center">
 
-                    <!-- 3D Stage with Interactive Parallax Tilt -->
-                    <div id="hero-3d-stage" class="relative w-full max-w-[580px] [perspective:1400px] select-none py-2 sm:py-4">
-                        
-                        <!-- 3D Rotatable Wrapper -->
-                        <div class="hero-3d-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out">
-                            
-                            <!-- Standalone 3D Multi-Device Object (Seamless on Canvas, No Rectangular Frame) -->
-                            <div class="relative w-full flex items-center justify-center">
-                                <img src="{{ asset('storage/hero_3d_devices_standalone.webp') }}" 
-                                    alt="PT Global Aspect Technology - 3D Industrial Automation Multi-Device Ecosystem"
-                                    class="w-full h-auto object-contain block pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.09)] transition-transform duration-700 hover:scale-[1.03]">
-                            </div>
-
-                            <!-- 3D Floating Glass Card 1: Live OEE (Top Left) -->
-                            <div class="absolute -top-3 -left-2 sm:-left-4 z-20 hero-float-card-1 [transform:translateZ(60px)] pointer-events-auto">
-                                <div class="backdrop-blur-xl bg-white/92 p-2.5 sm:p-3.5 rounded-2xl border border-white/80 shadow-[0_15px_35px_rgba(0,0,0,0.12)] flex items-center gap-3 transition-transform duration-300 hover:scale-105">
-                                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
-                                        <div class="relative flex items-center justify-center">
-                                            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping absolute opacity-75"></span>
-                                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 relative"></span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-xs sm:text-sm font-extrabold text-gray-900 font-['Poppins']">OEE Realtime</span>
-                                            <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-[10px] font-bold text-emerald-800">98.4%</span>
-                                        </div>
-                                        <div class="text-[10px] sm:text-[11px] text-gray-500 font-['Poppins']">Target: 95.0% · Zero Bottleneck</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 3D Floating Glass Card 2: Vision Scan (Bottom Right) -->
-                            <div class="absolute -bottom-4 -right-2 sm:-right-4 z-30 hero-float-card-2 [transform:translateZ(80px)] pointer-events-auto">
-                                <div class="backdrop-blur-xl bg-white/92 p-3 sm:p-3.5 rounded-2xl border border-white/80 shadow-[0_20px_40px_rgba(220,38,38,0.12)] flex items-center gap-3 transition-transform duration-300 hover:scale-105">
-                                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center shrink-0">
-                                        <svg class="w-5 h-5 text-red-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h1m-6 4v1m-6-4H7m5-9a4 4 0 100 8 4 4 0 000-8z"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-xs sm:text-sm font-extrabold text-gray-900 font-['Poppins']">1,200 PPM Scan</span>
-                                            <span class="px-1.5 py-0.5 rounded bg-red-100 text-[10px] font-bold text-red-700">Sub-Micron</span>
-                                        </div>
-                                        <div class="text-[10px] sm:text-[11px] text-gray-500 font-['Poppins']">High-Speed Optical QA</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 3D Floating Glass Card 3: Multi-Brand PLC (Top Right) -->
-                            <div class="hidden sm:flex absolute -top-4 -right-2 sm:-right-3 z-20 hero-float-card-3 [transform:translateZ(50px)] pointer-events-auto">
-                                <div class="backdrop-blur-xl bg-gray-950/92 text-white px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl border border-white/15 shadow-[0_15px_30px_rgba(0,0,0,0.25)] flex items-center gap-2.5 transition-transform duration-300 hover:scale-105">
-                                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                                    <span class="text-xs font-semibold font-['Poppins'] text-gray-200">Siemens · Omron · Mitsubishi</span>
-                                </div>
-                            </div>
-
+                        <!-- Ambient Soft Radial Lighting -->
+                        <div
+                            class="absolute -inset-10 bg-gradient-to-tr from-red-500/10 via-blue-500/5 to-transparent rounded-full blur-3xl pointer-events-none">
                         </div>
+
+                        <!-- SVG Orbit Ellipses & Trajectory Lines -->
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 500 500"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Orbit 1 (Tilted -28 deg) -->
+                            <ellipse cx="250" cy="250" rx="225" ry="95" transform="rotate(-28 250 250)" stroke="#E2E8F0"
+                                stroke-width="1.6" />
+                            <!-- Orbit 2 (Tilted +28 deg) -->
+                            <ellipse cx="250" cy="250" rx="225" ry="105" transform="rotate(28 250 250)" stroke="#E2E8F0"
+                                stroke-width="1.6" />
+                            <!-- Orbit 3 (Tilted +75 deg) -->
+                            <ellipse cx="250" cy="250" rx="215" ry="100" transform="rotate(75 250 250)" stroke="#CBD5E1"
+                                stroke-width="1.4" stroke-opacity="0.8" />
+
+                            <!-- Subtle Connection Dotted Guide Lines -->
+                            <line x1="250" y1="250" x2="395" y2="40" stroke="#E2E8F0" stroke-width="1.2"
+                                stroke-dasharray="3 3" opacity="0.6" />
+                            <line x1="250" y1="250" x2="65" y2="280" stroke="#E2E8F0" stroke-width="1.2"
+                                stroke-dasharray="3 3" opacity="0.6" />
+                            <line x1="250" y1="250" x2="435" y2="380" stroke="#E2E8F0" stroke-width="1.2"
+                                stroke-dasharray="3 3" opacity="0.6" />
+                        </svg>
+
+                        <!-- Center Core: 3D Laptop Mockup (Replacing "Orbit" text) -->
+                        <div
+                            class="relative z-10 w-[210px] sm:w-[290px] lg:w-[340px] xl:w-[370px] flex items-center justify-center select-none">
+                            <img src="{{ asset('storage/Hero Section.webp') }}"
+                                alt="PT. Global Aspect Technology - Industrial Dashboard"
+                                class="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.16)] pointer-events-none">
+                        </div>
+
+                        <!-- Orbit Item 1: Top Center-Left - PLC Programming (PLC-ICON.webp) -->
+                        <div
+                            class="absolute top-[8%] left-[10%] sm:top-[6%] sm:left-[12%] z-20 group cursor-pointer animate-float-2">
+                            <div
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#18181b] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-115 border border-white/15">
+                                <img src="{{ asset('storage/PLC-ICON.webp') }}" alt="PLC Programming"
+                                    class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
+                                PLC Programming
+                            </div>
+                        </div>
+
+                        <!-- Orbit Item 2: Top Right - Scan & Inspection (ScanSearch.webp) -->
+                        <div
+                            class="absolute top-[1%] right-[10%] sm:top-[1%] sm:right-[12%] z-20 group cursor-pointer animate-float-1">
+                            <div
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#0057ff] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,87,255,0.4)] transition-transform duration-300 hover:scale-115">
+                                <img src="{{ asset('storage/ScanSearch.webp') }}" alt="Scan & Inspection"
+                                    class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
+                                Scan & Inspection
+                            </div>
+                        </div>
+
+                        <!-- Orbit Item 3: Mid Right - Content Manager (Content Manager.webp) -->
+                        <div
+                            class="absolute top-[32%] -right-[3%] sm:top-[30%] sm:-right-[5%] lg:-right-[6%] z-20 group cursor-pointer animate-float-1">
+                            <div
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#2d3139] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:scale-115 border border-white/15">
+                                <img src="{{ asset('storage/Content Manager.webp') }}" alt="Content Manager"
+                                    class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
+                                Content Manager
+                            </div>
+                        </div>
+
+                        <!-- Orbit Item 4: Mid Left - Integrator System (Integrator System.webp) -->
+                        <div
+                            class="absolute top-[52%] -left-[2%] sm:top-[50%] sm:-left-[2%] z-20 group cursor-pointer animate-float-3">
+                            <div
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#ea4c89] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(234,76,137,0.4)] transition-transform duration-300 hover:scale-115">
+                                <img src="{{ asset('storage/Integrator System.webp') }}" alt="System Integrator"
+                                    class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
+                                System Integrator
+                            </div>
+                        </div>
+
+                        <!-- Orbit Item 5: Bottom Center - Laser Marking & Printing (Laser Marking & Inkjet Printing.webp) -->
+                        <div
+                            class="absolute -bottom-[1%] left-[42%] sm:-bottom-[1%] sm:left-[43%] z-20 group cursor-pointer animate-float-3">
+                            <div
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#111215] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-115 border border-white/15">
+                                <img src="{{ asset('storage/Laser Marking & Inkjet Printing.webp') }}"
+                                    alt="Laser Marking & Printing"
+                                    class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
+                                Laser Marking & Printing
+                            </div>
+                        </div>
+
+                        <!-- Orbit Item 6: Bottom Right - Strapping Machine (Strapping ICON.webp) -->
+                        <div
+                            class="absolute bottom-[10%] right-[6%] sm:bottom-[8%] sm:right-[8%] z-20 group cursor-pointer animate-float-2">
+                            <div
+                                class="w-9 h-9 sm:w-12 sm:h-12 lg:w-[54px] lg:h-[54px] xl:w-[58px] xl:h-[58px] bg-[#dc2626] rounded-xl sm:rounded-2xl lg:rounded-[18px] flex items-center justify-center p-1.5 sm:p-2 lg:p-2.5 shadow-[0_8px_20px_rgba(220,38,38,0.4)] transition-transform duration-300 hover:scale-115">
+                                <img src="{{ asset('storage/Strapping ICON.webp') }}" alt="Strapping Machine"
+                                    class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-gray-900 text-white text-[11px] font-semibold py-1 px-2.5 rounded-full whitespace-nowrap shadow-lg">
+                                Strapping Machine
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -274,46 +332,6 @@
 
         .animate-float-3 {
             animation: floatSlow3 5.5s ease-in-out infinite 1.5s;
-        }
-
-        /* 3D Floating Glass Telemetry Animations */
-        @keyframes float3D1 {
-            0%, 100% {
-                transform: translateY(0px) translateZ(55px);
-            }
-            50% {
-                transform: translateY(-8px) translateZ(65px);
-            }
-        }
-
-        @keyframes float3D2 {
-            0%, 100% {
-                transform: translateY(0px) translateZ(75px);
-            }
-            50% {
-                transform: translateY(8px) translateZ(85px);
-            }
-        }
-
-        @keyframes float3D3 {
-            0%, 100% {
-                transform: translateY(0px) translateZ(45px);
-            }
-            50% {
-                transform: translateY(-6px) translateZ(52px);
-            }
-        }
-
-        .hero-float-card-1 {
-            animation: float3D1 6s ease-in-out infinite;
-        }
-
-        .hero-float-card-2 {
-            animation: float3D2 5.5s ease-in-out infinite 0.7s;
-        }
-
-        .hero-float-card-3 {
-            animation: float3D3 6.5s ease-in-out infinite 1.4s;
         }
     </style>
 
@@ -868,44 +886,6 @@
             initScrollReveal();
         }
         window.addEventListener('load', initScrollReveal);
-    </script>
-
-    <!-- Interactive 3D Hero Parallax Tilt -->
-    <script>
-        (function() {
-            const stage = document.getElementById('hero-3d-stage');
-            if (!stage) return;
-            const card = stage.querySelector('.hero-3d-card');
-            if (!card) return;
-
-            let bounds = null;
-            function updateBounds() {
-                bounds = stage.getBoundingClientRect();
-            }
-            window.addEventListener('resize', updateBounds);
-            window.addEventListener('scroll', updateBounds, { passive: true });
-
-            stage.addEventListener('mouseenter', () => {
-                updateBounds();
-                card.style.transition = 'transform 0.15s ease-out';
-            });
-
-            stage.addEventListener('mousemove', (e) => {
-                if (!bounds) updateBounds();
-                const mouseX = e.clientX - bounds.left;
-                const mouseY = e.clientY - bounds.top;
-                const xPct = (mouseX / bounds.width) - 0.5;
-                const yPct = (mouseY / bounds.height) - 0.5;
-                const rotX = -yPct * 14;
-                const rotY = xPct * 18;
-                card.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
-            });
-
-            stage.addEventListener('mouseleave', () => {
-                card.style.transition = 'transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)';
-                card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
-        })();
     </script>
 </body>
 
