@@ -96,7 +96,7 @@
                     </h1>
 
                     <p
-                        class="text-sm sm:text-base lg:text-[16px] xl:text-[17px] text-gray-600 font-['Poppins'] leading-relaxed max-w-xl text-left mb-6 lg:mb-7 font-normal">
+                        class="text-sm sm:text-base lg:text-[16px] xl:text-[17px] text-gray-600 font-['Poppins'] leading-relaxed max-w-xl text-justify mb-6 lg:mb-7 font-normal">
                         Founded in 2017, PT. Global Aspect Technology specializes in end-to-end integrated systems across industrial automation, custom software, and real-time IoT monitoring. We empower modern manufacturing to harness Industry 4.0—streamlining operations, reducing costs, and ensuring high-precision reliability.
                     </p>
 
