@@ -151,35 +151,32 @@
                     </div>
                 </div>
 
-                <!-- Right Column: 3D Multi-Device & Floating Glass Telemetry Stage -->
+                <!-- Right Column: Standalone 3D Multi-Device Object (No Box Frame, Free-Floating on Canvas) -->
                 <div
-                    class="w-full lg:w-[45%] flex items-center justify-center relative min-h-[360px] sm:min-h-[440px] lg:min-h-[480px]">
+                    class="w-full lg:w-[48%] xl:w-[50%] flex items-center justify-center relative min-h-[360px] sm:min-h-[440px] lg:min-h-[480px]">
                     
-                    <!-- Ambient 3D Depth Glow -->
+                    <!-- Subtle Ambient Depth Glow Behind 3D Object -->
                     <div
-                        class="absolute -inset-8 bg-gradient-to-tr from-red-500/12 via-blue-500/8 to-transparent rounded-full blur-3xl pointer-events-none -z-10">
+                        class="absolute -inset-4 sm:-inset-8 bg-gradient-to-tr from-red-500/10 via-blue-500/6 to-transparent rounded-full blur-3xl pointer-events-none -z-10">
                     </div>
 
                     <!-- 3D Stage with Interactive Parallax Tilt -->
-                    <div id="hero-3d-stage" class="relative w-full max-w-[540px] [perspective:1400px] select-none py-4 sm:py-6">
+                    <div id="hero-3d-stage" class="relative w-full max-w-[580px] [perspective:1400px] select-none py-2 sm:py-4">
                         
                         <!-- 3D Rotatable Wrapper -->
                         <div class="hero-3d-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out">
                             
-                            <!-- Main 3D Multi-Device Render Base -->
-                            <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.2),0_10px_20px_-10px_rgba(0,0,0,0.1)] bg-gradient-to-b from-gray-50 to-gray-100/60">
-                                <img src="{{ asset('storage/rekomendasi_2_multi_device.jpg') }}" 
-                                    alt="PT Global Aspect Technology - Multi-Device Industrial Automation System"
-                                    class="w-full h-auto object-cover block pointer-events-none transition-transform duration-700 hover:scale-[1.02]">
-                                
-                                <!-- Subtle Glossy Specular Sheen -->
-                                <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/30 pointer-events-none"></div>
+                            <!-- Standalone 3D Multi-Device Object (Seamless on Canvas, No Rectangular Frame) -->
+                            <div class="relative w-full flex items-center justify-center">
+                                <img src="{{ asset('storage/hero_3d_devices_standalone.webp') }}" 
+                                    alt="PT Global Aspect Technology - 3D Industrial Automation Multi-Device Ecosystem"
+                                    class="w-full h-auto object-contain block pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.09)] transition-transform duration-700 hover:scale-[1.03]">
                             </div>
 
-                            <!-- 3D Floating Glass Card 1: Live OEE (Top Left, Breaks Frame) -->
-                            <div class="absolute -top-4 -left-3 sm:-left-6 z-20 hero-float-card-1 [transform:translateZ(55px)] pointer-events-auto">
-                                <div class="backdrop-blur-xl bg-white/90 p-3 sm:p-3.5 rounded-2xl border border-white/80 shadow-[0_15px_35px_rgba(0,0,0,0.12)] flex items-center gap-3 transition-transform duration-300 hover:scale-105">
-                                    <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
+                            <!-- 3D Floating Glass Card 1: Live OEE (Top Left) -->
+                            <div class="absolute -top-3 -left-2 sm:-left-4 z-20 hero-float-card-1 [transform:translateZ(60px)] pointer-events-auto">
+                                <div class="backdrop-blur-xl bg-white/92 p-2.5 sm:p-3.5 rounded-2xl border border-white/80 shadow-[0_15px_35px_rgba(0,0,0,0.12)] flex items-center gap-3 transition-transform duration-300 hover:scale-105">
+                                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
                                         <div class="relative flex items-center justify-center">
                                             <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping absolute opacity-75"></span>
                                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 relative"></span>
@@ -190,15 +187,15 @@
                                             <span class="text-xs sm:text-sm font-extrabold text-gray-900 font-['Poppins']">OEE Realtime</span>
                                             <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-[10px] font-bold text-emerald-800">98.4%</span>
                                         </div>
-                                        <div class="text-[11px] text-gray-500 font-['Poppins']">Target: 95.0% · Zero Bottleneck</div>
+                                        <div class="text-[10px] sm:text-[11px] text-gray-500 font-['Poppins']">Target: 95.0% · Zero Bottleneck</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- 3D Floating Glass Card 2: Vision Scan (Bottom Right, Breaks Frame) -->
-                            <div class="absolute -bottom-5 -right-3 sm:-right-5 z-30 hero-float-card-2 [transform:translateZ(75px)] pointer-events-auto">
-                                <div class="backdrop-blur-xl bg-white/90 p-3 sm:p-3.5 rounded-2xl border border-white/80 shadow-[0_20px_40px_rgba(220,38,38,0.12)] flex items-center gap-3 transition-transform duration-300 hover:scale-105">
-                                    <div class="w-10 h-10 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center shrink-0">
+                            <!-- 3D Floating Glass Card 2: Vision Scan (Bottom Right) -->
+                            <div class="absolute -bottom-4 -right-2 sm:-right-4 z-30 hero-float-card-2 [transform:translateZ(80px)] pointer-events-auto">
+                                <div class="backdrop-blur-xl bg-white/92 p-3 sm:p-3.5 rounded-2xl border border-white/80 shadow-[0_20px_40px_rgba(220,38,38,0.12)] flex items-center gap-3 transition-transform duration-300 hover:scale-105">
+                                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center shrink-0">
                                         <svg class="w-5 h-5 text-red-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h1m-6 4v1m-6-4H7m5-9a4 4 0 100 8 4 4 0 000-8z"></path>
                                         </svg>
@@ -208,14 +205,14 @@
                                             <span class="text-xs sm:text-sm font-extrabold text-gray-900 font-['Poppins']">1,200 PPM Scan</span>
                                             <span class="px-1.5 py-0.5 rounded bg-red-100 text-[10px] font-bold text-red-700">Sub-Micron</span>
                                         </div>
-                                        <div class="text-[11px] text-gray-500 font-['Poppins']">High-Speed Optical QA</div>
+                                        <div class="text-[10px] sm:text-[11px] text-gray-500 font-['Poppins']">High-Speed Optical QA</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- 3D Floating Glass Card 3: Multi-Brand PLC (Top Right, Breaks Frame) -->
-                            <div class="hidden sm:flex absolute -top-5 -right-3 sm:-right-4 z-20 hero-float-card-3 [transform:translateZ(45px)] pointer-events-auto">
-                                <div class="backdrop-blur-xl bg-gray-950/90 text-white px-3.5 py-2.5 rounded-xl border border-white/15 shadow-[0_15px_30px_rgba(0,0,0,0.25)] flex items-center gap-2.5 transition-transform duration-300 hover:scale-105">
+                            <!-- 3D Floating Glass Card 3: Multi-Brand PLC (Top Right) -->
+                            <div class="hidden sm:flex absolute -top-4 -right-2 sm:-right-3 z-20 hero-float-card-3 [transform:translateZ(50px)] pointer-events-auto">
+                                <div class="backdrop-blur-xl bg-gray-950/92 text-white px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl border border-white/15 shadow-[0_15px_30px_rgba(0,0,0,0.25)] flex items-center gap-2.5 transition-transform duration-300 hover:scale-105">
                                     <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                                     <span class="text-xs font-semibold font-['Poppins'] text-gray-200">Siemens · Omron · Mitsubishi</span>
                                 </div>
