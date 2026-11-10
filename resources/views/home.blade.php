@@ -141,7 +141,7 @@
 
         <!-- Seamless Smoky Dark Gradient Transition from Hero (White) into Section 1 (Black) -->
         <div
-            class="absolute bottom-0 left-0 right-0 h-36 sm:h-48 lg:h-60 bg-gradient-to-b from-transparent via-neutral-950/20 via-neutral-950/65 to-black pointer-events-none z-10">
+            class="absolute bottom-0 left-0 right-0 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none z-10">
         </div>
     </section>
 
