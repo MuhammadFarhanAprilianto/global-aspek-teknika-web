@@ -79,12 +79,12 @@
     <!-- Single Slide Hero Section with Orbital Ecosystem -->
     <!-- Single Slide Hero Section (Inspired by Sevensense Robotics Blueprint Layout) -->
     <section
-        class="relative w-full min-h-[calc(100vh-92px)] pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-14 lg:pb-16 flex items-center bg-white overflow-hidden">
+        class="relative w-full min-h-[calc(100vh-92px)] pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24 flex items-center bg-white overflow-hidden">
 
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
             
             <!-- 1. Top-Left Engineering Headline (Rata Kiri Atas, Posisi Proporsional dengan Gambar) -->
-            <div class="w-full max-w-5xl mx-auto text-left mb-4 sm:mb-6 lg:mb-8 pt-2 sm:pt-4">
+            <div class="w-full max-w-5xl mx-auto text-left mb-1 sm:mb-2 pt-2 sm:pt-3">
                 <!-- Main Bold Engineering Headline -->
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[54px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.14] text-left">
                     <span class="block">Tailored Automation &amp;</span>
@@ -92,8 +92,8 @@
                 </h1>
             </div>
 
-            <!-- 2. Centerpiece Stage: Transparent Hardware Sensor Unit with CAD Blueprint Lines -->
-            <div class="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center select-none py-1 sm:py-2">
+            <!-- 2. Centerpiece Stage: Transparent Hardware Sensor Unit with CAD Blueprint Lines (Dinaikkan Dikit Sesuai Permintaan) -->
+            <div class="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center select-none py-1 sm:py-2 -mt-2 sm:-mt-5 lg:-mt-7">
                 <div class="relative w-full flex items-center justify-center">
                     <picture>
                         <source srcset="{{ asset('images/HeroSection01_transparent.webp') }}" type="image/webp">
@@ -137,6 +137,11 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- Seamless Smoky Dark Gradient Transition from Hero (White) into Section 1 (Black) -->
+        <div
+            class="absolute bottom-0 left-0 right-0 h-32 sm:h-40 lg:h-52 bg-gradient-to-b from-transparent via-neutral-950/15 via-neutral-950/60 to-black pointer-events-none z-10">
         </div>
     </section>
 
