@@ -473,35 +473,35 @@
                 <!-- Right Column: Interactive Smart Factory & Productivity Bento Grid -->
                 <div class="w-full lg:w-1/2 flex justify-center lg:justify-end reveal-on-scroll reveal-stagger-2">
                     <div
-                        class="w-full max-w-xl xl:max-w-2xl bg-white rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.5)] border border-gray-100 overflow-hidden flex flex-col justify-between p-5 sm:p-7 lg:p-8 gap-5 sm:gap-6 text-gray-900 select-none">
+                        class="w-full max-w-xl xl:max-w-2xl bg-white rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.5)] border border-gray-100 overflow-hidden flex flex-col justify-between p-4 sm:p-6 lg:p-7 gap-4 sm:gap-5 text-gray-900 select-none">
                         
                         <!-- Top Bento Card: Plant Performance & OEE Growth Chart -->
-                        <div class="w-full bg-[#FAFAFA] rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+                        <div class="w-full bg-[#FAFAFA] rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
                             <!-- Header -->
-                            <div class="text-center mb-3 sm:mb-4">
-                                <h3 class="text-base sm:text-lg lg:text-xl font-bold font-['Agrandir',sans-serif] text-gray-950 tracking-tight">
+                            <div class="text-center mb-2.5 sm:mb-3">
+                                <h3 class="text-sm sm:text-base lg:text-lg font-bold font-['Agrandir',sans-serif] text-gray-950 tracking-tight">
                                     Plant Performance &amp; OEE Growth
                                 </h3>
-                                <p class="text-xs sm:text-[13px] text-gray-500 font-['Questrial',sans-serif] mt-1">
+                                <p class="text-[11px] sm:text-xs text-gray-500 font-['Questrial',sans-serif] mt-0.5">
                                     Continuous cycle monitoring and automated zero-defect quality control.
                                 </p>
                             </div>
 
                             <!-- Pinned Badges / Legend -->
-                            <div class="flex items-center justify-center gap-2 sm:gap-3 mb-2 flex-wrap">
-                                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/90 text-[11px] sm:text-xs font-semibold text-blue-700 shadow-sm">
-                                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                            <div class="flex items-center justify-center gap-2 mb-1.5 flex-wrap">
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200/90 text-[10px] sm:text-[11px] font-semibold text-blue-700 shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
                                     <span>Plant OEE: 94.8%</span>
                                 </div>
-                                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200/90 text-[11px] sm:text-xs font-semibold text-red-600 shadow-sm">
-                                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 border border-red-200/90 text-[10px] sm:text-[11px] font-semibold text-red-600 shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                                     <span>Defect Scrap: -78%</span>
                                 </div>
                             </div>
 
                             <!-- Vector Chart Area -->
                             <div class="relative w-full pt-1">
-                                <svg viewBox="0 0 540 180" class="w-full h-auto overflow-visible" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg viewBox="0 0 540 170" class="w-full h-auto overflow-visible" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
                                         <!-- Blue Line Gradient -->
                                         <linearGradient id="gatBlueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -517,39 +517,39 @@
                                         </linearGradient>
                                         <!-- Subtle Area Shading under blue line -->
                                         <linearGradient id="gatBlueArea" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12" />
+                                            <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.10" />
                                             <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.0" />
                                         </linearGradient>
                                         <!-- Drop shadow filter -->
                                         <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
-                                            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15" />
+                                            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12" />
                                         </filter>
                                     </defs>
 
                                     <!-- Grid Lines -->
                                     <line x1="15" y1="35" x2="525" y2="35" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.7" />
                                     <line x1="15" y1="85" x2="525" y2="85" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.7" />
-                                    <line x1="15" y1="135" x2="525" y2="135" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.7" />
+                                    <line x1="15" y1="130" x2="525" y2="130" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.7" />
 
                                     <!-- Vertical Target Line at x=315 (Jul) -->
-                                    <line x1="315" y1="15" x2="315" y2="160" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="2 2" />
+                                    <line x1="315" y1="15" x2="315" y2="150" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="2 2" />
 
                                     <!-- Area Fill Under Blue Curve -->
-                                    <path d="M 20 115 C 80 115, 120 75, 180 75 C 240 75, 275 95, 315 95 C 365 95, 410 65, 460 62 C 495 60, 520 50, 535 48 L 535 160 L 20 160 Z" fill="url(#gatBlueArea)" />
+                                    <path d="M 20 110 C 80 110, 120 70, 180 70 C 240 70, 275 90, 315 90 C 365 90, 410 60, 460 58 C 495 56, 520 48, 535 46 L 535 150 L 20 150 Z" fill="url(#gatBlueArea)" />
 
                                     <!-- Top Curve: OEE Efficiency (Blue) -->
-                                    <path d="M 20 115 C 80 115, 120 75, 180 75 C 240 75, 275 95, 315 95 C 365 95, 410 65, 460 62 C 495 60, 520 50, 535 48" stroke="url(#gatBlueGrad)" stroke-width="3" stroke-linecap="round" filter="url(#softGlow)" />
+                                    <path d="M 20 110 C 80 110, 120 70, 180 70 C 240 70, 275 90, 315 90 C 365 90, 410 60, 460 58 C 495 56, 520 48, 535 46" stroke="url(#gatBlueGrad)" stroke-width="2.5" stroke-linecap="round" filter="url(#softGlow)" />
 
                                     <!-- Bottom Curve: Scrap / Defect Rate (Red/Orange, decreasing) -->
-                                    <path d="M 20 148 C 80 152, 130 150, 190 145 C 250 140, 280 120, 315 118 C 365 115, 395 95, 440 98 C 485 102, 510 135, 535 105" stroke="url(#gatRedGrad)" stroke-width="3" stroke-linecap="round" filter="url(#softGlow)" />
+                                    <path d="M 20 140 C 80 144, 130 142, 190 138 C 250 133, 280 115, 315 112 C 365 110, 395 90, 440 94 C 485 98, 510 128, 535 100" stroke="url(#gatRedGrad)" stroke-width="2.5" stroke-linecap="round" filter="url(#softGlow)" />
 
                                     <!-- Intersection Nodes at x=315 -->
-                                    <circle cx="315" cy="95" r="5.5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2.5" />
-                                    <circle cx="315" cy="118" r="5.5" fill="#EF4444" stroke="#FFFFFF" stroke-width="2.5" />
+                                    <circle cx="315" cy="90" r="5" fill="#2563EB" stroke="#FFFFFF" stroke-width="2" />
+                                    <circle cx="315" cy="112" r="5" fill="#EF4444" stroke="#FFFFFF" stroke-width="2" />
                                 </svg>
 
                                 <!-- X-Axis Months Row -->
-                                <div class="flex justify-between items-center text-[10px] sm:text-xs text-gray-400 font-['Questrial',sans-serif] px-1 sm:px-2 pt-2 border-t border-gray-100">
+                                <div class="flex justify-between items-center text-[10px] sm:text-[11px] text-gray-400 font-['Questrial',sans-serif] px-1 sm:px-2 pt-2 border-t border-gray-100">
                                     <span>Feb</span>
                                     <span>Mar</span>
                                     <span>Apr</span>
@@ -564,63 +564,61 @@
                         </div>
 
                         <!-- Bottom Grid: 2 Cards -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                             
                             <!-- Bottom-Left Card: Industrial PLC & Protocol Integration -->
-                            <div class="bg-[#FAFAFA] rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+                            <div class="bg-[#FAFAFA] rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
                                 <div>
-                                    <h4 class="text-sm sm:text-base font-bold font-['Agrandir',sans-serif] text-gray-950 leading-snug">
+                                    <h4 class="text-xs sm:text-[13px] font-bold font-['Agrandir',sans-serif] text-gray-950 leading-snug">
                                         Multi-Brand PLC Integration
                                     </h4>
-                                    <p class="text-xs text-gray-500 font-['Questrial',sans-serif] mt-1.5 leading-relaxed">
-                                        Seamless interoperability across Tier-1 controllers, SCADA, and IoT telemetries.
+                                    <p class="text-[11px] text-gray-500 font-['Questrial',sans-serif] mt-1 leading-relaxed">
+                                        Seamless interoperability across Tier-1 controllers &amp; SCADA.
                                     </p>
                                 </div>
 
                                 <!-- Overlapping Fanned Industrial Brand Cards -->
-                                <div class="relative h-20 sm:h-22 flex items-center justify-center mt-4">
+                                <div class="relative h-16 sm:h-18 flex items-center justify-center mt-3">
                                     <!-- Card 1 (Left - SIEMENS) -->
-                                    <div class="absolute left-1 sm:left-2 -rotate-6 w-24 sm:w-28 py-2 px-2 bg-white rounded-xl border border-gray-200/90 shadow-sm flex flex-col items-center transition-transform hover:-translate-y-1">
-                                        <span class="text-[10px] font-black tracking-wider text-teal-800 font-['Agrandir',sans-serif]">SIEMENS</span>
-                                        <span class="text-[8px] text-gray-400 font-semibold mt-0.5">PROFINET</span>
+                                    <div class="absolute left-1 sm:left-2 -rotate-6 w-20 sm:w-22 py-1.5 px-1 bg-white rounded-lg border border-gray-200/90 shadow-sm flex flex-col items-center transition-transform hover:-translate-y-0.5">
+                                        <span class="text-[9px] font-black tracking-wider text-teal-800 font-['Agrandir',sans-serif]">SIEMENS</span>
+                                        <span class="text-[7px] text-gray-400 font-semibold mt-0.5">PROFINET</span>
                                     </div>
                                     <!-- Card 2 (Center / Elevated - OMRON) -->
-                                    <div class="relative z-10 w-26 sm:w-30 py-2.5 px-2 bg-gradient-to-b from-white to-red-50/40 rounded-xl border border-red-200/90 shadow-md flex flex-col items-center transition-transform hover:-translate-y-1">
-                                        <div class="w-1.5 h-1.5 rounded-full bg-red-600 mb-0.5"></div>
-                                        <span class="text-[11px] font-black tracking-wider text-gray-900 font-['Agrandir',sans-serif]">OMRON</span>
-                                        <span class="text-[8px] font-bold text-red-600">SYSMAC</span>
+                                    <div class="relative z-10 w-22 sm:w-24 py-2 px-1.5 bg-gradient-to-b from-white to-red-50/40 rounded-lg border border-red-200/90 shadow-md flex flex-col items-center transition-transform hover:-translate-y-0.5">
+                                        <div class="w-1 h-1 rounded-full bg-red-600 mb-0.5"></div>
+                                        <span class="text-[10px] font-black tracking-wider text-gray-900 font-['Agrandir',sans-serif]">OMRON</span>
+                                        <span class="text-[7px] font-bold text-red-600">SYSMAC</span>
                                     </div>
                                     <!-- Card 3 (Right - MITSUBISHI) -->
-                                    <div class="absolute right-1 sm:right-2 rotate-6 w-24 sm:w-28 py-2 px-2 bg-white rounded-xl border border-gray-200/90 shadow-sm flex flex-col items-center transition-transform hover:-translate-y-1">
-                                        <span class="text-[10px] font-black tracking-wider text-red-700 font-['Agrandir',sans-serif]">MELSEC</span>
-                                        <span class="text-[8px] text-gray-400 font-semibold mt-0.5">CC-LINK</span>
+                                    <div class="absolute right-1 sm:right-2 rotate-6 w-20 sm:w-22 py-1.5 px-1 bg-white rounded-lg border border-gray-200/90 shadow-sm flex flex-col items-center transition-transform hover:-translate-y-0.5">
+                                        <span class="text-[9px] font-black tracking-wider text-red-700 font-['Agrandir',sans-serif]">MELSEC</span>
+                                        <span class="text-[7px] text-gray-400 font-semibold mt-0.5">CC-LINK</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Bottom-Right Card: 3.5X Plant Throughput Stat -->
-                            <div class="bg-[#FAFAFA] rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
+                            <div class="bg-[#FAFAFA] rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
                                 <div>
-                                    <div class="flex items-baseline gap-1.5">
-                                        <span class="text-3xl sm:text-4xl lg:text-[42px] font-black font-['Agrandir',sans-serif] text-gray-950 tracking-tight leading-none">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="text-2xl sm:text-[28px] font-black font-['Agrandir',sans-serif] text-gray-950 tracking-tight leading-none">
                                             3.5X
                                         </span>
-                                        <span class="text-xl sm:text-2xl font-black text-red-600 tracking-tighter select-none">
-                                            &gt;&gt;&gt;&gt;
+                                        <span class="text-xs sm:text-sm font-bold text-red-500/80 tracking-widest select-none">
+                                            &rsaquo;&rsaquo;&rsaquo;&rsaquo;
                                         </span>
                                     </div>
-                                    <p class="text-xs sm:text-[13px] text-gray-600 font-['Questrial',sans-serif] leading-relaxed mt-2.5 sm:mt-3">
+                                    <p class="text-[11px] sm:text-xs text-gray-500 font-['Questrial',sans-serif] leading-relaxed mt-2.5">
                                         Boost plant efficiency by 3.5X with automated packaging, coding, and continuous telemetry.
                                     </p>
                                 </div>
 
-                                <!-- Live Badge -->
-                                <div class="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between">
-                                    <div class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700">
-                                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <div class="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between">
+                                    <div class="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-medium text-emerald-700">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 animate-pulse"></span>
                                         <span>Zero Unplanned Downtime</span>
                                     </div>
-                                    <span class="text-[10px] font-mono text-gray-400">99.9%</span>
                                 </div>
                             </div>
 
