@@ -79,17 +79,12 @@
     <!-- Single Slide Hero Section with Orbital Ecosystem -->
     <!-- Single Slide Hero Section (Inspired by Sevensense Robotics Blueprint Layout) -->
     <section
-        class="relative w-full min-h-[calc(100vh-92px)] pt-24 sm:pt-28 lg:pt-30 pb-10 sm:pb-12 lg:pb-16 flex items-center bg-white overflow-hidden">
+        class="relative w-full min-h-[calc(100vh-92px)] pt-32 sm:pt-36 lg:pt-40 pb-12 sm:pb-14 lg:pb-16 flex items-center bg-white overflow-hidden">
         
-        <!-- Subtle Background Ambient Engineering Radial Lighting -->
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-radial from-blue-50/60 via-gray-50/40 to-transparent rounded-full pointer-events-none blur-3xl -z-0">
-        </div>
-
         <!-- Technical CAD Crosshair Markers & Coordinate Annotations (Like Sevensense) -->
         <div class="absolute inset-0 pointer-events-none z-0 max-w-7xl mx-auto px-6 select-none opacity-40 hidden sm:block">
-            <span class="absolute top-28 left-8 font-mono text-[10px] text-gray-400 tracking-widest">+ 01 / GAT_SYS</span>
-            <span class="absolute top-28 right-8 font-mono text-[10px] text-gray-400 tracking-widest">COORD: 36.5 x 100 +</span>
+            <span class="absolute top-36 left-8 font-mono text-[10px] text-gray-400 tracking-widest">+ 01 / GAT_SYS</span>
+            <span class="absolute top-36 right-8 font-mono text-[10px] text-gray-400 tracking-widest">COORD: 36.5 x 100 +</span>
             <span class="absolute bottom-12 left-8 font-mono text-[10px] text-gray-400 tracking-widest">+ OPTICAL_QA_AI</span>
             <span class="absolute bottom-12 right-8 font-mono text-[10px] text-gray-400 tracking-widest">[EXP_VIEW] +</span>
         </div>
@@ -97,7 +92,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
             <!-- 1. Top-Center Engineering Headline (Matching Sevensense: "Autonomy for your Robots") -->
-            <div class="text-center max-w-4xl mx-auto mb-3 sm:mb-5">
+            <div class="text-center max-w-4xl mx-auto mb-4 sm:mb-6">
                 <!-- Status Badge -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/60 text-red-600 text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-3.5 shadow-xs">
                     <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
@@ -111,20 +106,20 @@
                 </h1>
             </div>
 
-            <!-- 2. Centerpiece Stage: 3D Hardware Sensor Unit with CAD Blueprint Lines -->
+            <!-- 2. Centerpiece Stage: Transparent 3D Hardware Sensor Unit with CAD Blueprint Lines (No Bobbing) -->
             <div id="hero-sensor-stage" class="relative w-full max-w-4xl mx-auto flex items-center justify-center [perspective:1400px] select-none py-1 sm:py-2">
                 <div class="hero-sensor-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out flex items-center justify-center w-full">
                     <picture>
-                        <source srcset="{{ asset('images/HeroSection01.webp') }}" type="image/webp">
-                        <img src="{{ asset('images/HeroSection01.jpeg') }}" 
+                        <source srcset="{{ asset('images/HeroSection01_transparent.webp') }}" type="image/webp">
+                        <img src="{{ asset('images/HeroSection01_transparent.png') }}" 
                             alt="PT Global Aspect Technology - Smart Optical Vision & Inspection System"
-                            class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)] animate-sensor-float">
+                            class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)]">
                     </picture>
                 </div>
             </div>
 
             <!-- 3. Bottom Flanking Elements (Matching Sevensense Bottom-Left & Bottom-Right) -->
-            <div class="w-full max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 pt-5 sm:pt-7 border-t border-gray-100">
+            <div class="w-full max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 sm:pt-8 border-t border-gray-100">
                 
                 <!-- Bottom-Left: Sub-narrative with Micro-icon -->
                 <div class="flex items-start gap-3 max-w-sm text-left">
@@ -211,19 +206,6 @@
 
         .animate-float-3 {
             animation: floatSlow3 5.5s ease-in-out infinite 1.5s;
-        }
-
-        /* 3D Hardware Sensor Float Animation */
-        @keyframes sensorFloat {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-        .animate-sensor-float {
-            animation: sensorFloat 6s ease-in-out infinite;
         }
     </style>
 
