@@ -79,12 +79,12 @@
     <!-- Single Slide Hero Section with Orbital Ecosystem -->
     <!-- Single Slide Hero Section (Inspired by Sevensense Robotics Blueprint Layout) -->
     <section
-        class="relative w-full min-h-[calc(100vh-92px)] pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24 flex items-center bg-white overflow-hidden">
+        class="relative w-full min-h-[calc(100vh-92px)] pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start bg-white overflow-hidden">
 
         <div class="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 relative z-20">
             
-            <!-- 1. Top-Left Engineering Headline (Digeser Kebawahan Sesuai Permintaan) -->
-            <div class="w-full text-left mb-3 sm:mb-4 pt-4 sm:pt-6 lg:pt-8">
+            <!-- 1. Top-Left Engineering Headline (Tepat di Atas Gambar) -->
+            <div class="w-full text-left mb-2 sm:mb-3 pt-3 sm:pt-4 lg:pt-6">
                 <!-- Main Bold Engineering Headline -->
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[56px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.10] text-left">
                     <span class="block text-gray-950">Tailored Automation &amp;</span>
@@ -93,10 +93,10 @@
                 </h1>
             </div>
 
-            <!-- 2. Centerpiece Stage: Transparent Hardware Sensor Unit with CAD Blueprint Lines -->
-            <div class="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center select-none py-1 sm:py-2 -mt-1 sm:-mt-3 lg:-mt-5">
+            <!-- 2. Centerpiece Stage: Transparent Hardware Sensor Unit (Dinaikkan Agar Tidak Terlalu di Bawah) -->
+            <div class="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center select-none py-1 sm:py-2 -mt-3 sm:-mt-6 lg:-mt-10">
                 <div class="relative w-full flex items-center justify-center">
-                    <picture>
+                    <picture class="relative z-10">
                         <source srcset="{{ asset('images/HeroSection01_transparent.webp') }}" type="image/webp">
                         <img src="{{ asset('images/HeroSection01_transparent.png') }}" 
                             alt="PT Global Aspect Technology - Smart Optical Vision & Inspection System"
@@ -148,6 +148,7 @@
 
     <!-- Floating Badge Animations -->
     <style>
+
         @keyframes floatSlow1 {
 
             0%,
