@@ -94,28 +94,8 @@
                 <a href="{{ route('contact') }}">Engineering Consultation</a>
             </div>
 
-            <!-- Full-Width Centered 3D Interactive Diorama Stage (GAT Smart Factory Digital Twin) -->
-            <div class="w-full max-w-5xl mx-auto flex flex-col items-center justify-center relative min-h-[460px] sm:min-h-[560px] lg:min-h-[640px]">
-                
-                <!-- Ambient Soft Depth Radial Glow -->
-                <div
-                    class="absolute -inset-10 bg-gradient-to-tr from-red-500/10 via-cyan-500/6 to-transparent rounded-full blur-3xl pointer-events-none -z-10">
-                </div>
-
-                <!-- 3D Interactive Diorama Stage (Parallax Tilt on Mouse Move) -->
-                <div id="hero-diorama-stage" class="relative w-full [perspective:1400px] select-none py-2">
-                    
-                    <!-- 3D Rotatable Wrapper -->
-                    <div class="hero-diorama-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out">
-                        
-                        <!-- Base 3D Diorama Image (Seamless on Canvas, No Box/Border) -->
-                        <div class="relative w-full flex items-center justify-center">
-                            <img src="{{ asset('images/gat_factory_diorama_room.webp') }}" 
-                                alt="PT Global Aspect Technology - 3D Smart Factory Digital Twin Room"
-                                class="w-full h-auto object-contain block pointer-events-none drop-shadow-[0_25px_50px_rgba(0,0,0,0.08)] transition-transform duration-700 hover:scale-[1.01]">
-                        </div>
-                    </div>
-                </div>
+            <!-- 3D Hero Section Stage (Image removed as requested; text hidden) -->
+            <div class="w-full max-w-5xl mx-auto flex flex-col items-center justify-center relative min-h-[300px]">
             </div>
         </div>
     </section>
@@ -722,44 +702,6 @@
             initScrollReveal();
         }
         window.addEventListener('load', initScrollReveal);
-    </script>
-
-    <!-- Interactive 3D Diorama Parallax Tilt -->
-    <script>
-        (function() {
-            const stage = document.getElementById('hero-diorama-stage');
-            if (!stage) return;
-            const card = stage.querySelector('.hero-diorama-card');
-            if (!card) return;
-
-            let bounds = null;
-            function updateBounds() {
-                bounds = stage.getBoundingClientRect();
-            }
-            window.addEventListener('resize', updateBounds);
-            window.addEventListener('scroll', updateBounds, { passive: true });
-
-            stage.addEventListener('mouseenter', () => {
-                updateBounds();
-                card.style.transition = 'transform 0.15s ease-out';
-            });
-
-            stage.addEventListener('mousemove', (e) => {
-                if (!bounds) updateBounds();
-                const mouseX = e.clientX - bounds.left;
-                const mouseY = e.clientY - bounds.top;
-                const xPct = (mouseX / bounds.width) - 0.5;
-                const yPct = (mouseY / bounds.height) - 0.5;
-                const rotX = -yPct * 12; // -6deg to +6deg
-                const rotY = xPct * 16;  // -8deg to +8deg
-                card.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
-            });
-
-            stage.addEventListener('mouseleave', () => {
-                card.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
-                card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
-        })();
     </script>
 </body>
 
