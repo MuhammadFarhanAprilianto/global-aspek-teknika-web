@@ -77,26 +77,89 @@
 
 
     <!-- Single Slide Hero Section with Orbital Ecosystem -->
+    <!-- Single Slide Hero Section (Inspired by Sevensense Robotics Blueprint Layout) -->
     <section
-        class="relative w-full min-h-[calc(100vh-92px)] pt-28 sm:pt-30 lg:pt-32 pb-8 sm:pb-10 lg:pb-12 flex items-center bg-white overflow-hidden">
-        <!-- Subtle Background Ambient Radial Lighting -->
+        class="relative w-full min-h-[calc(100vh-92px)] pt-24 sm:pt-28 lg:pt-30 pb-10 sm:pb-12 lg:pb-16 flex items-center bg-white overflow-hidden">
+        
+        <!-- Subtle Background Ambient Engineering Radial Lighting -->
         <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-radial from-red-50/50 via-gray-100/30 to-transparent rounded-full pointer-events-none blur-3xl -z-0">
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-radial from-blue-50/60 via-gray-50/40 to-transparent rounded-full pointer-events-none blur-3xl -z-0">
+        </div>
+
+        <!-- Technical CAD Crosshair Markers & Coordinate Annotations (Like Sevensense) -->
+        <div class="absolute inset-0 pointer-events-none z-0 max-w-7xl mx-auto px-6 select-none opacity-40 hidden sm:block">
+            <span class="absolute top-28 left-8 font-mono text-[10px] text-gray-400 tracking-widest">+ 01 / GAT_SYS</span>
+            <span class="absolute top-28 right-8 font-mono text-[10px] text-gray-400 tracking-widest">COORD: 36.5 x 100 +</span>
+            <span class="absolute bottom-12 left-8 font-mono text-[10px] text-gray-400 tracking-widest">+ OPTICAL_QA_AI</span>
+            <span class="absolute bottom-12 right-8 font-mono text-[10px] text-gray-400 tracking-widest">[EXP_VIEW] +</span>
         </div>
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            <!-- Left Column: Hidden as requested by user to preview & calibrate full 3D interactive diorama layout -->
-            <div class="hidden">
-                <h1>Tailored Automation & Smart Integrated Systems.</h1>
-                <p>Founded in 2017, PT. Global Aspect Technology specializes in end-to-end integrated systems across industrial automation, custom software, and real-time IoT monitoring.</p>
-                <a href="{{ route('product') }}">Explore Machinery & Quotes</a>
-                <a href="{{ route('contact') }}">Engineering Consultation</a>
+            <!-- 1. Top-Center Engineering Headline (Matching Sevensense: "Autonomy for your Robots") -->
+            <div class="text-center max-w-4xl mx-auto mb-3 sm:mb-5">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/60 text-red-600 text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-3.5 shadow-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
+                    <span>Industrial Vision &amp; Tier-1 Automation</span>
+                </div>
+
+                <!-- Main Bold Engineering Headline -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.12]">
+                    Tailored Automation &amp;<br class="hidden sm:inline">
+                    <span class="text-red-600">Smart Integrated Systems.</span>
+                </h1>
             </div>
 
-            <!-- 3D Hero Section Stage (Image removed as requested; text hidden) -->
-            <div class="w-full max-w-5xl mx-auto flex flex-col items-center justify-center relative min-h-[300px]">
+            <!-- 2. Centerpiece Stage: 3D Hardware Sensor Unit with CAD Blueprint Lines -->
+            <div id="hero-sensor-stage" class="relative w-full max-w-4xl mx-auto flex items-center justify-center [perspective:1400px] select-none py-1 sm:py-2">
+                <div class="hero-sensor-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out flex items-center justify-center w-full">
+                    <picture>
+                        <source srcset="{{ asset('images/HeroSection01.webp') }}" type="image/webp">
+                        <img src="{{ asset('images/HeroSection01.jpeg') }}" 
+                            alt="PT Global Aspect Technology - Smart Optical Vision & Inspection System"
+                            class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)] animate-sensor-float">
+                    </picture>
+                </div>
             </div>
+
+            <!-- 3. Bottom Flanking Elements (Matching Sevensense Bottom-Left & Bottom-Right) -->
+            <div class="w-full max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 pt-5 sm:pt-7 border-t border-gray-100">
+                
+                <!-- Bottom-Left: Sub-narrative with Micro-icon -->
+                <div class="flex items-start gap-3 max-w-sm text-left">
+                    <div class="w-8 h-8 rounded-lg bg-red-50 border border-red-100 flex items-center justify-center shrink-0 text-red-600 shadow-xs">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-[11px] font-bold text-gray-900 uppercase tracking-wider font-['Poppins']">Machine Vision &amp; AI Integration</div>
+                        <p class="text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-0.5">
+                            Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for 24/7 reliability.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bottom-Right: Interactive CTA Action with Red Arrow Pill Button -->
+                <div class="flex items-center gap-4">
+                    <div class="text-right hidden sm:block">
+                        <div class="text-xs sm:text-sm font-bold text-gray-950 font-['Poppins']">Explore Solutions</div>
+                        <div class="text-[11px] text-gray-500 font-['Poppins']">Instant Official PDF Quotation</div>
+                    </div>
+                    <a href="{{ route('product') }}" 
+                        class="group relative inline-flex items-center gap-2.5 rounded-full bg-gradient-to-b from-[#24262c] to-[#121316] pl-5 pr-2 py-2 text-xs sm:text-sm font-medium text-white border border-neutral-700/60 shadow-lg shadow-black/15 hover:shadow-red-600/25 hover:border-red-500/60 transition-all duration-300 active:scale-95">
+                        <span class="font-['Poppins'] font-semibold sm:hidden">Explore Solutions</span>
+                        <span class="w-8 h-8 rounded-full bg-red-600 group-hover:bg-red-500 text-white flex items-center justify-center shadow-md transition-transform duration-300 group-hover:rotate-45">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
@@ -148,6 +211,19 @@
 
         .animate-float-3 {
             animation: floatSlow3 5.5s ease-in-out infinite 1.5s;
+        }
+
+        /* 3D Hardware Sensor Float Animation */
+        @keyframes sensorFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+        .animate-sensor-float {
+            animation: sensorFloat 6s ease-in-out infinite;
         }
     </style>
 
@@ -702,6 +778,44 @@
             initScrollReveal();
         }
         window.addEventListener('load', initScrollReveal);
+    </script>
+
+    <!-- Interactive 3D Sensor Parallax Tilt (Sevensense style) -->
+    <script>
+        (function() {
+            const stage = document.getElementById('hero-sensor-stage');
+            if (!stage) return;
+            const card = stage.querySelector('.hero-sensor-card');
+            if (!card) return;
+
+            let bounds = null;
+            function updateBounds() {
+                bounds = stage.getBoundingClientRect();
+            }
+            window.addEventListener('resize', updateBounds);
+            window.addEventListener('scroll', updateBounds, { passive: true });
+
+            stage.addEventListener('mouseenter', () => {
+                updateBounds();
+                card.style.transition = 'transform 0.15s ease-out';
+            });
+
+            stage.addEventListener('mousemove', (e) => {
+                if (!bounds) updateBounds();
+                const mouseX = e.clientX - bounds.left;
+                const mouseY = e.clientY - bounds.top;
+                const xPct = (mouseX / bounds.width) - 0.5;
+                const yPct = (mouseY / bounds.height) - 0.5;
+                const rotX = -yPct * 8; // -4deg to +4deg
+                const rotY = xPct * 10;  // -5deg to +5deg
+                card.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+            });
+
+            stage.addEventListener('mouseleave', () => {
+                card.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+                card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            });
+        })();
     </script>
 </body>
 
