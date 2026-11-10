@@ -562,50 +562,21 @@
                         <!-- Bottom Grid: 2 Cards -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             
-                            <!-- Bottom-Left Card: Hardware Integration (matching Unified Tool Integration in reference) -->
+                            <!-- Bottom-Left Card: Hardware Integration -->
                             <div class="bg-[#FAFAFA] rounded-2xl p-5 border border-gray-100/90 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-between transition-all duration-300 hover:shadow-md">
                                 <div>
                                     <h4 class="text-sm sm:text-base font-bold font-['Agrandir',sans-serif] text-gray-950">
                                         Unified Integration
                                     </h4>
                                     <p class="text-xs text-gray-500 font-['Questrial',sans-serif] mt-1.5 leading-relaxed">
-                                        Integrate smoothly with Tier-1 automation controllers &amp; SCADA.
+                                        Integrate smoothly with Tier-1 automation controllers, PLC, and enterprise SCADA telemetries.
                                     </p>
                                 </div>
 
-                                <!-- 3 Fanned Floating Cards with Brand Logos (Matching Google Calendar, Slack, Discord) -->
-                                <div class="flex items-center justify-center pt-5 pb-2">
-                                    <!-- Card 1: SIEMENS -->
-                                    <div class="w-12 h-14 -rotate-6 bg-white rounded-xl shadow-md border border-gray-200/80 flex flex-col items-center justify-center -mr-2 transition-transform hover:-translate-y-1 z-0">
-                                        <div class="w-6 h-6 flex items-center justify-center">
-                                            <svg class="w-4 h-4 text-teal-600" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-                                            </svg>
-                                        </div>
-                                        <span class="text-[7px] font-black text-teal-800 tracking-wider">SIEMENS</span>
-                                    </div>
-                                    
-                                    <!-- Card 2: MITSUBISHI (Iconic 3 Red Diamonds) -->
-                                    <div class="w-13 h-15 z-10 bg-white rounded-xl shadow-lg border border-red-100 flex flex-col items-center justify-center px-1 transition-transform hover:-translate-y-1">
-                                        <div class="w-7 h-7 flex items-center justify-center">
-                                            <!-- Mitsubishi 3-Diamond SVG -->
-                                            <svg class="w-5 h-5" viewBox="0 0 100 100" fill="#E60012">
-                                                <polygon points="50,15 65,40 50,65 35,40" />
-                                                <polygon points="65,40 95,40 80,65 50,65" />
-                                                <polygon points="35,40 5,40 20,65 50,65" />
-                                            </svg>
-                                        </div>
-                                        <span class="text-[7px] font-bold text-gray-800 tracking-wider">MELSEC</span>
-                                    </div>
-
-                                    <!-- Card 3: OMRON -->
-                                    <div class="w-12 h-14 rotate-6 bg-white rounded-xl shadow-md border border-gray-200/80 flex flex-col items-center justify-center -ml-2 transition-transform hover:-translate-y-1 z-0">
-                                        <div class="w-6 h-6 flex items-center justify-center">
-                                            <div class="w-3.5 h-3.5 rounded-full bg-blue-600 flex items-center justify-center">
-                                                <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
-                                            </div>
-                                        </div>
-                                        <span class="text-[7px] font-black text-blue-700 tracking-wider">OMRON</span>
+                                <div class="pt-3">
+                                    <div class="inline-flex items-center gap-1.5 text-[11px] font-medium text-blue-700">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                                        <span>Multi-Brand Controller Support</span>
                                     </div>
                                 </div>
                             </div>
