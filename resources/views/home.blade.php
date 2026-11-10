@@ -89,21 +89,15 @@
 
                 <!-- Left Column: High-Impact Typography & Dual CTA -->
                 <div class="w-full lg:w-[55%] text-left">
-                    <!-- Eyebrow Pill Badge -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200/80 text-red-600 text-xs sm:text-[13px] font-semibold font-['Poppins'] mb-4 shadow-sm">
-                        <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-                        <span>Industrial Automation & System Integrator</span>
-                    </div>
-
                     <h1
                         class="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[44px] 2xl:text-[48px] font-black text-gray-950 font-['Agrandir',sans-serif] leading-[1.18] tracking-tight mb-4 lg:mb-5 text-left">
-                        <span class="block">Mitra Terpercaya Otomasi &</span>
-                        <span class="block text-red-600">Integrasi Sistem Industri.</span>
+                        <span class="block">Tailored Automation &</span>
+                        <span class="block text-red-600">Smart Integrated Systems.</span>
                     </h1>
 
                     <p
                         class="text-sm sm:text-base lg:text-[16px] xl:text-[17px] text-gray-600 font-['Poppins'] leading-relaxed max-w-xl text-left mb-6 lg:mb-7 font-normal">
-                        Solusi terpadu rancang bangun mesin khusus, integrasi PLC Tier-1, inspeksi Machine Vision berkecepatan tinggi, hingga sistem monitoring IoT pabrik — teruji presisi dengan dukungan teknisi lokal di Indonesia.
+                        Founded in 2017, PT. Global Aspect Technology specializes in end-to-end integrated systems across industrial automation, custom software, and real-time IoT monitoring. We empower modern manufacturing to harness Industry 4.0—streamlining operations, reducing costs, and ensuring high-precision reliability.
                     </p>
 
                     <!-- Dual CTAs -->
@@ -112,7 +106,7 @@
                         <a href="{{ route('product') }}"
                             class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-red-600 px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-semibold text-white shadow-[0_10px_25px_rgba(220,38,38,0.3)] transition-all duration-300 hover:bg-red-700 hover:shadow-[0_14px_30px_rgba(220,38,38,0.45)] hover:-translate-y-0.5">
                             <span class="relative z-10 flex items-center gap-2 font-['Poppins']">
-                                <span>Katalog & Penawaran Mesin</span>
+                                <span>Explore Machinery & Quotes</span>
                                 <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
@@ -122,7 +116,7 @@
                         <!-- Secondary CTA (Outline Button to Consultation / Contact) -->
                         <a href="{{ route('contact') }}"
                             class="inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-medium text-gray-800 shadow-sm transition-all duration-300 hover:bg-gray-50 hover:border-gray-400 hover:text-black hover:-translate-y-0.5 font-['Poppins']">
-                            <span>Konsultasi Engineering</span>
+                            <span>Engineering Consultation</span>
                         </a>
                     </div>
 
@@ -132,19 +126,19 @@
                             <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Multi-Brand PLC Tier-1</span>
+                            <span>Tier-1 PLC & IoT Integration</span>
                         </div>
                         <div class="inline-flex items-center gap-1.5">
                             <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Penawaran Resmi (PDF) Instan</span>
+                            <span>Instant Official PDF Quotation</span>
                         </div>
                         <div class="inline-flex items-center gap-1.5">
                             <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Dukungan Teknisi Lokal</span>
+                            <span>Dedicated Engineering Support</span>
                         </div>
                     </div>
                 </div>
