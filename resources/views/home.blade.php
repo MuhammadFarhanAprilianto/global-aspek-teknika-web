@@ -102,14 +102,22 @@
                             class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)]">
                     </picture>
 
-                    <!-- Technical Sub-Narrative Placed in the Gambar 3 Area (Lower-Right near Connection Interface) -->
-                    <div class="hidden md:block absolute bottom-4 lg:bottom-8 right-2 lg:right-6 max-w-[280px] lg:max-w-[320px] text-left pointer-events-auto">
+                    <!-- Technical Sub-Narrative Placed in the Gambar 3 Area (Lower-Right near Connection Interface, Shifted Right) -->
+                    <div class="hidden md:block absolute bottom-4 lg:bottom-8 right-0 md:translate-x-8 lg:translate-x-12 max-w-[270px] lg:max-w-[310px] text-left pointer-events-auto">
                         <div class="text-[11px] lg:text-xs font-bold text-gray-900 uppercase tracking-wider font-['Poppins']">
                             Machine Vision &amp; AI Integration
                         </div>
                         <p class="text-[11px] lg:text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-1">
                             Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for 24/7 reliability.
                         </p>
+                        <div class="mt-3">
+                            <a href="{{ route('product') }}" class="group inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 hover:text-red-700 transition font-['Poppins']">
+                                <span>Explore Solutions</span>
+                                <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -121,6 +129,11 @@
                     <p class="text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-1">
                         Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for 24/7 reliability.
                     </p>
+                    <div class="mt-3">
+                        <a href="{{ route('product') }}" class="inline-flex items-center gap-1 text-xs font-semibold text-red-600 font-['Poppins']">
+                            <span>Explore Solutions &rarr;</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
