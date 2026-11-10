@@ -84,158 +84,151 @@
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-radial from-red-50/50 via-gray-100/30 to-transparent rounded-full pointer-events-none blur-3xl -z-0">
         </div>
 
-        <div class="container mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Left Column: Hidden as requested by user to preview & calibrate full 3D interactive diorama layout -->
+            <div class="hidden">
+                <h1>Tailored Automation & Smart Integrated Systems.</h1>
+                <p>Founded in 2017, PT. Global Aspect Technology specializes in end-to-end integrated systems across industrial automation, custom software, and real-time IoT monitoring.</p>
+                <a href="{{ route('product') }}">Explore Machinery & Quotes</a>
+                <a href="{{ route('contact') }}">Engineering Consultation</a>
+            </div>
 
-                <!-- Left Column: High-Impact Typography & Dual CTA -->
-                <div class="w-full lg:w-[55%] text-left">
-                    <h1
-                        class="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[44px] 2xl:text-[48px] font-black text-gray-950 font-['Agrandir',sans-serif] leading-[1.18] tracking-tight mb-4 lg:mb-5 text-left">
-                        <span class="block">Tailored Automation &</span>
-                        <span class="block text-red-600">Smart Integrated Systems.</span>
-                    </h1>
-
-                    <p
-                        class="text-sm sm:text-base lg:text-[16px] xl:text-[17px] text-gray-600 font-['Poppins'] leading-relaxed max-w-xl text-justify mb-6 lg:mb-7 font-normal">
-                        Founded in 2017, PT. Global Aspect Technology specializes in end-to-end integrated systems across industrial automation, custom software, and real-time IoT monitoring. We empower modern manufacturing to harness Industry 4.0—streamlining operations, reducing costs, and ensuring high-precision reliability.
-                    </p>
-
-                    <!-- Dual CTAs -->
-                    <div class="flex flex-wrap items-center gap-3 sm:gap-4 justify-start mb-6 lg:mb-8">
-                        <!-- Primary CTA (Gliding Red Wipe Pill Button matching Get A Quote, No Upward Jump) -->
-                        <a href="{{ route('product') }}"
-                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-b from-[#24262c] to-[#121316] px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-medium text-white border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(220,38,38,0.4)] hover:border-red-500/60 transition-all duration-1000 active:scale-95">
-                            <!-- Red Wipe Layer from Left to Right -->
-                            <span
-                                class="absolute inset-0 bg-red-600 rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
-
-                            <!-- Text & Icon Layer -->
-                            <span class="relative z-10 flex items-center gap-2 font-['Poppins']">
-                                <span>Explore Machinery & Quotes</span>
-                                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </span>
-                        </a>
-
-                        <!-- Secondary CTA (Gliding Dark Wipe Outline Pill Button, No Upward Jump) -->
-                        <a href="{{ route('contact') }}"
-                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-gray-300 bg-white px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 text-xs sm:text-sm lg:text-base font-medium text-gray-800 shadow-sm transition-all duration-700 hover:border-neutral-900 hover:text-white active:scale-95 font-['Poppins']">
-                            <!-- Dark Wipe Layer from Left to Right -->
-                            <span
-                                class="absolute inset-0 bg-neutral-900 rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
-                            <span class="relative z-10 transition-colors duration-300">Engineering Consultation</span>
-                        </a>
-                    </div>
-
-                    <!-- Micro Trust Highlights (Key Industrial Proof Points) -->
-                    <div class="pt-3 border-t border-gray-100 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-gray-600 font-['Poppins']">
-                        <div class="inline-flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Tier-1 PLC & IoT Integration</span>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Instant Official PDF Quotation</span>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Dedicated Engineering Support</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: 3D Smart Factory Digital Twin Diorama (GAT Version 1) -->
+            <!-- Full-Width Centered 3D Interactive Diorama Stage (GAT Smart Factory Digital Twin) -->
+            <div class="w-full max-w-5xl mx-auto flex flex-col items-center justify-center relative min-h-[460px] sm:min-h-[560px] lg:min-h-[640px]">
+                
+                <!-- Ambient Soft Depth Radial Glow -->
                 <div
-                    class="w-full lg:w-[48%] xl:w-[50%] flex items-center justify-center relative min-h-[380px] sm:min-h-[460px] lg:min-h-[520px]">
-                    
-                    <!-- Ambient Soft Glow Behind Diorama -->
-                    <div
-                        class="absolute -inset-6 bg-gradient-to-tr from-red-500/10 via-blue-500/8 to-transparent rounded-full blur-3xl pointer-events-none -z-10">
-                    </div>
-
-                    <!-- 3D Interactive Diorama Stage (Parallax Tilt on Mouse Move) -->
-                    <div id="hero-diorama-stage" class="relative w-full max-w-[620px] [perspective:1400px] select-none py-2">
-                        
-                        <!-- 3D Rotatable Wrapper -->
-                        <div class="hero-diorama-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out">
-                            
-                            <!-- Base 3D Diorama Image (Seamless on Canvas, No Box/Border) -->
-                            <div class="relative w-full flex items-center justify-center">
-                                <img src="{{ asset('storage/gat_3d_smart_factory_diorama.webp') }}" 
-                                    alt="PT Global Aspect Technology - 3D Smart Factory Digital Twin Diorama"
-                                    class="w-full h-auto object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.08)] transition-transform duration-700 hover:scale-[1.02]">
-                            </div>
-
-                            <!-- Animated Scanning Laser Beam (Over Machine Vision Conveyor) -->
-                            <div class="absolute top-[48%] left-[28%] sm:left-[30%] w-24 sm:w-32 h-1 pointer-events-none [transform:translateZ(30px)]">
-                                <!-- Laser Line -->
-                                <div class="w-full h-[2px] bg-red-500 shadow-[0_0_12px_#ef4444,0_0_24px_#ef4444] animate-laser-pulse"></div>
-                                <!-- Laser Scanning Fan / Area Glow -->
-                                <div class="w-full h-8 bg-gradient-to-b from-red-500/25 via-red-500/10 to-transparent -mt-1 animate-laser-fan"></div>
-                            </div>
-
-                            <!-- Floating 3D Hotspot Badge 1: Machine Vision (Over Conveyor Line) -->
-                            <div class="absolute top-[32%] left-[4%] sm:left-[6%] z-20 diorama-float-pin-1 [transform:translateZ(55px)] pointer-events-auto">
-                                <div class="group backdrop-blur-xl bg-white/92 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl border border-white/80 shadow-[0_12px_30px_rgba(0,0,0,0.12)] flex items-center gap-2.5 transition-all duration-300 hover:scale-105 hover:border-red-300">
-                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center shrink-0">
-                                        <svg class="w-4 h-4 text-red-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="flex items-center gap-1.5">
-                                            <span class="text-xs sm:text-sm font-bold text-gray-900 font-['Poppins']">Machine Vision</span>
-                                            <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
-                                        </div>
-                                        <div class="text-[10px] text-gray-500 font-['Poppins']">1,200 PPM · Sub-Micron QA</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Floating 3D Hotspot Badge 2: Tier-1 PLC (Over Control Cabinets) -->
-                            <div class="absolute top-[16%] right-[6%] sm:right-[10%] z-20 diorama-float-pin-2 [transform:translateZ(65px)] pointer-events-auto">
-                                <div class="group backdrop-blur-xl bg-gray-950/92 text-white px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl border border-white/15 shadow-[0_15px_35px_rgba(0,0,0,0.25)] flex items-center gap-2.5 transition-all duration-300 hover:scale-105 hover:border-cyan-400">
-                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-cyan-950 border border-cyan-500/40 flex items-center justify-center shrink-0">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                                    </div>
-                                    <div>
-                                        <div class="text-xs sm:text-sm font-bold text-white font-['Poppins']">Tier-1 PLC Sync</div>
-                                        <div class="text-[10px] text-gray-300 font-['Poppins']">Siemens · Omron · Mitsubishi</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Floating 3D Hotspot Badge 3: Realtime OEE (Bottom Right) -->
-                            <div class="absolute bottom-[4%] right-[2%] sm:right-[6%] z-30 diorama-float-pin-3 [transform:translateZ(75px)] pointer-events-auto">
-                                <div class="group backdrop-blur-xl bg-white/92 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl border border-white/80 shadow-[0_15px_35px_rgba(0,0,0,0.12)] flex items-center gap-2.5 transition-all duration-300 hover:scale-105 hover:border-emerald-300">
-                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
-                                        <div class="relative flex items-center justify-center">
-                                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping absolute opacity-75"></span>
-                                            <span class="w-2 h-2 rounded-full bg-emerald-600 relative"></span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="flex items-center gap-1.5">
-                                            <span class="text-xs sm:text-sm font-bold text-gray-900 font-['Poppins']">OEE Realtime</span>
-                                            <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-[10px] font-bold text-emerald-800">98.4%</span>
-                                        </div>
-                                        <div class="text-[10px] text-gray-500 font-['Poppins']">IoT Cloud Telemetry</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    class="absolute -inset-10 bg-gradient-to-tr from-red-500/10 via-cyan-500/6 to-transparent rounded-full blur-3xl pointer-events-none -z-10">
                 </div>
 
+                <!-- 3D Interactive Diorama Stage (Parallax Tilt on Mouse Move) -->
+                <div id="hero-diorama-stage" class="relative w-full [perspective:1400px] select-none py-2">
+                    
+                    <!-- 3D Rotatable Wrapper -->
+                    <div class="hero-diorama-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out">
+                        
+                        <!-- Base 3D Diorama Image (Seamless on Canvas, No Box/Border) -->
+                        <div class="relative w-full flex items-center justify-center">
+                            <img src="{{ asset('images/gat_factory_diorama_room.webp') }}" 
+                                alt="PT Global Aspect Technology - 3D Smart Factory Digital Twin Room"
+                                class="w-full h-auto object-contain block pointer-events-none drop-shadow-[0_25px_50px_rgba(0,0,0,0.08)] transition-transform duration-700 hover:scale-[1.01]">
+                        </div>
+
+                        <!-- ======================================================== -->
+                        <!-- LIVE ANIMATED ACTIVITIES ON THE DIORAMA                  -->
+                        <!-- ======================================================== -->
+
+                        <!-- 1. ACTIVE RED LASER SCANNER (Over Vision Inspection Arch) -->
+                        <div class="absolute top-[31%] left-[34%] w-[12%] h-[19%] pointer-events-none [transform:translateZ(30px)] overflow-hidden">
+                            <!-- Sweeping Laser Beam -->
+                            <div class="w-full h-[2.5px] bg-red-500 shadow-[0_0_12px_#ef4444,0_0_24px_#ef4444] animate-laser-sweep"></div>
+                            <!-- Laser Scan Fan Glow -->
+                            <div class="w-full h-10 bg-gradient-to-b from-red-500/35 via-red-500/15 to-transparent animate-laser-fan-glow"></div>
+                        </div>
+
+                        <!-- 2. ANIMATED DELIVERY BOX 1 (Gliding through Vision Arch along Conveyor) -->
+                        <div class="absolute top-[38%] left-[36%] w-7 h-7 sm:w-10 sm:h-10 diorama-box-1 pointer-events-none [transform:translateZ(25px)]">
+                            <div class="w-full h-full bg-[#d2a679] rounded-[3px] border border-[#b38656] shadow-[0_4px_8px_rgba(0,0,0,0.35)] relative overflow-hidden flex items-center justify-center transform rotate-12">
+                                <div class="w-full h-1 bg-[#b38656]"></div>
+                                <div class="absolute bottom-1 right-1 w-2.5 h-1.5 bg-white border border-gray-400"></div>
+                            </div>
+                        </div>
+
+                        <!-- 3. ANIMATED DELIVERY BOX 2 (Moving from Printer to Strapping Machine) -->
+                        <div class="absolute top-[52%] left-[46%] w-7 h-7 sm:w-10 sm:h-10 diorama-box-2 pointer-events-none [transform:translateZ(25px)]">
+                            <div class="w-full h-full bg-[#d2a679] rounded-[3px] border border-[#b38656] shadow-[0_4px_8px_rgba(0,0,0,0.35)] relative overflow-hidden flex items-center justify-center transform -rotate-6">
+                                <div class="w-full h-1 bg-[#b38656]"></div>
+                                <div class="absolute top-1 left-1 w-2 h-2 bg-white flex items-center justify-center">
+                                    <div class="w-1 h-1 bg-black"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. LIVE PLC STATUS LED MATRIX (Over Control Cabinets on Right Wall) -->
+                        <div class="absolute top-[42%] left-[76%] w-[16%] h-[20%] pointer-events-none [transform:translateZ(20px)] flex flex-wrap gap-1.5 items-center justify-center opacity-85 p-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-led-blink-1 shadow-[0_0_6px_#34d399]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-led-blink-2 shadow-[0_0_6px_#22d3ee]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-led-blink-3 shadow-[0_0_6px_#34d399]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-led-blink-1 shadow-[0_0_6px_#fbbf24]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-led-blink-3 shadow-[0_0_6px_#22d3ee]"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-led-blink-2 shadow-[0_0_6px_#34d399]"></span>
+                        </div>
+
+                        <!-- 5. WALL SCADA TELEMETRY MONITOR (Animated Live Pulse on Right Wall) -->
+                        <div class="absolute top-[23%] left-[64%] w-[12%] h-[12%] pointer-events-none [transform:translateZ(25px)] flex items-center justify-center">
+                            <svg class="w-full h-full text-cyan-400/90 animate-telemetry-pulse" viewBox="0 0 100 50" fill="none">
+                                <path d="M0,25 L30,25 L38,10 L46,40 L54,15 L62,32 L70,25 L100,25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <!-- 6. MINIMALIST INTERACTIVE RADAR HOTSPOT PINS (Zero Clutter, Elegant Hover Tooltips) -->
+
+                        <!-- Pin 1: Machine Vision Inspection -->
+                        <div class="absolute top-[28%] left-[41%] z-30 group cursor-pointer [transform:translateZ(50px)]">
+                            <div class="relative flex items-center justify-center">
+                                <span class="w-7 h-7 rounded-full bg-red-600/30 border border-red-500 animate-ping absolute"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-red-600 border-2 border-white shadow-lg relative flex items-center justify-center"></span>
+                            </div>
+                            <div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none bg-gray-950/95 text-white px-3 py-1.5 rounded-xl whitespace-nowrap shadow-xl border border-white/20 text-xs font-['Poppins']">
+                                <div class="font-bold flex items-center gap-1.5 text-red-400">
+                                    <span>Optical Machine Vision</span>
+                                    <span class="px-1 py-0.2 bg-red-500/30 rounded text-[9px] text-red-200">1,200 PPM</span>
+                                </div>
+                                <div class="text-[10px] text-gray-300">Sub-Micron Dimensional Inspection</div>
+                            </div>
+                        </div>
+
+                        <!-- Pin 2: Laser Marking & Printing -->
+                        <div class="absolute top-[48%] left-[56%] z-30 group cursor-pointer [transform:translateZ(50px)]">
+                            <div class="relative flex items-center justify-center">
+                                <span class="w-7 h-7 rounded-full bg-amber-500/30 border border-amber-500 animate-ping absolute"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-amber-500 border-2 border-white shadow-lg relative flex items-center justify-center"></span>
+                            </div>
+                            <div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none bg-gray-950/95 text-white px-3 py-1.5 rounded-xl whitespace-nowrap shadow-xl border border-white/20 text-xs font-['Poppins']">
+                                <div class="font-bold text-amber-400">Laser Marking & Coding</div>
+                                <div class="text-[10px] text-gray-300">Real-time QR & Barcode Serialization</div>
+                            </div>
+                        </div>
+
+                        <!-- Pin 3: Automated Strapping Machine -->
+                        <div class="absolute top-[65%] left-[68%] z-30 group cursor-pointer [transform:translateZ(50px)]">
+                            <div class="relative flex items-center justify-center">
+                                <span class="w-7 h-7 rounded-full bg-emerald-500/30 border border-emerald-500 animate-ping absolute"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-lg relative flex items-center justify-center"></span>
+                            </div>
+                            <div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none bg-gray-950/95 text-white px-3 py-1.5 rounded-xl whitespace-nowrap shadow-xl border border-white/20 text-xs font-['Poppins']">
+                                <div class="font-bold text-emerald-400">Automated Strapping</div>
+                                <div class="text-[10px] text-gray-300">3,200N High-Tension Packaging</div>
+                            </div>
+                        </div>
+
+                        <!-- Pin 4: Tier-1 PLC Control Panel -->
+                        <div class="absolute top-[48%] left-[86%] z-30 group cursor-pointer [transform:translateZ(50px)]">
+                            <div class="relative flex items-center justify-center">
+                                <span class="w-7 h-7 rounded-full bg-cyan-400/30 border border-cyan-400 animate-ping absolute"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-cyan-400 border-2 border-white shadow-lg relative flex items-center justify-center"></span>
+                            </div>
+                            <div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none bg-gray-950/95 text-white px-3 py-1.5 rounded-xl whitespace-nowrap shadow-xl border border-white/20 text-xs font-['Poppins']">
+                                <div class="font-bold text-cyan-400">Tier-1 PLC System</div>
+                                <div class="text-[10px] text-gray-300">Siemens S7 · Omron · Mitsubishi</div>
+                            </div>
+                        </div>
+
+                        <!-- Pin 5: Wall SCADA Telemetry -->
+                        <div class="absolute top-[22%] left-[70%] z-30 group cursor-pointer [transform:translateZ(50px)]">
+                            <div class="relative flex items-center justify-center">
+                                <span class="w-7 h-7 rounded-full bg-purple-500/30 border border-purple-500 animate-ping absolute"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-purple-500 border-2 border-white shadow-lg relative flex items-center justify-center"></span>
+                            </div>
+                            <div class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none bg-gray-950/95 text-white px-3 py-1.5 rounded-xl whitespace-nowrap shadow-xl border border-white/20 text-xs font-['Poppins']">
+                                <div class="font-bold text-purple-400">Cloud SCADA OEE</div>
+                                <div class="text-[10px] text-gray-300">99.9% Uptime Telemetry Hub</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -290,54 +283,124 @@
             animation: floatSlow3 5.5s ease-in-out infinite 1.5s;
         }
 
-        /* 3D Smart Factory Diorama Animations */
-        @keyframes laserPulse {
+        /* ======================================================== */
+        /* 3D Smart Factory Diorama Active Machinery Keyframes       */
+        /* ======================================================== */
+
+        /* 1. Conveyor Moving Box Animations */
+        @keyframes conveyorBox1 {
+            0% {
+                transform: translate(0px, 0px) rotate(14deg) scale(0.85);
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(70px, 45px) rotate(14deg) scale(1.05);
+                opacity: 0;
+            }
+        }
+        .diorama-box-1 {
+            animation: conveyorBox1 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes conveyorBox2 {
+            0% {
+                transform: translate(0px, 0px) rotate(-6deg) scale(0.9);
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(75px, 45px) rotate(-6deg) scale(1.05);
+                opacity: 0;
+            }
+        }
+        .diorama-box-2 {
+            animation: conveyorBox2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite 1.8s;
+        }
+
+        /* 2. Active Laser Scanner Beam & Fan Glow */
+        @keyframes laserSweep {
+            0% {
+                transform: translateY(0px);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(32px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0px);
+                opacity: 0.7;
+            }
+        }
+        @keyframes laserFanGlow {
+            0% {
+                transform: translateY(0px) scaleY(0.7);
+                opacity: 0.2;
+            }
+            50% {
+                transform: translateY(32px) scaleY(1.15);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(0px) scaleY(0.7);
+                opacity: 0.2;
+            }
+        }
+        .animate-laser-sweep {
+            animation: laserSweep 2s ease-in-out infinite;
+        }
+        .animate-laser-fan-glow {
+            animation: laserFanGlow 2s ease-in-out infinite;
+        }
+
+        /* 3. PLC Status Indicator LED Matrix */
+        @keyframes ledBlink1 {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        @keyframes ledBlink2 {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+        @keyframes ledBlink3 {
+            0%, 25%, 100% { opacity: 0.35; }
+            75% { opacity: 1; }
+        }
+        .animate-led-blink-1 {
+            animation: ledBlink1 1.2s infinite;
+        }
+        .animate-led-blink-2 {
+            animation: ledBlink2 0.75s infinite;
+        }
+        .animate-led-blink-3 {
+            animation: ledBlink3 1.6s infinite;
+        }
+
+        /* 4. SCADA Telemetry Live Waveform */
+        @keyframes telemetryPulse {
             0%, 100% {
                 opacity: 0.6;
-                transform: translateY(0px) scaleX(0.95);
+                transform: scaleY(0.85);
             }
             50% {
                 opacity: 1;
-                transform: translateY(12px) scaleX(1.05);
+                transform: scaleY(1.15);
             }
         }
-        @keyframes laserFan {
-            0%, 100% {
-                opacity: 0.2;
-                transform: translateY(0px);
-            }
-            50% {
-                opacity: 0.65;
-                transform: translateY(12px);
-            }
-        }
-        .animate-laser-pulse {
-            animation: laserPulse 2.8s ease-in-out infinite;
-        }
-        .animate-laser-fan {
-            animation: laserFan 2.8s ease-in-out infinite;
-        }
-
-        @keyframes dioramaPin1 {
-            0%, 100% { transform: translateY(0px) translateZ(55px); }
-            50% { transform: translateY(-7px) translateZ(65px); }
-        }
-        @keyframes dioramaPin2 {
-            0%, 100% { transform: translateY(0px) translateZ(65px); }
-            50% { transform: translateY(8px) translateZ(75px); }
-        }
-        @keyframes dioramaPin3 {
-            0%, 100% { transform: translateY(0px) translateZ(75px); }
-            50% { transform: translateY(-6px) translateZ(85px); }
-        }
-        .diorama-float-pin-1 {
-            animation: dioramaPin1 5.5s ease-in-out infinite;
-        }
-        .diorama-float-pin-2 {
-            animation: dioramaPin2 6s ease-in-out infinite 0.8s;
-        }
-        .diorama-float-pin-3 {
-            animation: dioramaPin3 5s ease-in-out infinite 1.5s;
+        .animate-telemetry-pulse {
+            animation: telemetryPulse 1.8s ease-in-out infinite;
+            transform-origin: center;
         }
     </style>
 
