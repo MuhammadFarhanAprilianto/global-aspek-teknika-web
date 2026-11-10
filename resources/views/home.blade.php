@@ -106,16 +106,14 @@
                 </h1>
             </div>
 
-            <!-- 2. Centerpiece Stage: Transparent 3D Hardware Sensor Unit with CAD Blueprint Lines (No Bobbing) -->
-            <div id="hero-sensor-stage" class="relative w-full max-w-4xl mx-auto flex items-center justify-center [perspective:1400px] select-none py-1 sm:py-2">
-                <div class="hero-sensor-card relative [transform-style:preserve-3d] transition-transform duration-300 ease-out flex items-center justify-center w-full">
-                    <picture>
-                        <source srcset="{{ asset('images/HeroSection01_transparent.webp') }}" type="image/webp">
-                        <img src="{{ asset('images/HeroSection01_transparent.png') }}" 
-                            alt="PT Global Aspect Technology - Smart Optical Vision & Inspection System"
-                            class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)]">
-                    </picture>
-                </div>
+            <!-- 2. Centerpiece Stage: Transparent Hardware Sensor Unit with CAD Blueprint Lines (Static, No Hover Movement) -->
+            <div class="relative w-full max-w-4xl mx-auto flex items-center justify-center select-none py-1 sm:py-2">
+                <picture>
+                    <source srcset="{{ asset('images/HeroSection01_transparent.webp') }}" type="image/webp">
+                    <img src="{{ asset('images/HeroSection01_transparent.png') }}" 
+                        alt="PT Global Aspect Technology - Smart Optical Vision & Inspection System"
+                        class="w-full max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] object-contain block pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.06)]">
+                </picture>
             </div>
 
             <!-- 3. Bottom Flanking Elements (Matching Sevensense Bottom-Left & Bottom-Right) -->
@@ -760,44 +758,6 @@
             initScrollReveal();
         }
         window.addEventListener('load', initScrollReveal);
-    </script>
-
-    <!-- Interactive 3D Sensor Parallax Tilt (Sevensense style) -->
-    <script>
-        (function() {
-            const stage = document.getElementById('hero-sensor-stage');
-            if (!stage) return;
-            const card = stage.querySelector('.hero-sensor-card');
-            if (!card) return;
-
-            let bounds = null;
-            function updateBounds() {
-                bounds = stage.getBoundingClientRect();
-            }
-            window.addEventListener('resize', updateBounds);
-            window.addEventListener('scroll', updateBounds, { passive: true });
-
-            stage.addEventListener('mouseenter', () => {
-                updateBounds();
-                card.style.transition = 'transform 0.15s ease-out';
-            });
-
-            stage.addEventListener('mousemove', (e) => {
-                if (!bounds) updateBounds();
-                const mouseX = e.clientX - bounds.left;
-                const mouseY = e.clientY - bounds.top;
-                const xPct = (mouseX / bounds.width) - 0.5;
-                const yPct = (mouseY / bounds.height) - 0.5;
-                const rotX = -yPct * 8; // -4deg to +4deg
-                const rotY = xPct * 10;  // -5deg to +5deg
-                card.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
-            });
-
-            stage.addEventListener('mouseleave', () => {
-                card.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
-                card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
-        })();
     </script>
 </body>
 
