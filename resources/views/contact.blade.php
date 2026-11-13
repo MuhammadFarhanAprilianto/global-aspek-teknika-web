@@ -138,7 +138,6 @@
             <!-- Header Section -->
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 md:mb-16 reveal-on-scroll">
                 <div>
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#3367A5] font-agrandir mb-2" data-lang-en="GET IN TOUCH" data-lang-id="HUBUNGI KAMI">GET IN TOUCH</span>
                     <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-agrandir tracking-tight text-[#111111] leading-none" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">
                         Contact Us
                     </h1>
@@ -409,7 +408,6 @@
             <!-- Address Locations Section -->
             <div class="mt-20 pt-16 border-t border-gray-100">
                 <div class="text-center mb-12 reveal-on-scroll">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#3367A5] font-agrandir mb-2" data-lang-en="Our Locations" data-lang-id="Lokasi Kami">Our Locations</span>
                     <h2 class="text-2xl md:text-3xl font-bold font-agrandir text-[#111111]" data-lang-en="Office & Workshop Facilities" data-lang-id="Kantor & Fasilitas Workshop">Kantor & Fasilitas Workshop</h2>
                 </div>
 

@@ -111,11 +111,6 @@
         </div>
 
         <div class="relative z-10 px-6 max-w-5xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#3367A5] mb-4 font-['Agrandir']">
-                <span class="w-2 h-2 rounded-full bg-[#3367A5] animate-pulse"></span>
-                <span data-lang-en="CROSS-INDUSTRY SYSTEM INTEGRATION" data-lang-id="INTEGRASI SISTEM LINTAS INDUSTRI">CROSS-INDUSTRY SYSTEM INTEGRATION</span>
-            </div>
-
             <h1 data-lang-en="INDUSTRIAL APPLICATIONS" data-lang-id="APLIKASI INDUSTRI"
                 class="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold uppercase font-['Agrandir'] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 INDUSTRIAL APPLICATIONS
@@ -137,10 +132,6 @@
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16 reveal-on-scroll">
-                <span data-lang-en="CORE USE CASES" data-lang-id="USE CASE UTAMA"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
-                    CORE USE CASES
-                </span>
                 <h2 data-lang-en="WHERE GAT SYSTEMS ARE DEPLOYED" data-lang-id="PENERAPAN SISTEM GAT DI INDUSTRI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir'] mt-2">
                     WHERE GAT SYSTEMS ARE DEPLOYED
@@ -183,10 +174,6 @@
                 <!-- 1. Manufacturing & FMCG -->
                 <div id="pane-manufacturing" class="domain-pane grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
-                            data-lang-en="Continuous Production &amp; High-Speed Bottling" data-lang-id="Produksi Berkelanjutan &amp; Pembotolan Cepat">
-                            Continuous Production &amp; High-Speed Bottling
-                        </div>
                         <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
                             data-lang-en="Integrated Production Lines with Zero-Defect Control"
                             data-lang-id="Lini Produksi Terintegrasi dengan Kendali Nol Cacat">
@@ -219,10 +206,6 @@
                 <!-- 2. Automotive & Heavy Machinery -->
                 <div id="pane-automotive" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
-                            data-lang-en="Tier-1 Precision &amp; Fail-Safe Hydraulic Logic" data-lang-id="Presisi Tier-1 &amp; Logika Hidrolik Fail-Safe">
-                            Tier-1 Precision &amp; Fail-Safe Hydraulic Logic
-                        </div>
                         <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
                             data-lang-en="Robotic Workcells &amp; Sub-Micron Dimensional QA"
                             data-lang-id="Sel Robotik &amp; QA Dimensi Sub-Mikron">
@@ -255,10 +238,6 @@
                 <!-- 3. Pharma & Cleanrooms -->
                 <div id="pane-pharma" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
-                            data-lang-en="21 CFR Part 11 &amp; Full Batch Traceability" data-lang-id="Standar 21 CFR Part 11 &amp; Pelacakan Batch">
-                            21 CFR Part 11 &amp; Full Batch Traceability
-                        </div>
                         <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
                             data-lang-en="Blister Inspection, Serialization &amp; Cleanroom SCADA"
                             data-lang-id="Inspeksi Blister, Serialisasi &amp; SCADA Ruang Bersih">
@@ -291,10 +270,6 @@
                 <!-- 4. Smart BMS & Utilities -->
                 <div id="pane-bms" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
-                            data-lang-en="Web-Based Energy Optimization &amp; HVAC Control" data-lang-id="Optimasi Energi Berbasis Web &amp; Kontrol HVAC">
-                            Web-Based Energy Optimization &amp; HVAC Control
-                        </div>
                         <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
                             data-lang-en="Building Management &amp; Facility Utilities Telemetry"
                             data-lang-id="Telemetri BMS &amp; Utilitas Fasilitas Gedung">
@@ -327,10 +302,6 @@
                 <!-- 5. End-of-Line Packaging -->
                 <div id="pane-logistics" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
-                            data-lang-en="Heavy Bundling &amp; Pallet Conveyor Interlocks" data-lang-id="Pengikatan Tugas Berat &amp; Konveyor Palet">
-                            Heavy Bundling &amp; Pallet Conveyor Interlocks
-                        </div>
                         <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
                             data-lang-en="Automated Arch Strapping &amp; Warehouse Dispatch"
                             data-lang-id="Otomasi Strapping Busur &amp; Pengiriman Gudang">
@@ -370,10 +341,6 @@
     <section class="bg-white text-gray-900 py-20 sm:py-24 lg:py-28 border-b border-gray-100">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <span data-lang-en="SYSTEM BLUEPRINT" data-lang-id="CETAK BIRU SISTEM"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
-                    SYSTEM BLUEPRINT
-                </span>
                 <h2 data-lang-en="THE 4-LAYER INTEGRATION STACK" data-lang-id="4 LAPISAN ARSITEKTUR INTEGRASI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] mt-2">
                     THE 4-LAYER INTEGRATION STACK
@@ -477,10 +444,6 @@
     <!-- ========================================================================= -->
     <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
         <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
-                data-lang-en="CUSTOM IMPLEMENTATION" data-lang-id="IMPLEMENTASI KUSTOM">
-                CUSTOM IMPLEMENTATION
-            </span>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-['Agrandir'] tracking-tight leading-tight"
                 data-lang-en="Have an Application in Mind for Your Plant?"
                 data-lang-id="Punya Kebutuhan Aplikasi Otomasi untuk Pabrik Anda?">

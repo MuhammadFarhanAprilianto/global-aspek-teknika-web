@@ -115,11 +115,6 @@
         </div>
 
         <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#3367A5] mb-4 font-['Agrandir']">
-                <span class="w-2 h-2 rounded-full bg-[#3367A5] animate-pulse"></span>
-                <span data-lang-en="PURPOSE &amp; DIRECTION" data-lang-id="ARAH &amp; TUJUAN">PURPOSE &amp; DIRECTION</span>
-            </div>
-
             <h1 data-lang-en="VISION, MISSION &amp; GOALS" data-lang-id="VISI, MISI &amp; TUJUAN"
                 class="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold uppercase font-['Agrandir'] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 VISION, MISSION &amp; GOALS
@@ -141,10 +136,6 @@
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <span data-lang-en="STRATEGIC ASPIRATION" data-lang-id="ASPIRASI STRATEGIS"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
-                    STRATEGIC ASPIRATION
-                </span>
                 <h2 data-lang-en="OUR CORPORATE VISION" data-lang-id="VISI PERUSAHAAN KAMI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir'] mt-2">
                     OUR CORPORATE VISION
@@ -234,10 +225,6 @@
     <section class="bg-white text-gray-900 py-20 sm:py-24 lg:py-28 border-b border-gray-100">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <span data-lang-en="DAILY MISSION IN ACTION" data-lang-id="AKSI MISI HARIAN KAMI"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
-                    DAILY MISSION IN ACTION
-                </span>
                 <h2 data-lang-en="OUR GUIDING MISSION" data-lang-id="MISI UTAMA KAMI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] mt-2">
                     OUR GUIDING MISSION
@@ -321,10 +308,6 @@
     <section class="bg-neutral-950 text-white py-20 sm:py-24 lg:py-28 border-b border-neutral-900">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <span data-lang-en="TARGETS &amp; ROADMAP" data-lang-id="TARGET &amp; PETA JALAN"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
-                    TARGETS &amp; ROADMAP
-                </span>
                 <h2 data-lang-en="STRATEGIC CORPORATE GOALS" data-lang-id="TARGET STRATEGIS PERUSAHAAN"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir'] mt-2">
                     STRATEGIC CORPORATE GOALS
@@ -420,10 +403,6 @@
     <section class="bg-white text-gray-900 py-20 sm:py-24 lg:py-28 border-b border-gray-100">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <span data-lang-en="THE GAT WAY" data-lang-id="NILAI INTI KAMI"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
-                    THE GAT WAY
-                </span>
                 <h2 data-lang-en="OUR 4 FOUNDATIONAL VALUES" data-lang-id="4 PILAR NILAI UTAMA KAMI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] mt-2">
                     OUR 4 FOUNDATIONAL VALUES
@@ -489,10 +468,6 @@
     <!-- ========================================================================= -->
     <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
         <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
-                data-lang-en="JOIN OUR JOURNEY" data-lang-id="BERGABUNGLAH DENGAN KAMI">
-                JOIN OUR JOURNEY
-            </span>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-['Agrandir'] tracking-tight leading-tight"
                 data-lang-en="Ready to Elevate Your Plant's Operational Future?"
                 data-lang-id="Siap Meningkatkan Masa Depan Operasional Pabrik Anda?">

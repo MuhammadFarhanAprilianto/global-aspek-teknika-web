@@ -115,11 +115,6 @@
     <!-- ========================================================================= -->
     <section class="relative w-full bg-[#f8fafc] text-gray-900 text-center pt-36 sm:pt-44 lg:pt-52 pb-16 sm:pb-20 border-b border-gray-200/80">
         <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#3367A5]/10 border border-[#3367A5]/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#3367A5] mb-4 font-['Agrandir']">
-                <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
-                <span data-lang-en="PROVEN FIELD IMPLEMENTATIONS" data-lang-id="IMPLEMENTASI LAPANGAN TERUJI">PROVEN FIELD IMPLEMENTATIONS</span>
-            </div>
-
             <h1 data-lang-en="PROJECTS &amp; CASE STUDIES" data-lang-id="PROYEK &amp; STUDI KASUS"
                 class="text-4xl sm:text-5xl md:text-6xl font-bold uppercase font-['Agrandir'] tracking-tight text-black leading-tight">
                 PROJECTS &amp; CASE STUDIES
@@ -486,10 +481,6 @@
     <!-- ========================================================================= -->
     <section class="bg-neutral-950 text-white py-16 sm:py-20 border-b border-neutral-900">
         <div class="container mx-auto px-6 text-center space-y-8">
-            <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
-                data-lang-en="PROVEN COLLABORATIONS" data-lang-id="KOLABORASI TERUJI">
-                PROVEN COLLABORATIONS
-            </span>
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-['Agrandir'] text-white"
                 data-lang-en="Trusted by Over 20+ Enterprise Manufacturers"
                 data-lang-id="Dipercaya Lebih Dari 20+ Produsen Korporasi">
@@ -514,10 +505,6 @@
     <!-- ========================================================================= -->
     <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
         <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
-                data-lang-en="LET'S BUILD TOGETHER" data-lang-id="MARI BERKOLABORASI">
-                LET'S BUILD TOGETHER
-            </span>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-['Agrandir'] tracking-tight leading-tight"
                 data-lang-en="Have a Project Challenge in Your Production Facility?"
                 data-lang-id="Menghadapi Tantangan Produksi di Fasilitas Pabrik Anda?">
