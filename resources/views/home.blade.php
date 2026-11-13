@@ -107,8 +107,7 @@
                 <h1
                     class="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[56px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.10] text-left">
                     <span class="block text-gray-950" data-lang-en="Machine Vision &amp;" data-lang-id="Machine Vision &amp;">Machine Vision &amp;</span>
-                    <span class="block text-[#3367A5]" data-lang-en="Smart Integrated" data-lang-id="Sistem Cerdas">Smart Integrated</span>
-                    <span class="block text-[#3367A5]" data-lang-en="Systems." data-lang-id="Terintegrasi.">Systems.</span>
+                    <span class="block text-[#3367A5]" data-lang-en="Integrated Systems." data-lang-id="Sistem Terintegrasi.">Integrated Systems.</span>
                 </h1>
             </div>
 
