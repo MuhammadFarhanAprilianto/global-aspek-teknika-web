@@ -431,89 +431,93 @@
             <!-- Workflow 4 Steps Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
                 <!-- Step 1 -->
-                <div class="p-7 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-1 transition-all duration-300 hover:border-neutral-700 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div class="p-7 rounded-2xl bg-white border border-neutral-100 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-1 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-white text-black font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-[#3367A5]/10 text-[#3367A5] font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-xs">
                             01
                         </div>
                         <h3 data-lang-en="Site Survey &amp; Needs Assessment" data-lang-id="Survei Lapangan &amp; Analisis Kebutuhan"
-                            class="text-lg sm:text-xl font-bold text-white font-['Agrandir']">
+                            class="text-lg sm:text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                             Site Survey &amp; Needs Assessment
                         </h3>
                         <p data-lang-en="Our senior engineers visit your facility to inspect existing machinery, map workflow constraints, and define concrete operational targets."
                            data-lang-id="Insinyur senior kami mengunjungi fasilitas Anda untuk meninjau mesin eksisting, memetakan kendala alur kerja, dan menetapkan target operasional yang nyata."
-                            class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-3 leading-relaxed">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] mt-3 leading-relaxed text-justify"
+                            style="text-align: justify; text-justify: inter-word;">
                             Our senior engineers visit your facility to inspect existing machinery, map workflow constraints, and define concrete operational targets.
                         </p>
                     </div>
                     <div data-lang-en="Discovery Phase" data-lang-id="Tahap Penjajakan"
-                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-[#4D88CF] uppercase tracking-wider">
+                        class="mt-6 pt-4 border-t border-neutral-100 text-xs font-semibold text-[#3367A5] uppercase tracking-wider font-['Agrandir']">
                         Discovery Phase
                     </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="p-7 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-2 transition-all duration-300 hover:border-neutral-700 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div class="p-7 rounded-2xl bg-white border border-neutral-100 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-2 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-white text-black font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-[#3367A5]/10 text-[#3367A5] font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-xs">
                             02
                         </div>
                         <h3 data-lang-en="System Engineering &amp; Costing" data-lang-id="Rekayasa Sistem &amp; Estimasi Anggaran"
-                            class="text-lg sm:text-xl font-bold text-white font-['Agrandir']">
+                            class="text-lg sm:text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                             System Engineering &amp; Costing
                         </h3>
                         <p data-lang-en="Developing detailed electrical schematics, selecting tier-one industrial hardware, and presenting transparent, itemized B2B proposals."
                            data-lang-id="Menyusun skema elektrikal terperinci, memilih perangkat keras industri kelas satu, serta menyajikan proposal B2B yang transparan dan terperinci."
-                            class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-3 leading-relaxed">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] mt-3 leading-relaxed text-justify"
+                            style="text-align: justify; text-justify: inter-word;">
                             Developing detailed electrical schematics, selecting tier-one industrial hardware, and presenting transparent, itemized B2B proposals.
                         </p>
                     </div>
                     <div data-lang-en="Design Phase" data-lang-id="Tahap Perancangan"
-                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-[#4D88CF] uppercase tracking-wider">
+                        class="mt-6 pt-4 border-t border-neutral-100 text-xs font-semibold text-[#3367A5] uppercase tracking-wider font-['Agrandir']">
                         Design Phase
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="p-7 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-3 transition-all duration-300 hover:border-neutral-700 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div class="p-7 rounded-2xl bg-white border border-neutral-100 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-3 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-white text-black font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-[#3367A5]/10 text-[#3367A5] font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-xs">
                             03
                         </div>
                         <h3 data-lang-en="Fabrication &amp; Integration" data-lang-id="Fabrikasi &amp; Integrasi"
-                            class="text-lg sm:text-xl font-bold text-white font-['Agrandir']">
+                            class="text-lg sm:text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                             Fabrication &amp; Integration
                         </h3>
                         <p data-lang-en="Precision control panel assembly, clean PLC programming, certified cabling, and physical mechanical integration compliant with workplace safety."
                            data-lang-id="Perakitan panel kontrol presisi, pemrograman PLC terstruktur, pengkabelan terstandarisasi, dan integrasi fisik mekanikal yang mematuhi keselamatan kerja."
-                            class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-3 leading-relaxed">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] mt-3 leading-relaxed text-justify"
+                            style="text-align: justify; text-justify: inter-word;">
                             Precision control panel assembly, clean PLC programming, certified cabling, and physical mechanical integration compliant with workplace safety.
                         </p>
                     </div>
                     <div data-lang-en="Execution Phase" data-lang-id="Tahap Eksekusi"
-                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-[#4D88CF] uppercase tracking-wider">
+                        class="mt-6 pt-4 border-t border-neutral-100 text-xs font-semibold text-[#3367A5] uppercase tracking-wider font-['Agrandir']">
                         Execution Phase
                     </div>
                 </div>
 
                 <!-- Step 4 -->
-                <div class="p-7 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-4 transition-all duration-300 hover:border-neutral-700 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div class="p-7 rounded-2xl bg-white border border-neutral-100 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-4 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-white text-black font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-[#3367A5]/10 text-[#3367A5] font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-xs">
                             04
                         </div>
                         <h3 data-lang-en="Commissioning &amp; SLA Warranty" data-lang-id="Komisioning &amp; Garansi SLA"
-                            class="text-lg sm:text-xl font-bold text-white font-['Agrandir']">
+                            class="text-lg sm:text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                             Commissioning &amp; SLA Warranty
                         </h3>
                         <p data-lang-en="Full-load test runs on live production lines, comprehensive operator handover training, full technical documentation, and dedicated warranty support."
                            data-lang-id="Uji coba beban penuh pada lini produksi aktif, pelatihan serah terima operator yang komprehensif, dokumentasi teknis lengkap, dan dukungan garansi berdedikasi."
-                            class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-3 leading-relaxed">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] mt-3 leading-relaxed text-justify"
+                            style="text-align: justify; text-justify: inter-word;">
                             Full-load test runs on live production lines, comprehensive operator handover training, full technical documentation, and dedicated warranty support.
                         </p>
                     </div>
                     <div data-lang-en="Handover Phase" data-lang-id="Tahap Serah Terima"
-                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-[#4D88CF] uppercase tracking-wider">
+                        class="mt-6 pt-4 border-t border-neutral-100 text-xs font-semibold text-[#3367A5] uppercase tracking-wider font-['Agrandir']">
                         Handover Phase
                     </div>
                 </div>
