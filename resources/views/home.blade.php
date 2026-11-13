@@ -663,7 +663,7 @@
                     </div>
                 </div>
 
-                <!-- Category 4: PLC & Control Automation -->
+                <!-- Category 4: PLC, Sensors & Control Automation (Merged) -->
                 <div
                     class="group relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 lg:p-8 flex flex-col justify-between transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 reveal-on-scroll reveal-stagger-1">
                     <div>
@@ -678,37 +678,37 @@
                                         d="M9.5 2v2m5-2v2m-5 16v2m5-2v2M13 9l-4 4m6 0l-2 2m9-.5h-2m-16-5H2m2 5H2m20-5h-2" />
                                 </svg>
                             </div>
-                            <span data-lang-en="Control &amp; Panel" data-lang-id="Panel &amp; Kontrol"
+                            <span data-lang-en="Control &amp; Instrumentation" data-lang-id="Kontrol &amp; Instrumentasi"
                                 class="text-[11px] font-semibold text-neutral-600 bg-neutral-100 px-3 py-1 rounded-full font-['Questrial',sans-serif]">
-                                Control &amp; Panel
+                                Control &amp; Instrumentation
                             </span>
                         </div>
-                        <h3 data-lang-en="PLC &amp; Control Automation" data-lang-id="Otomasi Kontrol &amp; PLC"
+                        <h3 data-lang-en="PLC, Sensors &amp; Control Automation" data-lang-id="Otomasi PLC, Sensor &amp; Kontrol"
                             class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
-                            PLC &amp; Control Automation
+                            PLC, Sensors &amp; Control Automation
                         </h3>
-                        <p data-lang-en="Custom industrial electrical control panels, multi-brand PLC programming (Siemens, Mitsubishi, Omron), synchronized motion control, and HMI/SCADA interfaces."
-                           data-lang-id="Panel kontrol listrik industri kustom, pemrograman PLC multi-merek (Siemens, Mitsubishi, Omron), kontrol gerak tersinkronisasi, dan antarmuka HMI/SCADA."
+                        <p data-lang-en="Custom electrical control panels, multi-brand PLC programming (Siemens, Mitsubishi, Omron), precision process sensors, and synchronized HMI motion control."
+                           data-lang-id="Panel kontrol listrik kustom, pemrograman PLC multi-merek (Siemens, Mitsubishi, Omron), sensor proses presisi, dan kontrol gerak HMI tersinkronisasi."
                             class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
-                            Custom industrial electrical control panels, multi-brand PLC programming (Siemens, Mitsubishi, Omron), synchronized motion control, and HMI/SCADA interfaces.
+                            Custom electrical control panels, multi-brand PLC programming (Siemens, Mitsubishi, Omron), precision process sensors, and synchronized HMI motion control.
                         </p>
                     </div>
 
                     <div class="mt-6 pt-5 border-t border-neutral-100">
                         <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-                            <span data-lang-en="Integrated Panels" data-lang-id="Panel Terintegrasi"
-                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Integrated
-                                Panels</span>
                             <span data-lang-en="Multi-Brand PLC" data-lang-id="PLC Multi-Merek"
                                 class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Multi-Brand
                                 PLC</span>
-                            <span data-lang-en="HMI &amp; SCADA" data-lang-id="HMI &amp; SCADA"
+                            <span data-lang-en="Precision Sensors" data-lang-id="Sensor Presisi"
+                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Precision
+                                Sensors</span>
+                            <span data-lang-en="HMI &amp; Panels" data-lang-id="Panel &amp; HMI"
                                 class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">HMI
-                                &amp; SCADA</span>
+                                &amp; Panels</span>
                         </div>
                         <a href="{{ route('plc-progamming') }}"
                             class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#3367A5] transition-colors font-['Questrial',sans-serif]">
-                            <span data-lang-en="Explore Automation Panels" data-lang-id="Lihat Panel Otomasi">Explore Automation Panels</span>
+                            <span data-lang-en="Explore Automation &amp; Sensors" data-lang-id="Lihat Otomasi &amp; Sensor">Explore Automation &amp; Sensors</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -718,51 +718,53 @@
                     </div>
                 </div>
 
-                <!-- Category 5: Sensors & Industrial Telemetry -->
+                <!-- Category 5: Software (Requested Addition) -->
                 <div
                     class="group relative bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 lg:p-8 flex flex-col justify-between transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 reveal-on-scroll reveal-stagger-2">
                     <div>
                         <div class="flex items-center justify-between mb-5">
                             <div
                                 class="w-12 h-12 rounded-xl sm:rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center group-hover:bg-[#3367A5] group-hover:text-white transition-all duration-300 shadow-sm">
-                                <!-- Hugeicons: activity-01 -->
+                                <!-- Hugeicons: software-window / code -->
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                                    <path
-                                        d="M4.318 19.682C3 18.364 3 16.242 3 12s0-6.364 1.318-7.682S7.758 3 12 3s6.364 0 7.682 1.318S21 7.758 21 12s0 6.364-1.318 7.682S16.242 21 12 21s-6.364 0-7.682-1.318" />
-                                    <path d="m7 14l2.793-2.793a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 0 1.414 0L17 10" />
+                                    <rect width="20" height="14" x="2" y="3" rx="2" />
+                                    <path d="m7 8-2 2 2 2m10-4 2 2-2 2M13 7l-2 6M2 17h20" />
                                 </svg>
                             </div>
-                            <span data-lang-en="Sensors &amp; Telemetry" data-lang-id="Sensor &amp; Telemetri"
+                            <span data-lang-en="Software &amp; IoT" data-lang-id="Software &amp; IoT"
                                 class="text-[11px] font-semibold text-neutral-600 bg-neutral-100 px-3 py-1 rounded-full font-['Questrial',sans-serif]">
-                                Sensors &amp; Telemetry
+                                Software &amp; IoT
                             </span>
                         </div>
-                        <h3 data-lang-en="Sensors &amp; Industrial Telemetry" data-lang-id="Sensor &amp; Telemetri Industri"
+                        <h3 data-lang-en="Software" data-lang-id="Software"
                             class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
-                            Sensors &amp; Industrial Telemetry
+                            Software
                         </h3>
-                        <p data-lang-en="Long-range optical thrubeam sensors, high-precision liquid &amp; gas flowmeters, and real-time telemetry modules for continuous factory process monitoring."
-                           data-lang-id="Sensor optik tembus jarak jauh, flowmeter cairan &amp; gas presisi tinggi, dan modul telemetri real-time untuk pemantauan proses pabrik terus-menerus."
+                        <p data-lang-en="IoT, OEE, Trace &amp; Track, and Vision AI for Industry 4.0."
+                           data-lang-id="IoT, OEE, Trace &amp; Track, dan Vision AI untuk Industri 4.0."
                             class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
-                            Long-range optical thrubeam sensors, high-precision liquid &amp; gas flowmeters, and real-time telemetry modules for continuous factory process monitoring.
+                            IoT, OEE, Trace &amp; Track, and Vision AI for Industry 4.0.
                         </p>
                     </div>
 
                     <div class="mt-6 pt-5 border-t border-neutral-100">
                         <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-                            <span data-lang-en="Thrubeam Optical" data-lang-id="Optik Thrubeam"
-                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Thrubeam
-                                Optical</span>
-                            <span data-lang-en="Fluid Flowmeter" data-lang-id="Flowmeter Cairan"
-                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Fluid
-                                Flowmeter</span>
-                            <span data-lang-en="Edge Telemetry" data-lang-id="Telemetri Edge"
-                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Edge
-                                Telemetry</span>
+                            <span data-lang-en="IoT Monitoring" data-lang-id="Monitoring IoT"
+                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">IoT
+                                Monitoring</span>
+                            <span data-lang-en="OEE Analytics" data-lang-id="Analitik OEE"
+                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">OEE
+                                Analytics</span>
+                            <span data-lang-en="Trace &amp; Track" data-lang-id="Trace &amp; Track"
+                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Trace
+                                &amp; Track</span>
+                            <span data-lang-en="Vision AI" data-lang-id="Vision AI"
+                                class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Vision
+                                AI</span>
                         </div>
                         <a href="{{ route('monitoring') }}"
                             class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#3367A5] transition-colors font-['Questrial',sans-serif]">
-                            <span data-lang-en="Explore Sensor Telemetry" data-lang-id="Lihat Telemetri Sensor">Explore Sensor Telemetry</span>
+                            <span data-lang-en="Explore Software &amp; IoT" data-lang-id="Lihat Software &amp; IoT">Explore Software &amp; IoT</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
