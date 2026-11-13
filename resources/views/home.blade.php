@@ -125,19 +125,19 @@
                     <!-- Technical Sub-Narrative Placed in Lower-Right (Samping Connection Interface, Posisi Semula yang Sudah Benar) -->
                     <div
                         class="hidden md:block absolute bottom-4 lg:bottom-8 right-0 md:translate-x-8 lg:translate-x-12 max-w-[270px] lg:max-w-[310px] text-left pointer-events-auto z-20">
-                        <div data-lang-en="Machine Vision &amp; AI Integration" data-lang-id="Integrasi Machine Vision &amp; AI"
+                        <div data-lang-en="High-Speed Vision Inspection" data-lang-id="Inspeksi Visual Kecepatan Tinggi"
                             class="text-[11px] lg:text-xs font-bold text-gray-900 uppercase tracking-wider font-['Poppins']">
-                            Machine Vision &amp; AI Integration
+                            High-Speed Vision Inspection
                         </div>
-                        <p data-lang-en="Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for 24/7 reliability." data-lang-id="Inspeksi optik sub-mikron, pengemasan otomatis, dan telemetri PLC Tier-1 yang dirancang untuk keandalan 24/7."
+                        <p data-lang-en="Sub-micron optical defect detection, high-speed barcode verification, and automated sorting engineered for 24/7 manufacturing reliability." data-lang-id="Deteksi cacat optik sub-mikron, verifikasi barcode berkecepatan tinggi, dan penyortiran otomatis untuk keandalan produksi 24/7."
                             class="text-[11px] lg:text-xs text-gray-600 font-['Poppins'] leading-relaxed mt-1">
-                            Sub-micron optical inspection, automated packaging, and Tier-1 PLC telemetry engineered for
-                            24/7 reliability.
+                            Sub-micron optical defect detection, high-speed barcode verification, and automated sorting engineered for
+                            24/7 manufacturing reliability.
                         </p>
                         <div class="mt-2.5">
-                            <a href="{{ route('product') }}"
+                            <a href="{{ route('inspection') }}"
                                 class="group inline-flex items-center gap-1.5 text-xs font-semibold text-[#3367A5] hover:text-[#255187] transition font-['Poppins']">
-                                <span data-lang-en="Explore Solutions" data-lang-id="Jelajahi Solusi">Explore Solutions</span>
+                                <span data-lang-en="Explore Vision Systems" data-lang-id="Jelajahi Sistem Vision">Explore Vision Systems</span>
                                 <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
