@@ -141,18 +141,14 @@
 
         /* Project Card Hover Animation */
         .project-card {
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+            transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
         }
         .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.09);
+            box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.09);
             border-color: #3367A5;
         }
-        .project-card:hover .project-card-img {
-            transform: scale(1.05);
-        }
         .project-card-img {
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: none !important;
         }
     </style>
 </head>
