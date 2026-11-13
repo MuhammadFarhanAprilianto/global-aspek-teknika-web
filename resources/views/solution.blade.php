@@ -418,15 +418,15 @@
                     <div class="pt-2">
                         <div class="flex flex-wrap gap-1.5 mb-5">
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Mitsubishi</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Mitsubishi</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Siemens</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Siemens</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Omron</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Omron</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Keyence</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Keyence</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Allen
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Allen
                                 Bradley</span>
                         </div>
 
@@ -509,15 +509,15 @@
                     <div class="pt-2">
                         <div class="flex flex-wrap gap-1.5 mb-5">
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Cognex</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Cognex</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Keyence
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Keyence
                                 Vision</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Python
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Python
                                 OpenCV</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">High-Speed
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">High-Speed
                                 Trigger</span>
                         </div>
 
@@ -600,18 +600,18 @@
                     <div class="pt-2">
                         <div class="flex flex-wrap gap-1.5 mb-5">
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">IoT
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">IoT
                                 Gateway</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">SCADA</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">SCADA</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">MQTT
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">MQTT
                                 / Modbus</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Web
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Web
                                 Dashboard</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">OEE</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">OEE</span>
                         </div>
 
                         <a href="{{ route('monitoring') }}"
@@ -697,16 +697,16 @@
                     <div class="pt-2">
                         <div class="flex flex-wrap gap-1.5 mb-5">
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">SCADA</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">SCADA</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">OPC-UA</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">OPC-UA</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Robotics</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Robotics</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">PLC
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">PLC
                                 Integration</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">EtherCAT</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">EtherCAT</span>
                         </div>
 
                         <a href="{{ route('intergrator') }}"
@@ -792,15 +792,15 @@
                     <div class="pt-2">
                         <div class="flex flex-wrap gap-1.5 mb-5">
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Fiber
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Fiber
                                 Laser</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">CIJ
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">CIJ
                                 Printer</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">DataMatrix</span>
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">DataMatrix</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Barcode
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Barcode
                                 128</span>
                         </div>
 
@@ -887,16 +887,16 @@
                     <div class="pt-2">
                         <div class="flex flex-wrap gap-1.5 mb-5">
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">PP/PET
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">PP/PET
                                 Strapping</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Sealing
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Sealing
                                 Head</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Conveyor
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Conveyor
                                 Sensor</span>
                             <span
-                                class="bg-neutral-900 border border-neutral-800 text-gray-400 text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md">Pallet
+                                class="bg-white border border-neutral-200 text-neutral-900 font-medium text-[10px] sm:text-[11px] font-questrial px-2.5 py-1 rounded-md shadow-xs">Pallet
                                 Loader</span>
                         </div>
 
