@@ -262,7 +262,7 @@
                 <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-1">
                     <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/turnkey_integration.webp') }}" alt="Turnkey System Integration"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
@@ -287,7 +287,7 @@
                 <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-2">
                     <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/plc_programming_ladder.webp') }}" alt="PLC Programming & Retrofitting"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
@@ -312,7 +312,7 @@
                 <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-3">
                     <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/automated_vision_system.webp') }}" alt="Automated Vision & Data Recording"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
@@ -337,7 +337,7 @@
                 <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-4">
                     <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/scada_telemetry_system.webp') }}" alt="Real-Time SCADA & Telemetry"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
@@ -362,7 +362,7 @@
                 <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-5">
                     <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/strapping_panel_system.webp') }}" alt="Industrial Marking & Strapping"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
@@ -387,7 +387,7 @@
                 <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-6">
                     <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/support_after_sales.webp') }}" alt="Dedicated SLA & After-Sales Support"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
