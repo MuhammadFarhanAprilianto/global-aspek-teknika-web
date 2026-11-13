@@ -123,7 +123,7 @@
     </section>
 
     <!-- 2. About Company & Key Impact Stats Section -->
-    <section class="bg-[#000000] text-gray-200 py-20 sm:py-24 lg:py-28 border-b border-neutral-900">
+    <section class="bg-black text-gray-200 py-20 sm:py-24 lg:py-28">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
@@ -230,15 +230,15 @@
     </section>
 
     <!-- 3. Why Choose Us (6 Combined Pillars: Core Solutions + Value Proposition) -->
-    <section class="relative bg-white text-gray-900 pt-24 sm:pt-28 lg:pt-32 pb-24 sm:pb-28 lg:pb-32 border-b border-gray-100 overflow-hidden">
+    <section class="relative bg-white text-gray-900 pt-24 sm:pt-28 lg:pt-32 pb-24 sm:pb-28 lg:pb-32 overflow-hidden">
         <!-- Seamless Smoky Dark Gradient / Shadow Transition from About Company (Black) into Why Choose Us (White) -->
         <div
-            class="absolute top-0 left-0 right-0 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-black via-black/40 to-transparent pointer-events-none z-10">
+            class="absolute top-0 left-0 right-0 h-16 sm:h-20 lg:h-28 bg-gradient-to-b from-black via-black/40 to-transparent pointer-events-none z-10">
         </div>
 
         <!-- Seamless Smoky Dark Gradient Transition from Why Choose Us (White) into How We Work (Black) -->
         <div
-            class="absolute bottom-0 left-0 right-0 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none z-10">
+            class="absolute bottom-0 left-0 right-0 h-16 sm:h-20 lg:h-28 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none z-10">
         </div>
 
         <div class="container mx-auto px-6 sm:px-10 lg:px-20 relative z-10">
@@ -412,7 +412,7 @@
     </section>
 
     <!-- 4. Engineering Workflow (4 Steps) -->
-    <section class="relative bg-black text-white pt-24 sm:pt-28 lg:pt-32 pb-24 sm:pb-28 lg:pb-32 border-b border-neutral-900 overflow-hidden">
+    <section class="relative bg-black text-white pt-24 sm:pt-28 lg:pt-32 pb-24 sm:pb-28 lg:pb-32 overflow-hidden">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20 relative z-10">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
@@ -522,11 +522,17 @@
     </section>
 
     <!-- 5. Trusted By Industry Leaders (23 Client Logos Marquee) -->
-    <section class="bg-white text-gray-900 pt-24 sm:pt-28 lg:pt-32 pb-32 sm:pb-40 lg:pb-48 overflow-hidden border-b border-gray-100 relative">
+    <section class="relative bg-white text-gray-900 pt-24 sm:pt-28 lg:pt-32 pb-32 sm:pb-40 lg:pb-48 overflow-hidden">
         <!-- Seamless Smoky Dark Gradient / Shadow Transition from How We Work (Black) into Clients (White) -->
         <div
-            class="absolute top-0 left-0 right-0 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-black via-black/40 to-transparent pointer-events-none z-10">
+            class="absolute top-0 left-0 right-0 h-16 sm:h-20 lg:h-28 bg-gradient-to-b from-black via-black/40 to-transparent pointer-events-none z-10">
         </div>
+
+        <!-- Seamless Smoky Dark Gradient Transition from Clients (White) into CTA (Black) -->
+        <div
+            class="absolute bottom-0 left-0 right-0 h-16 sm:h-20 lg:h-28 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none z-10">
+        </div>
+
         <div class="container mx-auto px-6 sm:px-10 lg:px-20 text-center mb-12 sm:mb-16 lg:mb-20 reveal-on-scroll">
             <h2 data-lang-en="TRUSTED BY INDUSTRY LEADERS" data-lang-id="DIPERCAYA OLEH PEMIMPIN INDUSTRI"
                 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] tracking-tight">
@@ -539,10 +545,6 @@
                 Leading national manufacturers and multinational enterprises that rely on our industrial automation and systems integration.
             </p>
         </div>
-
-        <!-- Left & Right Gradient Fades for Smooth Screen Transition -->
-        <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-20"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-20"></div>
 
         @php
             $row1Logos = [
@@ -575,48 +577,55 @@
             ];
         @endphp
 
-        <!-- Marquee Container -->
-        <div class="marquee-wrapper space-y-6 sm:space-y-8 overflow-hidden py-4 sm:py-6 select-none reveal-on-scroll reveal-stagger-2">
-            <!-- Row 1: Scrolling Left -->
-            <div class="animate-marquee-left flex items-center gap-6 sm:gap-10">
-                @foreach($row1Logos as $brand)
-                <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0">
-                    <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
-                        class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-75 hover:opacity-100 transition-all duration-300 {{ $brand['class'] ?? '' }}">
-                </div>
-                @endforeach
+        <!-- Marquee Wrapper with Dedicated Left & Right Edge Fades (Scoped strictly to Marquee) -->
+        <div class="relative w-full overflow-hidden">
+            <!-- Left & Right Gradient Fades for Smooth Screen Transition -->
+            <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-20"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-20"></div>
 
-                <!-- Duplicate Row 1 for Infinite Seamless Marquee Loop -->
-                @foreach($row1Logos as $brand)
-                <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0">
-                    <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
-                        class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-75 hover:opacity-100 transition-all duration-300 {{ $brand['class'] ?? '' }}">
-                </div>
-                @endforeach
-            </div>
+            <!-- Marquee Container -->
+            <div class="marquee-wrapper space-y-6 sm:space-y-8 overflow-hidden py-4 sm:py-6 select-none reveal-on-scroll reveal-stagger-2">
+                <!-- Row 1: Scrolling Left -->
+                <div class="animate-marquee-left flex items-center gap-6 sm:gap-10">
+                    @foreach($row1Logos as $brand)
+                    <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0">
+                        <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
+                            class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-75 hover:opacity-100 transition-all duration-300 {{ $brand['class'] ?? '' }}">
+                    </div>
+                    @endforeach
 
-            <!-- Row 2: Scrolling Right -->
-            <div class="animate-marquee-right flex items-center gap-6 sm:gap-10">
-                @foreach($row2Logos as $brand)
-                <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0">
-                    <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
-                        class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-75 hover:opacity-100 transition-all duration-300 {{ $brand['class'] ?? '' }}">
+                    <!-- Duplicate Row 1 for Infinite Seamless Marquee Loop -->
+                    @foreach($row1Logos as $brand)
+                    <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0">
+                        <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
+                            class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-75 hover:opacity-100 transition-all duration-300 {{ $brand['class'] ?? '' }}">
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
 
-                <!-- Duplicate Row 2 for Infinite Seamless Marquee Loop -->
-                @foreach($row2Logos as $brand)
-                <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0">
-                    <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
-                        class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-75 hover:opacity-100 transition-all duration-300 {{ $brand['class'] ?? '' }}">
+                <!-- Row 2: Scrolling Right -->
+                <div class="animate-marquee-right flex items-center gap-6 sm:gap-10">
+                    @foreach($row2Logos as $brand)
+                    <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0">
+                        <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
+                            class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-75 hover:opacity-100 transition-all duration-300 {{ $brand['class'] ?? '' }}">
+                    </div>
+                    @endforeach
+
+                    <!-- Duplicate Row 2 for Infinite Seamless Marquee Loop -->
+                    @foreach($row2Logos as $brand)
+                    <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0">
+                        <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
+                            class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-75 hover:opacity-100 transition-all duration-300 {{ $brand['class'] ?? '' }}">
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </div>
     </section>
 
     <!-- 6. Call To Action (Bottom Clean Industrial Banner) -->
-    <section class="bg-black text-white py-20 sm:py-24 lg:py-28 border-t border-neutral-900">
+    <section class="bg-black text-white py-20 sm:py-24 lg:py-28">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-4xl mx-auto text-center reveal-on-scroll">
                 <h2 data-lang-en="Ready to Elevate Your Plant’s Productivity?" data-lang-id="Siap Meningkatkan Produktivitas Pabrik Anda?"
