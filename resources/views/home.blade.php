@@ -518,7 +518,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Industrial Strapping &amp; Packaging" data-lang-id="Strapping &amp; Pengemasan Industri"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-start">
                             Industrial Strapping &amp; Packaging
                         </h3>
                         <p data-lang-en="Heavy-duty battery-powered friction welders (V2 3200N), pneumatic strapping sealers (A25), and high-tension pneumatic steel strap tools (KZ-19 8,500N)."
@@ -574,7 +574,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Vision &amp; Auto-Inspection" data-lang-id="Sistem Visi &amp; Auto-Inspeksi"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-start">
                             Vision &amp; Auto-Inspection
                         </h3>
                         <p data-lang-en="Sub-micron multi-angle dimensional measurement systems (±0.001 mm accuracy) and high-speed 1D/2D optical barcode readers for automated inline QC."
@@ -629,7 +629,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Industrial Coding &amp; Marking" data-lang-id="Pencetakan Kode &amp; Penandaan Industri"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-start">
                             Industrial Coding &amp; Marking
                         </h3>
                         <p data-lang-en="High-speed Thermal Inkjet (TIJ G0510) printers and industrial laser marking for non-contact lot batch codes, expiry dates, and 2D serialization."
@@ -684,7 +684,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="PLC, Sensors &amp; Control Automation" data-lang-id="Otomasi PLC, Sensor &amp; Kontrol"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-start">
                             PLC, Sensors &amp; Control Automation
                         </h3>
                         <p data-lang-en="Custom electrical control panels, multi-brand PLC programming (Siemens, Mitsubishi, Omron), precision process sensors, and synchronized HMI motion control."
@@ -737,7 +737,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Software" data-lang-id="Software"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-start">
                             Software
                         </h3>
                         <p data-lang-en="Enterprise IoT telemetry dashboards, real-time OEE line analytics, batch serialization trace &amp; track, and edge Vision AI algorithms engineered for Industry 4.0 smart factory integration."
@@ -795,7 +795,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Mechanical &amp; Conveyor Integration" data-lang-id="Integrasi Mekanikal &amp; Konveyor"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-start">
                             Mechanical &amp; Conveyor Integration
                         </h3>
                         <p data-lang-en="Precision anti-slip textured conveyor rollers, wear-resistant mechanical components, and turnkey automated modular conveyor line engineering."
