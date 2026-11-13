@@ -740,10 +740,10 @@
                             class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
                             Software
                         </h3>
-                        <p data-lang-en="IoT, OEE, Trace &amp; Track, and Vision AI for Industry 4.0."
-                           data-lang-id="IoT, OEE, Trace &amp; Track, dan Vision AI untuk Industri 4.0."
+                        <p data-lang-en="Enterprise IoT telemetry dashboards, real-time OEE line analytics, batch serialization trace &amp; track, and edge Vision AI algorithms engineered for Industry 4.0 smart factory integration."
+                           data-lang-id="Dashboard telemetri IoT enterprise, analitik OEE lini produksi real-time, serialisasi batch trace &amp; track, serta algoritma Vision AI edge untuk integrasi pabrik pintar Industri 4.0."
                             class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
-                            IoT, OEE, Trace &amp; Track, and Vision AI for Industry 4.0.
+                            Enterprise IoT telemetry dashboards, real-time OEE line analytics, batch serialization trace &amp; track, and edge Vision AI algorithms engineered for Industry 4.0 smart factory integration.
                         </p>
                     </div>
 
