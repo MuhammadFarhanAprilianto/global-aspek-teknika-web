@@ -17,13 +17,13 @@
       <div class="w-full max-w-xs px-2 py-3 bg-gray-50/70 border border-gray-100 rounded-2xl">
         <div class="grid grid-cols-2 gap-y-2.5 gap-x-4 text-xs font-medium text-gray-700">
           <div class="flex flex-col items-start pl-4 space-y-2 text-left">
-            <a href="{{ route('home') }}" class="hover:text-red-600 transition-colors">Home</a>
-            <a href="{{ route('about') }}" class="hover:text-red-600 transition-colors">About Us</a>
-            <a href="{{ route('product') }}" class="hover:text-red-600 transition-colors">Products</a>
+            <a href="{{ route('home') }}" data-lang-en="Home" data-lang-id="Beranda" class="hover:text-red-600 transition-colors">Home</a>
+            <a href="{{ route('about') }}" data-lang-en="About Us" data-lang-id="Tentang Kami" class="hover:text-red-600 transition-colors">About Us</a>
+            <a href="{{ route('product') }}" data-lang-en="Products" data-lang-id="Produk" class="hover:text-red-600 transition-colors">Products</a>
           </div>
           <div class="flex flex-col items-start pl-2 space-y-2 text-left">
-            <a href="{{ route('solution') }}" class="hover:text-red-600 transition-colors">Solutions</a>
-            <a href="{{ route('contact') }}" class="hover:text-red-600 transition-colors">Contact Us</a>
+            <a href="{{ route('solution') }}" data-lang-en="Solutions" data-lang-id="Solusi" class="hover:text-red-600 transition-colors">Solutions</a>
+            <a href="{{ route('contact') }}" data-lang-en="Contact Us" data-lang-id="Kontak Kami" class="hover:text-red-600 transition-colors">Contact Us</a>
           </div>
         </div>
       </div>
@@ -35,14 +35,14 @@
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
           </svg>
-          <span>Connect on LinkedIn</span>
+          <span data-lang-en="Connect on LinkedIn" data-lang-id="Terhubung di LinkedIn">Connect on LinkedIn</span>
         </a>
       </div>
 
       <!-- 4. Bottom: Copyright -->
       <div class="pt-2 border-t border-gray-100 w-full text-center">
         <p class="text-[11px] text-gray-400">
-          &copy; {{ date('Y') }} PT. Global Aspect Technology. All rights reserved.
+          &copy; {{ date('Y') }} PT. Global Aspect Technology. <span data-lang-en="All rights reserved." data-lang-id="Semua hak dilindungi.">All rights reserved.</span>
         </p>
       </div>
     </div>
@@ -59,11 +59,11 @@
       <!-- Links -->
       <div>
         <ul class="flex items-center gap-6 lg:gap-10 text-base lg:text-[18px] font-normal text-gray-700">
-          <li><a href="{{ route('home') }}" class="hover:text-red-600 transition-colors duration-200">Home</a></li>
-          <li><a href="{{ route('about') }}" class="hover:text-red-600 transition-colors duration-200">About Us</a></li>
-          <li><a href="{{ route('product') }}" class="hover:text-red-600 transition-colors duration-200">Products</a></li>
-          <li><a href="{{ route('solution') }}" class="hover:text-red-600 transition-colors duration-200">Solution</a></li>
-          <li><a href="{{ route('contact') }}" class="hover:text-red-600 transition-colors duration-200">Contact Us</a></li>
+          <li><a href="{{ route('home') }}" data-lang-en="Home" data-lang-id="Beranda" class="hover:text-red-600 transition-colors duration-200">Home</a></li>
+          <li><a href="{{ route('about') }}" data-lang-en="About Us" data-lang-id="Tentang Kami" class="hover:text-red-600 transition-colors duration-200">About Us</a></li>
+          <li><a href="{{ route('product') }}" data-lang-en="Products" data-lang-id="Produk" class="hover:text-red-600 transition-colors duration-200">Products</a></li>
+          <li><a href="{{ route('solution') }}" data-lang-en="Solution" data-lang-id="Solusi" class="hover:text-red-600 transition-colors duration-200">Solution</a></li>
+          <li><a href="{{ route('contact') }}" data-lang-en="Contact Us" data-lang-id="Kontak Kami" class="hover:text-red-600 transition-colors duration-200">Contact Us</a></li>
         </ul>
       </div>
 

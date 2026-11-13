@@ -61,6 +61,35 @@ Route::get('/verify-invoice/{uuid}/{hash}', [CheckoutController::class, 'verify'
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send']);
 
+// About Us Sub-Pages (Separated Views: Vision & Mission, Applications, Projects)
+Route::get('/vision-mission', function () {
+    return view('vision-mission');
+})->name('vision-mission');
+
+Route::get('/application', function () {
+    return view('application');
+})->name('application');
+
+Route::get('/projects', function () {
+    return view('projects');
+})->name('projects');
+
+Route::get('/project', function () {
+    return redirect()->route('projects');
+});
+
+Route::get('/about/vision-mission', function () {
+    return redirect()->route('vision-mission');
+});
+
+Route::get('/about/application', function () {
+    return redirect()->route('application');
+});
+
+Route::get('/about/projects', function () {
+    return redirect()->route('projects');
+});
+
 // Solution Sub-Pages
 Route::get('/plc-progamming', function () {
     return view('plc-progamming');

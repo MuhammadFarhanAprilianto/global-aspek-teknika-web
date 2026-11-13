@@ -114,7 +114,7 @@
         </div>
 
         <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
-            <h1
+            <h1 data-lang-en="COMPANY PROFILE" data-lang-id="PROFIL PERUSAHAAN"
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-bold uppercase font-['Questrial',sans-serif] tracking-wider text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 COMPANY PROFILE
             </h1>
@@ -127,11 +127,14 @@
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir']">
+                <h2 data-lang-en="ABOUT COMPANY" data-lang-id="TENTANG PERUSAHAAN"
+                    class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir']">
                     ABOUT COMPANY
                 </h2>
                 <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
-                <p class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
+                <p data-lang-en="Bridging advanced control technology with real-world production line needs to create manufacturing processes that are more efficient, precise, and highly competitive."
+                   data-lang-id="Menjembatani teknologi kontrol canggih dengan kebutuhan nyata lini produksi untuk menciptakan proses manufaktur yang lebih efisien, presisi, dan berdaya saing tinggi."
+                    class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
                     Bridging advanced control technology with real-world production line needs to create manufacturing processes that are more efficient, precise, and highly competitive.
                 </p>
             </div>
@@ -139,13 +142,19 @@
             <!-- Story & Overview (2 Balanced Columns) -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center mb-16 lg:mb-20">
                 <div class="space-y-5 text-gray-300 text-base sm:text-lg leading-relaxed font-['Questrial'] reveal-on-scroll reveal-stagger-1 text-justify">
-                    <p class="text-justify">
+                    <p class="text-justify"
+                       data-lang-en="&lt;strong class=&quot;text-white font-medium&quot;&gt;PT. Global Aspect Technology&lt;/strong&gt;, established in 2017, is a company that focuses on providing integrated systems for various industries, both manufacturing and non-industrial, from small to large scale. Since our inception, we have been committed to providing the best and most innovative solutions to meet the needs of system automation, software development, monitoring, and control of production processes."
+                       data-lang-id="&lt;strong class=&quot;text-white font-medium&quot;&gt;PT. Global Aspect Technology&lt;/strong&gt;, didirikan pada tahun 2017, merupakan perusahaan yang berfokus dalam penyediaan sistem terintegrasi untuk berbagai sektor industri, baik manufaktur maupun non-industri, dari skala kecil hingga besar. Sejak awal berdiri, kami berkomitmen menghadirkan solusi terbaik dan inovatif untuk menjawab kebutuhan otomasi sistem, pengembangan perangkat lunak, pemantauan, serta pengendalian proses produksi.">
                         <strong class="text-white font-medium">PT. Global Aspect Technology</strong>, established in 2017, is a company that focuses on providing integrated systems for various industries, both manufacturing and non-industrial, from small to large scale. Since our inception, we have been committed to providing the best and most innovative solutions to meet the needs of system automation, software development, monitoring, and control of production processes.
                     </p>
-                    <p class="text-justify">
+                    <p class="text-justify"
+                       data-lang-en="We understand the importance of efficiency, productivity, and quality in every business process. Therefore, we put forward technology that is not only advanced, but also customizable to each client's specific needs. With extensive experience in various industrial sectors, we continue to innovate to provide timely, reliable, and cost-effective solutions."
+                       data-lang-id="Kami memahami pentingnya efisiensi, produktivitas, dan kualitas di setiap proses bisnis. Oleh karena itu, kami mengedepankan teknologi yang tidak hanya canggih, namun juga dapat dikustomisasi sesuai kebutuhan spesifik setiap klien. Berbekal pengalaman luas di berbagai sektor industri, kami terus berinovasi untuk memberikan solusi yang tepat waktu, andal, dan hemat biaya.">
                         We understand the importance of efficiency, productivity, and quality in every business process. Therefore, we put forward technology that is not only advanced, but also customizable to each client's specific needs. With extensive experience in various industrial sectors, we continue to innovate to provide timely, reliable, and cost-effective solutions.
                     </p>
-                    <p class="text-justify">
+                    <p class="text-justify"
+                       data-lang-en="With a team of experienced professionals, PT. Global Aspect Technology is ready to be your reliable partner in facing the challenges of an ever-evolving industry. We are committed to continuously innovate and adapt to market needs, ensuring every solution we offer has added value to your business."
+                       data-lang-id="Didukung oleh tim profesional yang berpengalaman, PT. Global Aspect Technology siap menjadi mitra tepercaya Anda dalam menghadapi tantangan industri yang terus berkembang. Kami berkomitmen untuk terus berinovasi dan beradaptasi dengan kebutuhan pasar, memastikan setiap solusi yang kami hadirkan memberikan nilai tambah nyata bagi bisnis Anda.">
                         With a team of experienced professionals, PT. Global Aspect Technology is ready to be your reliable partner in facing the challenges of an ever-evolving industry. We are committed to continuously innovate and adapt to market needs, ensuring every solution we offer has added value to your business.
                     </p>
                 </div>
@@ -157,10 +166,13 @@
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] tracking-tight">
                             2017
                         </div>
-                        <div class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
+                        <div data-lang-en="Year Established" data-lang-id="Tahun Berdiri"
+                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
                             Year Established
                         </div>
-                        <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed text-justify">
+                        <p data-lang-en="Over 8 years of industrial automation engineering experience across Indonesia."
+                           data-lang-id="Lebih dari 8 tahun pengalaman rekayasa otomasi industri di seluruh Indonesia."
+                            class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed text-justify">
                             Over 8 years of industrial automation engineering experience across Indonesia.
                         </p>
                     </div>
@@ -170,10 +182,13 @@
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] tracking-tight">
                             150+
                         </div>
-                        <div class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
+                        <div data-lang-en="Projects Delivered" data-lang-id="Proyek Selesai"
+                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
                             Projects Delivered
                         </div>
-                        <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed text-justify">
+                        <p data-lang-en="Proven PLC, SCADA, quality inspection, and packaging conveyor integrations."
+                           data-lang-id="Integrasi PLC, SCADA, inspeksi kualitas, dan konveyor pengemasan yang terbukti andal."
+                            class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed text-justify">
                             Proven PLC, SCADA, quality inspection, and packaging conveyor integrations.
                         </p>
                     </div>
@@ -183,10 +198,13 @@
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] tracking-tight">
                             20+
                         </div>
-                        <div class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
+                        <div data-lang-en="Enterprise Clients" data-lang-id="Klien Korporasi"
+                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
                             Enterprise Clients
                         </div>
-                        <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed text-justify">
+                        <p data-lang-en="Trusted by leading national manufacturers and multinational industrial giants."
+                           data-lang-id="Dipercaya oleh produsen nasional terkemuka dan raksasa industri multinasional."
+                            class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed text-justify">
                             Trusted by leading national manufacturers and multinational industrial giants.
                         </p>
                     </div>
@@ -196,10 +214,13 @@
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] tracking-tight">
                             100%
                         </div>
-                        <div class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
+                        <div data-lang-en="Custom &amp; SLA Support" data-lang-id="Kustom &amp; Dukungan SLA"
+                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
                             Custom &amp; SLA Support
                         </div>
-                        <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed text-justify">
+                        <p data-lang-en="Tailored engineering designs backed by responsive after-sales service guarantees."
+                           data-lang-id="Desain rekayasa khusus yang didukung jaminan layanan purnajual yang responsif."
+                            class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed text-justify">
                             Tailored engineering designs backed by responsive after-sales service guarantees.
                         </p>
                     </div>
@@ -208,156 +229,29 @@
         </div>
     </section>
 
-    <!-- 3. Vision, Mission & Core Values Section -->
-    <section class="bg-white text-gray-900 py-20 sm:py-24 lg:py-28 border-b border-gray-100">
-        <div class="container mx-auto px-6 sm:px-10 lg:px-20">
-            <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir']">
-                    VISION &amp; MISSION
-                </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
-                <p class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial']">
-                    Our enduring commitment to providing the highest quality integrated solutions and dependable after-sales services for every client's needs.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                <!-- Vision Card (5 Columns) -->
-                <div class="lg:col-span-5 bg-neutral-900 text-white p-8 sm:p-10 rounded-2xl flex flex-col justify-between reveal-on-scroll reveal-stagger-1 shadow-sm">
-                    <div>
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-xs font-semibold tracking-wider uppercase text-gray-300 mb-6">
-                            Vision
-                        </div>
-                        <h3 class="text-2xl sm:text-3xl font-bold font-['Agrandir'] text-white uppercase tracking-wide">
-                            OUR VISION
-                        </h3>
-                        <p class="text-base sm:text-lg text-gray-300 font-['Questrial'] leading-relaxed mt-5 text-justify">
-                            To become a trusted industrial system integration company in Indonesia and provide the best guarantee of every solution provided for consumer needs.
-                        </p>
-                    </div>
-
-                    <div class="pt-8 border-t border-neutral-800 mt-8">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center font-bold text-lg shrink-0">
-                                &check;
-                            </div>
-                            <div class="text-xs sm:text-sm text-gray-400 text-justify">
-                                Dedicated to quality assurance, technological excellence, and reliable industrial solutions.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mission Card (7 Columns) -->
-                <div class="lg:col-span-7 bg-gray-50 border border-gray-200/80 p-8 sm:p-10 rounded-2xl flex flex-col justify-between reveal-on-scroll reveal-stagger-2">
-                    <div>
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200 text-xs font-semibold tracking-wider uppercase text-red-700 mb-6">
-                            Mission
-                        </div>
-                        <h3 class="text-2xl sm:text-3xl font-bold font-['Agrandir'] text-gray-900 uppercase tracking-wide">
-                            OUR MISSION
-                        </h3>
-                        <p class="text-base sm:text-lg text-gray-700 font-['Questrial'] leading-relaxed mt-5 text-justify">
-                            Competence development of each of our employees, to always be able to provide services to consumer needs and provide the best after-sales support services to consumers.
-                        </p>
-
-                        <div class="space-y-5 mt-8 pt-6 border-t border-gray-200/70">
-                            <!-- Pillar 1 -->
-                            <div class="flex items-start gap-4">
-                                <div class="w-8 h-8 rounded-lg bg-black text-white shrink-0 flex items-center justify-center font-bold text-xs mt-0.5">
-                                    01
-                                </div>
-                                <div>
-                                    <h4 class="text-base sm:text-lg font-bold text-gray-950 font-['Agrandir']">
-                                        Client-Centric Solutions
-                                    </h4>
-                                    <p class="text-sm sm:text-base text-gray-600 font-['Questrial'] mt-1 leading-relaxed text-justify">
-                                        Understanding each client's unique operational challenges and delivering precise, customizable technology.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Pillar 2 -->
-                            <div class="flex items-start gap-4">
-                                <div class="w-8 h-8 rounded-lg bg-black text-white shrink-0 flex items-center justify-center font-bold text-xs mt-0.5">
-                                    02
-                                </div>
-                                <div>
-                                    <h4 class="text-base sm:text-lg font-bold text-gray-950 font-['Agrandir']">
-                                        Employee Competence &amp; Skill Development
-                                    </h4>
-                                    <p class="text-sm sm:text-base text-gray-600 font-['Questrial'] mt-1 leading-relaxed text-justify">
-                                        Constantly enhancing the specialized engineering skills of our team to drive continuous service excellence.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Pillar 3 -->
-                            <div class="flex items-start gap-4">
-                                <div class="w-8 h-8 rounded-lg bg-black text-white shrink-0 flex items-center justify-center font-bold text-xs mt-0.5">
-                                    03
-                                </div>
-                                <div>
-                                    <h4 class="text-base sm:text-lg font-bold text-gray-950 font-['Agrandir']">
-                                        Best-in-Class After-Sales Support
-                                    </h4>
-                                    <p class="text-sm sm:text-base text-gray-600 font-['Questrial'] mt-1 leading-relaxed text-justify">
-                                        Ensuring ongoing reliability and lasting value through dedicated technical assistance and maintenance.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Core Values Row (4 Clean Cards) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-                <div class="p-6 rounded-xl border border-gray-200 bg-white shadow-xs reveal-on-scroll reveal-stagger-1">
-                    <div class="text-red-600 font-bold text-sm tracking-wider uppercase mb-1">Value 01</div>
-                    <div class="text-lg font-bold text-gray-900 font-['Agrandir']">Lasting Partnerships</div>
-                    <p class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2 leading-relaxed text-justify">
-                        Maintain excellent service to foster lasting partnerships with our customers and clients.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl border border-gray-200 bg-white shadow-xs reveal-on-scroll reveal-stagger-2">
-                    <div class="text-red-600 font-bold text-sm tracking-wider uppercase mb-1">Value 02</div>
-                    <div class="text-lg font-bold text-gray-900 font-['Agrandir']">Kindness &amp; Trust</div>
-                    <p class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2 leading-relaxed text-justify">
-                        Believe in treating our customers with kindness, mutual respect, and enduring trust.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl border border-gray-200 bg-white shadow-xs reveal-on-scroll reveal-stagger-3">
-                    <div class="text-red-600 font-bold text-sm tracking-wider uppercase mb-1">Value 03</div>
-                    <div class="text-lg font-bold text-gray-900 font-['Agrandir']">Creativity &amp; Innovation</div>
-                    <p class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2 leading-relaxed text-justify">
-                        Continue to grow and lead by actively embracing creativity, innovation, and technological evolution.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl border border-gray-200 bg-white shadow-xs reveal-on-scroll reveal-stagger-4">
-                    <div class="text-red-600 font-bold text-sm tracking-wider uppercase mb-1">Value 04</div>
-                    <div class="text-lg font-bold text-gray-900 font-['Agrandir']">Team Development</div>
-                    <p class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2 leading-relaxed text-justify">
-                        Constantly enhance the skills of our dedicated team to drive service development and excellence.
-                    </p>
-                </div>
-            </div>
+    <!-- 3. Why Choose Us (6 Combined Pillars: Core Solutions + Value Proposition) -->
+    <section class="relative bg-white text-gray-900 pt-24 sm:pt-28 lg:pt-32 pb-24 sm:pb-28 lg:pb-32 border-b border-gray-100 overflow-hidden">
+        <!-- Seamless Smoky Dark Gradient / Shadow Transition from About Company (Black) into Why Choose Us (White) -->
+        <div
+            class="absolute top-0 left-0 right-0 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-black via-black/40 to-transparent pointer-events-none z-10">
         </div>
-    </section>
 
-    <!-- 4. Why Choose Us (6 Combined Pillars: Core Solutions + Value Proposition) -->
-    <section class="bg-neutral-950 text-white py-20 sm:py-24 lg:py-28 border-b border-neutral-900">
-        <div class="container mx-auto px-6 sm:px-10 lg:px-20">
+        <!-- Seamless Smoky Dark Gradient Transition from Why Choose Us (White) into How We Work (Black) -->
+        <div
+            class="absolute bottom-0 left-0 right-0 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none z-10">
+        </div>
+
+        <div class="container mx-auto px-6 sm:px-10 lg:px-20 relative z-10">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir']">
+                <h2 data-lang-en="WHY CHOOSE US" data-lang-id="MENGAPA MEMILIH KAMI"
+                    class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir']">
                     WHY CHOOSE US
                 </h2>
                 <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
-                <p class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
+                <p data-lang-en="Combining tailored engineering integration, proven industrial solutions, and dependable after-sales guarantees for manufacturing facilities across Indonesia."
+                   data-lang-id="Menggabungkan integrasi rekayasa khusus, solusi industri yang terbukti, dan jaminan purnajual tepercaya untuk fasilitas manufaktur di seluruh Indonesia."
+                    class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial']">
                     Combining tailored engineering integration, proven industrial solutions, and dependable after-sales guarantees for manufacturing facilities across Indonesia.
                 </p>
             </div>
@@ -365,20 +259,24 @@
             <!-- 6 Feature Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Card 1: Turnkey System Integration -->
-                <div class="group bg-neutral-900 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col reveal-on-scroll reveal-stagger-1">
-                    <div class="w-full h-56 overflow-hidden bg-neutral-950 relative">
+                <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-1">
+                    <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/turnkey_integration.webp') }}" alt="Turnkey System Integration"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-neutral-800 text-gray-300 text-xs rounded-full font-medium mb-3">
+                            <span data-lang-en="Robotics &amp; Material Flow" data-lang-id="Robotika &amp; Aliran Material"
+                                class="inline-block px-3 py-1 bg-gray-100 border border-gray-200/70 text-gray-700 text-xs rounded-full font-medium mb-3">
                                 Robotics &amp; Material Flow
                             </span>
-                            <h3 class="text-lg sm:text-xl font-bold text-white font-['Agrandir'] group-hover:text-red-500 transition-colors">
+                            <h3 data-lang-en="Turnkey System Integration" data-lang-id="Integrasi Sistem Siap Pakai"
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
                                 Turnkey System Integration
                             </h3>
-                            <p class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                            <p data-lang-en="Custom robotic workcells, material handling conveyors, and end-to-end plant automation engineered to accelerate throughput and eliminate production bottlenecks."
+                               data-lang-id="Sel kerja robotik kustom, konveyor penanganan material, dan otomasi pabrik menyeluruh yang direkayasa untuk mempercepat laju output dan mengeliminasi kendala produksi."
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
                                 Custom robotic workcells, material handling conveyors, and end-to-end plant automation engineered to accelerate throughput and eliminate production bottlenecks.
                             </p>
                         </div>
@@ -386,20 +284,24 @@
                 </div>
 
                 <!-- Card 2: PLC Programming & Retrofitting -->
-                <div class="group bg-neutral-900 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col reveal-on-scroll reveal-stagger-2">
-                    <div class="w-full h-56 overflow-hidden bg-neutral-950 relative">
+                <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-2">
+                    <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/plc_programming_ladder.webp') }}" alt="PLC Programming & Retrofitting"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-neutral-800 text-gray-300 text-xs rounded-full font-medium mb-3">
+                            <span data-lang-en="Machine Control Systems" data-lang-id="Sistem Kontrol Mesin"
+                                class="inline-block px-3 py-1 bg-gray-100 border border-gray-200/70 text-gray-700 text-xs rounded-full font-medium mb-3">
                                 Machine Control Systems
                             </span>
-                            <h3 class="text-lg sm:text-xl font-bold text-white font-['Agrandir'] group-hover:text-red-500 transition-colors">
+                            <h3 data-lang-en="PLC Programming &amp; Retrofitting" data-lang-id="Pemrograman &amp; Retrofit PLC"
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
                                 PLC Programming &amp; Retrofitting
                             </h3>
-                            <p class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                            <p data-lang-en="Developing new PLC logic, modifying existing machine sequences, and replacing obsolete control panels across top industrial brands including Mitsubishi, Omron, and Siemens."
+                               data-lang-id="Mengembangkan logika PLC baru, memodifikasi sekuens mesin eksisting, dan memperbarui panel kontrol usang pada berbagai merek industri terkemuka seperti Mitsubishi, Omron, dan Siemens."
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
                                 Developing new PLC logic, modifying existing machine sequences, and replacing obsolete control panels across top industrial brands including Mitsubishi, Omron, and Siemens.
                             </p>
                         </div>
@@ -407,20 +309,24 @@
                 </div>
 
                 <!-- Card 3: Automated Vision & Data Recording -->
-                <div class="group bg-neutral-900 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col reveal-on-scroll reveal-stagger-3">
-                    <div class="w-full h-56 overflow-hidden bg-neutral-950 relative">
+                <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-3">
+                    <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/automated_vision_system.webp') }}" alt="Automated Vision & Data Recording"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-neutral-800 text-gray-300 text-xs rounded-full font-medium mb-3">
+                            <span data-lang-en="Automated Quality Control" data-lang-id="Kontrol Kualitas Otomatis"
+                                class="inline-block px-3 py-1 bg-gray-100 border border-gray-200/70 text-gray-700 text-xs rounded-full font-medium mb-3">
                                 Automated Quality Control
                             </span>
-                            <h3 class="text-lg sm:text-xl font-bold text-white font-['Agrandir'] group-hover:text-red-500 transition-colors">
+                            <h3 data-lang-en="Automated Vision &amp; Data Recording" data-lang-id="Sistem Visi &amp; Perekaman Data Otomatis"
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
                                 Automated Vision &amp; Data Recording
                             </h3>
-                            <p class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                            <p data-lang-en="High-speed optical inspection cameras for automated 1D/2D barcode tracking, dimensional verification, and automated reject mechanisms ensuring zero defective products escape."
+                               data-lang-id="Kamera inspeksi optik berkecepatan tinggi untuk pelacakan barcode 1D/2D otomatis, verifikasi dimensi, dan mekanisme reject otomatis guna menjamin nol cacat lolos."
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
                                 High-speed optical inspection cameras for automated 1D/2D barcode tracking, dimensional verification, and automated reject mechanisms ensuring zero defective products escape.
                             </p>
                         </div>
@@ -428,20 +334,24 @@
                 </div>
 
                 <!-- Card 4: SCADA & Monitoring -->
-                <div class="group bg-neutral-900 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col reveal-on-scroll reveal-stagger-4">
-                    <div class="w-full h-56 overflow-hidden bg-neutral-950 relative">
+                <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-4">
+                    <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/scada_telemetry_system.webp') }}" alt="Real-Time SCADA & Telemetry"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-neutral-800 text-gray-300 text-xs rounded-full font-medium mb-3">
+                            <span data-lang-en="Plant Telemetry &amp; IoT" data-lang-id="Telemetri Pabrik &amp; IoT"
+                                class="inline-block px-3 py-1 bg-gray-100 border border-gray-200/70 text-gray-700 text-xs rounded-full font-medium mb-3">
                                 Plant Telemetry &amp; IoT
                             </span>
-                            <h3 class="text-lg sm:text-xl font-bold text-white font-['Agrandir'] group-hover:text-red-500 transition-colors">
+                            <h3 data-lang-en="Real-Time SCADA &amp; Telemetry" data-lang-id="SCADA &amp; Telemetri Real-Time"
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
                                 Real-Time SCADA &amp; Telemetry
                             </h3>
-                            <p class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                            <p data-lang-en="Centralized visualization of all machine statuses and production lines with automated shift data logging directly to SQL/MES, delivering complete paperless traceability."
+                               data-lang-id="Visualisasi terpusat untuk status seluruh mesin dan lini produksi disertai pencatatan data shift otomatis langsung ke SQL/MES, mewujudkan pelacakan nirkertas secara penuh."
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
                                 Centralized visualization of all machine statuses and production lines with automated shift data logging directly to SQL/MES, delivering complete paperless traceability.
                             </p>
                         </div>
@@ -449,20 +359,24 @@
                 </div>
 
                 <!-- Card 5: Laser Marking & Strapping -->
-                <div class="group bg-neutral-900 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col reveal-on-scroll reveal-stagger-5">
-                    <div class="w-full h-56 overflow-hidden bg-neutral-950 relative">
+                <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-5">
+                    <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/strapping_panel_system.webp') }}" alt="Industrial Marking & Strapping"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-neutral-800 text-gray-300 text-xs rounded-full font-medium mb-3">
+                            <span data-lang-en="Traceability &amp; Packaging" data-lang-id="Pelacakan &amp; Pengemasan"
+                                class="inline-block px-3 py-1 bg-gray-100 border border-gray-200/70 text-gray-700 text-xs rounded-full font-medium mb-3">
                                 Traceability &amp; Packaging
                             </span>
-                            <h3 class="text-lg sm:text-xl font-bold text-white font-['Agrandir'] group-hover:text-red-500 transition-colors">
+                            <h3 data-lang-en="Industrial Marking &amp; Strapping" data-lang-id="Penandaan &amp; Strapping Industri"
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
                                 Industrial Marking &amp; Strapping
                             </h3>
-                            <p class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                            <p data-lang-en="High-speed batch coding and carton/pallet strapping solutions—featuring Thermal Inkjet (TIJ) printers, fiber laser markers, and heavy-duty battery or pneumatic strapping tools."
+                               data-lang-id="Solusi pengkodean batch cepat dan pengikatan karton/palet—dilengkapi printer Thermal Inkjet (TIJ), penanda laser serat, serta alat strapping bertenaga baterai atau pneumatik tugas berat."
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
                                 High-speed batch coding and carton/pallet strapping solutions—featuring Thermal Inkjet (TIJ) printers, fiber laser markers, and heavy-duty battery or pneumatic strapping tools.
                             </p>
                         </div>
@@ -470,20 +384,24 @@
                 </div>
 
                 <!-- Card 6: Dedicated SLA & After-Sales Support -->
-                <div class="group bg-neutral-900 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col reveal-on-scroll reveal-stagger-6">
-                    <div class="w-full h-56 overflow-hidden bg-neutral-950 relative">
+                <div class="group bg-white rounded-2xl border border-gray-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:border-gray-300 transition-all duration-300 flex flex-col overflow-hidden reveal-on-scroll reveal-stagger-6">
+                    <div class="w-full h-56 overflow-hidden bg-gray-100 relative">
                         <img src="{{ asset('storage/support_after_sales.webp') }}" alt="Dedicated SLA & After-Sales Support"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-neutral-800 text-gray-300 text-xs rounded-full font-medium mb-3">
+                            <span data-lang-en="Engineering Excellence" data-lang-id="Keunggulan Rekayasa"
+                                class="inline-block px-3 py-1 bg-gray-100 border border-gray-200/70 text-gray-700 text-xs rounded-full font-medium mb-3">
                                 Engineering Excellence
                             </span>
-                            <h3 class="text-lg sm:text-xl font-bold text-white font-['Agrandir'] group-hover:text-red-500 transition-colors">
+                            <h3 data-lang-en="Dedicated SLA &amp; After-Sales Support" data-lang-id="SLA Khusus &amp; Dukungan Purnajual"
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
                                 Dedicated SLA &amp; After-Sales Support
                             </h3>
-                            <p class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                            <p data-lang-en="Rapid-response on-site engineering maintenance, readily available spare parts, and dependable technical guarantees to safeguard your facility from costly unplanned downtime."
+                               data-lang-id="Pemeliharaan teknis di lokasi yang responsif cepat, ketersediaan suku cadang siap pakai, dan jaminan teknis andal untuk melindungi fasilitas Anda dari risiko downtime yang merugikan."
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
                                 Rapid-response on-site engineering maintenance, readily available spare parts, and dependable technical guarantees to safeguard your facility from costly unplanned downtime.
                             </p>
                         </div>
@@ -493,16 +411,19 @@
         </div>
     </section>
 
-    <!-- 5. Engineering Workflow (4 Steps) -->
-    <section class="bg-white text-gray-900 py-20 sm:py-24 lg:py-28 border-b border-gray-100">
-        <div class="container mx-auto px-6 sm:px-10 lg:px-20">
+    <!-- 4. Engineering Workflow (4 Steps) -->
+    <section class="relative bg-black text-white pt-24 sm:pt-28 lg:pt-32 pb-24 sm:pb-28 lg:pb-32 border-b border-neutral-900 overflow-hidden">
+        <div class="container mx-auto px-6 sm:px-10 lg:px-20 relative z-10">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir']">
+                <h2 data-lang-en="HOW WE WORK" data-lang-id="CARA KAMI BEKERJA"
+                    class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir']">
                     HOW WE WORK
                 </h2>
                 <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
-                <p class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial']">
+                <p data-lang-en="A transparent, four-phase engineering framework ensuring every automation project is completed safely, on schedule, and fully guaranteed."
+                   data-lang-id="Kerangka kerja rekayasa empat tahap yang transparan, memastikan setiap proyek otomasi terselesaikan dengan aman, tepat waktu, dan bergaransi penuh."
+                    class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
                     A transparent, four-phase engineering framework ensuring every automation project is completed safely, on schedule, and fully guaranteed.
                 </p>
             </div>
@@ -510,73 +431,89 @@
             <!-- Workflow 4 Steps Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
                 <!-- Step 1 -->
-                <div class="p-7 rounded-2xl bg-gray-50 border border-gray-200/80 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-1">
+                <div class="p-7 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-1 transition-all duration-300 hover:border-neutral-700 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-black text-white font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-xs">
+                        <div class="w-12 h-12 rounded-xl bg-white text-black font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-sm">
                             01
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir']">
+                        <h3 data-lang-en="Site Survey &amp; Needs Assessment" data-lang-id="Survei Lapangan &amp; Analisis Kebutuhan"
+                            class="text-lg sm:text-xl font-bold text-white font-['Agrandir']">
                             Site Survey &amp; Needs Assessment
                         </h3>
-                        <p class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-3 leading-relaxed">
+                        <p data-lang-en="Our senior engineers visit your facility to inspect existing machinery, map workflow constraints, and define concrete operational targets."
+                           data-lang-id="Insinyur senior kami mengunjungi fasilitas Anda untuk meninjau mesin eksisting, memetakan kendala alur kerja, dan menetapkan target operasional yang nyata."
+                            class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-3 leading-relaxed">
                             Our senior engineers visit your facility to inspect existing machinery, map workflow constraints, and define concrete operational targets.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200/60 text-xs font-semibold text-red-600 uppercase tracking-wider">
+                    <div data-lang-en="Discovery Phase" data-lang-id="Tahap Penjajakan"
+                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-red-500 uppercase tracking-wider">
                         Discovery Phase
                     </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="p-7 rounded-2xl bg-gray-50 border border-gray-200/80 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-2">
+                <div class="p-7 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-2 transition-all duration-300 hover:border-neutral-700 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-black text-white font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-xs">
+                        <div class="w-12 h-12 rounded-xl bg-white text-black font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-sm">
                             02
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir']">
+                        <h3 data-lang-en="System Engineering &amp; Costing" data-lang-id="Rekayasa Sistem &amp; Estimasi Anggaran"
+                            class="text-lg sm:text-xl font-bold text-white font-['Agrandir']">
                             System Engineering &amp; Costing
                         </h3>
-                        <p class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-3 leading-relaxed">
+                        <p data-lang-en="Developing detailed electrical schematics, selecting tier-one industrial hardware, and presenting transparent, itemized B2B proposals."
+                           data-lang-id="Menyusun skema elektrikal terperinci, memilih perangkat keras industri kelas satu, serta menyajikan proposal B2B yang transparan dan terperinci."
+                            class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-3 leading-relaxed">
                             Developing detailed electrical schematics, selecting tier-one industrial hardware, and presenting transparent, itemized B2B proposals.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200/60 text-xs font-semibold text-red-600 uppercase tracking-wider">
+                    <div data-lang-en="Design Phase" data-lang-id="Tahap Perancangan"
+                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-red-500 uppercase tracking-wider">
                         Design Phase
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="p-7 rounded-2xl bg-gray-50 border border-gray-200/80 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-3">
+                <div class="p-7 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-3 transition-all duration-300 hover:border-neutral-700 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-black text-white font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-xs">
+                        <div class="w-12 h-12 rounded-xl bg-white text-black font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-sm">
                             03
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir']">
+                        <h3 data-lang-en="Fabrication &amp; Integration" data-lang-id="Fabrikasi &amp; Integrasi"
+                            class="text-lg sm:text-xl font-bold text-white font-['Agrandir']">
                             Fabrication &amp; Integration
                         </h3>
-                        <p class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-3 leading-relaxed">
+                        <p data-lang-en="Precision control panel assembly, clean PLC programming, certified cabling, and physical mechanical integration compliant with workplace safety."
+                           data-lang-id="Perakitan panel kontrol presisi, pemrograman PLC terstruktur, pengkabelan terstandarisasi, dan integrasi fisik mekanikal yang mematuhi keselamatan kerja."
+                            class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-3 leading-relaxed">
                             Precision control panel assembly, clean PLC programming, certified cabling, and physical mechanical integration compliant with workplace safety.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200/60 text-xs font-semibold text-red-600 uppercase tracking-wider">
+                    <div data-lang-en="Execution Phase" data-lang-id="Tahap Eksekusi"
+                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-red-500 uppercase tracking-wider">
                         Execution Phase
                     </div>
                 </div>
 
                 <!-- Step 4 -->
-                <div class="p-7 rounded-2xl bg-gray-50 border border-gray-200/80 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-4">
+                <div class="p-7 rounded-2xl bg-neutral-900/90 border border-neutral-800 flex flex-col justify-between relative reveal-on-scroll reveal-stagger-4 transition-all duration-300 hover:border-neutral-700 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-black text-white font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-xs">
+                        <div class="w-12 h-12 rounded-xl bg-white text-black font-bold font-['Agrandir'] flex items-center justify-center text-lg mb-5 shadow-sm">
                             04
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir']">
+                        <h3 data-lang-en="Commissioning &amp; SLA Warranty" data-lang-id="Komisioning &amp; Garansi SLA"
+                            class="text-lg sm:text-xl font-bold text-white font-['Agrandir']">
                             Commissioning &amp; SLA Warranty
                         </h3>
-                        <p class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-3 leading-relaxed">
+                        <p data-lang-en="Full-load test runs on live production lines, comprehensive operator handover training, full technical documentation, and dedicated warranty support."
+                           data-lang-id="Uji coba beban penuh pada lini produksi aktif, pelatihan serah terima operator yang komprehensif, dokumentasi teknis lengkap, dan dukungan garansi berdedikasi."
+                            class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-3 leading-relaxed">
                             Full-load test runs on live production lines, comprehensive operator handover training, full technical documentation, and dedicated warranty support.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-gray-200/60 text-xs font-semibold text-red-600 uppercase tracking-wider">
+                    <div data-lang-en="Handover Phase" data-lang-id="Tahap Serah Terima"
+                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-red-500 uppercase tracking-wider">
                         Handover Phase
                     </div>
                 </div>
@@ -584,14 +521,21 @@
         </div>
     </section>
 
-    <!-- 6. Trusted By Industry Leaders (23 Client Logos Marquee) -->
-    <section class="bg-white text-gray-900 pt-20 sm:pt-24 lg:pt-28 pb-32 sm:pb-40 lg:pb-48 overflow-hidden border-b border-gray-100 relative">
+    <!-- 5. Trusted By Industry Leaders (23 Client Logos Marquee) -->
+    <section class="bg-white text-gray-900 pt-24 sm:pt-28 lg:pt-32 pb-32 sm:pb-40 lg:pb-48 overflow-hidden border-b border-gray-100 relative">
+        <!-- Seamless Smoky Dark Gradient / Shadow Transition from How We Work (Black) into Clients (White) -->
+        <div
+            class="absolute top-0 left-0 right-0 h-12 sm:h-16 lg:h-20 bg-gradient-to-b from-black via-black/40 to-transparent pointer-events-none z-10">
+        </div>
         <div class="container mx-auto px-6 sm:px-10 lg:px-20 text-center mb-12 sm:mb-16 lg:mb-20 reveal-on-scroll">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] tracking-tight">
+            <h2 data-lang-en="TRUSTED BY INDUSTRY LEADERS" data-lang-id="DIPERCAYA OLEH PEMIMPIN INDUSTRI"
+                class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] tracking-tight">
                 TRUSTED BY INDUSTRY LEADERS
             </h2>
             <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
-            <p class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial'] max-w-3xl mx-auto">
+            <p data-lang-en="Leading national manufacturers and multinational enterprises that rely on our industrial automation and systems integration."
+               data-lang-id="Produsen nasional terkemuka dan perusahaan multinasional yang mengandalkan keahlian otomasi industri serta integrasi sistem kami."
+                class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial'] max-w-3xl mx-auto">
                 Leading national manufacturers and multinational enterprises that rely on our industrial automation and systems integration.
             </p>
         </div>
@@ -671,23 +615,28 @@
         </div>
     </section>
 
-    <!-- 7. Call To Action (Bottom Clean Industrial Banner) -->
+    <!-- 6. Call To Action (Bottom Clean Industrial Banner) -->
     <section class="bg-black text-white py-20 sm:py-24 lg:py-28 border-t border-neutral-900">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-4xl mx-auto text-center reveal-on-scroll">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-['Agrandir'] text-white leading-tight">
+                <h2 data-lang-en="Ready to Elevate Your Plant’s Productivity?" data-lang-id="Siap Meningkatkan Produktivitas Pabrik Anda?"
+                    class="text-3xl sm:text-4xl lg:text-5xl font-bold font-['Agrandir'] text-white leading-tight">
                     Ready to Elevate Your Plant’s Productivity?
                 </h2>
-                <p class="text-base sm:text-lg text-gray-400 font-['Questrial'] max-w-2xl mx-auto mt-4 leading-relaxed">
+                <p data-lang-en="Consult your production line challenges with our engineering team, or explore our complete catalog of industrial automation machinery and components."
+                   data-lang-id="Konsultasikan tantangan lini produksi Anda bersama tim teknisi kami, atau telusuri katalog lengkap mesin serta komponen otomasi industri kami."
+                    class="text-base sm:text-lg text-gray-400 font-['Questrial'] max-w-2xl mx-auto mt-4 leading-relaxed">
                     Consult your production line challenges with our engineering team, or explore our complete catalog of industrial automation machinery and components.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 sm:mt-10">
                     <a href="{{ route('product') }}"
+                        data-lang-en="Explore Our Products" data-lang-id="Lihat Produk Kami"
                         class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-colors shadow-sm">
                         Explore Our Products
                     </a>
                     <a href="{{ route('contact') }}"
+                        data-lang-en="Schedule Engineering Consultation" data-lang-id="Jadwalkan Konsultasi Rekayasa"
                         class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-red-600 text-white font-semibold text-sm hover:bg-red-700 transition-colors shadow-sm">
                         Schedule Engineering Consultation
                     </a>

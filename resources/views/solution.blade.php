@@ -213,8 +213,10 @@
                     </div>
                     <div class="flex text-yellow-400 text-[5.5px] sm:text-[6.5px] tracking-tight shrink-0">★★★★★</div>
                 </div>
-                <p class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
-                    “Flawless execution from initial automated vision & PLC concept to factory deployment.”
+                <p data-lang-en="“Flawless execution from initial automated vision &amp; PLC concept to factory deployment.”"
+                   data-lang-id="“Eksekusi sempurna dari konsep visi otomatis &amp; PLC awal hingga penerapan di pabrik.”"
+                   class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
+                    “Flawless execution from initial automated vision &amp; PLC concept to factory deployment.”
                 </p>
             </div>
 
@@ -233,7 +235,9 @@
                     </div>
                     <div class="flex text-yellow-400 text-[5.5px] sm:text-[6.5px] tracking-tight shrink-0">★★★★★</div>
                 </div>
-                <p class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
+                <p data-lang-en="“Precision robotic sorting and conveyor automation for FMCG logistics.”"
+                   data-lang-id="“Penyortiran robotik presisi dan otomasi konveyor untuk logistik FMCG.”"
+                   class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
                     “Precision robotic sorting and conveyor automation for FMCG logistics.”
                 </p>
             </div>
@@ -253,7 +257,9 @@
                     </div>
                     <div class="flex text-yellow-400 text-[5.5px] sm:text-[6.5px] tracking-tight shrink-0">★★★★★</div>
                 </div>
-                <p class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
+                <p data-lang-en="“Heavy-duty industrial telemetry and automated safety monitoring system.”"
+                   data-lang-id="“Telemetri industri tugas berat dan sistem pemantauan keselamatan otomatis.”"
+                   class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
                     “Heavy-duty industrial telemetry and automated safety monitoring system.”
                 </p>
             </div>
@@ -273,7 +279,9 @@
                     </div>
                     <div class="flex text-yellow-400 text-[5.5px] sm:text-[6.5px] tracking-tight shrink-0">★★★★★</div>
                 </div>
-                <p class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
+                <p data-lang-en="“Seamless SCADA modernization and real-time processing plant control.”"
+                   data-lang-id="“Modernisasi SCADA mulus dan kendali pabrik pengolahan waktu-nyata.”"
+                   class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
                     “Seamless SCADA modernization and real-time processing plant control.”
                 </p>
             </div>
@@ -293,7 +301,9 @@
                     </div>
                     <div class="flex text-yellow-400 text-[5.5px] sm:text-[6.5px] tracking-tight shrink-0">★★★★★</div>
                 </div>
-                <p class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
+                <p data-lang-en="“Reliable automated sensor network across regional supply chain hubs.”"
+                   data-lang-id="“Jaringan sensor otomatis andal di seluruh pusat rantai pasok regional.”"
+                   class="text-[6.5px] sm:text-[7.5px] text-gray-300 font-questrial leading-relaxed">
                     “Reliable automated sensor network across regional supply chain hubs.”
                 </p>
             </div>
@@ -317,11 +327,11 @@
             class="absolute bottom-6 sm:bottom-10 md:bottom-12 lg:bottom-16 left-4 sm:left-8 md:left-10 lg:left-16 z-40 pointer-events-none select-none reveal-on-scroll">
             <div class="flex items-center gap-2 mb-1.5 sm:mb-2">
                 <span class="w-5 sm:w-8 h-[2px] bg-red-600 rounded-full inline-block"></span>
-                <span
+                <span data-lang-en="Automation &amp; Engineering Excellence" data-lang-id="Keunggulan Rekayasa &amp; Otomasi"
                     class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-red-500 font-questrial">Automation
                     &amp; Engineering Excellence</span>
             </div>
-            <h1
+            <h1 data-lang-en="Solution" data-lang-id="Solusi"
                 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-agrandir text-white uppercase tracking-tight leading-none">
                 Solution
             </h1>
@@ -336,10 +346,11 @@
         <div class="max-w-7xl mx-auto">
             <!-- Section Header -->
             <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 lg:mb-16 reveal-on-scroll">
-                <span
+                <span data-lang-en="Our Capabilities" data-lang-id="Kemampuan Kami"
                     class="inline-block text-sm sm:text-base font-bold uppercase tracking-widest text-red-500 font-questrial mb-2">Our
                     Capabilities</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-agrandir text-black uppercase tracking-tight">Integrated
+                <h2 data-lang-en="Integrated Solutions" data-lang-id="Solusi Terintegrasi"
+                    class="text-3xl sm:text-4xl md:text-5xl font-bold font-agrandir text-black uppercase tracking-tight">Integrated
                     Solutions</h2>
                 <div class="w-16 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
             </div>
@@ -352,48 +363,52 @@
                     class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-1">
                     <div>
                         <!-- Card Title -->
-                <h3
+                        <h3 data-lang-en="PLC Programming" data-lang-id="Pemrograman PLC"
                             class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
                             PLC Programming
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
-                            Robust, fail-safe ladder & structured text control architectures.
+                        <p data-lang-en="Robust, fail-safe ladder &amp; structured text control architectures."
+                           data-lang-id="Arsitektur kontrol ladder &amp; structured text yang andal dan fail-safe."
+                           class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                            Robust, fail-safe ladder &amp; structured text control architectures.
                         </p>
 
                         <!-- Description -->
-                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
+                        <p data-lang-en="Involves developing, coding and maintaining PLC programs. We also partner with Mitsubishi, Keyence, Omron, Siemens, Allan Bradley and others."
+                           data-lang-id="Meliputi pengembangan, penulisan kode, dan pemeliharaan program PLC. Kami bermitra dengan Mitsubishi, Keyence, Omron, Siemens, Allen Bradley, dan lainnya."
+                           class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
                             Involves developing, coding and maintaining PLC programs. We also partner with Mitsubishi,
                             Keyence, Omron, Siemens, Allan Bradley and others.
                         </p>
 
                         <!-- Core Deliverables -->
                         <div class="border-t border-neutral-800/80 pt-5 mb-5">
-                            <span
+                            <span data-lang-en="Core Deliverables" data-lang-id="Poin Unggulan"
                                 class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block">
                                 Core Deliverables
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Custom Ladder & Structured Text Logic</span>
+                                    <span data-lang-en="Custom Ladder &amp; Structured Text Logic" data-lang-id="Logika Kustom Ladder &amp; Structured Text">Custom Ladder &amp; Structured Text Logic</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Multi-Brand PLC Migration & Retrofit</span>
+                                    <span data-lang-en="Multi-Brand PLC Migration &amp; Retrofit" data-lang-id="Migrasi &amp; Retrofit PLC Lintas Merek">Multi-Brand PLC Migration &amp; Retrofit</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>HMI / Touchscreen Operator Interface</span>
+                                    <span data-lang-en="HMI / Touchscreen Operator Interface" data-lang-id="Antarmuka Operator HMI / Layar Sentuh">HMI / Touchscreen Operator Interface</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Safety Interlock & Fault Diagnostics</span>
+                                    <span data-lang-en="Safety Interlock &amp; Fault Diagnostics" data-lang-id="Interlock Keselamatan &amp; Diagnostik Gangguan">Safety Interlock &amp; Fault Diagnostics</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>On-Site Commissioning & Support</span>
+                                    <span data-lang-en="On-Site Commissioning &amp; Support" data-lang-id="Komisioning di Lokasi &amp; Dukungan Teknis">On-Site Commissioning &amp; Support</span>
                                 </li>
                             </ul>
                         </div>
@@ -423,7 +438,7 @@
 
                             <!-- Text & Arrow Layer -->
                             <span class="btn-text-content relative z-10 flex items-center justify-between w-full">
-                                <span>Explore Solution</span>
+                                <span data-lang-en="Explore Solution" data-lang-id="Pelajari Solusi">Explore Solution</span>
                                 <svg class="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -439,48 +454,52 @@
                     class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-2">
                     <div>
                         <!-- Card Title -->
-                <h3
+                        <h3 data-lang-en="Inspection &amp; Record Data" data-lang-id="Sistem Inspeksi &amp; Rekam Data"
                             class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
-                            Inspection & Record Data
+                            Inspection &amp; Record Data
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                        <p data-lang-en="Ultra high-speed optical inspection up to 800 pcs/minute."
+                           data-lang-id="Inspeksi optik berkecepatan ultra tinggi hingga 800 pcs/menit."
+                           class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
                             Ultra high-speed optical inspection up to 800 pcs/minute.
                         </p>
 
                         <!-- Description -->
-                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
+                        <p data-lang-en="Using a visual camera to sort products that do not match the batch, with a very high machine speed (800pcs/minute) this system can help in the Quality Control (QC) process."
+                           data-lang-id="Menggunakan kamera visual untuk menyortir produk yang tidak sesuai batch dengan kecepatan mesin sangat tinggi (800 pcs/menit) guna mendukung proses Quality Control (QC)."
+                           class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
                             Using a visual camera to sort products that do not match the batch, with a very high machine
                             speed (800pcs/minute) this system can help in the Quality Control (QC) process.
                         </p>
 
                         <!-- Core Deliverables -->
                         <div class="border-t border-neutral-800/80 pt-5 mb-5">
-                            <span
+                            <span data-lang-en="Core Deliverables" data-lang-id="Poin Unggulan"
                                 class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block">
                                 Core Deliverables
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>High-Speed Optical Sorting (800 pcs/min)</span>
+                                    <span data-lang-en="High-Speed Optical Sorting (800 pcs/min)" data-lang-id="Penyortiran Optik Kecepatan Tinggi (800 pcs/menit)">High-Speed Optical Sorting (800 pcs/min)</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Batch & Expiration Verification</span>
+                                    <span data-lang-en="Batch &amp; Expiration Verification" data-lang-id="Verifikasi Nomor Batch &amp; Kedaluwarsa">Batch &amp; Expiration Verification</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Defect Ejection & Reject Mechanism</span>
+                                    <span data-lang-en="Defect Ejection &amp; Reject Mechanism" data-lang-id="Mekanisme Pemisahan &amp; Penolakan Cacat">Defect Ejection &amp; Reject Mechanism</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Historical Log & Production Reports</span>
+                                    <span data-lang-en="Historical Log &amp; Production Reports" data-lang-id="Riwayat Pencatatan &amp; Laporan Produksi">Historical Log &amp; Production Reports</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Multi-Angle Camera Setup</span>
+                                    <span data-lang-en="Multi-Angle Camera Setup" data-lang-id="Konfigurasi Kamera Multi-Sudut">Multi-Angle Camera Setup</span>
                                 </li>
                             </ul>
                         </div>
@@ -510,7 +529,7 @@
 
                             <!-- Text & Arrow Layer -->
                             <span class="btn-text-content relative z-10 flex items-center justify-between w-full">
-                                <span>Explore Solution</span>
+                                <span data-lang-en="Explore Solution" data-lang-id="Pelajari Solusi">Explore Solution</span>
                                 <svg class="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -526,48 +545,52 @@
                     class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-3">
                     <div>
                         <!-- Card Title -->
-                <h3
+                        <h3 data-lang-en="Monitoring System" data-lang-id="Sistem Monitoring"
                             class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
                             Monitoring System
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                        <p data-lang-en="Integrated Andon IoT dashboards with real-time process control."
+                           data-lang-id="Dashboard Andon IoT terintegrasi dengan kendali proses waktu-nyata."
+                           class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
                             Integrated Andon IoT dashboards with real-time process control.
                         </p>
 
                         <!-- Description -->
-                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
+                        <p data-lang-en="Development of an Andon “Monitoring” system integrated with Internet of Things (IoT) technology to monitor, control, and optimize production or operational processes."
+                           data-lang-id="Pengembangan sistem 'Monitoring' Andon terintegrasi teknologi Internet of Things (IoT) untuk memantau, mengendalikan, dan mengoptimalkan proses produksi atau operasional."
+                           class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
                             Development of an Andon “Monitoring” system integrated with Internet of Things (IoT)
                             technology to monitor, control, and optimize production or operational processes.
                         </p>
 
                         <!-- Core Deliverables -->
                         <div class="border-t border-neutral-800/80 pt-5 mb-5">
-                            <span
+                            <span data-lang-en="Core Deliverables" data-lang-id="Poin Unggulan"
                                 class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block">
                                 Core Deliverables
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Live Andon Status Display Boards</span>
+                                    <span data-lang-en="Live Andon Status Display Boards" data-lang-id="Papan Tampilan Status Andon Langsung">Live Andon Status Display Boards</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>IoT Gateway & Local/Cloud SCADA</span>
+                                    <span data-lang-en="IoT Gateway &amp; Local/Cloud SCADA" data-lang-id="Gateway IoT &amp; SCADA Lokal/Cloud">IoT Gateway &amp; Local/Cloud SCADA</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>OEE & Production Rate Tracking</span>
+                                    <span data-lang-en="OEE &amp; Production Rate Tracking" data-lang-id="Pelacakan OEE &amp; Laju Kecepatan Produksi">OEE &amp; Production Rate Tracking</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Instant Alert Notifications</span>
+                                    <span data-lang-en="Instant Alert Notifications" data-lang-id="Notifikasi Peringatan Instan">Instant Alert Notifications</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Mobile & Tablet Dashboard Access</span>
+                                    <span data-lang-en="Mobile &amp; Tablet Dashboard Access" data-lang-id="Akses Dashboard Ponsel &amp; Tablet">Mobile &amp; Tablet Dashboard Access</span>
                                 </li>
                             </ul>
                         </div>
@@ -599,7 +622,7 @@
 
                             <!-- Text & Arrow Layer -->
                             <span class="btn-text-content relative z-10 flex items-center justify-between w-full">
-                                <span>Explore Solution</span>
+                                <span data-lang-en="Explore Solution" data-lang-id="Pelajari Solusi">Explore Solution</span>
                                 <svg class="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -615,18 +638,24 @@
                     class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-4">
                     <div>
                         <!-- Card Title -->
-                <h3
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
+                        <h3
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors"
+                            data-lang-en="Integrator System"
+                            data-lang-id="Sistem Integrator">
                             Integrator System
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3"
+                            data-lang-en="Turnkey multidisciplinary engineering across industrial facilities."
+                            data-lang-id="Rekayasa multidisiplin siap pakai di berbagai fasilitas industri.">
                             Turnkey multidisciplinary engineering across industrial facilities.
                         </p>
 
                         <!-- Description -->
-                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
+                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify"
+                            data-lang-en="Can work in various industries and engineering fields, such as Information Technology, Manufacturing, Industrial Automation, Transportation, Smart Buildings, and IoT."
+                            data-lang-id="Mencakup berbagai sektor industri dan bidang rekayasa, seperti Teknologi Informasi, Manufaktur, Otomasi Industri, Transportasi, Smart Building, dan IoT.">
                             Can work in various industries and engineering fields, such as Information Technology,
                             Manufacturing, Industrial Automation, Transportation, Smart Buildings, and IoT.
                         </p>
@@ -634,29 +663,31 @@
                         <!-- Core Deliverables -->
                         <div class="border-t border-neutral-800/80 pt-5 mb-5">
                             <span
-                                class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block">
+                                class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block"
+                                data-lang-en="Core Deliverables"
+                                data-lang-id="Hasil Utama">
                                 Core Deliverables
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>End-to-End Plant Automation Architecture</span>
+                                    <span data-lang-en="End-to-End Plant Automation Architecture" data-lang-id="Arsitektur Otomasi Pabrik End-to-End">End-to-End Plant Automation Architecture</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>MES & ERP Factory Floor Bridging</span>
+                                    <span data-lang-en="MES & ERP Factory Floor Bridging" data-lang-id="Jembatan MES & ERP ke Lantai Produksi">MES & ERP Factory Floor Bridging</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Robotics & Motion Controller Setup</span>
+                                    <span data-lang-en="Robotics & Motion Controller Setup" data-lang-id="Pengaturan Robotika & Pengontrol Gerak">Robotics & Motion Controller Setup</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Smart Building Energy & HVAC Control</span>
+                                    <span data-lang-en="Smart Building Energy & HVAC Control" data-lang-id="Kontrol Energi & HVAC Bangunan Cerdas">Smart Building Energy & HVAC Control</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Multi-Protocol Hardware Interfacing</span>
+                                    <span data-lang-en="Multi-Protocol Hardware Interfacing" data-lang-id="Antarmuka Perangkat Keras Multi-Protokol">Multi-Protocol Hardware Interfacing</span>
                                 </li>
                             </ul>
                         </div>
@@ -686,7 +717,7 @@
 
                             <!-- Text & Arrow Layer -->
                             <span class="btn-text-content relative z-10 flex items-center justify-between w-full">
-                                <span>Explore Solution</span>
+                                <span data-lang-en="Explore Solution" data-lang-id="Pelajari Solusi">Explore Solution</span>
                                 <svg class="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -702,18 +733,24 @@
                     class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-5">
                     <div>
                         <!-- Card Title -->
-                <h3
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
+                        <h3
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors"
+                            data-lang-en="Laser Marking & Inkjet"
+                            data-lang-id="Penandaan Laser & Cetak Inkjet">
                             Laser Marking & Inkjet
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3"
+                            data-lang-en="Permanent high-precision coding & high-speed barcode spraying."
+                            data-lang-id="Pengkodean presisi tinggi permanen & pencetakan barcode kecepatan tinggi.">
                             Permanent high-precision coding & high-speed barcode spraying.
                         </p>
 
                         <!-- Description -->
-                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
+                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify"
+                            data-lang-en="Laser Marking uses laser beams to create permanent marks on materials. Inkjet Printing uses ink spray technology to print batch text, images, or barcodes on product lines."
+                            data-lang-id="Laser Marking memanfaatkan sinar laser untuk penandaan permanen pada material. Inkjet Printing menerapkan teknologi semprotan tinta untuk mencetak kode batch, teks, gambar, atau barcode pada lini produksi.">
                             Laser Marking uses laser beams to create permanent marks on materials. Inkjet Printing uses
                             ink spray technology to print batch text, images, or barcodes on product lines.
                         </p>
@@ -721,29 +758,31 @@
                         <!-- Core Deliverables -->
                         <div class="border-t border-neutral-800/80 pt-5 mb-5">
                             <span
-                                class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block">
+                                class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block"
+                                data-lang-en="Core Deliverables"
+                                data-lang-id="Hasil Utama">
                                 Core Deliverables
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Fiber & CO2 Laser Marking Systems</span>
+                                    <span data-lang-en="Fiber & CO2 Laser Marking Systems" data-lang-id="Sistem Penandaan Laser Fiber & CO2">Fiber & CO2 Laser Marking Systems</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Continuous Inkjet (CIJ) Printing</span>
+                                    <span data-lang-en="Continuous Inkjet (CIJ) Printing" data-lang-id="Pencetakan Continuous Inkjet (CIJ)">Continuous Inkjet (CIJ) Printing</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>2D DataMatrix & QR Code Stamping</span>
+                                    <span data-lang-en="2D DataMatrix & QR Code Stamping" data-lang-id="Pemberian Kode QR & DataMatrix 2D">2D DataMatrix & QR Code Stamping</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Batch Serialization & Traceability</span>
+                                    <span data-lang-en="Batch Serialization & Traceability" data-lang-id="Serialisasi Batch & Ketertelusuran Produk">Batch Serialization & Traceability</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Integrated Conveyor Line Sync</span>
+                                    <span data-lang-en="Integrated Conveyor Line Sync" data-lang-id="Sinkronisasi Konveyor Jalur Terintegrasi">Integrated Conveyor Line Sync</span>
                                 </li>
                             </ul>
                         </div>
@@ -773,7 +812,7 @@
 
                             <!-- Text & Arrow Layer -->
                             <span class="btn-text-content relative z-10 flex items-center justify-between w-full">
-                                <span>Explore Solution</span>
+                                <span data-lang-en="Explore Solution" data-lang-id="Pelajari Solusi">Explore Solution</span>
                                 <svg class="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -789,18 +828,24 @@
                     class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-6">
                     <div>
                         <!-- Card Title -->
-                <h3
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
+                        <h3
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors"
+                            data-lang-en="Strapping & Packaging"
+                            data-lang-id="Strapping & Pengemasan">
                             Strapping & Packaging
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3"
+                            data-lang-en="Heavy-duty automated binding & sealing for secure transport."
+                            data-lang-id="Pengikatan & penyegelan otomatis tugas berat untuk keamanan pengangkutan.">
                             Heavy-duty automated binding & sealing for secure transport.
                         </p>
 
                         <!-- Description -->
-                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify">
+                        <p class="text-xs sm:text-sm text-gray-400 font-questrial leading-relaxed mb-6 text-justify"
+                            data-lang-en="Strapping in automation machinery refers to the process of binding or sealing packages using plastic or metal straps to ensure secure transport and storage."
+                            data-lang-id="Strapping pada mesin otomasi mengacu pada proses pengikatan atau penyegelan paket menggunakan tali plastik atau pita pengikat guna memastikan transportasi dan penyimpanan yang aman.">
                             Strapping in automation machinery refers to the process of binding or sealing packages using
                             plastic or metal straps to ensure secure transport and storage.
                         </p>
@@ -808,29 +853,31 @@
                         <!-- Core Deliverables -->
                         <div class="border-t border-neutral-800/80 pt-5 mb-5">
                             <span
-                                class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block">
+                                class="text-[11px] font-bold tracking-wider text-gray-400 uppercase font-agrandir mb-3 block"
+                                data-lang-en="Core Deliverables"
+                                data-lang-id="Hasil Utama">
                                 Core Deliverables
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Fully Automatic Arch Strapping</span>
+                                    <span data-lang-en="Fully Automatic Arch Strapping" data-lang-id="Strapping Busur Otomatis Penuh">Fully Automatic Arch Strapping</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>High-Tension PP & PET Banding</span>
+                                    <span data-lang-en="High-Tension PP & PET Banding" data-lang-id="Pengikat PP & PET Bertegangan Tinggi">High-Tension PP & PET Banding</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Palletizer & Conveyor Line Integration</span>
+                                    <span data-lang-en="Palletizer & Conveyor Line Integration" data-lang-id="Integrasi Palletizer & Lini Konveyor">Palletizer & Conveyor Line Integration</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Smart Package Dimension Sensors</span>
+                                    <span data-lang-en="Smart Package Dimension Sensors" data-lang-id="Sensor Dimensi Paket Cerdas">Smart Package Dimension Sensors</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
                                     <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
-                                    <span>Low-Maintenance Sealing Heads</span>
+                                    <span data-lang-en="Low-Maintenance Sealing Heads" data-lang-id="Kepala Penyegel Rendah Pemeliharaan">Low-Maintenance Sealing Heads</span>
                                 </li>
                             </ul>
                         </div>
@@ -861,7 +908,7 @@
 
                             <!-- Text & Arrow Layer -->
                             <span class="btn-text-content relative z-10 flex items-center justify-between w-full">
-                                <span>Explore Solution</span>
+                                <span data-lang-en="Explore Solution" data-lang-id="Pelajari Solusi">Explore Solution</span>
                                 <svg class="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform duration-300"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -882,14 +929,20 @@
     <section class="bg-[#000000] text-white py-24 relative overflow-hidden border-t border-neutral-900">
         <div class="container mx-auto px-6 mb-14 text-center reveal-on-scroll">
             <span
-                class="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest text-red-500 font-agrandir mb-2">
+                class="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest text-red-500 font-agrandir mb-2"
+                data-lang-en="Trusted Partners"
+                data-lang-id="Mitra Tepercaya">
                 Trusted Partners
             </span>
-            <h2 class="text-3xl md:text-5xl font-bold uppercase font-agrandir tracking-tight text-white">
+            <h2 class="text-3xl md:text-5xl font-bold uppercase font-agrandir tracking-tight text-white"
+                data-lang-en="Our Clients"
+                data-lang-id="Klien Kami">
                 Our Clients
             </h2>
             <div class="w-16 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
-            <p class="text-xs sm:text-sm text-gray-400 font-questrial mt-4 max-w-xl mx-auto">
+            <p class="text-xs sm:text-sm text-gray-400 font-questrial mt-4 max-w-xl mx-auto"
+                data-lang-en="Delivering cutting-edge industrial automation, robotics, and smart manufacturing to Indonesia's industry leaders."
+                data-lang-id="Menghadirkan otomasi industri terdepan, robotika, dan manufaktur cerdas untuk para pemimpin industri di Indonesia.">
                 Delivering cutting-edge industrial automation, robotics, and smart manufacturing to Indonesia's industry leaders.
             </p>
         </div>

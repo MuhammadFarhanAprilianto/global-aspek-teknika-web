@@ -108,13 +108,19 @@
                 
                 <!-- Hero Headline & Subtitle -->
                 <div class="space-y-6 max-w-4xl reveal-on-scroll">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-agrandir tracking-tight text-black leading-tight">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-agrandir tracking-tight text-black leading-tight"
+                        data-lang-en="Strapping Automation"
+                        data-lang-id="Otomasi Strapping">
                         Strapping Automation
                     </h1>
-                    <p class="text-xl sm:text-2xl text-red-600 font-bold font-agrandir tracking-tight">
+                    <p class="text-xl sm:text-2xl text-red-600 font-bold font-agrandir tracking-tight"
+                        data-lang-en="High-Speed End-of-Line Packaging, Arch Strappers &amp; Heavy Pallet Bundling"
+                        data-lang-id="Pengemasan Akhir Lini Kecepatan Tinggi, Mesin Strapping Busur &amp; Bundling Palet Berat">
                         High-Speed End-of-Line Packaging, Arch Strappers &amp; Heavy Pallet Bundling
                     </p>
-                    <p class="text-base sm:text-lg text-neutral-600 font-questrial leading-relaxed max-w-3xl">
+                    <p class="text-base sm:text-lg text-neutral-600 font-questrial leading-relaxed max-w-3xl"
+                        data-lang-en="Heavy-duty automatic and semi-automatic strapping machines engineered for corrugated boxes, ceramic tiles, print media, and heavy industrial pallet loads. Fast, consistent, and jam-free operation for modern logistics lines."
+                        data-lang-id="Mesin strapping otomatis dan semi-otomatis tugas berat untuk kardus bergelombang, ubin keramik, media cetak, dan muatan palet industri. Operasi cepat, konsisten, dan bebas macet untuk jalur logistik modern.">
                         Heavy-duty automatic and semi-automatic strapping machines engineered for corrugated boxes, ceramic tiles, print media, and heavy industrial pallet loads. Fast, consistent, and jam-free operation for modern logistics lines.
                     </p>
                 </div>
@@ -123,15 +129,27 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
                     <div class="rounded-2xl border border-neutral-200/80 bg-neutral-50/70 p-6 space-y-1 reveal-on-scroll reveal-stagger-1">
                         <div class="text-3xl sm:text-4xl font-bold font-agrandir text-black">60+</div>
-                        <div class="text-xs sm:text-sm text-neutral-500 font-questrial">Straps / Minute Speed</div>
+                        <div class="text-xs sm:text-sm text-neutral-500 font-questrial"
+                            data-lang-en="Straps / Minute Speed"
+                            data-lang-id="Kecepatan Pengikatan / Menit">
+                            Straps / Minute Speed
+                        </div>
                     </div>
                     <div class="rounded-2xl border border-neutral-200/80 bg-neutral-50/70 p-6 space-y-1 reveal-on-scroll reveal-stagger-2">
                         <div class="text-3xl sm:text-4xl font-bold font-agrandir text-red-600">0.2 sec</div>
-                        <div class="text-xs sm:text-sm text-neutral-500 font-questrial">Instant Thermal Sealing</div>
+                        <div class="text-xs sm:text-sm text-neutral-500 font-questrial"
+                            data-lang-en="Instant Thermal Sealing"
+                            data-lang-id="Penyegelan Termal Instan">
+                            Instant Thermal Sealing
+                        </div>
                     </div>
                     <div class="rounded-2xl border border-neutral-200/80 bg-neutral-50/70 p-6 space-y-1 reveal-on-scroll reveal-stagger-3">
                         <div class="text-3xl sm:text-4xl font-bold font-agrandir text-black">100%</div>
-                        <div class="text-xs sm:text-sm text-neutral-500 font-questrial">Tension Consistency</div>
+                        <div class="text-xs sm:text-sm text-neutral-500 font-questrial"
+                            data-lang-en="Tension Consistency"
+                            data-lang-id="Konsistensi Tegangan">
+                            Tension Consistency
+                        </div>
                     </div>
                 </div>
 
@@ -146,13 +164,19 @@
             <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-12">
                 
                 <div class="text-center space-y-3 max-w-2xl mx-auto reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 font-agrandir">
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 font-agrandir"
+                        data-lang-en="Core Capabilities"
+                        data-lang-id="Kemampuan Utama">
                         Core Capabilities
                     </span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-agrandir tracking-tight">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-agrandir tracking-tight"
+                        data-lang-en="What We Deliver"
+                        data-lang-id="Layanan yang Kami Hadirkan">
                         What We Deliver
                     </h2>
-                    <p class="text-sm sm:text-base text-neutral-400 font-questrial">
+                    <p class="text-sm sm:text-base text-neutral-400 font-questrial"
+                        data-lang-en="Reliable strapping solutions from compact tabletop units to fully automated conveyor arch lines."
+                        data-lang-id="Solusi strapping andal mulai dari unit tabletop ringkas hingga lini busur konveyor otomatis penuh.">
                         Reliable strapping solutions from compact tabletop units to fully automated conveyor arch lines.
                     </p>
                 </div>
@@ -167,26 +191,34 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors">
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                                data-lang-en="Fully Automatic In-Line Arch"
+                                data-lang-id="Mesin Busur In-Line Otomatis Penuh">
                                 Fully Automatic In-Line Arch
                             </h3>
-                            <p class="text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed">
+                            <p class="text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed"
+                                data-lang-en="High-speed arch strapping machines with powered conveyor rollers for operator-free end-of-line packaging and carton bundling."
+                                data-lang-id="Mesin strapping busur kecepatan tinggi dengan roller konveyor bertenaga untuk pengemasan akhir lini dan pengikatan karton tanpa operator.">
                                 High-speed arch strapping machines with powered conveyor rollers for operator-free end-of-line packaging and carton bundling.
                             </p>
                             <div class="pt-3 border-t border-neutral-200/80 space-y-2">
-                                <div class="text-xs font-bold text-neutral-900 uppercase font-agrandir">Key Highlights</div>
+                                <div class="text-xs font-bold text-neutral-900 uppercase font-agrandir"
+                                    data-lang-en="Key Highlights"
+                                    data-lang-id="Sorotan Utama">
+                                    Key Highlights
+                                </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>60+ Straps/Min Cycle Capability</span>
+                                        <span data-lang-en="60+ Straps/Min Cycle Capability" data-lang-id="Kemampuan Siklus 60+ Ikatan/Menit">60+ Straps/Min Cycle Capability</span>
                                     </li>
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>Automatic Strap Feeding &amp; Misfeed Re-ejection</span>
+                                        <span data-lang-en="Automatic Strap Feeding &amp; Misfeed Re-ejection" data-lang-id="Pemasukan Tali Otomatis &amp; Ejeksi Ulang Saat Macet">Automatic Strap Feeding &amp; Misfeed Re-ejection</span>
                                     </li>
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>Interlocked Upstream &amp; Downstream Sensors</span>
+                                        <span data-lang-en="Interlocked Upstream &amp; Downstream Sensors" data-lang-id="Sensor Interlock Hulu &amp; Hilir">Interlocked Upstream &amp; Downstream Sensors</span>
                                     </li>
                                 </ul>
                             </div>
@@ -201,26 +233,34 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors">
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                                data-lang-en="Semi-Automatic Strappers"
+                                data-lang-id="Mesin Strapping Semi-Otomatis">
                                 Semi-Automatic Strappers
                             </h3>
-                            <p class="text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed">
+                            <p class="text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed"
+                                data-lang-en="Compact, versatile tabletop strapping units with quick-heating heater blades for varied package sizes and fast manual operation."
+                                data-lang-id="Unit strapping tabletop yang ringkas dan serbaguna dengan bilah pemanas cepat untuk berbagai ukuran paket dan pengoperasian manual cepat.">
                                 Compact, versatile tabletop strapping units with quick-heating heater blades for varied package sizes and fast manual operation.
                             </p>
                             <div class="pt-3 border-t border-neutral-200/80 space-y-2">
-                                <div class="text-xs font-bold text-neutral-900 uppercase font-agrandir">Key Highlights</div>
+                                <div class="text-xs font-bold text-neutral-900 uppercase font-agrandir"
+                                    data-lang-en="Key Highlights"
+                                    data-lang-id="Sorotan Utama">
+                                    Key Highlights
+                                </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>Instant Heat-Seal Mechanism (0.2s)</span>
+                                        <span data-lang-en="Instant Heat-Seal Mechanism (0.2s)" data-lang-id="Mekanisme Segel Panas Instan (0,2 dtk)">Instant Heat-Seal Mechanism (0.2s)</span>
                                     </li>
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>Low Maintenance Direct-Drive Motors</span>
+                                        <span data-lang-en="Low Maintenance Direct-Drive Motors" data-lang-id="Motor Penggerak Langsung Rendah Perawatan">Low Maintenance Direct-Drive Motors</span>
                                     </li>
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>Foot Pedal &amp; Touch Trigger Modes</span>
+                                        <span data-lang-en="Foot Pedal &amp; Touch Trigger Modes" data-lang-id="Mode Pedal Kaki &amp; Pemicu Sentuh">Foot Pedal &amp; Touch Trigger Modes</span>
                                     </li>
                                 </ul>
                             </div>
@@ -235,26 +275,34 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002 2V8m-9 4h4"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors">
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                                data-lang-en="Heavy Pallet &amp; Bundle"
+                                data-lang-id="Palet &amp; Bundel Tugas Berat">
                                 Heavy Pallet &amp; Bundle
                             </h3>
-                            <p class="text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed">
+                            <p class="text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed"
+                                data-lang-en="Automated vertical and horizontal strapping for heavy palletized loads, ceramics, steel pipes, and lumber using high-tension PET strap."
+                                data-lang-id="Strapping vertikal dan horizontal otomatis untuk muatan palet berat, keramik, pipa baja, dan kayu menggunakan tali PET tegangan tinggi.">
                                 Automated vertical and horizontal strapping for heavy palletized loads, ceramics, steel pipes, and lumber using high-tension PET strap.
                             </p>
                             <div class="pt-3 border-t border-neutral-200/80 space-y-2">
-                                <div class="text-xs font-bold text-neutral-900 uppercase font-agrandir">Key Highlights</div>
+                                <div class="text-xs font-bold text-neutral-900 uppercase font-agrandir"
+                                    data-lang-en="Key Highlights"
+                                    data-lang-id="Sorotan Utama">
+                                    Key Highlights
+                                </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>Heavy-Duty PP &amp; PET Strap Support</span>
+                                        <span data-lang-en="Heavy-Duty PP &amp; PET Strap Support" data-lang-id="Dukungan Tali PP &amp; PET Tugas Berat">Heavy-Duty PP &amp; PET Strap Support</span>
                                     </li>
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>Friction Weld Sealing Technology</span>
+                                        <span data-lang-en="Friction Weld Sealing Technology" data-lang-id="Teknologi Penyegelan Las Gesek (Friction Weld)">Friction Weld Sealing Technology</span>
                                     </li>
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-                                        <span>Turntable &amp; Automatic Top Press Bar</span>
+                                        <span data-lang-en="Turntable &amp; Automatic Top Press Bar" data-lang-id="Meja Putar &amp; Batang Penekan Atas Otomatis">Turntable &amp; Automatic Top Press Bar</span>
                                     </li>
                                 </ul>
                             </div>
@@ -274,13 +322,13 @@
             <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-12">
                 
                 <div class="text-center space-y-3 max-w-2xl mx-auto reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-agrandir">
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-agrandir" data-lang-en="Structured Methodology" data-lang-id="Metodologi Terstruktur">
                         Structured Methodology
                     </span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black font-agrandir tracking-tight">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black font-agrandir tracking-tight" data-lang-en="Our 4-Phase Process" data-lang-id="Proses 4 Fase Kami">
                         Our 4-Phase Process
                     </h2>
-                    <p class="text-sm sm:text-base text-neutral-600 font-questrial">
+                    <p class="text-sm sm:text-base text-neutral-600 font-questrial" data-lang-en="Custom arch dimensioning, conveyor interlocks, and endurance testing." data-lang-id="Dimensi lengkungan kustom, interlock konveyor, dan pengujian ketahanan.">
                         Custom arch dimensioning, conveyor interlocks, and endurance testing.
                     </p>
                 </div>
@@ -289,10 +337,10 @@
                     <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-1">
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold font-agrandir text-red-600">01</span>
-                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700">Phase 1</span>
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700" data-lang-en="Phase 1" data-lang-id="Fase 1">Phase 1</span>
                         </div>
-                        <h4 class="text-lg font-bold font-agrandir text-black">Package Geometry Audit</h4>
-                        <p class="text-xs text-neutral-600 font-questrial leading-relaxed">
+                        <h4 class="text-lg font-bold font-agrandir text-black" data-lang-en="Package Geometry Audit" data-lang-id="Audit Geometri Kemasan">Package Geometry Audit</h4>
+                        <p class="text-xs text-neutral-600 font-questrial leading-relaxed" data-lang-en="Evaluating package dimensions, weight, strap tension parameters, and line speed requirements." data-lang-id="Mengevaluasi dimensi kemasan, berat, parameter tegangan tali, dan persyaratan kecepatan lini.">
                             Evaluating package dimensions, weight, strap tension parameters, and line speed requirements.
                         </p>
                     </div>
@@ -300,10 +348,10 @@
                     <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-2">
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold font-agrandir text-red-600">02</span>
-                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700">Phase 2</span>
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700" data-lang-en="Phase 2" data-lang-id="Fase 2">Phase 2</span>
                         </div>
-                        <h4 class="text-lg font-bold font-agrandir text-black">Arch &amp; Roller Sizing</h4>
-                        <p class="text-xs text-neutral-600 font-questrial leading-relaxed">
+                        <h4 class="text-lg font-bold font-agrandir text-black" data-lang-en="Arch &amp; Roller Sizing" data-lang-id="Penentuan Ukuran Lengkungan &amp; Rol">Arch &amp; Roller Sizing</h4>
+                        <p class="text-xs text-neutral-600 font-questrial leading-relaxed" data-lang-en="Specifying custom arch dimensions, conveyor roller pitch, centering guides, and pneumatic press bars." data-lang-id="Menentukan dimensi lengkungan kustom, pitch rol konveyor, pemandu pemusat, dan batang penekan pneumatik.">
                             Specifying custom arch dimensions, conveyor roller pitch, centering guides, and pneumatic press bars.
                         </p>
                     </div>
@@ -311,10 +359,10 @@
                     <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-3">
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold font-agrandir text-red-600">03</span>
-                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700">Phase 3</span>
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700" data-lang-en="Phase 3" data-lang-id="Fase 3">Phase 3</span>
                         </div>
-                        <h4 class="text-lg font-bold font-agrandir text-black">PLC Conveyor FAT</h4>
-                        <p class="text-xs text-neutral-600 font-questrial leading-relaxed">
+                        <h4 class="text-lg font-bold font-agrandir text-black" data-lang-en="PLC Conveyor FAT" data-lang-id="FAT Konveyor PLC">PLC Conveyor FAT</h4>
+                        <p class="text-xs text-neutral-600 font-questrial leading-relaxed" data-lang-en="Synchronizing strapper cycle signals with upstream carton sealers and downstream palletizers." data-lang-id="Sinkronisasi sinyal siklus pengikat dengan penyegel karton di hulu dan paletiser di hilir.">
                             Synchronizing strapper cycle signals with upstream carton sealers and downstream palletizers.
                         </p>
                     </div>
@@ -322,10 +370,10 @@
                     <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-4">
                         <div class="flex items-center justify-between">
                             <span class="text-2xl font-bold font-agrandir text-red-600">04</span>
-                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700">Phase 4</span>
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700" data-lang-en="Phase 4" data-lang-id="Fase 4">Phase 4</span>
                         </div>
-                        <h4 class="text-lg font-bold font-agrandir text-black">Installation &amp; Handover</h4>
-                        <p class="text-xs text-neutral-600 font-questrial leading-relaxed">
+                        <h4 class="text-lg font-bold font-agrandir text-black" data-lang-en="Installation &amp; Handover" data-lang-id="Instalasi &amp; Serah Terima">Installation &amp; Handover</h4>
+                        <p class="text-xs text-neutral-600 font-questrial leading-relaxed" data-lang-en="On-site integration, strap coil changeover training, and preventive maintenance sign-off." data-lang-id="Integrasi di lokasi, pelatihan penggantian koil tali, dan serah terima pemeliharaan preventif.">
                             On-site integration, strap coil changeover training, and preventive maintenance sign-off.
                         </p>
                     </div>
@@ -342,10 +390,10 @@
             <div class="max-w-4xl mx-auto px-6 sm:px-12 space-y-8">
                 
                 <div class="text-center space-y-3 reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-agrandir">
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-agrandir" data-lang-en="FAQS" data-lang-id="TANYA JAWAB">
                         FAQS
                     </span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black font-agrandir tracking-tight">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-black font-agrandir tracking-tight" data-lang-en="Frequently Asked Questions" data-lang-id="Pertanyaan yang Sering Diajukan">
                         Frequently Asked Questions
                     </h2>
                 </div>
@@ -354,36 +402,36 @@
                     
                     <div class="rounded-2xl border border-neutral-200 bg-white overflow-hidden transition-all shadow-sm reveal-on-scroll reveal-stagger-1">
                         <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 sm:p-6 text-left font-agrandir font-bold text-base sm:text-lg text-black hover:bg-neutral-50/60 transition-colors">
-                            <span>Which strap materials and widths can be used?</span>
+                            <span data-lang-en="Which strap materials and widths can be used?" data-lang-id="Material tali dan lebar apa saja yang dapat digunakan?">Which strap materials and widths can be used?</span>
                             <span class="faq-icon w-8 h-8 rounded-full flex items-center justify-center bg-neutral-100 text-xs font-bold transition-transform duration-300 shrink-0 ml-4">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </button>
-                        <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed border-t border-neutral-100 pt-4">
+                        <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed border-t border-neutral-100 pt-4" data-lang-en="Our machines support standard Polypropylene (PP) straps (5mm to 15mm) for standard cartons and high-tensile Polyester (PET) straps (9mm to 19mm) for heavy industrial pallets and lumber bundles." data-lang-id="Mesin kami mendukung tali Polipropilena (PP) standar (5mm hingga 15mm) untuk karton standar dan tali Poliester (PET) berkekuatan tinggi (9mm hingga 19mm) untuk palet industri berat dan bundel kayu.">
                             Our machines support standard Polypropylene (PP) straps (5mm to 15mm) for standard cartons and high-tensile Polyester (PET) straps (9mm to 19mm) for heavy industrial pallets and lumber bundles.
                         </div>
                     </div>
 
                     <div class="rounded-2xl border border-neutral-200 bg-white overflow-hidden transition-all shadow-sm reveal-on-scroll reveal-stagger-2">
                         <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 sm:p-6 text-left font-agrandir font-bold text-base sm:text-lg text-black hover:bg-neutral-50/60 transition-colors">
-                            <span>How does the machine prevent strap jams during high-speed operation?</span>
+                            <span data-lang-en="How does the machine prevent strap jams during high-speed operation?" data-lang-id="Bagaimana mesin mencegah kemacetan tali selama operasi kecepatan tinggi?">How does the machine prevent strap jams during high-speed operation?</span>
                             <span class="faq-icon w-8 h-8 rounded-full flex items-center justify-center bg-neutral-100 text-xs font-bold transition-transform duration-300 shrink-0 ml-4">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </button>
-                        <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed border-t border-neutral-100 pt-4">
+                        <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed border-t border-neutral-100 pt-4" data-lang-en="Automatic loop ejectors discharge any misfed strap automatically without requiring manual clearing, while the auto re-feed system immediately threads the strap into the arch for the next cycle." data-lang-id="Ejektor loop otomatis mengeluarkan tali yang salah umpan secara otomatis tanpa memerlukan pembersihan manual, sementara sistem umpan ulang otomatis langsung memasukkan tali ke lengkungan untuk siklus berikutnya.">
                             Automatic loop ejectors discharge any misfed strap automatically without requiring manual clearing, while the auto re-feed system immediately threads the strap into the arch for the next cycle.
                         </div>
                     </div>
 
                     <div class="rounded-2xl border border-neutral-200 bg-white overflow-hidden transition-all shadow-sm reveal-on-scroll reveal-stagger-3">
                         <button type="button" class="faq-toggle w-full flex items-center justify-between p-5 sm:p-6 text-left font-agrandir font-bold text-base sm:text-lg text-black hover:bg-neutral-50/60 transition-colors">
-                            <span>Can the strapping unit interface with case sealers and robotic palletizers?</span>
+                            <span data-lang-en="Can the strapping unit interface with case sealers and robotic palletizers?" data-lang-id="Bisakah unit pengikat dihubungkan dengan penyegel karton dan robot paletiser?">Can the strapping unit interface with case sealers and robotic palletizers?</span>
                             <span class="faq-icon w-8 h-8 rounded-full flex items-center justify-center bg-neutral-100 text-xs font-bold transition-transform duration-300 shrink-0 ml-4">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </button>
-                        <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed border-t border-neutral-100 pt-4">
+                        <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-neutral-600 font-questrial leading-relaxed border-t border-neutral-100 pt-4" data-lang-en="Yes. The integrated PLC logic coordinates smoothly with carton erectors, tape sealers, weighing scales, and palletizing robots via standard digital I/O or Industrial Ethernet." data-lang-id="Ya. Logika PLC terintegrasi berkoordinasi secara mulus dengan pembentuk karton, penyegel lakban, timbangan, dan robot paletisasi melalui I/O digital standar atau Industrial Ethernet.">
                             Yes. The integrated PLC logic coordinates smoothly with carton erectors, tape sealers, weighing scales, and palletizing robots via standard digital I/O or Industrial Ethernet.
                         </div>
                     </div>
@@ -399,13 +447,13 @@
         <!-- ========================================================================= -->
         <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
             <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-                <span class="inline-block text-xs font-bold uppercase tracking-widest text-red-500 font-agrandir">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-red-500 font-agrandir" data-lang-en="LET'S COLLABORATE" data-lang-id="MARI BERKOLABORASI">
                     LET'S COLLABORATE
                 </span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-agrandir tracking-tight leading-tight">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-agrandir tracking-tight leading-tight" data-lang-en="Ready to Speed Up Your End-of-Line Packaging?" data-lang-id="Siap Mempercepat Pengemasan Akhir Lini Anda?">
                     Ready to Speed Up Your End-of-Line Packaging?
                 </h2>
-                <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mx-auto font-questrial leading-relaxed">
+                <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mx-auto font-questrial leading-relaxed" data-lang-en="Contact our packaging automation engineers for custom arch sizing and high-speed strapping machine recommendations." data-lang-id="Hubungi teknisi otomasi pengemasan kami untuk penentuan ukuran lengkungan kustom dan rekomendasi mesin strapping berkecepatan tinggi.">
                     Contact our packaging automation engineers for custom arch sizing and high-speed strapping machine recommendations.
                 </p>
 
@@ -418,7 +466,7 @@
 
                         <!-- Text & Arrow Layer (White initially, Black on hover) -->
                         <span class="cta-text-wrapper relative z-10 flex items-center gap-2 font-agrandir text-sm sm:text-base font-bold">
-                            <span>Get A Quote / Consultation</span>
+                            <span data-lang-en="Get A Quote / Consultation" data-lang-id="Minta Penawaran / Konsultasi">Get A Quote / Consultation</span>
                             <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
