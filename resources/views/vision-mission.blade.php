@@ -335,87 +335,63 @@
             <!-- 4 Goals Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Goal 1 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-1 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">99.98%</div>
-                        <h4 data-lang-en="Zero-Defect Quality Target" data-lang-id="Target Nol Defek Mutu"
-                            class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
-                            Zero-Defect Quality Target
-                        </h4>
-                        <p data-lang-en="Achieving sub-micron inspection accuracy across all automated vision lines to eliminate downstream customer product recalls."
-                           data-lang-id="Mencapai akurasi inspeksi sub-mikron pada seluruh lini visi otomatis guna meniadakan penarikan produk cacat di tangan konsumen."
-                            class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Achieving sub-micron inspection accuracy across all automated vision lines to eliminate downstream customer product recalls.
-                        </p>
-                    </div>
-                    <div class="pt-2 text-[11px] uppercase tracking-wider text-neutral-500 font-bold font-['Agrandir']"
-                        data-lang-en="Quality Milestone" data-lang-id="Target Mutu">
-                        Quality Milestone
-                    </div>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-4">
+                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">99.98%</div>
+                    <h4 data-lang-en="Zero-Defect Quality Target" data-lang-id="Target Nol Defek Mutu"
+                        class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
+                        Zero-Defect Quality Target
+                    </h4>
+                    <p data-lang-en="Achieving sub-micron inspection accuracy across all automated vision lines to eliminate downstream customer product recalls."
+                       data-lang-id="Mencapai akurasi inspeksi sub-mikron pada seluruh lini visi otomatis guna meniadakan penarikan produk cacat di tangan konsumen."
+                        class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Achieving sub-micron inspection accuracy across all automated vision lines to eliminate downstream customer product recalls.
+                    </p>
                 </div>
 
                 <!-- Goal 2 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-2 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">500+</div>
-                        <h4 data-lang-en="Smart Factory Implementations" data-lang-id="Implementasi Pabrik Cerdas"
-                            class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
-                            Smart Factory Implementations
-                        </h4>
-                        <p data-lang-en="Scaling our SCADA and telemetry architecture to empower 500+ production lines across Java, Sumatra, Kalimantan, and Sulawesi."
-                           data-lang-id="Memperluas jangkauan SCADA dan telemetri kami hingga memberdayakan lebih dari 500 lini produksi di berbagai pulau di Indonesia."
-                            class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Scaling our SCADA and telemetry architecture to empower 500+ production lines across Java, Sumatra, Kalimantan, and Sulawesi.
-                        </p>
-                    </div>
-                    <div class="pt-2 text-[11px] uppercase tracking-wider text-neutral-500 font-bold font-['Agrandir']"
-                        data-lang-en="Expansion Milestone" data-lang-id="Target Ekspansi">
-                        Expansion Milestone
-                    </div>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-4">
+                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">500+</div>
+                    <h4 data-lang-en="Smart Factory Implementations" data-lang-id="Implementasi Pabrik Cerdas"
+                        class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
+                        Smart Factory Implementations
+                    </h4>
+                    <p data-lang-en="Scaling our SCADA and telemetry architecture to empower 500+ production lines across Java, Sumatra, Kalimantan, and Sulawesi."
+                       data-lang-id="Memperluas jangkauan SCADA dan telemetri kami hingga memberdayakan lebih dari 500 lini produksi di berbagai pulau di Indonesia."
+                        class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Scaling our SCADA and telemetry architecture to empower 500+ production lines across Java, Sumatra, Kalimantan, and Sulawesi.
+                    </p>
                 </div>
 
                 <!-- Goal 3 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-3 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
-                        <h4 data-lang-en="Paperless IoT Traceability" data-lang-id="Pelacakan Nirkertas IoT Penuh"
-                            class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
-                            Paperless IoT Traceability
-                        </h4>
-                        <p data-lang-en="Transitioning all machine logs and quality shifts directly into cloud-ready SQL historians and automated ERP dispatch systems."
-                           data-lang-id="Mengalihkan seluruh catatan log mesin dan shift mutu langsung ke pangkalan data SQL terpusat dan sistem ERP otomatis."
-                            class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Transitioning all machine logs and quality shifts directly into cloud-ready SQL historians and automated ERP dispatch systems.
-                        </p>
-                    </div>
-                    <div class="pt-2 text-[11px] uppercase tracking-wider text-neutral-500 font-bold font-['Agrandir']"
-                        data-lang-en="Digitalization Milestone" data-lang-id="Target Digitalisasi">
-                        Digitalization Milestone
-                    </div>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-4">
+                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
+                    <h4 data-lang-en="Paperless IoT Traceability" data-lang-id="Pelacakan Nirkertas IoT Penuh"
+                        class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
+                        Paperless IoT Traceability
+                    </h4>
+                    <p data-lang-en="Transitioning all machine logs and quality shifts directly into cloud-ready SQL historians and automated ERP dispatch systems."
+                       data-lang-id="Mengalihkan seluruh catatan log mesin dan shift mutu langsung ke pangkalan data SQL terpusat dan sistem ERP otomatis."
+                        class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Transitioning all machine logs and quality shifts directly into cloud-ready SQL historians and automated ERP dispatch systems.
+                    </p>
                 </div>
 
                 <!-- Goal 4 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-4 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">-20%</div>
-                        <h4 data-lang-en="Energy &amp; Carbon Footprint" data-lang-id="Penurunan Konsumsi Daya"
-                            class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
-                            Energy &amp; Carbon Footprint
-                        </h4>
-                        <p data-lang-en="Optimizing motor drives, smart pneumatics, and BMS HVAC balancing to reduce total electrical consumption for our clients."
-                           data-lang-id="Mengoptimalkan drive motor, sistem pneumatik cerdas, dan keseimbangan HVAC BMS untuk menghemat konsumsi daya listrik fasilitas."
-                            class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Optimizing motor drives, smart pneumatics, and BMS HVAC balancing to reduce total electrical consumption for our clients.
-                        </p>
-                    </div>
-                    <div class="pt-2 text-[11px] uppercase tracking-wider text-neutral-500 font-bold font-['Agrandir']"
-                        data-lang-en="Sustainability Milestone" data-lang-id="Target Keberlanjutan">
-                        Sustainability Milestone
-                    </div>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-4 space-y-4">
+                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">-20%</div>
+                    <h4 data-lang-en="Energy &amp; Carbon Footprint" data-lang-id="Penurunan Konsumsi Daya"
+                        class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
+                        Energy &amp; Carbon Footprint
+                    </h4>
+                    <p data-lang-en="Optimizing motor drives, smart pneumatics, and BMS HVAC balancing to reduce total electrical consumption for our clients."
+                       data-lang-id="Mengoptimalkan drive motor, sistem pneumatik cerdas, dan keseimbangan HVAC BMS untuk menghemat konsumsi daya listrik fasilitas."
+                        class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Optimizing motor drives, smart pneumatics, and BMS HVAC balancing to reduce total electrical consumption for our clients.
+                    </p>
                 </div>
             </div>
         </div>
