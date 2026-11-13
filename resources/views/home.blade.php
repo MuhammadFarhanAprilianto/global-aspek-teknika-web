@@ -852,7 +852,7 @@
     <!-- Section 4: Feature Showcase (White Theme) -->
     <section class="w-full bg-white text-black pt-4 sm:pt-6 pb-16 lg:pb-24">
         <div class="container mx-auto px-6 sm:px-10 lg:px-16">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                 <!-- Video Column: 3D Animated Automation Simulation (VideoSection03.mp4) -->
                 <div class="w-full flex justify-center lg:justify-start reveal-on-scroll reveal-stagger-1">
                     <div
@@ -865,7 +865,7 @@
                 </div>
 
                 <!-- Content Column: SmartICS-Style Characteristics & Architecture Specifications -->
-                <div class="w-full max-w-xl xl:max-w-2xl reveal-on-scroll reveal-stagger-2 flex flex-col justify-center">
+                <div class="w-full max-w-xl xl:max-w-2xl reveal-on-scroll reveal-stagger-2 flex flex-col justify-start">
                     <!-- Segmented Tab Switcher (SmartICS Inspired) -->
                     <div class="w-full mb-3 sm:mb-4">
                         <div class="grid grid-cols-2 p-1 bg-neutral-100 rounded-xl border border-neutral-200/80 font-['Agrandir',sans-serif]">
@@ -886,51 +886,51 @@
                     <div id="tab-content-characteristics" class="w-full divide-y divide-gray-100 transition-opacity duration-300">
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Throughput &amp; Speed" data-lang-id="Kecepatan &amp; Kapasitas Siklus"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Throughput &amp; Speed
                             </span>
                             <span data-lang-en="High-speed cycle up to 800–1,200 pcs/min on machine vision inspection &amp; 60+ straps/min on packaging lines" data-lang-id="Siklus berkecepatan tinggi hingga 800–1.200 pcs/menit pada inspeksi vision &amp; 60+ tali/menit pada lini kemasan"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 High-speed cycle up to 800–1,200 pcs/min on machine vision inspection &amp; 60+ straps/min on packaging lines
                             </span>
                         </div>
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Optical Precision" data-lang-id="Presisi Optik"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Optical Precision
                             </span>
                             <span data-lang-en="Sub-micron dimensional tolerance up to &plusmn;0.001 mm with high-resolution matrix CMOS sensors and telecentric optics" data-lang-id="Toleransi dimensi sub-mikron hingga &plusmn;0,001 mm dengan sensor matrix CMOS resolusi tinggi dan optik telesentris"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 Sub-micron dimensional tolerance up to &plusmn;0.001 mm with high-resolution matrix CMOS sensors and telecentric optics
                             </span>
                         </div>
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Strapping Force" data-lang-id="Gaya Tarik Strapping"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Strapping Force
                             </span>
                             <span data-lang-en="Heavy-duty tension up to 3,500N–8,500N with rapid friction welding (0.2–3.5s) for PET, PP, and steel strap packaging" data-lang-id="Gaya tarik beban berat hingga 3.500N–8.500N dengan pengelasan gesek cepat (0,2–3,5 detik) untuk kemasan tali PET, PP, dan baja"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 Heavy-duty tension up to 3,500N–8,500N with rapid friction welding (0.2–3.5s) for PET, PP, and steel strap packaging
                             </span>
                         </div>
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Coding &amp; Marking" data-lang-id="Pencetakan Kode &amp; Penandaan"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Coding &amp; Marking
                             </span>
                             <span data-lang-en="600 DPI industrial TIJ inkjet &amp; fiber laser marking up to 100 m/min with dynamic QR, DataMatrix, and barcode printing" data-lang-id="TIJ inkjet industri 600 DPI &amp; penandaan laser serat hingga 100 m/menit dengan kode QR dinamis, DataMatrix, dan barcode"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 600 DPI industrial TIJ inkjet &amp; fiber laser marking up to 100 m/min with dynamic QR, DataMatrix, and barcode printing
                             </span>
                         </div>
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Operational Uptime" data-lang-id="Keandalan Waktu Operasi"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Operational Uptime
                             </span>
                             <span data-lang-en="Engineered for 24/7 continuous industrial production with 99.9% logic reliability and instant fail-safe recovery" data-lang-id="Dirancang untuk produksi industri kontinu 24/7 dengan keandalan logika 99,9% dan pemulihan pengaman otomatis"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 Engineered for 24/7 continuous industrial production with 99.9% logic reliability and instant fail-safe recovery
                             </span>
                         </div>
@@ -940,51 +940,51 @@
                     <div id="tab-content-architecture" class="w-full divide-y divide-gray-100 hidden transition-opacity duration-300">
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="PLC Platforms" data-lang-id="Platform PLC"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 PLC Platforms
                             </span>
                             <span data-lang-en="Mitsubishi (iQ-R/FX), Omron (NJ/NX/CP), Siemens (S7-1200/1500), and Keyence multi-brand controllers" data-lang-id="Pengendali multi-merek Mitsubishi (iQ-R/FX), Omron (NJ/NX/CP), Siemens (S7-1200/1500), dan Keyence"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 Mitsubishi (iQ-R/FX), Omron (NJ/NX/CP), Siemens (S7-1200/1500), and Keyence multi-brand controllers
                             </span>
                         </div>
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Fieldbus &amp; Protocols" data-lang-id="Protokol &amp; Fieldbus"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Fieldbus &amp; Protocols
                             </span>
                             <span data-lang-en="Profinet, EtherNet/IP, Modbus TCP/RTU, OPC UA Server, and discrete 24V PNP/NPN high-speed I/O" data-lang-id="Profinet, EtherNet/IP, Modbus TCP/RTU, Server OPC UA, dan I/O diskrit kecepatan tinggi 24V PNP/NPN"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 Profinet, EtherNet/IP, Modbus TCP/RTU, OPC UA Server, and discrete 24V PNP/NPN high-speed I/O
                             </span>
                         </div>
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Automated Rejection" data-lang-id="Pemisahan Reject Otomatis"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Automated Rejection
                             </span>
                             <span data-lang-en="Pneumatic high-speed air-jet ejectors, pusher cylinders, and servo motorized sorting flapper gates" data-lang-id="Ejektor semburan angin pneumatik kecepatan tinggi, silinder pendorong, dan gerbang pemilah servo bermotor"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 Pneumatic high-speed air-jet ejectors, pusher cylinders, and servo motorized sorting flapper gates
                             </span>
                         </div>
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Telemetry &amp; SCADA" data-lang-id="Telemetri &amp; SCADA"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Telemetry &amp; SCADA
                             </span>
                             <span data-lang-en="Sub-second telemetry (&lt;100ms refresh latency) with real-time OEE tracking and central industrial touch HMI" data-lang-id="Telemetri sub-detik (latensi &lt;100ms) dengan pelacakan OEE real-time dan panel sentuh HMI industri terpusat"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 Sub-second telemetry (&lt;100ms refresh latency) with real-time OEE tracking and central industrial touch HMI
                             </span>
                         </div>
                         <div class="py-2.5 sm:py-3 flex items-start gap-4">
                             <span data-lang-en="Safety Architecture" data-lang-id="Arsitektur Keselamatan"
-                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0">
+                                class="w-[36%] text-xs sm:text-[13px] font-bold text-neutral-900 font-['Agrandir',sans-serif] tracking-tight shrink-0 leading-relaxed self-start">
                                 Safety Architecture
                             </span>
                             <span data-lang-en="Category 4 / PLe fail-safe interlocks, optoelectronic safety light curtains, and emergency halt circuits" data-lang-id="Interlock pengaman Category 4 / PLe, tirai cahaya keselamatan optoelektronik, dan sirkuit penghenti darurat"
-                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed">
+                                class="w-[64%] text-xs sm:text-[13px] text-neutral-600 font-['Questrial',sans-serif] leading-relaxed self-start">
                                 Category 4 / PLe fail-safe interlocks, optoelectronic safety light curtains, and emergency halt circuits
                             </span>
                         </div>
