@@ -360,19 +360,19 @@
                             <div
                                 class="bg-[#FAFAFA] rounded-2xl p-4 sm:p-5 border border-gray-100/90 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-center transition-all duration-300 hover:shadow-md">
                                 <div>
-                                    <h4 data-lang-en="Unified Integration" data-lang-id="Integrasi Terpadu"
+                                    <h4 data-lang-en="In-Line Vision Integration" data-lang-id="Integrasi Vision In-Line"
                                         class="text-sm sm:text-base font-bold font-['Agrandir',sans-serif] text-gray-950">
-                                        Unified Integration
+                                        In-Line Vision Integration
                                     </h4>
-                                    <p data-lang-en="Integrate smoothly with Tier-1 automation controllers, PLC, and enterprise SCADA telemetries." data-lang-id="Terintegrasi mulus dengan pengontrol otomasi Tier-1, PLC, dan telemetri SCADA enterprise."
+                                    <p data-lang-en="Seamlessly synchronized with industrial PLCs, high-speed conveyors, and automated defect rejection systems." data-lang-id="Sinkronisasi mulus dengan PLC industri, konveyor jalur produksi, dan sistem penolakan cacat otomatis."
                                         class="text-xs text-gray-500 font-['Questrial',sans-serif] mt-1 sm:mt-1.5 leading-relaxed">
-                                        Integrate smoothly with Tier-1 automation controllers, PLC, and enterprise SCADA
-                                        telemetries.
+                                        Seamlessly synchronized with industrial PLCs, high-speed conveyors, and automated defect
+                                        rejection systems.
                                     </p>
                                 </div>
                             </div>
 
-                            <!-- Card 2 (Bawah): 3X Efficiency (Matching 3X >>>> in reference) -->
+                            <!-- Card 2 (Bawah): 3X Inspection Throughput -->
                             <div
                                 class="bg-[#FAFAFA] rounded-2xl p-4 sm:p-5 border border-gray-100/90 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex flex-col justify-center transition-all duration-300 hover:shadow-md">
                                 <div>
@@ -386,10 +386,10 @@
                                             &rsaquo;&rsaquo;&rsaquo;&rsaquo;
                                         </span>
                                     </div>
-                                    <p data-lang-en="Boost team &amp; plant efficiency by 3X with automated workflows and streamlined communication." data-lang-id="Tingkatkan efisiensi tim &amp; pabrik hingga 3X lipat dengan alur kerja otomatis dan komunikasi terpadu."
+                                    <p data-lang-en="Boost quality inspection throughput by up to 3X with automated optical defect detection and zero-defect sorting." data-lang-id="Tingkatkan kapasitas inspeksi mutu hingga 3X lipat dengan deteksi cacat optik otomatis dan sortasi nol cacat."
                                         class="text-xs text-gray-500 font-['Questrial',sans-serif] leading-relaxed mt-1 sm:mt-1.5">
-                                        Boost team &amp; plant efficiency by 3X with automated workflows and streamlined
-                                        communication.
+                                        Boost quality inspection throughput by up to 3X with automated optical defect detection and
+                                        zero-defect sorting.
                                     </p>
                                 </div>
                             </div>
