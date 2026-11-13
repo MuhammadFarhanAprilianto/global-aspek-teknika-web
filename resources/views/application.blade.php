@@ -191,13 +191,13 @@
 
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">800+ pcs/m</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Inspection Rate" data-lang-id="Kecepatan Inspeksi">Inspection Rate</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">800+ pcs/m</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Inspection Rate" data-lang-id="Kecepatan Inspeksi">Inspection Rate</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-white font-['Agrandir']">+32%</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Overall Line OEE" data-lang-id="Peningkatan OEE">Overall Line OEE</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">+32%</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Overall Line OEE" data-lang-id="Peningkatan OEE">Overall Line OEE</div>
                             </div>
                         </div>
                     </div>
@@ -223,13 +223,13 @@
 
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">&plusmn;0.001mm</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Optical Tolerance" data-lang-id="Toleransi Optik">Optical Tolerance</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">&plusmn;0.001mm</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Optical Tolerance" data-lang-id="Toleransi Optik">Optical Tolerance</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-white font-['Agrandir']">SIL-3</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Safety Interlock Level" data-lang-id="Tingkat Keamanan">Safety Interlock Level</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">SIL-3</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Safety Interlock Level" data-lang-id="Tingkat Keamanan">Safety Interlock Level</div>
                             </div>
                         </div>
                     </div>
@@ -255,13 +255,13 @@
 
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Audit Compliance" data-lang-id="Kepatuhan Audit">Audit Compliance</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Audit Compliance" data-lang-id="Kepatuhan Audit">Audit Compliance</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-white font-['Agrandir']">Zero Fail</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Blister Seal Leakage" data-lang-id="Kebocoran Seal Blister">Blister Seal Leakage</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">Zero Fail</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Blister Seal Leakage" data-lang-id="Kebocoran Seal Blister">Blister Seal Leakage</div>
                             </div>
                         </div>
                     </div>
@@ -287,13 +287,13 @@
 
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">-18%</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Chiller Power Saved" data-lang-id="Penghematan Daya Chiller">Chiller Power Saved</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">-18%</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Chiller Power Saved" data-lang-id="Penghematan Daya Chiller">Chiller Power Saved</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-white font-['Agrandir']">&lt;2s</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Alarm Dispatch" data-lang-id="Penyampaian Alarm">Alarm Dispatch</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">&lt;2s</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Alarm Dispatch" data-lang-id="Penyampaian Alarm">Alarm Dispatch</div>
                             </div>
                         </div>
                     </div>
@@ -319,13 +319,13 @@
 
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">60+</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Straps / Minute" data-lang-id="Ikatan / Menit">Straps / Minute</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">60+</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Straps / Minute" data-lang-id="Ikatan / Menit">Straps / Minute</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-white font-['Agrandir']">0.2s</div>
-                                <div class="text-xs text-gray-400 mt-1" data-lang-en="Friction Weld Seal" data-lang-id="Waktu Las Gesek">Friction Weld Seal</div>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">0.2s</div>
+                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Friction Weld Seal" data-lang-id="Waktu Las Gesek">Friction Weld Seal</div>
                             </div>
                         </div>
                     </div>
