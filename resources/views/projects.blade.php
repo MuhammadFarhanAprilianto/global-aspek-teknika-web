@@ -103,6 +103,42 @@
             color: #000000 !important;
         }
 
+        /* LabsStudio Style Infinite Continuous Logo Marquee */
+        @keyframes marqueeScrollLeft {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marqueeScrollRight {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .animate-marquee-left {
+            display: flex;
+            width: max-content;
+            animation: marqueeScrollLeft 36s linear infinite;
+        }
+
+        .animate-marquee-right {
+            display: flex;
+            width: max-content;
+            animation: marqueeScrollRight 40s linear infinite;
+        }
+
+        .marquee-wrapper:hover .animate-marquee-left,
+        .marquee-wrapper:hover .animate-marquee-right {
+            animation-play-state: paused;
+        }
+
         /* Project Card Hover Animation */
         .project-card {
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
@@ -507,24 +543,118 @@
     <!-- ========================================================================= -->
     <!-- 3. TRUSTED BY INDUSTRY LEADERS SECTION                                    -->
     <!-- ========================================================================= -->
-    <section class="bg-neutral-950 text-white py-16 sm:py-20 border-b border-neutral-900">
-        <div class="container mx-auto px-6 text-center space-y-8">
+    <section class="bg-neutral-950 text-white py-20 sm:py-24 relative overflow-hidden border-b border-neutral-900">
+        <div class="container mx-auto px-6 mb-12 sm:mb-14 text-center reveal-on-scroll">
+            <span
+                class="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#3367A5] font-['Agrandir'] mb-2"
+                data-lang-en="Trusted Partners"
+                data-lang-id="Mitra Tepercaya">
+                Trusted Partners
+            </span>
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-['Agrandir'] text-white"
                 data-lang-en="Trusted by Over 20+ Enterprise Manufacturers"
                 data-lang-id="Dipercaya Lebih Dari 20+ Produsen Korporasi">
                 Trusted by Over 20+ Enterprise Manufacturers
             </h2>
-            <div class="w-16 h-1 bg-[#3367A5] mx-auto rounded-full"></div>
+            <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-4 rounded-full"></div>
+            <p class="text-xs sm:text-sm text-gray-400 font-['Questrial'] mt-4 max-w-xl mx-auto"
+                data-lang-en="Delivering cutting-edge industrial automation, robotics, and smart manufacturing to Indonesia's industry leaders."
+                data-lang-id="Menghadirkan otomasi industri terdepan, robotika, dan manufaktur cerdas untuk para pemimpin industri di Indonesia.">
+                Delivering cutting-edge industrial automation, robotics, and smart manufacturing to Indonesia's industry leaders.
+            </p>
+        </div>
 
-            <!-- Client Logos Grid -->
-            <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16 pt-6 opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="{{ asset('storage/logocus/Komatsu.webp') }}" alt="Komatsu" class="h-8 sm:h-9 object-contain invert">
-                <img src="{{ asset('storage/logocus/Panasonic.webp') }}" alt="Panasonic" class="h-8 sm:h-9 object-contain invert">
-                <img src="{{ asset('storage/logocus/Syngenta.webp') }}" alt="Syngenta" class="h-8 sm:h-9 object-contain invert">
-                <img src="{{ asset('storage/logocus/MuliaCeramics.webp') }}" alt="Mulia Ceramics" class="h-8 sm:h-9 object-contain invert">
-                <img src="{{ asset('storage/logocus/Actavis.webp') }}" alt="Actavis" class="h-8 sm:h-9 object-contain invert">
-                <img src="{{ asset('storage/logocus/FederalOil.webp') }}" alt="Federal Oil" class="h-8 sm:h-9 object-contain invert">
+        <!-- Left & Right Gradient Fades (Signature Vignette) -->
+        <div class="absolute left-0 top-0 bottom-0 w-20 sm:w-40 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-transparent pointer-events-none z-20"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-20 sm:w-40 bg-gradient-to-l from-neutral-950 via-neutral-950/80 to-transparent pointer-events-none z-20"></div>
+
+        <!-- Marquee Rows Container -->
+        <div class="marquee-wrapper space-y-6 sm:space-y-8 overflow-hidden py-4 select-none reveal-on-scroll reveal-stagger-2">
+            
+            <!-- Row 1: Scrolling Left -->
+            <div class="animate-marquee-left flex items-center gap-6 sm:gap-10">
+                <!-- 1st Copy of Row 1 Items -->
+                @foreach([
+                    ['name' => 'Actavis', 'file' => 'Actavis.webp'],
+                    ['name' => 'Akasha International', 'file' => 'Akasha.webp'],
+                    ['name' => 'Federal Oil', 'file' => 'FederalOil.webp'],
+                    ['name' => 'Hitachi', 'file' => 'Hitachi.webp'],
+                    ['name' => 'Hokkan Indonesia', 'file' => 'Hokkan.webp', 'class' => 'scale-150 sm:scale-165'],
+                    ['name' => 'Knauf Gypsum', 'file' => 'Knauf.webp'],
+                    ['name' => 'Komatsu', 'file' => 'Komatsu.webp'],
+                    ['name' => 'Orang Tua (OT)', 'file' => 'OT.webp'],
+                    ['name' => 'Panasonic', 'file' => 'Panasonic.webp'],
+                    ['name' => 'Rayovac', 'file' => 'Rayovac.webp'],
+                    ['name' => 'Rejuve', 'file' => 'Rejuve.webp'],
+                    ['name' => 'PT HM Sampoerna Tbk', 'file' => 'Sampoerna.webp'],
+                ] as $brand)
+                <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0 cursor-pointer">
+                    <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
+                        class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-85 hover:opacity-100 hover:scale-110 transition-all duration-300 filter drop-shadow {{ $brand['class'] ?? '' }}">
+                </div>
+                @endforeach
+
+                <!-- 2nd Copy of Row 1 Items (for seamless infinite loop) -->
+                @foreach([
+                    ['name' => 'Actavis', 'file' => 'Actavis.webp'],
+                    ['name' => 'Akasha International', 'file' => 'Akasha.webp'],
+                    ['name' => 'Federal Oil', 'file' => 'FederalOil.webp'],
+                    ['name' => 'Hitachi', 'file' => 'Hitachi.webp'],
+                    ['name' => 'Hokkan Indonesia', 'file' => 'Hokkan.webp', 'class' => 'scale-150 sm:scale-165'],
+                    ['name' => 'Knauf Gypsum', 'file' => 'Knauf.webp'],
+                    ['name' => 'Komatsu', 'file' => 'Komatsu.webp'],
+                    ['name' => 'Orang Tua (OT)', 'file' => 'OT.webp'],
+                    ['name' => 'Panasonic', 'file' => 'Panasonic.webp'],
+                    ['name' => 'Rayovac', 'file' => 'Rayovac.webp'],
+                    ['name' => 'Rejuve', 'file' => 'Rejuve.webp'],
+                    ['name' => 'PT HM Sampoerna Tbk', 'file' => 'Sampoerna.webp'],
+                ] as $brand)
+                <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0 cursor-pointer">
+                    <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
+                        class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-85 hover:opacity-100 hover:scale-110 transition-all duration-300 filter drop-shadow {{ $brand['class'] ?? '' }}">
+                </div>
+                @endforeach
             </div>
+
+            <!-- Row 2: Scrolling Right -->
+            <div class="animate-marquee-right flex items-center gap-6 sm:gap-10">
+                <!-- 1st Copy of Row 2 Items -->
+                @foreach([
+                    ['name' => 'TMS Engineering', 'file' => 'TMS.webp', 'class' => 'scale-120'],
+                    ['name' => 'Syngenta', 'file' => 'Syngenta.webp'],
+                    ['name' => 'Sumiden Wire', 'file' => 'Sumiden.webp'],
+                    ['name' => 'SGI', 'file' => 'SGI.webp'],
+                    ['name' => 'Dankos Laboratories', 'file' => 'Dankos.webp'],
+                    ['name' => 'BMI Monier', 'file' => 'Monier.webp'],
+                    ['name' => 'PT Satyamitra Kemas Lestari Tbk', 'file' => 'SKL.webp'],
+                    ['name' => 'MAM', 'file' => 'MAM.webp'],
+                    ['name' => 'Mulia Ceramics', 'file' => 'MuliaCeramics.webp', 'class' => 'scale-120 sm:scale-130'],
+                ] as $brand)
+                <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0 cursor-pointer">
+                    <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
+                        class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-85 hover:opacity-100 hover:scale-110 transition-all duration-300 filter drop-shadow {{ $brand['class'] ?? '' }}">
+                </div>
+                @endforeach
+
+                <!-- 2nd Copy of Row 2 Items (for seamless infinite loop) -->
+                @foreach([
+                    ['name' => 'TMS Engineering', 'file' => 'TMS.webp', 'class' => 'scale-120'],
+                    ['name' => 'Syngenta', 'file' => 'Syngenta.webp'],
+                    ['name' => 'Sumiden Wire', 'file' => 'Sumiden.webp'],
+                    ['name' => 'SGI', 'file' => 'SGI.webp'],
+                    ['name' => 'Dankos Laboratories', 'file' => 'Dankos.webp'],
+                    ['name' => 'BMI Monier', 'file' => 'Monier.webp'],
+                    ['name' => 'PT Satyamitra Kemas Lestari Tbk', 'file' => 'SKL.webp'],
+                    ['name' => 'MAM', 'file' => 'MAM.webp'],
+                    ['name' => 'Mulia Ceramics', 'file' => 'MuliaCeramics.webp', 'class' => 'scale-120 sm:scale-130'],
+                ] as $brand)
+                <div class="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 shrink-0 cursor-pointer">
+                    <img src="{{ asset('storage/logocus/' . $brand['file']) }}" alt="{{ $brand['name'] }}"
+                        class="max-h-8 sm:max-h-11 w-auto max-w-[130px] sm:max-w-[170px] object-contain opacity-85 hover:opacity-100 hover:scale-110 transition-all duration-300 filter drop-shadow {{ $brand['class'] ?? '' }}">
+                </div>
+                @endforeach
+            </div>
+
         </div>
     </section>
 
