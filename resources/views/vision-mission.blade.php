@@ -115,8 +115,8 @@
         </div>
 
         <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-red-500 mb-4 font-['Agrandir']">
-                <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#3367A5] mb-4 font-['Agrandir']">
+                <span class="w-2 h-2 rounded-full bg-[#3367A5] animate-pulse"></span>
                 <span data-lang-en="PURPOSE &amp; DIRECTION" data-lang-id="ARAH &amp; TUJUAN">PURPOSE &amp; DIRECTION</span>
             </div>
 
@@ -124,7 +124,7 @@
                 class="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold uppercase font-['Agrandir'] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 VISION, MISSION &amp; GOALS
             </h1>
-            <div class="w-24 sm:w-28 h-1.5 bg-red-600 mx-auto mt-4 rounded-full shadow-[0_0_20px_rgba(220,38,38,1)]"></div>
+            <div class="w-24 sm:w-28 h-1.5 bg-[#3367A5] mx-auto mt-4 rounded-full shadow-[0_0_20px_rgba(51,103,165,0.8)]"></div>
 
             <p data-lang-en="Guiding our engineering excellence, fostering enduring client trust, and shaping the future of industrial automation across Indonesia."
                data-lang-id="Memandu keunggulan rekayasa kami, memupuk kepercayaan klien yang kokoh, dan membentuk masa depan otomasi industri di seluruh Indonesia."
@@ -142,14 +142,14 @@
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
                 <span data-lang-en="STRATEGIC ASPIRATION" data-lang-id="ASPIRASI STRATEGIS"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 font-['Agrandir']">
+                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
                     STRATEGIC ASPIRATION
                 </span>
                 <h2 data-lang-en="OUR CORPORATE VISION" data-lang-id="VISI PERUSAHAAN KAMI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir'] mt-2">
                     OUR CORPORATE VISION
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="To become a trusted, world-class industrial system integration company in Indonesia and provide the best guarantee of every solution delivered for consumer needs."
                    data-lang-id="Menjadi perusahaan integrasi sistem industri tepercaya berstandar kelas dunia di Indonesia serta memberikan jaminan terbaik dari setiap solusi yang dihadirkan untuk kebutuhan konsumen."
                     class="text-base sm:text-lg text-gray-300 leading-relaxed font-['Questrial']">
@@ -160,9 +160,9 @@
             <!-- Vision Pillars (3 Dark Glass Cards) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                 <!-- Pillar 1 -->
-                <div class="p-8 rounded-3xl bg-neutral-900/90 border border-neutral-800/80 hover:border-red-600/60 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-1 hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] flex flex-col justify-between">
+                <div class="p-8 rounded-3xl bg-neutral-900/90 border border-neutral-800/80 hover:border-[#3367A5]/60 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-1 hover:shadow-[0_8px_30px_rgba(51,103,165,0.2)] flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 flex items-center justify-center text-red-500 text-xl font-bold font-['Agrandir']">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 flex items-center justify-center text-[#3367A5] text-xl font-bold font-['Agrandir']">
                             01
                         </div>
                         <h3 data-lang-en="National Integration Standard" data-lang-id="Standar Integrasi Nasional"
@@ -175,16 +175,16 @@
                             Setting the national benchmark in PLC programming, robotic cell synchronization, and optical quality verification across domestic industries.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-neutral-800 text-xs text-red-500 font-bold uppercase tracking-wider font-['Agrandir']"
+                    <div class="pt-4 border-t border-neutral-800 text-xs text-[#3367A5] font-bold uppercase tracking-wider font-['Agrandir']"
                         data-lang-en="Tier-1 Engineering" data-lang-id="Rekayasa Tier-1">
                         Tier-1 Engineering
                     </div>
                 </div>
 
                 <!-- Pillar 2 -->
-                <div class="p-8 rounded-3xl bg-neutral-900/90 border border-neutral-800/80 hover:border-red-600/60 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-2 hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] flex flex-col justify-between">
+                <div class="p-8 rounded-3xl bg-neutral-900/90 border border-neutral-800/80 hover:border-[#3367A5]/60 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-2 hover:shadow-[0_8px_30px_rgba(51,103,165,0.2)] flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 flex items-center justify-center text-red-500 text-xl font-bold font-['Agrandir']">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 flex items-center justify-center text-[#3367A5] text-xl font-bold font-['Agrandir']">
                             02
                         </div>
                         <h3 data-lang-en="Sustainable Automation" data-lang-id="Otomasi Berkelanjutan"
@@ -197,16 +197,16 @@
                             Delivering resilient industrial architectures that maximize operational efficiency, lower electrical consumption, and eradicate costly production waste.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-neutral-800 text-xs text-red-500 font-bold uppercase tracking-wider font-['Agrandir']"
+                    <div class="pt-4 border-t border-neutral-800 text-xs text-[#3367A5] font-bold uppercase tracking-wider font-['Agrandir']"
                         data-lang-en="Eco-Efficient Operations" data-lang-id="Operasional Eko-Efisien">
                         Eco-Efficient Operations
                     </div>
                 </div>
 
                 <!-- Pillar 3 -->
-                <div class="p-8 rounded-3xl bg-neutral-900/90 border border-neutral-800/80 hover:border-red-600/60 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-3 hover:shadow-[0_8px_30px_rgba(220,38,38,0.15)] flex flex-col justify-between">
+                <div class="p-8 rounded-3xl bg-neutral-900/90 border border-neutral-800/80 hover:border-[#3367A5]/60 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-3 hover:shadow-[0_8px_30px_rgba(51,103,165,0.2)] flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 flex items-center justify-center text-red-500 text-xl font-bold font-['Agrandir']">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-800 flex items-center justify-center text-[#3367A5] text-xl font-bold font-['Agrandir']">
                             03
                         </div>
                         <h3 data-lang-en="Zero-Downtime Guarantee" data-lang-id="Jaminan Tanpa Henti"
@@ -219,7 +219,7 @@
                             Providing manufacturing clients with total peace of mind through fail-safe system logic, real-time telemetry, and dedicated after-sales SLA guarantees.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-neutral-800 text-xs text-red-500 font-bold uppercase tracking-wider font-['Agrandir']"
+                    <div class="pt-4 border-t border-neutral-800 text-xs text-[#3367A5] font-bold uppercase tracking-wider font-['Agrandir']"
                         data-lang-en="100% Operational Confidence" data-lang-id="100% Kepastian Operasional">
                         100% Operational Confidence
                     </div>
@@ -235,14 +235,14 @@
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
                 <span data-lang-en="DAILY MISSION IN ACTION" data-lang-id="AKSI MISI HARIAN KAMI"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-['Agrandir']">
+                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
                     DAILY MISSION IN ACTION
                 </span>
                 <h2 data-lang-en="OUR GUIDING MISSION" data-lang-id="MISI UTAMA KAMI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] mt-2">
                     OUR GUIDING MISSION
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="Competence development of each of our employees, to always be able to provide services to consumer needs and provide the best after-sales support services to consumers."
                    data-lang-id="Pengembangan kompetensi setiap karyawan kami, agar senantiasa mampu memberikan pelayanan terbaik terhadap kebutuhan konsumen serta menghadirkan layanan purnajual yang optimal."
                     class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial']">
@@ -253,7 +253,7 @@
             <!-- 3 Expanded Mission Cards -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Mission 1 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-red-500 hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-5">
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-5">
                     <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
                         01
                     </div>
@@ -267,13 +267,13 @@
                         Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware.
                     </p>
                     <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700">
-                        <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                        <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
                         <span data-lang-en="Custom PLC, SCADA &amp; Vision Logic" data-lang-id="Logika Khusus PLC, SCADA &amp; Visi">Custom PLC, SCADA &amp; Vision Logic</span>
                     </div>
                 </div>
 
                 <!-- Mission 2 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-red-500 hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-5">
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-5">
                     <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
                         02
                     </div>
@@ -287,13 +287,13 @@
                         Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics.
                     </p>
                     <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700">
-                        <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                        <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
                         <span data-lang-en="Certified Field Automation Engineers" data-lang-id="Teknisi Otomasi Lapangan Bersertifikat">Certified Field Automation Engineers</span>
                     </div>
                 </div>
 
                 <!-- Mission 3 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-red-500 hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-5">
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-5">
                     <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
                         03
                     </div>
@@ -307,7 +307,7 @@
                         Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory.
                     </p>
                     <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700">
-                        <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                        <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
                         <span data-lang-en="24/7 Emergency Support Guarantees" data-lang-id="Jaminan Dukungan Darurat 24/7">24/7 Emergency Support Guarantees</span>
                     </div>
                 </div>
@@ -322,14 +322,14 @@
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
                 <span data-lang-en="TARGETS &amp; ROADMAP" data-lang-id="TARGET &amp; PETA JALAN"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 font-['Agrandir']">
+                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
                     TARGETS &amp; ROADMAP
                 </span>
                 <h2 data-lang-en="STRATEGIC CORPORATE GOALS" data-lang-id="TARGET STRATEGIS PERUSAHAAN"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir'] mt-2">
                     STRATEGIC CORPORATE GOALS
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="Clear quantifiable milestones that drive our investments in technology, operational scale, and customer success."
                    data-lang-id="Target terukur dan jelas yang mendorong investasi kami dalam teknologi, skala operasional, dan kesuksesan mitra industri."
                     class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
@@ -340,8 +340,8 @@
             <!-- 4 Goals Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Goal 1 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-red-600 transition-all duration-300 reveal-on-scroll reveal-stagger-1">
-                    <div class="text-3xl sm:text-4xl font-bold text-red-500 font-['Agrandir']">99.98%</div>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-1">
+                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">99.98%</div>
                     <h4 data-lang-en="Zero-Defect Quality Target" data-lang-id="Target Nol Defek Mutu"
                         class="text-lg font-bold text-white font-['Agrandir']">
                         Zero-Defect Quality Target
@@ -358,8 +358,8 @@
                 </div>
 
                 <!-- Goal 2 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-red-600 transition-all duration-300 reveal-on-scroll reveal-stagger-2">
-                    <div class="text-3xl sm:text-4xl font-bold text-red-500 font-['Agrandir']">500+</div>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-2">
+                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">500+</div>
                     <h4 data-lang-en="Smart Factory Implementations" data-lang-id="Implementasi Pabrik Cerdas"
                         class="text-lg font-bold text-white font-['Agrandir']">
                         Smart Factory Implementations
@@ -376,8 +376,8 @@
                 </div>
 
                 <!-- Goal 3 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-red-600 transition-all duration-300 reveal-on-scroll reveal-stagger-3">
-                    <div class="text-3xl sm:text-4xl font-bold text-red-500 font-['Agrandir']">100%</div>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-3">
+                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
                     <h4 data-lang-en="Paperless IoT Traceability" data-lang-id="Pelacakan Nirkertas IoT Penuh"
                         class="text-lg font-bold text-white font-['Agrandir']">
                         Paperless IoT Traceability
@@ -394,8 +394,8 @@
                 </div>
 
                 <!-- Goal 4 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-red-600 transition-all duration-300 reveal-on-scroll reveal-stagger-4">
-                    <div class="text-3xl sm:text-4xl font-bold text-red-500 font-['Agrandir']">-20%</div>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-4">
+                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">-20%</div>
                     <h4 data-lang-en="Energy &amp; Carbon Footprint" data-lang-id="Penurunan Konsumsi Daya"
                         class="text-lg font-bold text-white font-['Agrandir']">
                         Energy &amp; Carbon Footprint
@@ -421,14 +421,14 @@
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
                 <span data-lang-en="THE GAT WAY" data-lang-id="NILAI INTI KAMI"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-['Agrandir']">
+                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
                     THE GAT WAY
                 </span>
                 <h2 data-lang-en="OUR 4 FOUNDATIONAL VALUES" data-lang-id="4 PILAR NILAI UTAMA KAMI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] mt-2">
                     OUR 4 FOUNDATIONAL VALUES
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="The enduring cultural tenets that define our relationships with clients, team members, and the manufacturing community."
                    data-lang-id="Prinsip budaya yang mendefinisikan hubungan kami dengan para klien, anggota tim, serta ekosistem industri manufaktur."
                     class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial']">
@@ -438,8 +438,8 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Value 1 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-red-600 hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-3">
-                    <div data-lang-en="Value 01" data-lang-id="Nilai 01" class="text-red-600 font-bold text-sm tracking-wider uppercase">Value 01</div>
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-3">
+                    <div data-lang-en="Value 01" data-lang-id="Nilai 01" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase">Value 01</div>
                     <h3 data-lang-en="Lasting Partnerships" data-lang-id="Kemitraan Jangka Panjang" class="text-lg font-bold text-gray-950 font-['Agrandir']">Lasting Partnerships</h3>
                     <p data-lang-en="Maintain excellent service to foster lasting partnerships with our customers and clients across every project phase."
                        data-lang-id="Menjaga kualitas layanan unggul demi membina kemitraan jangka panjang bersama para pelanggan dan mitra kerja di setiap fase proyek."
@@ -449,8 +449,8 @@
                 </div>
 
                 <!-- Value 2 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-red-600 hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-3">
-                    <div data-lang-en="Value 02" data-lang-id="Nilai 02" class="text-red-600 font-bold text-sm tracking-wider uppercase">Value 02</div>
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-3">
+                    <div data-lang-en="Value 02" data-lang-id="Nilai 02" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase">Value 02</div>
                     <h3 data-lang-en="Kindness &amp; Trust" data-lang-id="Integritas &amp; Kepercayaan" class="text-lg font-bold text-gray-950 font-['Agrandir']">Kindness &amp; Trust</h3>
                     <p data-lang-en="Believe in treating our customers with sincerity, mutual respect, transparent communication, and enduring trust."
                        data-lang-id="Membangun relasi bersama pelanggan berlandaskan ketulusan, rasa saling menghargai, komunikasi transparan, dan kepercayaan yang kokoh."
@@ -460,8 +460,8 @@
                 </div>
 
                 <!-- Value 3 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-red-600 hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-3">
-                    <div data-lang-en="Value 03" data-lang-id="Nilai 03" class="text-red-600 font-bold text-sm tracking-wider uppercase">Value 03</div>
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-3">
+                    <div data-lang-en="Value 03" data-lang-id="Nilai 03" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase">Value 03</div>
                     <h3 data-lang-en="Creativity &amp; Innovation" data-lang-id="Kreativitas &amp; Inovasi" class="text-lg font-bold text-gray-950 font-['Agrandir']">Creativity &amp; Innovation</h3>
                     <p data-lang-en="Continue to grow and lead by actively embracing creativity, cutting-edge engineering, and ongoing technological evolution."
                        data-lang-id="Terus berkembang dan memimpin dengan aktif merangkul kreativitas, rekayasa mutakhir, serta evolusi teknologi berkelanjutan."
@@ -471,8 +471,8 @@
                 </div>
 
                 <!-- Value 4 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-red-600 hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-4 space-y-3">
-                    <div data-lang-en="Value 04" data-lang-id="Nilai 04" class="text-red-600 font-bold text-sm tracking-wider uppercase">Value 04</div>
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-4 space-y-3">
+                    <div data-lang-en="Value 04" data-lang-id="Nilai 04" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase">Value 04</div>
                     <h3 data-lang-en="Team Development" data-lang-id="Pengembangan Tim" class="text-lg font-bold text-gray-950 font-['Agrandir']">Team Development</h3>
                     <p data-lang-en="Constantly enhance the specialized capabilities of our dedicated team to drive service development and lasting operational excellence."
                        data-lang-id="Senantiasa meningkatkan kapabilitas teknis tim demi mendorong kemajuan layanan dan keunggulan operasional yang langgeng."
@@ -489,7 +489,7 @@
     <!-- ========================================================================= -->
     <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
         <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest text-red-500 font-['Agrandir']"
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
                 data-lang-en="JOIN OUR JOURNEY" data-lang-id="BERGABUNGLAH DENGAN KAMI">
                 JOIN OUR JOURNEY
             </span>
@@ -506,7 +506,7 @@
 
             <div class="pt-4 flex items-center justify-center">
                 <a href="{{ route('contact') }}"
-                    class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-red-600 font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-['Agrandir'] border-0 outline-none isolate">
+                    class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-[#3367A5] font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-['Agrandir'] border-0 outline-none isolate">
                     <span class="absolute inset-0 bg-white rounded-full -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
                     <span class="cta-text-wrapper relative z-10 flex items-center gap-2 font-['Agrandir'] text-sm sm:text-base font-bold">
                         <span data-lang-en="Consult With Our Engineers" data-lang-id="Konsultasi Bersama Teknisi Kami">Consult With Our Engineers</span>

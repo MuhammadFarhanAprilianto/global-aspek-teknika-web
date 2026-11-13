@@ -111,8 +111,8 @@
         </div>
 
         <div class="relative z-10 px-6 max-w-5xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-red-500 mb-4 font-['Agrandir']">
-                <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#3367A5] mb-4 font-['Agrandir']">
+                <span class="w-2 h-2 rounded-full bg-[#3367A5] animate-pulse"></span>
                 <span data-lang-en="CROSS-INDUSTRY SYSTEM INTEGRATION" data-lang-id="INTEGRASI SISTEM LINTAS INDUSTRI">CROSS-INDUSTRY SYSTEM INTEGRATION</span>
             </div>
 
@@ -120,7 +120,7 @@
                 class="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold uppercase font-['Agrandir'] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 INDUSTRIAL APPLICATIONS
             </h1>
-            <div class="w-24 sm:w-28 h-1.5 bg-red-600 mx-auto mt-4 rounded-full shadow-[0_0_20px_rgba(220,38,38,1)]"></div>
+            <div class="w-24 sm:w-28 h-1.5 bg-[#3367A5] mx-auto mt-4 rounded-full shadow-[0_0_20px_rgba(51,103,165,0.8)]"></div>
 
             <p data-lang-en="Smart automation architectures, machine vision quality inspection, and web-based SCADA telemetry engineered for mission-critical production facilities."
                data-lang-id="Arsitektur otomasi cerdas, inspeksi mutu visi optik, dan telemetri SCADA berbasis web yang dirancang untuk fasilitas produksi berstandar tinggi."
@@ -138,14 +138,14 @@
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16 reveal-on-scroll">
                 <span data-lang-en="CORE USE CASES" data-lang-id="USE CASE UTAMA"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 font-['Agrandir']">
+                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
                     CORE USE CASES
                 </span>
                 <h2 data-lang-en="WHERE GAT SYSTEMS ARE DEPLOYED" data-lang-id="PENERAPAN SISTEM GAT DI INDUSTRI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir'] mt-2">
                     WHERE GAT SYSTEMS ARE DEPLOYED
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="Select an operational domain below to discover our tailored system architectures, field deployment models, and measurable benefits."
                    data-lang-id="Pilih domain operasional di bawah ini untuk melihat arsitektur sistem, model implementasi lapangan, dan manfaat nyata bagi industri Anda."
                     class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
@@ -156,7 +156,7 @@
             <!-- Domain Nav Pills -->
             <div class="flex items-center justify-center flex-wrap gap-2.5 sm:gap-3 mb-12 reveal-on-scroll">
                 <button type="button" onclick="switchDomain('manufacturing')" id="btn-manufacturing"
-                    class="domain-tab-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-red-600 text-white border-red-500 shadow-md">
+                    class="domain-tab-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-[#3367A5] text-white border-[#3367A5] shadow-md">
                     <span data-lang-en="Manufacturing &amp; FMCG" data-lang-id="Manufaktur &amp; FMCG">Manufacturing &amp; FMCG</span>
                 </button>
                 <button type="button" onclick="switchDomain('automotive')" id="btn-automotive"
@@ -183,7 +183,7 @@
                 <!-- 1. Manufacturing & FMCG -->
                 <div id="pane-manufacturing" class="domain-pane grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
+                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
                             data-lang-en="Continuous Production &amp; High-Speed Bottling" data-lang-id="Produksi Berkelanjutan &amp; Pembotolan Cepat">
                             Continuous Production &amp; High-Speed Bottling
                         </div>
@@ -201,7 +201,7 @@
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-red-500 font-['Agrandir']">800+ pcs/m</div>
+                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">800+ pcs/m</div>
                                 <div class="text-xs text-gray-400 mt-1" data-lang-en="Inspection Rate" data-lang-id="Kecepatan Inspeksi">Inspection Rate</div>
                             </div>
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
@@ -219,7 +219,7 @@
                 <!-- 2. Automotive & Heavy Machinery -->
                 <div id="pane-automotive" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
+                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
                             data-lang-en="Tier-1 Precision &amp; Fail-Safe Hydraulic Logic" data-lang-id="Presisi Tier-1 &amp; Logika Hidrolik Fail-Safe">
                             Tier-1 Precision &amp; Fail-Safe Hydraulic Logic
                         </div>
@@ -237,7 +237,7 @@
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-red-500 font-['Agrandir']">&plusmn;0.001mm</div>
+                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">&plusmn;0.001mm</div>
                                 <div class="text-xs text-gray-400 mt-1" data-lang-en="Optical Tolerance" data-lang-id="Toleransi Optik">Optical Tolerance</div>
                             </div>
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
@@ -255,7 +255,7 @@
                 <!-- 3. Pharma & Cleanrooms -->
                 <div id="pane-pharma" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
+                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
                             data-lang-en="21 CFR Part 11 &amp; Full Batch Traceability" data-lang-id="Standar 21 CFR Part 11 &amp; Pelacakan Batch">
                             21 CFR Part 11 &amp; Full Batch Traceability
                         </div>
@@ -273,7 +273,7 @@
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-red-500 font-['Agrandir']">100%</div>
+                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
                                 <div class="text-xs text-gray-400 mt-1" data-lang-en="Audit Compliance" data-lang-id="Kepatuhan Audit">Audit Compliance</div>
                             </div>
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
@@ -291,7 +291,7 @@
                 <!-- 4. Smart BMS & Utilities -->
                 <div id="pane-bms" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
+                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
                             data-lang-en="Web-Based Energy Optimization &amp; HVAC Control" data-lang-id="Optimasi Energi Berbasis Web &amp; Kontrol HVAC">
                             Web-Based Energy Optimization &amp; HVAC Control
                         </div>
@@ -309,7 +309,7 @@
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-red-500 font-['Agrandir']">-18%</div>
+                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">-18%</div>
                                 <div class="text-xs text-gray-400 mt-1" data-lang-en="Chiller Power Saved" data-lang-id="Penghematan Daya Chiller">Chiller Power Saved</div>
                             </div>
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
@@ -327,7 +327,7 @@
                 <!-- 5. End-of-Line Packaging -->
                 <div id="pane-logistics" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-block px-3.5 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
+                        <div class="inline-block px-3.5 py-1 rounded-full bg-[#3367A5]/20 text-[#7EB5F0] border border-[#3367A5]/30 text-xs font-bold font-['Agrandir'] tracking-wider uppercase"
                             data-lang-en="Heavy Bundling &amp; Pallet Conveyor Interlocks" data-lang-id="Pengikatan Tugas Berat &amp; Konveyor Palet">
                             Heavy Bundling &amp; Pallet Conveyor Interlocks
                         </div>
@@ -345,7 +345,7 @@
                         <!-- Key Highlights -->
                         <div class="grid grid-cols-2 gap-4 pt-2">
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
-                                <div class="text-2xl font-bold text-red-500 font-['Agrandir']">60+</div>
+                                <div class="text-2xl font-bold text-[#3367A5] font-['Agrandir']">60+</div>
                                 <div class="text-xs text-gray-400 mt-1" data-lang-en="Straps / Minute" data-lang-id="Ikatan / Menit">Straps / Minute</div>
                             </div>
                             <div class="p-4 rounded-2xl bg-neutral-900 border border-neutral-800">
@@ -371,14 +371,14 @@
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-18 reveal-on-scroll">
                 <span data-lang-en="SYSTEM BLUEPRINT" data-lang-id="CETAK BIRU SISTEM"
-                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-['Agrandir']">
+                    class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']">
                     SYSTEM BLUEPRINT
                 </span>
                 <h2 data-lang-en="THE 4-LAYER INTEGRATION STACK" data-lang-id="4 LAPISAN ARSITEKTUR INTEGRASI"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] mt-2">
                     THE 4-LAYER INTEGRATION STACK
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="From physical factory floor sensors up to enterprise cloud reporting, our architecture ensures zero packet loss and seamless protocol interoperability."
                    data-lang-id="Dari sensor lantai pabrik hingga pelaporan cloud korporat, arsitektur kami menjamin nol kehilangan data serta interoperabilitas protokol tanpa hambatan."
                     class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial']">
@@ -389,13 +389,13 @@
             <!-- Vertical Stack Layers -->
             <div class="max-w-4xl mx-auto space-y-6">
                 <!-- Layer 4: Enterprise Layer -->
-                <div class="p-6 sm:p-7 rounded-3xl border border-gray-200 bg-neutral-50/70 hover:bg-white hover:border-red-500 hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-1 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="p-6 sm:p-7 rounded-3xl border border-gray-200 bg-neutral-50/70 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-1 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-sm font-['Agrandir'] shrink-0">
                             L4
                         </div>
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-red-600 font-['Agrandir']" data-lang-en="Enterprise &amp; Analytics" data-lang-id="Tingkat Enterprise &amp; Analitik">Enterprise &amp; Analytics</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#3367A5] font-['Agrandir']" data-lang-en="Enterprise &amp; Analytics" data-lang-id="Tingkat Enterprise &amp; Analitik">Enterprise &amp; Analytics</span>
                             <h4 class="text-lg font-bold text-black font-['Agrandir']" data-lang-en="Cloud Database &amp; MES / ERP Integration" data-lang-id="Basis Data Cloud &amp; Integrasi MES / ERP">Cloud Database &amp; MES / ERP Integration</h4>
                             <p class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] mt-1" data-lang-en="Automated SQL historian, executive shift summaries, SAP/Oracle sync, and paperless QA audits." data-lang-id="Historian SQL otomatis, ringkasan shift eksekutif, sinkronisasi SAP/Oracle, dan audit mutu nirkertas.">
                                 Automated SQL historian, executive shift summaries, SAP/Oracle sync, and paperless QA audits.
@@ -409,13 +409,13 @@
                 </div>
 
                 <!-- Layer 3: Web SCADA & Telemetry -->
-                <div class="p-6 sm:p-7 rounded-3xl border border-gray-200 bg-neutral-50/70 hover:bg-white hover:border-red-500 hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-2 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="p-6 sm:p-7 rounded-3xl border border-gray-200 bg-neutral-50/70 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-2 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-2xl bg-red-600 text-white flex items-center justify-center font-bold text-sm font-['Agrandir'] shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-[#3367A5] text-white flex items-center justify-center font-bold text-sm font-['Agrandir'] shrink-0">
                             L3
                         </div>
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-red-600 font-['Agrandir']" data-lang-en="Visualization &amp; Telemetry" data-lang-id="Visualisasi &amp; Telemetri">Visualization &amp; Telemetry</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#3367A5] font-['Agrandir']" data-lang-en="Visualization &amp; Telemetry" data-lang-id="Visualisasi &amp; Telemetri">Visualization &amp; Telemetry</span>
                             <h4 class="text-lg font-bold text-black font-['Agrandir']" data-lang-en="Web-Based SCADA Portal &amp; Real-Time Andon" data-lang-id="Portal SCADA Berbasis Web &amp; Andon Real-Time">Web-Based SCADA Portal &amp; Real-Time Andon</h4>
                             <p class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] mt-1" data-lang-en="Responsive HTML5 multi-touch dashboards accessible across workstations, iPads, and mobile HMIs." data-lang-id="Dashboard responsif HTML5 yang dapat diakses langsung via browser workstation, iPad, dan tablet HMI.">
                                 Responsive HTML5 multi-touch dashboards accessible across workstations, iPads, and mobile HMIs.
@@ -429,13 +429,13 @@
                 </div>
 
                 <!-- Layer 2: Edge Controllers & Gateways -->
-                <div class="p-6 sm:p-7 rounded-3xl border border-gray-200 bg-neutral-50/70 hover:bg-white hover:border-red-500 hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="p-6 sm:p-7 rounded-3xl border border-gray-200 bg-neutral-50/70 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-sm font-['Agrandir'] shrink-0">
                             L2
                         </div>
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-red-600 font-['Agrandir']" data-lang-en="Edge Compute &amp; Control" data-lang-id="Komputasi Edge &amp; Kendali">Edge Compute &amp; Control</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#3367A5] font-['Agrandir']" data-lang-en="Edge Compute &amp; Control" data-lang-id="Komputasi Edge &amp; Kendali">Edge Compute &amp; Control</span>
                             <h4 class="text-lg font-bold text-black font-['Agrandir']" data-lang-en="Multi-Brand PLC &amp; Edge Fieldbus Gateways" data-lang-id="PLC Multi-Brand &amp; Gateway Fieldbus Edge">Multi-Brand PLC &amp; Edge Fieldbus Gateways</h4>
                             <p class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] mt-1" data-lang-en="Deterministic sub-10ms cycle execution on Mitsubishi, Omron, Siemens, and industrial IPC units." data-lang-id="Eksekusi siklus deterministik sub-10ms pada PLC Mitsubishi, Omron, Siemens, serta IPC industri.">
                                 Deterministic sub-10ms cycle execution on Mitsubishi, Omron, Siemens, and industrial IPC units.
@@ -450,13 +450,13 @@
                 </div>
 
                 <!-- Layer 1: Physical Machine & Sensors -->
-                <div class="p-6 sm:p-7 rounded-3xl border border-gray-200 bg-neutral-50/70 hover:bg-white hover:border-red-500 hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="p-6 sm:p-7 rounded-3xl border border-gray-200 bg-neutral-50/70 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-sm font-['Agrandir'] shrink-0">
                             L1
                         </div>
                         <div>
-                            <span class="text-xs font-bold uppercase tracking-wider text-red-600 font-['Agrandir']" data-lang-en="Field Actuation &amp; Optics" data-lang-id="Aktuasi Lapangan &amp; Optik">Field Actuation &amp; Optics</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#3367A5] font-['Agrandir']" data-lang-en="Field Actuation &amp; Optics" data-lang-id="Aktuasi Lapangan &amp; Optik">Field Actuation &amp; Optics</span>
                             <h4 class="text-lg font-bold text-black font-['Agrandir']" data-lang-en="Vision Cameras, Laser Heads, Strappers &amp; Actuators" data-lang-id="Kamera Visi, Head Laser, Mesin Strapping &amp; Aktuator">Vision Cameras, Laser Heads, Strappers &amp; Actuators</h4>
                             <p class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] mt-1" data-lang-en="Sub-micron optical sensors, pneumatic friction welders, high-speed TIJ heads, and photo-electric triggers." data-lang-id="Sensor optik sub-mikron, pengelas gesek pneumatik, head cetak TIJ berkecepatan tinggi, dan pemicu optik.">
                                 Sub-micron optical sensors, pneumatic friction welders, high-speed TIJ heads, and photo-electric triggers.
@@ -477,7 +477,7 @@
     <!-- ========================================================================= -->
     <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
         <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest text-red-500 font-['Agrandir']"
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
                 data-lang-en="CUSTOM IMPLEMENTATION" data-lang-id="IMPLEMENTASI KUSTOM">
                 CUSTOM IMPLEMENTATION
             </span>
@@ -494,7 +494,7 @@
 
             <div class="pt-4 flex items-center justify-center">
                 <a href="{{ route('contact') }}"
-                    class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-red-600 font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-['Agrandir'] border-0 outline-none isolate">
+                    class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-[#3367A5] font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-['Agrandir'] border-0 outline-none isolate">
                     <span class="absolute inset-0 bg-white rounded-full -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
                     <span class="cta-text-wrapper relative z-10 flex items-center gap-2 font-['Agrandir'] text-sm sm:text-base font-bold">
                         <span data-lang-en="Request Technical Consultation" data-lang-id="Minta Konsultasi Teknis">Request Technical Consultation</span>
@@ -518,13 +518,13 @@
         function switchDomain(domainId) {
             // Update Tab Buttons
             document.querySelectorAll('.domain-tab-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-red-600', 'text-white', 'border-red-500', 'shadow-md');
+                btn.classList.remove('active', 'bg-[#3367A5]', 'text-white', 'border-[#3367A5]', 'shadow-md');
                 btn.classList.add('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
             });
             const activeBtn = document.getElementById('btn-' + domainId);
             if (activeBtn) {
                 activeBtn.classList.remove('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
-                activeBtn.classList.add('active', 'bg-red-600', 'text-white', 'border-red-500', 'shadow-md');
+                activeBtn.classList.add('active', 'bg-[#3367A5]', 'text-white', 'border-[#3367A5]', 'shadow-md');
             }
 
             // Update Content Panes

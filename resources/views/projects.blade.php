@@ -95,7 +95,7 @@
         .project-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.09);
-            border-color: #ef4444;
+            border-color: #3367A5;
         }
         .project-card:hover .project-card-img {
             transform: scale(1.05);
@@ -115,8 +115,8 @@
     <!-- ========================================================================= -->
     <section class="relative w-full bg-[#f8fafc] text-gray-900 text-center pt-36 sm:pt-44 lg:pt-52 pb-16 sm:pb-20 border-b border-gray-200/80">
         <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200/80 text-xs sm:text-sm font-semibold tracking-widest uppercase text-red-600 mb-4 font-['Agrandir']">
-                <span class="w-2 h-2 rounded-full bg-red-600"></span>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#3367A5]/10 border border-[#3367A5]/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#3367A5] mb-4 font-['Agrandir']">
+                <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
                 <span data-lang-en="PROVEN FIELD IMPLEMENTATIONS" data-lang-id="IMPLEMENTASI LAPANGAN TERUJI">PROVEN FIELD IMPLEMENTATIONS</span>
             </div>
 
@@ -124,7 +124,7 @@
                 class="text-4xl sm:text-5xl md:text-6xl font-bold uppercase font-['Agrandir'] tracking-tight text-black leading-tight">
                 PROJECTS &amp; CASE STUDIES
             </h1>
-            <div class="w-20 sm:w-24 h-1.5 bg-red-600 mx-auto mt-4 rounded-full"></div>
+            <div class="w-20 sm:w-24 h-1.5 bg-[#3367A5] mx-auto mt-4 rounded-full"></div>
 
             <p data-lang-en="Real-world industrial automation, machine vision quality inspection, and IoT telemetry systems engineered for Indonesia's leading manufacturers."
                data-lang-id="Otomasi industri nyata, inspeksi mutu visi optik, dan sistem telemetri IoT yang direkayasa untuk produsen terkemuka di Indonesia."
@@ -197,9 +197,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">&plusmn;0.001mm Precision</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">&plusmn;0.001mm Precision</span>
                         <button type="button" onclick="openCaseModal('proj-automotive-gears')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -231,9 +231,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">99.99% Telemetry Uptime</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">99.99% Telemetry Uptime</span>
                         <button type="button" onclick="openCaseModal('proj-aviation-telemetry')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -265,9 +265,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">-18% Power Reduction</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">-18% Power Reduction</span>
                         <button type="button" onclick="openCaseModal('proj-mall-bms')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -299,9 +299,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">100% Cell Traceability</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">100% Cell Traceability</span>
                         <button type="button" onclick="openCaseModal('proj-battery-assembly')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -333,9 +333,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">Zero Scorched Batches</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">Zero Scorched Batches</span>
                         <button type="button" onclick="openCaseModal('proj-coffee-roasting')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -367,9 +367,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">60+ straps / min</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">60+ straps / min</span>
                         <button type="button" onclick="openCaseModal('proj-confectionery-pack')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -401,9 +401,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">600 pcs / min</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">600 pcs / min</span>
                         <button type="button" onclick="openCaseModal('proj-pharma-qc')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -435,9 +435,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">Fail-Safe Certified</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">Fail-Safe Certified</span>
                         <button type="button" onclick="openCaseModal('proj-agrochemical-flow')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -469,9 +469,9 @@
                         </div>
                     </div>
                     <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs font-bold text-red-600 font-['Agrandir']">100 m/min Coding</span>
+                        <span class="text-xs font-bold text-[#3367A5] font-['Agrandir']">100 m/min Coding</span>
                         <button type="button" onclick="openCaseModal('proj-ceramic-coding')"
-                            class="text-xs font-bold text-gray-900 hover:text-red-600 flex items-center gap-1 font-['Agrandir'] transition-colors">
+                            class="text-xs font-bold text-gray-900 hover:text-[#3367A5] flex items-center gap-1 font-['Agrandir'] transition-colors">
                             <span data-lang-en="Find out more &rarr;" data-lang-id="Selengkapnya &rarr;">Find out more &rarr;</span>
                         </button>
                     </div>
@@ -486,7 +486,7 @@
     <!-- ========================================================================= -->
     <section class="bg-neutral-950 text-white py-16 sm:py-20 border-b border-neutral-900">
         <div class="container mx-auto px-6 text-center space-y-8">
-            <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 font-['Agrandir']"
+            <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
                 data-lang-en="PROVEN COLLABORATIONS" data-lang-id="KOLABORASI TERUJI">
                 PROVEN COLLABORATIONS
             </span>
@@ -495,7 +495,7 @@
                 data-lang-id="Dipercaya Lebih Dari 20+ Produsen Korporasi">
                 Trusted by Over 20+ Enterprise Manufacturers
             </h2>
-            <div class="w-16 h-1 bg-red-600 mx-auto rounded-full"></div>
+            <div class="w-16 h-1 bg-[#3367A5] mx-auto rounded-full"></div>
 
             <!-- Client Logos Grid -->
             <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16 pt-6 opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
@@ -514,7 +514,7 @@
     <!-- ========================================================================= -->
     <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
         <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest text-red-500 font-['Agrandir']"
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
                 data-lang-en="LET'S BUILD TOGETHER" data-lang-id="MARI BERKOLABORASI">
                 LET'S BUILD TOGETHER
             </span>
@@ -531,7 +531,7 @@
 
             <div class="pt-4 flex items-center justify-center">
                 <a href="{{ route('contact') }}"
-                    class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-red-600 font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-['Agrandir'] border-0 outline-none isolate">
+                    class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-[#3367A5] font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-['Agrandir'] border-0 outline-none isolate">
                     <span class="absolute inset-0 bg-white rounded-full -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
                     <span class="cta-text-wrapper relative z-10 flex items-center gap-2 font-['Agrandir'] text-sm sm:text-base font-bold">
                         <span data-lang-en="Discuss Your Project" data-lang-id="Diskusikan Proyek Anda">Discuss Your Project</span>
@@ -554,7 +554,7 @@
     <div id="case-modal" class="fixed inset-0 z-[120] bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 sm:p-6 transition-opacity duration-300">
         <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-gray-100 pb-4">
-                <span id="modal-category" class="px-3.5 py-1 bg-red-50 text-red-600 border border-red-200 rounded-full text-xs font-bold uppercase font-['Agrandir']">
+                <span id="modal-category" class="px-3.5 py-1 bg-[#3367A5]/10 text-[#3367A5] border border-[#3367A5]/20 rounded-full text-xs font-bold uppercase font-['Agrandir']">
                     CASE STUDY
                 </span>
                 <button type="button" onclick="closeCaseModal()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-black">
@@ -575,12 +575,12 @@
                     </div>
                     <div class="p-4 rounded-2xl bg-gray-50 border border-gray-100">
                         <div class="text-xs text-gray-500 font-bold uppercase font-['Agrandir']" data-lang-en="Field Impact" data-lang-id="Dampak Lapangan">Field Impact</div>
-                        <div id="modal-impact" class="text-sm sm:text-base font-bold text-red-600 mt-1">Zero Downtime Achieved</div>
+                        <div id="modal-impact" class="text-sm sm:text-base font-bold text-[#3367A5] mt-1">Zero Downtime Achieved</div>
                     </div>
                 </div>
             </div>
             <div class="pt-4 border-t border-gray-100 flex justify-end">
-                <a href="{{ route('contact') }}" class="px-6 py-2.5 bg-black hover:bg-red-600 text-white text-xs sm:text-sm font-bold rounded-full transition-colors font-['Agrandir']">
+                <a href="{{ route('contact') }}" class="px-6 py-2.5 bg-black hover:bg-[#3367A5] text-white text-xs sm:text-sm font-bold rounded-full transition-colors font-['Agrandir']">
                     <span data-lang-en="Contact About Similar Solution" data-lang-id="Konsultasikan Solusi Serupa">Contact About Similar Solution</span>
                 </a>
             </div>
