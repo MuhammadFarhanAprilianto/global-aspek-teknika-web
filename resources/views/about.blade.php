@@ -271,12 +271,12 @@
                                 Robotics &amp; Material Flow
                             </span>
                             <h3 data-lang-en="Turnkey System Integration" data-lang-id="Integrasi Sistem Siap Pakai"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors min-h-[3rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                                 Turnkey System Integration
                             </h3>
                             <p data-lang-en="Custom robotic workcells, material handling conveyors, and end-to-end plant automation engineered to accelerate throughput and eliminate production bottlenecks."
                                data-lang-id="Sel kerja robotik kustom, konveyor penanganan material, dan otomasi pabrik menyeluruh yang direkayasa untuk mempercepat laju output dan mengeliminasi kendala produksi."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
                                 Custom robotic workcells, material handling conveyors, and end-to-end plant automation engineered to accelerate throughput and eliminate production bottlenecks.
                             </p>
                         </div>
@@ -296,12 +296,12 @@
                                 Machine Control Systems
                             </span>
                             <h3 data-lang-en="PLC Programming &amp; Retrofitting" data-lang-id="Pemrograman &amp; Retrofit PLC"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors min-h-[3rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                                 PLC Programming &amp; Retrofitting
                             </h3>
                             <p data-lang-en="Developing new PLC logic, modifying existing machine sequences, and replacing obsolete control panels across top industrial brands including Mitsubishi, Omron, and Siemens."
                                data-lang-id="Mengembangkan logika PLC baru, memodifikasi sekuens mesin eksisting, dan memperbarui panel kontrol usang pada berbagai merek industri terkemuka seperti Mitsubishi, Omron, dan Siemens."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
                                 Developing new PLC logic, modifying existing machine sequences, and replacing obsolete control panels across top industrial brands including Mitsubishi, Omron, and Siemens.
                             </p>
                         </div>
@@ -321,12 +321,12 @@
                                 Automated Quality Control
                             </span>
                             <h3 data-lang-en="Automated Vision &amp; Data Recording" data-lang-id="Sistem Visi &amp; Perekaman Data Otomatis"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors min-h-[3rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                                 Automated Vision &amp; Data Recording
                             </h3>
                             <p data-lang-en="High-speed optical inspection cameras for automated 1D/2D barcode tracking, dimensional verification, and automated reject mechanisms ensuring zero defective products escape."
                                data-lang-id="Kamera inspeksi optik berkecepatan tinggi untuk pelacakan barcode 1D/2D otomatis, verifikasi dimensi, dan mekanisme reject otomatis guna menjamin nol cacat lolos."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
                                 High-speed optical inspection cameras for automated 1D/2D barcode tracking, dimensional verification, and automated reject mechanisms ensuring zero defective products escape.
                             </p>
                         </div>
@@ -346,12 +346,12 @@
                                 Plant Telemetry &amp; IoT
                             </span>
                             <h3 data-lang-en="Real-Time SCADA &amp; Telemetry" data-lang-id="SCADA &amp; Telemetri Real-Time"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors min-h-[3rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                                 Real-Time SCADA &amp; Telemetry
                             </h3>
                             <p data-lang-en="Centralized visualization of all machine statuses and production lines with automated shift data logging directly to SQL/MES, delivering complete paperless traceability."
                                data-lang-id="Visualisasi terpusat untuk status seluruh mesin dan lini produksi disertai pencatatan data shift otomatis langsung ke SQL/MES, mewujudkan pelacakan nirkertas secara penuh."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
                                 Centralized visualization of all machine statuses and production lines with automated shift data logging directly to SQL/MES, delivering complete paperless traceability.
                             </p>
                         </div>
@@ -371,12 +371,12 @@
                                 Traceability &amp; Packaging
                             </span>
                             <h3 data-lang-en="Industrial Marking &amp; Strapping" data-lang-id="Penandaan &amp; Strapping Industri"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors min-h-[3rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                                 Industrial Marking &amp; Strapping
                             </h3>
                             <p data-lang-en="High-speed batch coding and carton/pallet strapping solutions—featuring Thermal Inkjet (TIJ) printers, fiber laser markers, and heavy-duty battery or pneumatic strapping tools."
                                data-lang-id="Solusi pengkodean batch cepat dan pengikatan karton/palet—dilengkapi printer Thermal Inkjet (TIJ), penanda laser serat, serta alat strapping bertenaga baterai atau pneumatik tugas berat."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
                                 High-speed batch coding and carton/pallet strapping solutions—featuring Thermal Inkjet (TIJ) printers, fiber laser markers, and heavy-duty battery or pneumatic strapping tools.
                             </p>
                         </div>
@@ -396,12 +396,12 @@
                                 Engineering Excellence
                             </span>
                             <h3 data-lang-en="Dedicated SLA &amp; After-Sales Support" data-lang-id="SLA Khusus &amp; Dukungan Purnajual"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors min-h-[3rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                                 Dedicated SLA &amp; After-Sales Support
                             </h3>
                             <p data-lang-en="Rapid-response on-site engineering maintenance, readily available spare parts, and dependable technical guarantees to safeguard your facility from costly unplanned downtime."
                                data-lang-id="Pemeliharaan teknis di lokasi yang responsif cepat, ketersediaan suku cadang siap pakai, dan jaminan teknis andal untuk melindungi fasilitas Anda dari risiko downtime yang merugikan."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
                                 Rapid-response on-site engineering maintenance, readily available spare parts, and dependable technical guarantees to safeguard your facility from costly unplanned downtime.
                             </p>
                         </div>
