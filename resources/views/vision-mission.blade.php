@@ -90,6 +90,21 @@
             pointer-events: auto !important;
             transform: translateX(-50%) translateY(0) !important;
         }
+
+        /* CTA Quote Button Hover Style */
+        .cta-quote-btn {
+            border: none !important;
+            outline: none !important;
+            text-decoration: none !important;
+        }
+        .cta-quote-btn .cta-text-wrapper {
+            color: #ffffff;
+            transition: color 0.35s ease;
+        }
+        .cta-quote-btn:hover .cta-text-wrapper,
+        .cta-quote-btn:hover .cta-text-wrapper * {
+            color: #000000 !important;
+        }
     </style>
 </head>
 
@@ -495,7 +510,7 @@
                 <a href="{{ route('contact') }}"
                     class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-[#3367A5] font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-['Agrandir'] border-0 outline-none isolate">
                     <span class="absolute inset-0 bg-white rounded-full -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
-                    <span class="cta-text-wrapper relative z-10 flex items-center gap-2 font-['Agrandir'] text-sm sm:text-base font-bold">
+                    <span class="cta-text-wrapper relative z-10 flex items-center gap-2 font-['Agrandir'] text-sm sm:text-base font-bold text-white group-hover:text-black transition-colors duration-300">
                         <span data-lang-en="Consult With Our Engineers" data-lang-id="Konsultasi Bersama Teknisi Kami">Consult With Our Engineers</span>
                         <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
