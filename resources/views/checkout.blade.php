@@ -373,7 +373,7 @@
                                 <div class="pt-1 flex items-center justify-between gap-2 text-[11px]">
                                     <span class="text-gray-400">Ada data yang perlu diperbaiki?</span>
                                     <a href="{{ route('product', ['edit_cart' => 1]) }}"
-                                        class="font-semibold text-red-600 hover:text-red-700 underline shrink-0">
+                                        class="font-semibold text-[#3367A5] hover:text-[#255187] underline shrink-0">
                                         &larr; Ubah di Keranjang
                                     </a>
                                 </div>
@@ -410,7 +410,7 @@
                                 </div>
 
                                 <button type="submit"
-                                    class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm cursor-pointer active:scale-[0.99]">
+                                    class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#3367A5] hover:bg-[#255187] text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm cursor-pointer active:scale-[0.99]">
                                     <span>{{ $order->status === 'po_submitted' ? 'Kirim Ulang / Perbarui Lampiran PO' : 'Konfirmasi Pesanan ke Admin' }}</span>
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>

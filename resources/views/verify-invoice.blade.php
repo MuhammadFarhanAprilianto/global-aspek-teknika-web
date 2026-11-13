@@ -107,7 +107,7 @@
                     &larr; Kembali ke Katalog Produk
                 </a>
                 <a href="{{ route('contact') }}"
-                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-semibold transition-colors">
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#3367A5] hover:bg-[#255187] text-white text-xs font-semibold transition-colors">
                     Hubungi Tim Resmi GAT
                 </a>
             </div>

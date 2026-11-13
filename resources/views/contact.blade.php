@@ -228,7 +228,7 @@
                                                 class="dropdown-item px-3.5 py-2.5 rounded-xl hover:bg-gray-100/90 cursor-pointer transition-all duration-150 flex items-center justify-between text-sm text-gray-700 hover:text-black font-questrial group {{ old('service') === $srv ? 'bg-gray-100 font-semibold text-black' : '' }}"
                                                 data-value="{{ $srv }}">
                                                 <div class="flex items-center gap-2.5">
-                                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-400 group-hover:bg-red-500 transition-colors"></span>
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-400 group-hover:bg-[#3367A5] transition-colors"></span>
                                                     <span>{{ $srv }}</span>
                                                 </div>
                                                 <span class="check-icon opacity-0 group-hover:opacity-40 transition-opacity {{ old('service') === $srv ? '!opacity-100 text-black' : '' }}">
@@ -267,10 +267,10 @@
                         <!-- Row 5: Submit Button (LabsStdio Gliding Red Wipe Button) -->
                         <div class="pt-2">
                             <button type="submit" 
-                                class="group relative inline-flex items-center justify-center overflow-hidden px-8 py-4 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-sm sm:text-base font-medium rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(220,38,38,0.4)] hover:border-red-500/60 transition-all duration-1000 active:scale-95 font-questrial cursor-pointer">
+                                class="group relative inline-flex items-center justify-center overflow-hidden px-8 py-4 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-sm sm:text-base font-medium rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(51,103,165,0.35)] hover:border-[#3367A5]/60 transition-all duration-1000 active:scale-95 font-questrial cursor-pointer">
                                 
                                 <!-- Red Wipe Layer from Left to Right -->
-                                <span class="absolute inset-0 bg-red-600 rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+                                <span class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
 
                                 <!-- Content Layer -->
                                 <span class="relative z-10 flex items-center gap-3">
@@ -326,7 +326,7 @@
                         <!-- Bottom Information Floating Card -->
                         <div class="absolute bottom-5 left-5 right-5 z-20 bg-white/95 backdrop-blur-md p-5 rounded-2xl md:rounded-3xl border border-gray-200/80 shadow-lg transition-all duration-300">
                             <div class="flex items-start gap-3.5">
-                                <div class="w-9 h-9 rounded-xl bg-[#c92a2a] text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                                <div class="w-9 h-9 rounded-xl bg-[#3367A5] text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -424,7 +424,7 @@
                     <!-- Workshop Card -->
                     <div class="bg-[#fcfcfd] border border-gray-200/80 rounded-3xl p-8 hover:shadow-md transition-shadow reveal-on-scroll reveal-stagger-2">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-2xl bg-[#c92a2a] text-white flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 rounded-2xl bg-[#3367A5] text-white flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>

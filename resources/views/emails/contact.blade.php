@@ -4,7 +4,7 @@
     <title>New Contact Form Message</title>
 </head>
 <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px;">
-    <h2 style="color: #c92a2a; border-bottom: 2px solid #eee; padding-bottom: 10px;">Pesan Baru dari Form Kontak Website</h2>
+    <h2 style="color: #3367A5; border-bottom: 2px solid #eee; padding-bottom: 10px;">Pesan Baru dari Form Kontak Website</h2>
     
     <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
         <tr>
@@ -41,7 +41,7 @@
         @endif
     </table>
 
-    <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #c92a2a;">
+    <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid #3367A5;">
         <h4 style="margin-top: 0; margin-bottom: 8px;">Isi Pesan:</h4>
         <p style="white-space: pre-wrap; margin: 0;">{{ $data['message'] }}</p>
     </div>
