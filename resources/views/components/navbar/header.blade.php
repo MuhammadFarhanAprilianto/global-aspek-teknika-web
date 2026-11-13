@@ -111,14 +111,14 @@
                             <div class="space-y-2.5">
                                     <!-- Item 1: Vision, Mission & Goals -->
                                     <a href="{{ route('vision-mission') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                        <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                        <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                             <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                                             </svg>
                                         </div>
                                         <div class="space-y-0.5">
                                             <h4 data-lang-en="Vision, Mission &amp; Goals" data-lang-id="Visi, Misi &amp; Tujuan"
-                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                 Vision, Mission &amp; Goals
                                             </h4>
                                             <p data-lang-en="Strategic roadmap, corporate values &amp; enduring vision" data-lang-id="Peta jalan strategis, nilai perusahaan &amp; visi berkelanjutan"
@@ -130,14 +130,14 @@
 
                                     <!-- Item 2: Application -->
                                     <a href="{{ route('application') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                        <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                        <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                             <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
                                             </svg>
                                         </div>
                                         <div class="space-y-0.5">
                                             <h4 data-lang-en="Applications" data-lang-id="Aplikasi Industri"
-                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                 Applications
                                             </h4>
                                             <p data-lang-en="Smart automation architectures &amp; cross-sector use cases" data-lang-id="Arsitektur otomasi cerdas &amp; use case lintas sektor"
@@ -149,14 +149,14 @@
 
                                     <!-- Item 3: Projects -->
                                     <a href="{{ route('projects') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                        <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                        <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                             <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                                             </svg>
                                         </div>
                                         <div class="space-y-0.5">
                                             <h4 data-lang-en="Projects" data-lang-id="Proyek &amp; Portofolio"
-                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                 Projects
                                             </h4>
                                             <p data-lang-en="Real-world engineering implementations &amp; client case studies" data-lang-id="Implementasi rekayasa nyata &amp; studi kasus klien"
@@ -196,7 +196,7 @@
                                 <div class="space-y-3.5">
                                         <!-- Item 1: PLC Programming -->
                                         <a href="{{ route('plc-progamming') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <rect x="4" y="4" width="16" height="16" rx="2"></rect>
                                                     <rect x="9" y="9" width="6" height="6"></rect>
@@ -205,7 +205,7 @@
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="PLC Programming" data-lang-id="Pemrograman PLC"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     PLC Programming
                                                 </h4>
                                                 <p data-lang-en="Mitsubishi, Omron, Siemens, etc." data-lang-id="Mitsubishi, Omron, Siemens, dll."
@@ -217,14 +217,14 @@
 
                                         <!-- Item 2: Inspection & Record Data System -->
                                         <a href="{{ route('inspection') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 7V5a2 2 0 012-2h2m12 0h2a2 2 0 012 2v2m0 10v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8"></path>
                                                 </svg>
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="Inspection &amp; Record Data System" data-lang-id="Sistem Inspeksi &amp; Rekam Data"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     Inspection &amp; Record Data System
                                                 </h4>
                                                 <p data-lang-en="High-precision quality assurance" data-lang-id="Jaminan kualitas presisi tinggi"
@@ -236,14 +236,14 @@
 
                                         <!-- Item 3: Monitoring System -->
                                         <a href="{{ route('monitoring') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                                 </svg>
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="Monitoring System" data-lang-id="Sistem Monitoring"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     Monitoring System
                                                 </h4>
                                                 <p data-lang-en="Real-time industrial telemetry" data-lang-id="Telemetri industri waktu-nyata"
@@ -258,7 +258,7 @@
                                 <div class="space-y-3.5">
                                         <!-- Item 4: Integrator System -->
                                         <a href="{{ route('intergrator') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -266,7 +266,7 @@
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="Integrator System" data-lang-id="Sistem Integrator"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     Integrator System
                                                 </h4>
                                                 <p data-lang-en="End-to-end industrial workflows" data-lang-id="Alur kerja industri terintegrasi"
@@ -278,14 +278,14 @@
 
                                         <!-- Item 5: Laser Marking & Inkjet Printing -->
                                         <a href="{{ route('laser-marking') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
                                                 </svg>
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="Laser Marking &amp; Inkjet Printing" data-lang-id="Penandaan Laser &amp; Cetak Inkjet"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     Laser Marking &amp; Inkjet Printing
                                                 </h4>
                                                 <p data-lang-en="Precision industrial tracing" data-lang-id="Pelacakan industri presisi"
@@ -297,14 +297,14 @@
 
                                         <!-- Item 6: Strapping -->
                                         <a href="{{ route('strapping') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                                                 </svg>
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="Strapping" data-lang-id="Strapping"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     Strapping
                                                 </h4>
                                                 <p data-lang-en="Automated packaging systems" data-lang-id="Sistem pengemasan otomatis"
@@ -337,10 +337,10 @@
             <!-- Right Action: Quote CTA (LabsStdio Red Gliding Button) -->
             <div class="hidden md:flex items-center shrink-0">
                 <a href="{{ route('contact') }}"
-                    class="group relative inline-flex items-center justify-center overflow-hidden px-5 lg:px-6 py-2.5 lg:py-3 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-xs sm:text-sm lg:text-[15px] font-normal tracking-wider rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(220,38,38,0.4)] hover:border-red-500/60 transition-all duration-1000 active:scale-95 whitespace-nowrap shrink-0">
+                    class="group relative inline-flex items-center justify-center overflow-hidden px-5 lg:px-6 py-2.5 lg:py-3 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-xs sm:text-sm lg:text-[15px] font-normal tracking-wider rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(51,103,165,0.4)] hover:border-[#3367A5]/60 transition-all duration-1000 active:scale-95 whitespace-nowrap shrink-0">
                     <!-- Red Wipe Layer from Left to Right -->
                     <span
-                        class="absolute inset-0 bg-red-600 rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+                        class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
 
                     <!-- Text Layer -->
                     <span data-lang-en="Get A Quote" data-lang-id="Minta Penawaran" class="relative z-10 flex items-center gap-2">
@@ -422,14 +422,14 @@
                                 <div class="space-y-2.5">
                                         <!-- Item 1: Vision, Mission & Goals -->
                                         <a href="{{ route('vision-mission') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                                                 </svg>
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="Vision, Mission &amp; Goals" data-lang-id="Visi, Misi &amp; Tujuan"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     Vision, Mission &amp; Goals
                                                 </h4>
                                                 <p data-lang-en="Strategic roadmap, corporate values &amp; enduring vision" data-lang-id="Peta jalan strategis, nilai perusahaan &amp; visi berkelanjutan"
@@ -441,14 +441,14 @@
 
                                         <!-- Item 2: Application -->
                                         <a href="{{ route('application') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
                                                 </svg>
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="Applications" data-lang-id="Aplikasi Industri"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     Applications
                                                 </h4>
                                                 <p data-lang-en="Smart automation architectures &amp; cross-sector use cases" data-lang-id="Arsitektur otomasi cerdas &amp; use case lintas sektor"
@@ -460,14 +460,14 @@
 
                                         <!-- Item 3: Projects -->
                                         <a href="{{ route('projects') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                            <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                 <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                                                 </svg>
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 data-lang-en="Projects" data-lang-id="Proyek &amp; Portofolio"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                     Projects
                                                 </h4>
                                                 <p data-lang-en="Real-world engineering implementations &amp; client case studies" data-lang-id="Implementasi rekayasa nyata &amp; studi kasus klien"
@@ -507,7 +507,7 @@
                                     <div class="space-y-3.5">
                                             <!-- Item 1: PLC Programming -->
                                             <a href="{{ route('plc-progamming') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                     <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <rect x="4" y="4" width="16" height="16" rx="2"></rect>
                                                         <rect x="9" y="9" width="6" height="6"></rect>
@@ -516,7 +516,7 @@
                                                 </div>
                                                 <div class="space-y-0.5">
                                                     <h4 data-lang-en="PLC Programming" data-lang-id="Pemrograman PLC"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                         PLC Programming
                                                     </h4>
                                                     <p data-lang-en="Mitsubishi, Omron, Siemens, etc." data-lang-id="Mitsubishi, Omron, Siemens, dll."
@@ -528,14 +528,14 @@
 
                                             <!-- Item 2: Inspection & Record Data System -->
                                             <a href="{{ route('inspection') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                     <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 7V5a2 2 0 012-2h2m12 0h2a2 2 0 012 2v2m0 10v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8"></path>
                                                     </svg>
                                                 </div>
                                                 <div class="space-y-0.5">
                                                     <h4 data-lang-en="Inspection &amp; Record Data System" data-lang-id="Sistem Inspeksi &amp; Rekam Data"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                         Inspection &amp; Record Data System
                                                     </h4>
                                                     <p data-lang-en="High-precision quality assurance" data-lang-id="Jaminan kualitas presisi tinggi"
@@ -547,14 +547,14 @@
 
                                             <!-- Item 3: Monitoring System -->
                                             <a href="{{ route('monitoring') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                     <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                                     </svg>
                                                 </div>
                                                 <div class="space-y-0.5">
                                                     <h4 data-lang-en="Monitoring System" data-lang-id="Sistem Monitoring"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                         Monitoring System
                                                     </h4>
                                                     <p data-lang-en="Real-time industrial telemetry" data-lang-id="Telemetri industri waktu-nyata"
@@ -569,7 +569,7 @@
                                     <div class="space-y-3.5">
                                             <!-- Item 4: Integrator System -->
                                             <a href="{{ route('intergrator') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                     <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -577,7 +577,7 @@
                                                 </div>
                                                 <div class="space-y-0.5">
                                                     <h4 data-lang-en="Integrator System" data-lang-id="Sistem Integrator"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                         Integrator System
                                                     </h4>
                                                     <p data-lang-en="End-to-end industrial workflows" data-lang-id="Alur kerja industri terintegrasi"
@@ -589,14 +589,14 @@
 
                                             <!-- Item 5: Laser Marking & Inkjet Printing -->
                                             <a href="{{ route('laser-marking') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                     <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
                                                     </svg>
                                                 </div>
                                                 <div class="space-y-0.5">
                                                     <h4 data-lang-en="Laser Marking &amp; Inkjet Printing" data-lang-id="Penandaan Laser &amp; Cetak Inkjet"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                         Laser Marking &amp; Inkjet Printing
                                                     </h4>
                                                     <p data-lang-en="Precision industrial tracing" data-lang-id="Pelacakan industri presisi"
@@ -608,14 +608,14 @@
 
                                             <!-- Item 6: Strapping -->
                                             <a href="{{ route('strapping') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-red-600 transition-colors">
+                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
                                                     <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                                                     </svg>
                                                 </div>
                                                 <div class="space-y-0.5">
                                                     <h4 data-lang-en="Strapping" data-lang-id="Strapping"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-red-600 transition-colors">
+                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
                                                         Strapping
                                                     </h4>
                                                     <p data-lang-en="Automated packaging systems" data-lang-id="Sistem pengemasan otomatis"
@@ -695,13 +695,13 @@
                     <div class="space-y-1">
                         <a href="{{ route('about') }}" data-lang-en="About Us" data-lang-id="Tentang Kami"
                             class="block px-3 py-2 rounded-xl text-gray-800 hover:bg-gray-100 transition {{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'bg-gray-100 font-medium' : '' }}">About Us</a>
-                        <div class="pl-4 space-y-1 border-l-2 border-red-500/30 ml-2">
+                        <div class="pl-4 space-y-1 border-l-2 border-[#3367A5]/30 ml-2">
                             <a href="{{ route('vision-mission') }}" data-lang-en="Vision, Mission &amp; Goals" data-lang-id="Visi, Misi &amp; Tujuan"
-                                class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('vision-mission') ? 'text-red-600 font-bold' : '' }}">Vision, Mission &amp; Goals</a>
+                                class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('vision-mission') ? 'text-[#3367A5] font-bold' : '' }}">Vision, Mission &amp; Goals</a>
                             <a href="{{ route('application') }}" data-lang-en="Applications" data-lang-id="Aplikasi Industri"
-                                class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('application') ? 'text-red-600 font-bold' : '' }}">Applications</a>
+                                class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('application') ? 'text-[#3367A5] font-bold' : '' }}">Applications</a>
                             <a href="{{ route('projects') }}" data-lang-en="Projects" data-lang-id="Proyek &amp; Portofolio"
-                                class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('projects') || request()->routeIs('project') ? 'text-red-600 font-bold' : '' }}">Projects</a>
+                                class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('projects') || request()->routeIs('project') ? 'text-[#3367A5] font-bold' : '' }}">Projects</a>
                         </div>
                     </div>
                     <a href="{{ route('solution') }}" data-lang-en="Solutions &amp; Services" data-lang-id="Solusi &amp; Layanan"
@@ -729,7 +729,7 @@
                     <a href="{{ route('contact') }}"
                         class="group relative overflow-hidden w-full text-center py-3 px-4 bg-black text-white rounded-full text-sm font-normal tracking-wider shadow-md transition-all duration-1000 active:scale-95">
                         <span
-                            class="absolute inset-0 bg-red-600 rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+                            class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
                         <span data-lang-en="Get A Quote" data-lang-id="Minta Penawaran" class="relative z-10">Get A Quote</span>
                     </a>
                 </div>

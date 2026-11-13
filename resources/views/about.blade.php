@@ -118,7 +118,7 @@
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-bold uppercase font-['Questrial',sans-serif] tracking-wider text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 COMPANY PROFILE
             </h1>
-            <div class="w-24 sm:w-28 h-1.5 bg-red-600 mx-auto mt-2 rounded-full shadow-[0_0_20px_rgba(220,38,38,1)]"></div>
+            <div class="w-24 sm:w-28 h-1.5 bg-[#3367A5] mx-auto mt-2 rounded-full shadow-[0_0_20px_rgba(51,103,165,0.8)]"></div>
         </div>
     </section>
 
@@ -131,7 +131,7 @@
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir']">
                     ABOUT COMPANY
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="Bridging advanced control technology with real-world production line needs to create manufacturing processes that are more efficient, precise, and highly competitive."
                    data-lang-id="Menjembatani teknologi kontrol canggih dengan kebutuhan nyata lini produksi untuk menciptakan proses manufaktur yang lebih efisien, presisi, dan berdaya saing tinggi."
                     class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
@@ -167,7 +167,7 @@
                             2017
                         </div>
                         <div data-lang-en="Year Established" data-lang-id="Tahun Berdiri"
-                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
+                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#3367A5] mt-2">
                             Year Established
                         </div>
                         <p data-lang-en="Over 8 years of industrial automation engineering experience across Indonesia."
@@ -183,7 +183,7 @@
                             150+
                         </div>
                         <div data-lang-en="Projects Delivered" data-lang-id="Proyek Selesai"
-                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
+                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#3367A5] mt-2">
                             Projects Delivered
                         </div>
                         <p data-lang-en="Proven PLC, SCADA, quality inspection, and packaging conveyor integrations."
@@ -199,7 +199,7 @@
                             20+
                         </div>
                         <div data-lang-en="Enterprise Clients" data-lang-id="Klien Korporasi"
-                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
+                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#3367A5] mt-2">
                             Enterprise Clients
                         </div>
                         <p data-lang-en="Trusted by leading national manufacturers and multinational industrial giants."
@@ -215,7 +215,7 @@
                             100%
                         </div>
                         <div data-lang-en="Custom &amp; SLA Support" data-lang-id="Kustom &amp; Dukungan SLA"
-                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-red-600 mt-2">
+                            class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#3367A5] mt-2">
                             Custom &amp; SLA Support
                         </div>
                         <p data-lang-en="Tailored engineering designs backed by responsive after-sales service guarantees."
@@ -248,7 +248,7 @@
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir']">
                     WHY CHOOSE US
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="Combining tailored engineering integration, proven industrial solutions, and dependable after-sales guarantees for manufacturing facilities across Indonesia."
                    data-lang-id="Menggabungkan integrasi rekayasa khusus, solusi industri yang terbukti, dan jaminan purnajual tepercaya untuk fasilitas manufaktur di seluruh Indonesia."
                     class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial']">
@@ -271,7 +271,7 @@
                                 Robotics &amp; Material Flow
                             </span>
                             <h3 data-lang-en="Turnkey System Integration" data-lang-id="Integrasi Sistem Siap Pakai"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
                                 Turnkey System Integration
                             </h3>
                             <p data-lang-en="Custom robotic workcells, material handling conveyors, and end-to-end plant automation engineered to accelerate throughput and eliminate production bottlenecks."
@@ -296,7 +296,7 @@
                                 Machine Control Systems
                             </span>
                             <h3 data-lang-en="PLC Programming &amp; Retrofitting" data-lang-id="Pemrograman &amp; Retrofit PLC"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
                                 PLC Programming &amp; Retrofitting
                             </h3>
                             <p data-lang-en="Developing new PLC logic, modifying existing machine sequences, and replacing obsolete control panels across top industrial brands including Mitsubishi, Omron, and Siemens."
@@ -321,7 +321,7 @@
                                 Automated Quality Control
                             </span>
                             <h3 data-lang-en="Automated Vision &amp; Data Recording" data-lang-id="Sistem Visi &amp; Perekaman Data Otomatis"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
                                 Automated Vision &amp; Data Recording
                             </h3>
                             <p data-lang-en="High-speed optical inspection cameras for automated 1D/2D barcode tracking, dimensional verification, and automated reject mechanisms ensuring zero defective products escape."
@@ -346,7 +346,7 @@
                                 Plant Telemetry &amp; IoT
                             </span>
                             <h3 data-lang-en="Real-Time SCADA &amp; Telemetry" data-lang-id="SCADA &amp; Telemetri Real-Time"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
                                 Real-Time SCADA &amp; Telemetry
                             </h3>
                             <p data-lang-en="Centralized visualization of all machine statuses and production lines with automated shift data logging directly to SQL/MES, delivering complete paperless traceability."
@@ -371,7 +371,7 @@
                                 Traceability &amp; Packaging
                             </span>
                             <h3 data-lang-en="Industrial Marking &amp; Strapping" data-lang-id="Penandaan &amp; Strapping Industri"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
                                 Industrial Marking &amp; Strapping
                             </h3>
                             <p data-lang-en="High-speed batch coding and carton/pallet strapping solutions—featuring Thermal Inkjet (TIJ) printers, fiber laser markers, and heavy-duty battery or pneumatic strapping tools."
@@ -396,7 +396,7 @@
                                 Engineering Excellence
                             </span>
                             <h3 data-lang-en="Dedicated SLA &amp; After-Sales Support" data-lang-id="SLA Khusus &amp; Dukungan Purnajual"
-                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-red-600 transition-colors">
+                                class="text-lg sm:text-xl font-bold text-gray-900 font-['Agrandir'] group-hover:text-[#3367A5] transition-colors">
                                 Dedicated SLA &amp; After-Sales Support
                             </h3>
                             <p data-lang-en="Rapid-response on-site engineering maintenance, readily available spare parts, and dependable technical guarantees to safeguard your facility from costly unplanned downtime."
@@ -420,7 +420,7 @@
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir']">
                     HOW WE WORK
                 </h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
                 <p data-lang-en="A transparent, four-phase engineering framework ensuring every automation project is completed safely, on schedule, and fully guaranteed."
                    data-lang-id="Kerangka kerja rekayasa empat tahap yang transparan, memastikan setiap proyek otomasi terselesaikan dengan aman, tepat waktu, dan bergaransi penuh."
                     class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
@@ -447,7 +447,7 @@
                         </p>
                     </div>
                     <div data-lang-en="Discovery Phase" data-lang-id="Tahap Penjajakan"
-                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-red-500 uppercase tracking-wider">
+                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-[#4D88CF] uppercase tracking-wider">
                         Discovery Phase
                     </div>
                 </div>
@@ -469,7 +469,7 @@
                         </p>
                     </div>
                     <div data-lang-en="Design Phase" data-lang-id="Tahap Perancangan"
-                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-red-500 uppercase tracking-wider">
+                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-[#4D88CF] uppercase tracking-wider">
                         Design Phase
                     </div>
                 </div>
@@ -491,7 +491,7 @@
                         </p>
                     </div>
                     <div data-lang-en="Execution Phase" data-lang-id="Tahap Eksekusi"
-                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-red-500 uppercase tracking-wider">
+                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-[#4D88CF] uppercase tracking-wider">
                         Execution Phase
                     </div>
                 </div>
@@ -513,7 +513,7 @@
                         </p>
                     </div>
                     <div data-lang-en="Handover Phase" data-lang-id="Tahap Serah Terima"
-                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-red-500 uppercase tracking-wider">
+                        class="mt-6 pt-4 border-t border-neutral-800 text-xs font-semibold text-[#4D88CF] uppercase tracking-wider">
                         Handover Phase
                     </div>
                 </div>
@@ -538,7 +538,7 @@
                 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-black font-['Agrandir'] tracking-tight">
                 TRUSTED BY INDUSTRY LEADERS
             </h2>
-            <div class="w-16 h-1 bg-red-600 mx-auto mt-3 mb-6 rounded-full"></div>
+            <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
             <p data-lang-en="Leading national manufacturers and multinational enterprises that rely on our industrial automation and systems integration."
                data-lang-id="Produsen nasional terkemuka dan perusahaan multinasional yang mengandalkan keahlian otomasi industri serta integrasi sistem kami."
                 class="text-base sm:text-lg text-gray-600 leading-relaxed font-['Questrial'] max-w-3xl mx-auto">
@@ -646,7 +646,7 @@
                     </a>
                     <a href="{{ route('contact') }}"
                         data-lang-en="Schedule Engineering Consultation" data-lang-id="Jadwalkan Konsultasi Rekayasa"
-                        class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-red-600 text-white font-semibold text-sm hover:bg-red-700 transition-colors shadow-sm">
+                        class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#3367A5] text-white font-semibold text-sm hover:bg-[#255187] transition-colors shadow-sm">
                         Schedule Engineering Consultation
                     </a>
                 </div>

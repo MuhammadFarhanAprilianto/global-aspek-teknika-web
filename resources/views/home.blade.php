@@ -107,8 +107,8 @@
                 <h1
                     class="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[56px] font-black text-gray-950 font-['Agrandir',sans-serif] tracking-tight leading-[1.10] text-left">
                     <span class="block text-gray-950" data-lang-en="Tailored Automation &amp;" data-lang-id="Otomasi Khusus &amp;">Tailored Automation &amp;</span>
-                    <span class="block text-red-600" data-lang-en="Smart Integrated" data-lang-id="Sistem Cerdas">Smart Integrated</span>
-                    <span class="block text-red-600" data-lang-en="Systems." data-lang-id="Terintegrasi.">Systems.</span>
+                    <span class="block text-[#3367A5]" data-lang-en="Smart Integrated" data-lang-id="Sistem Cerdas">Smart Integrated</span>
+                    <span class="block text-[#3367A5]" data-lang-en="Systems." data-lang-id="Terintegrasi.">Systems.</span>
                 </h1>
             </div>
 
@@ -137,7 +137,7 @@
                         </p>
                         <div class="mt-2.5">
                             <a href="{{ route('product') }}"
-                                class="group inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 hover:text-red-700 transition font-['Poppins']">
+                                class="group inline-flex items-center gap-1.5 text-xs font-semibold text-[#3367A5] hover:text-[#255187] transition font-['Poppins']">
                                 <span data-lang-en="Explore Solutions" data-lang-id="Jelajahi Solusi">Explore Solutions</span>
                                 <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +162,7 @@
                     </p>
                     <div class="mt-2.5">
                         <a href="{{ route('product') }}"
-                            class="inline-flex items-center gap-1 text-xs font-semibold text-red-600 font-['Poppins']">
+                            class="inline-flex items-center gap-1 text-xs font-semibold text-[#3367A5] font-['Poppins']">
                             <span data-lang-en="Explore Solutions &rarr;" data-lang-id="Jelajahi Solusi &rarr;">Explore Solutions &rarr;</span>
                         </a>
                     </div>
@@ -233,7 +233,7 @@
     <!-- Section 1: Welcome & Company Overview -->
     <section class="relative bg-black text-white py-16 sm:py-20 lg:py-24 overflow-hidden">
         <!-- Ambient Radial Glow Accents -->
-        <div class="absolute top-1/4 -left-48 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] pointer-events-none">
+        <div class="absolute top-1/4 -left-48 w-96 h-96 bg-[#3367A5]/15 rounded-full blur-[120px] pointer-events-none">
         </div>
         <div
             class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[140px] pointer-events-none">
@@ -309,7 +309,7 @@
                             <!-- Stat 3: Reliability -->
                             <div>
                                 <div
-                                    class="text-2xl sm:text-3xl font-black text-[#ef4444] tracking-tight font-['Agrandir',sans-serif]">
+                                    class="text-2xl sm:text-3xl font-black text-[#4D88CF] tracking-tight font-['Agrandir',sans-serif]">
                                     99.9%</div>
                                 <div data-lang-en="Reliability" data-lang-id="Keandalan" class="text-xs text-gray-400 font-['Questrial',sans-serif] mt-0.5">
                                     Reliability</div>
@@ -319,11 +319,11 @@
                         <!-- CTA Button (Gliding Red Wipe Button like Get A Quote) -->
                         <div class="pt-2 sm:pt-0">
                             <a href="{{ route('about') }}"
-                                class="group relative inline-flex items-center justify-center overflow-hidden py-3 px-5 sm:px-6 bg-white text-black hover:text-white text-xs sm:text-sm font-semibold font-['Questrial',sans-serif] tracking-wide rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:shadow-[0_6px_22px_rgba(220,38,38,0.4)] active:scale-95 whitespace-nowrap"
+                                class="group relative inline-flex items-center justify-center overflow-hidden py-3 px-5 sm:px-6 bg-white text-black hover:text-white text-xs sm:text-sm font-semibold font-['Questrial',sans-serif] tracking-wide rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:shadow-[0_6px_22px_rgba(51,103,165,0.4)] active:scale-95 whitespace-nowrap"
                                 style="transition: all 1000ms cubic-bezier(0.25, 1, 0.5, 1);">
                                 <!-- Red Wipe Layer from Left to Right -->
                                 <span
-                                    class="absolute inset-0 bg-red-600 rounded-full -translate-x-full group-hover:translate-x-0"
+                                    class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0"
                                     style="transition: transform 1000ms cubic-bezier(0.25, 1, 0.5, 1);"></span>
 
                                 <!-- Text & Arrow Layer -->
@@ -456,11 +456,11 @@
                     </p>
                     <div class="mt-6 sm:mt-8">
                         <a href="{{ route('about') }}"
-                            class="group relative inline-flex items-center justify-center overflow-hidden px-8 py-3.5 sm:py-4 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-base sm:text-lg font-normal tracking-wide rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(220,38,38,0.4)] hover:border-red-500/60 active:scale-95 whitespace-nowrap font-['Questrial',sans-serif]"
+                            class="group relative inline-flex items-center justify-center overflow-hidden px-8 py-3.5 sm:py-4 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-base sm:text-lg font-normal tracking-wide rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(51,103,165,0.4)] hover:border-[#3367A5]/60 active:scale-95 whitespace-nowrap font-['Questrial',sans-serif]"
                             style="transition: all 1000ms cubic-bezier(0.25, 1, 0.5, 1);">
                             <!-- Red Wipe Layer from Left to Right -->
                             <span
-                                class="absolute inset-0 bg-red-600 rounded-full -translate-x-full group-hover:translate-x-0"
+                                class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0"
                                 style="transition: transform 1000ms cubic-bezier(0.25, 1, 0.5, 1);"></span>
 
                             <!-- Text Layer -->
@@ -482,7 +482,7 @@
     <!-- Section 3: Core Industrial Automation & Machinery Solutions (Catalog Portfolio) -->
     <section class="relative w-full bg-[#0B0C10] text-white py-16 sm:py-20 lg:py-28 overflow-hidden">
         <!-- Ambient Radial Glow Accents -->
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[130px] pointer-events-none">
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-[#3367A5]/15 rounded-full blur-[130px] pointer-events-none">
         </div>
         <div
             class="absolute bottom-0 left-10 w-[450px] h-[450px] bg-blue-600/5 rounded-full blur-[140px] pointer-events-none">
@@ -506,7 +506,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-5">
                             <div
-                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center group-hover:bg-[#3367A5] group-hover:text-white transition-all duration-300 shadow-sm">
                                 <!-- Hugeicons: delivery-box-01 -->
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                     <path
@@ -519,7 +519,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Industrial Strapping &amp; Packaging" data-lang-id="Strapping &amp; Pengemasan Industri"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-red-600 transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
                             Industrial Strapping &amp; Packaging
                         </h3>
                         <p data-lang-en="Heavy-duty battery-powered friction welders (V2 3200N), pneumatic strapping sealers (A25), and high-tension pneumatic steel strap tools (KZ-19 8,500N)."
@@ -542,7 +542,7 @@
                                 Band KZ-19</span>
                         </div>
                         <a href="{{ route('strapping') }}"
-                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-red-600 transition-colors font-['Questrial',sans-serif]">
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#3367A5] transition-colors font-['Questrial',sans-serif]">
                             <span data-lang-en="Explore Strapping Solutions" data-lang-id="Lihat Solusi Strapping">Explore Strapping Solutions</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -559,7 +559,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-5">
                             <div
-                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center group-hover:bg-[#3367A5] group-hover:text-white transition-all duration-300 shadow-sm">
                                 <!-- Hugeicons: scan-eye -->
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                     <path
@@ -575,7 +575,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Vision &amp; Auto-Inspection" data-lang-id="Sistem Visi &amp; Auto-Inspeksi"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-red-600 transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
                             Vision &amp; Auto-Inspection
                         </h3>
                         <p data-lang-en="Sub-micron multi-angle dimensional measurement systems (±0.001 mm accuracy) and high-speed 1D/2D optical barcode readers for automated inline QC."
@@ -598,7 +598,7 @@
                                 QC</span>
                         </div>
                         <a href="{{ route('inspection') }}"
-                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-red-600 transition-colors font-['Questrial',sans-serif]">
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#3367A5] transition-colors font-['Questrial',sans-serif]">
                             <span data-lang-en="Explore Vision Inspection" data-lang-id="Lihat Inspeksi Vision">Explore Vision Inspection</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -615,7 +615,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-5">
                             <div
-                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center group-hover:bg-[#3367A5] group-hover:text-white transition-all duration-300 shadow-sm">
                                 <!-- Hugeicons: printer -->
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                     <path
@@ -630,7 +630,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Industrial Coding &amp; Marking" data-lang-id="Pencetakan Kode &amp; Penandaan Industri"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-red-600 transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
                             Industrial Coding &amp; Marking
                         </h3>
                         <p data-lang-en="High-speed Thermal Inkjet (TIJ G0510) printers and industrial laser marking for non-contact lot batch codes, expiry dates, and 2D serialization."
@@ -653,7 +653,7 @@
                                 Serialization</span>
                         </div>
                         <a href="{{ route('laser-marking') }}"
-                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-red-600 transition-colors font-['Questrial',sans-serif]">
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#3367A5] transition-colors font-['Questrial',sans-serif]">
                             <span data-lang-en="Explore Coding Solutions" data-lang-id="Lihat Solusi Koding">Explore Coding Solutions</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -670,7 +670,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-5">
                             <div
-                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center group-hover:bg-[#3367A5] group-hover:text-white transition-all duration-300 shadow-sm">
                                 <!-- Hugeicons: cpu -->
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" viewBox="0 0 24 24">
                                     <path
@@ -685,7 +685,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="PLC &amp; Control Automation" data-lang-id="Otomasi Kontrol &amp; PLC"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-red-600 transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
                             PLC &amp; Control Automation
                         </h3>
                         <p data-lang-en="Custom industrial electrical control panels, multi-brand PLC programming (Siemens, Mitsubishi, Omron), synchronized motion control, and HMI/SCADA interfaces."
@@ -708,7 +708,7 @@
                                 &amp; SCADA</span>
                         </div>
                         <a href="{{ route('plc-progamming') }}"
-                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-red-600 transition-colors font-['Questrial',sans-serif]">
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#3367A5] transition-colors font-['Questrial',sans-serif]">
                             <span data-lang-en="Explore Automation Panels" data-lang-id="Lihat Panel Otomasi">Explore Automation Panels</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -725,7 +725,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-5">
                             <div
-                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center group-hover:bg-[#3367A5] group-hover:text-white transition-all duration-300 shadow-sm">
                                 <!-- Hugeicons: activity-01 -->
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                     <path
@@ -739,7 +739,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Sensors &amp; Industrial Telemetry" data-lang-id="Sensor &amp; Telemetri Industri"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-red-600 transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
                             Sensors &amp; Industrial Telemetry
                         </h3>
                         <p data-lang-en="Long-range optical thrubeam sensors, high-precision liquid &amp; gas flowmeters, and real-time telemetry modules for continuous factory process monitoring."
@@ -762,7 +762,7 @@
                                 Telemetry</span>
                         </div>
                         <a href="{{ route('monitoring') }}"
-                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-red-600 transition-colors font-['Questrial',sans-serif]">
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#3367A5] transition-colors font-['Questrial',sans-serif]">
                             <span data-lang-en="Explore Sensor Telemetry" data-lang-id="Lihat Telemetri Sensor">Explore Sensor Telemetry</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -779,7 +779,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-5">
                             <div
-                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-red-50 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                                class="w-12 h-12 rounded-xl sm:rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center group-hover:bg-[#3367A5] group-hover:text-white transition-all duration-300 shadow-sm">
                                 <!-- Hugeicons: workflow-square-01 -->
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                     <path
@@ -794,7 +794,7 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Mechanical &amp; Conveyor Integration" data-lang-id="Integrasi Mekanikal &amp; Konveyor"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-red-600 transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
                             Mechanical &amp; Conveyor Integration
                         </h3>
                         <p data-lang-en="Precision anti-slip textured conveyor rollers, wear-resistant mechanical components, and turnkey automated modular conveyor line engineering."
@@ -817,7 +817,7 @@
                                 Integrator</span>
                         </div>
                         <a href="{{ route('intergrator') }}"
-                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-red-600 transition-colors font-['Questrial',sans-serif]">
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-900 group-hover:text-[#3367A5] transition-colors font-['Questrial',sans-serif]">
                             <span data-lang-en="Explore Conveyor Integration" data-lang-id="Lihat Integrasi Konveyor">Explore Conveyor Integration</span>
                             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">

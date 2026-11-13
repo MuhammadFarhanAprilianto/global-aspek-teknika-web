@@ -1,6 +1,6 @@
 <!-- Scroll to Top Floating Pill Button (Left Side) -->
 <button id="gat-scroll-top" type="button" aria-label="Scroll to top" onclick="gatScrollToTop()"
-    class="fixed bottom-6 left-6 sm:bottom-8 sm:left-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full bg-white/95 hover:bg-white text-gray-900 border border-gray-200/90 shadow-[0_8px_25px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] opacity-0 translate-y-6 pointer-events-none hover:shadow-[0_12px_30px_rgba(220,38,38,0.25)] hover:border-red-500/50 hover:text-red-600 active:scale-95 group/top font-['Questrial',sans-serif] text-sm font-medium cursor-pointer">
+    class="fixed bottom-6 left-6 sm:bottom-8 sm:left-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full bg-white/95 hover:bg-white text-gray-900 border border-gray-200/90 shadow-[0_8px_25px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] opacity-0 translate-y-6 pointer-events-none hover:shadow-[0_12px_30px_rgba(51,103,165,0.25)] hover:border-[#3367A5]/50 hover:text-[#3367A5] active:scale-95 group/top font-['Questrial',sans-serif] text-sm font-medium cursor-pointer">
     <svg class="w-4 h-4 transition-transform duration-300 group-hover/top:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
     </svg>
@@ -9,7 +9,7 @@
 
 <!-- LANGUAGE TOGGLE FLOATING BUTTON (Independent floating button, positioned directly above red FAB button) -->
 <button id="gat-lang-toggle" type="button" aria-label="Change Language Mode" onclick="gatToggleLanguage()"
-    class="fixed bottom-[88px] right-6 sm:bottom-[104px] sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white hover:bg-neutral-50 text-neutral-900 shadow-[0_8px_25px_rgba(0,0,0,0.15)] border-2 border-neutral-200/90 hover:border-red-500 hover:text-red-600 flex flex-col items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer group/lang focus:outline-none">
+    class="fixed bottom-[88px] right-6 sm:bottom-[104px] sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white hover:bg-neutral-50 text-neutral-900 shadow-[0_8px_25px_rgba(0,0,0,0.15)] border-2 border-neutral-200/90 hover:border-[#3367A5] hover:text-[#3367A5] flex flex-col items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer group/lang focus:outline-none">
 
     <!-- Tooltip on Left -->
     <span id="gat-lang-tooltip"
@@ -27,7 +27,7 @@
 
     <!-- Current Language Badge: EN / ID -->
     <span id="gat-lang-badge"
-        class="text-[10px] sm:text-[11px] font-bold font-['Agrandir',sans-serif] tracking-wider uppercase mt-0.5 text-neutral-800 group-hover/lang:text-red-600">
+        class="text-[10px] sm:text-[11px] font-bold font-['Agrandir',sans-serif] tracking-wider uppercase mt-0.5 text-neutral-800 group-hover/lang:text-[#3367A5]">
         EN
     </span>
 </button>
@@ -48,7 +48,7 @@
                 Scroll To Top
             </span>
             <div
-                class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-gray-900 shadow-[0_8px_20px_rgba(0,0,0,0.12)] border border-gray-100 flex items-center justify-center hover:bg-red-600 hover:text-white hover:border-red-500 transition-all duration-300">
+                class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-gray-900 shadow-[0_8px_20px_rgba(0,0,0,0.12)] border border-gray-100 flex items-center justify-center hover:bg-[#3367A5] hover:text-white hover:border-[#3367A5] transition-all duration-300">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
                 </svg>
@@ -63,7 +63,7 @@
                 Email Us
             </span>
             <div
-                class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-red-600 shadow-[0_8px_20px_rgba(0,0,0,0.12)] border border-gray-100 flex items-center justify-center hover:bg-black hover:text-white hover:border-neutral-800 transition-all duration-300">
+                class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white text-[#3367A5] shadow-[0_8px_20px_rgba(0,0,0,0.12)] border border-gray-100 flex items-center justify-center hover:bg-black hover:text-white hover:border-neutral-800 transition-all duration-300">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
@@ -108,7 +108,7 @@
 
     <!-- Main FAB Trigger Button (+) -->
     <div id="gat-fab-toggle" role="button" tabindex="0" aria-label="Quick Contact Menu"
-        class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 text-white shadow-[0_8px_25px_rgba(220,38,38,0.45)] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer focus:outline-none">
+        class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-[#1E4E8A] to-[#3367A5] hover:from-[#173F70] hover:to-[#2B5A93] text-white shadow-[0_8px_25px_rgba(51,103,165,0.45)] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer focus:outline-none">
 
         <!-- Rotating Plus Icon (+ to x upon hover) -->
         <svg id="gat-fab-icon"
@@ -375,8 +375,8 @@
             if (badge) {
                 badge.textContent = lang.toUpperCase();
                 badge.className = lang === 'id' 
-                    ? 'text-[10px] sm:text-[11px] font-bold font-[\'Agrandir\',sans-serif] tracking-wider uppercase mt-0.5 text-red-600'
-                    : 'text-[10px] sm:text-[11px] font-bold font-[\'Agrandir\',sans-serif] tracking-wider uppercase mt-0.5 text-neutral-800 group-hover/lang:text-red-600';
+                    ? 'text-[10px] sm:text-[11px] font-bold font-[\'Agrandir\',sans-serif] tracking-wider uppercase mt-0.5 text-[#3367A5]'
+                    : 'text-[10px] sm:text-[11px] font-bold font-[\'Agrandir\',sans-serif] tracking-wider uppercase mt-0.5 text-neutral-800 group-hover/lang:text-[#3367A5]';
             }
 
             if (tooltip) {
@@ -385,10 +385,10 @@
 
             if (btn) {
                 if (lang === 'id') {
-                    btn.classList.add('border-red-500', 'shadow-[0_8px_25px_rgba(220,38,38,0.25)]');
+                    btn.classList.add('border-[#3367A5]', 'shadow-[0_8px_25px_rgba(51,103,165,0.25)]');
                     btn.classList.remove('border-neutral-200/90');
                 } else {
-                    btn.classList.remove('border-red-500', 'shadow-[0_8px_25px_rgba(220,38,38,0.25)]');
+                    btn.classList.remove('border-[#3367A5]', 'shadow-[0_8px_25px_rgba(51,103,165,0.25)]');
                     btn.classList.add('border-neutral-200/90');
                 }
             }
