@@ -417,13 +417,13 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Value 1 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-3 flex flex-col justify-between">
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-1 flex flex-col justify-between">
                     <div>
-                        <div data-lang-en="Value 01" data-lang-id="Nilai 01" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-2">Value 01</div>
-                        <h3 data-lang-en="Lasting Partnerships" data-lang-id="Kemitraan Jangka Panjang" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[2.5rem] flex flex-col justify-start">Lasting Partnerships</h3>
+                        <div data-lang-en="Value 01" data-lang-id="Nilai 01" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-3">Value 01</div>
+                        <h3 data-lang-en="Lasting Partnerships" data-lang-id="Kemitraan Jangka Panjang" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[3.5rem] sm:min-h-[3.75rem] flex flex-col justify-start">Lasting Partnerships</h3>
                         <p data-lang-en="Maintain excellent service to foster lasting partnerships with our customers and clients across every project phase."
                            data-lang-id="Menjaga kualitas layanan unggul demi membina kemitraan jangka panjang bersama para pelanggan dan mitra kerja di setiap fase proyek."
-                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.5rem] sm:min-h-[5rem]"
+                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-3 leading-relaxed text-justify min-h-[5.5rem] sm:min-h-[6rem]"
                             style="text-align: justify; text-justify: inter-word;">
                             Maintain excellent service to foster lasting partnerships with our customers and clients across every project phase.
                         </p>
@@ -431,13 +431,13 @@
                 </div>
 
                 <!-- Value 2 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-3 flex flex-col justify-between">
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-2 flex flex-col justify-between">
                     <div>
-                        <div data-lang-en="Value 02" data-lang-id="Nilai 02" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-2">Value 02</div>
-                        <h3 data-lang-en="Kindness &amp; Trust" data-lang-id="Integritas &amp; Kepercayaan" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[2.5rem] flex flex-col justify-start">Kindness &amp; Trust</h3>
+                        <div data-lang-en="Value 02" data-lang-id="Nilai 02" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-3">Value 02</div>
+                        <h3 data-lang-en="Kindness &amp; Trust" data-lang-id="Integritas &amp; Kepercayaan" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[3.5rem] sm:min-h-[3.75rem] flex flex-col justify-start">Kindness &amp; Trust</h3>
                         <p data-lang-en="Believe in treating our customers with sincerity, mutual respect, transparent communication, and enduring trust."
                            data-lang-id="Membangun relasi bersama pelanggan berlandaskan ketulusan, rasa saling menghargai, komunikasi transparan, dan kepercayaan yang kokoh."
-                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.5rem] sm:min-h-[5rem]"
+                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-3 leading-relaxed text-justify min-h-[5.5rem] sm:min-h-[6rem]"
                             style="text-align: justify; text-justify: inter-word;">
                             Believe in treating our customers with sincerity, mutual respect, transparent communication, and enduring trust.
                         </p>
@@ -445,13 +445,13 @@
                 </div>
 
                 <!-- Value 3 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-3 flex flex-col justify-between">
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-3 flex flex-col justify-between">
                     <div>
-                        <div data-lang-en="Value 03" data-lang-id="Nilai 03" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-2">Value 03</div>
-                        <h3 data-lang-en="Creativity &amp; Innovation" data-lang-id="Kreativitas &amp; Inovasi" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[2.5rem] flex flex-col justify-start">Creativity &amp; Innovation</h3>
+                        <div data-lang-en="Value 03" data-lang-id="Nilai 03" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-3">Value 03</div>
+                        <h3 data-lang-en="Creativity &amp; Innovation" data-lang-id="Kreativitas &amp; Inovasi" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[3.5rem] sm:min-h-[3.75rem] flex flex-col justify-start">Creativity &amp; Innovation</h3>
                         <p data-lang-en="Continue to grow and lead by actively embracing creativity, cutting-edge engineering, and ongoing technological evolution."
                            data-lang-id="Terus berkembang dan memimpin dengan aktif merangkul kreativitas, rekayasa mutakhir, serta evolusi teknologi berkelanjutan."
-                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.5rem] sm:min-h-[5rem]"
+                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-3 leading-relaxed text-justify min-h-[5.5rem] sm:min-h-[6rem]"
                             style="text-align: justify; text-justify: inter-word;">
                             Continue to grow and lead by actively embracing creativity, cutting-edge engineering, and ongoing technological evolution.
                         </p>
@@ -459,13 +459,13 @@
                 </div>
 
                 <!-- Value 4 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-4 space-y-3 flex flex-col justify-between">
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-4 flex flex-col justify-between">
                     <div>
-                        <div data-lang-en="Value 04" data-lang-id="Nilai 04" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-2">Value 04</div>
-                        <h3 data-lang-en="Team Development" data-lang-id="Pengembangan Tim" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[2.5rem] flex flex-col justify-start">Team Development</h3>
+                        <div data-lang-en="Value 04" data-lang-id="Nilai 04" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-3">Value 04</div>
+                        <h3 data-lang-en="Team Development" data-lang-id="Pengembangan Tim" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[3.5rem] sm:min-h-[3.75rem] flex flex-col justify-start">Team Development</h3>
                         <p data-lang-en="Constantly enhance the specialized capabilities of our dedicated team to drive service development and lasting operational excellence."
                            data-lang-id="Senantiasa meningkatkan kapabilitas teknis tim demi mendorong kemajuan layanan dan keunggulan operasional yang langgeng."
-                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.5rem] sm:min-h-[5rem]"
+                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-3 leading-relaxed text-justify min-h-[5.5rem] sm:min-h-[6rem]"
                             style="text-align: justify; text-justify: inter-word;">
                             Constantly enhance the specialized capabilities of our dedicated team to drive service development and lasting operational excellence.
                         </p>
