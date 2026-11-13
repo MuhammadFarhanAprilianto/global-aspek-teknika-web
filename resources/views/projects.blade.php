@@ -113,17 +113,30 @@
     <!-- ========================================================================= -->
     <!-- 1. HERO SECTION (Projects Showcase Header)                                -->
     <!-- ========================================================================= -->
-    <section class="relative w-full bg-[#f8fafc] text-gray-900 text-center pt-36 sm:pt-44 lg:pt-52 pb-16 sm:pb-20 border-b border-gray-200/80">
+    <section class="relative w-full min-h-[65vh] sm:min-h-[75vh] lg:min-h-[82vh] bg-black text-white text-center py-36 sm:py-44 lg:py-52 overflow-hidden flex items-center justify-center">
+        <!-- Video Background with Fallback -->
+        <div class="absolute inset-0 z-0 overflow-hidden w-full h-full pointer-events-none flex items-center justify-center">
+            <video autoplay loop muted playsinline preload="auto"
+                class="w-full h-full object-cover object-center opacity-60"
+                style="object-position: 50% 50%; object-fit: cover;">
+                <source src="{{ asset('storage/Company_Profile.mp4') }}" type="video/mp4">
+                <source src="{{ asset('storage/Company_Profile.webm') }}" type="video/webm">
+            </video>
+            <!-- Contrast Overlays -->
+            <div class="absolute inset-0 bg-black/55"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/70"></div>
+        </div>
+
         <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
             <h1 data-lang-en="PROJECTS &amp; CASE STUDIES" data-lang-id="PROYEK &amp; STUDI KASUS"
-                class="text-4xl sm:text-5xl md:text-6xl font-bold uppercase font-['Agrandir'] tracking-tight text-black leading-tight">
+                class="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold uppercase font-['Agrandir'] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 PROJECTS &amp; CASE STUDIES
             </h1>
-            <div class="w-20 sm:w-24 h-1.5 bg-[#3367A5] mx-auto mt-4 rounded-full"></div>
+            <div class="w-24 sm:w-28 h-1.5 bg-[#3367A5] mx-auto mt-4 rounded-full shadow-[0_0_20px_rgba(51,103,165,0.8)]"></div>
 
             <p data-lang-en="Real-world industrial automation, machine vision quality inspection, and IoT telemetry systems engineered for Indonesia's leading manufacturers."
                data-lang-id="Otomasi industri nyata, inspeksi mutu visi optik, dan sistem telemetri IoT yang direkayasa untuk produsen terkemuka di Indonesia."
-                class="text-sm sm:text-base md:text-lg text-gray-600 font-['Questrial'] max-w-2xl mt-5 leading-relaxed">
+                class="text-sm sm:text-base md:text-lg text-gray-300 font-['Questrial'] max-w-2xl mt-5 leading-relaxed">
                 Real-world industrial automation, machine vision quality inspection, and IoT telemetry systems engineered for Indonesia's leading manufacturers.
             </p>
         </div>

@@ -101,16 +101,20 @@
     <!-- 1. HERO SECTION (Industrial Telemetry & Architecture Header)               -->
     <!-- ========================================================================= -->
     <section class="relative w-full min-h-[65vh] sm:min-h-[75vh] lg:min-h-[82vh] bg-black text-white text-center py-36 sm:py-44 lg:py-52 overflow-hidden flex items-center justify-center">
-        <!-- Ambient Background Image -->
+        <!-- Video Background with Fallback -->
         <div class="absolute inset-0 z-0 overflow-hidden w-full h-full pointer-events-none flex items-center justify-center">
-            <img src="{{ asset('storage/gat_3d_smart_factory_diorama.webp') }}" alt="GAT Smart Factory Architecture"
-                class="w-full h-full object-cover object-center opacity-45">
+            <video autoplay loop muted playsinline preload="auto"
+                class="w-full h-full object-cover object-center opacity-60"
+                style="object-position: 50% 50%; object-fit: cover;">
+                <source src="{{ asset('storage/Company_Profile.mp4') }}" type="video/mp4">
+                <source src="{{ asset('storage/Company_Profile.webm') }}" type="video/webm">
+            </video>
             <!-- Contrast Overlays -->
-            <div class="absolute inset-0 bg-black/60"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/70"></div>
+            <div class="absolute inset-0 bg-black/55"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/70"></div>
         </div>
 
-        <div class="relative z-10 px-6 max-w-5xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
+        <div class="relative z-10 px-6 max-w-4xl mx-auto flex flex-col items-center justify-center text-center reveal-on-scroll">
             <h1 data-lang-en="INDUSTRIAL APPLICATIONS" data-lang-id="APLIKASI INDUSTRI"
                 class="text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-bold uppercase font-['Agrandir'] tracking-tight text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 INDUSTRIAL APPLICATIONS
