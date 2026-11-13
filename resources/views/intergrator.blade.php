@@ -93,7 +93,7 @@
     </style>
 </head>
 
-<body class="overflow-x-hidden w-full max-w-full bg-white text-neutral-900 selection:bg-red-600 selection:text-white">
+<body class="overflow-x-hidden w-full max-w-full bg-white text-neutral-900 selection:bg-[#3367A5] selection:text-white">
 
     <!-- Navbar -->
     @include('components.navbar.header')
@@ -113,7 +113,7 @@
                         data-lang-id="Sistem Integrator">
                         Integrator System
                     </h1>
-                    <p class="text-xl sm:text-2xl text-red-600 font-bold font-agrandir tracking-tight"
+                    <p class="text-xl sm:text-2xl text-[#3367A5] font-bold font-agrandir tracking-tight"
                         data-lang-en="End-to-End Industrial Robotics, Material Flow &amp; Smart Line Integration"
                         data-lang-id="Robotika Industri End-to-End, Aliran Material &amp; Integrasi Lini Cerdas">
                         End-to-End Industrial Robotics, Material Flow &amp; Smart Line Integration
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="rounded-2xl border border-neutral-200/80 bg-neutral-50/70 p-6 space-y-1 reveal-on-scroll reveal-stagger-2">
-                        <div class="text-3xl sm:text-4xl font-bold font-agrandir text-red-600">40%</div>
+                        <div class="text-3xl sm:text-4xl font-bold font-agrandir text-[#3367A5]">40%</div>
                         <div class="text-xs sm:text-sm text-neutral-500 font-questrial"
                             data-lang-en="Throughput Acceleration"
                             data-lang-id="Percepatan Kapasitas">
@@ -164,7 +164,7 @@
             <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-12">
                 
                 <div class="text-center space-y-3 max-w-2xl mx-auto reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 font-agrandir"
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-agrandir"
                         data-lang-en="Core Capabilities"
                         data-lang-id="Kemampuan Utama">
                         Core Capabilities
@@ -184,15 +184,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                     
                     <!-- Deliverable 1 -->
-                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-red-500 hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-1">
+                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-[#3367A5] hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-1">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-red-600 transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-[#3367A5] transition-colors">
                                 <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-[#3367A5] transition-colors"
                                 data-lang-en="Robotic Workcells"
                                 data-lang-id="Sel Kerja Robotika">
                                 Robotic Workcells
@@ -210,15 +210,15 @@
                                 </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="FANUC, Yaskawa, ABB &amp; Universal Robots" data-lang-id="FANUC, Yaskawa, ABB &amp; Universal Robots">FANUC, Yaskawa, ABB &amp; Universal Robots</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Custom End-of-Arm Tooling (EOAT) Grippers" data-lang-id="Gripper End-of-Arm Tooling (EOAT) Kustom">Custom End-of-Arm Tooling (EOAT) Grippers</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Optical Safety Light Curtains &amp; Interlocks" data-lang-id="Tirai Cahaya Pengaman Optik &amp; Interlock">Optical Safety Light Curtains &amp; Interlocks</span>
                                     </li>
                                 </ul>
@@ -227,14 +227,14 @@
                     </div>
 
                     <!-- Deliverable 2 -->
-                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-red-500 hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-2">
+                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-[#3367A5] hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-2">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-red-600 transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-[#3367A5] transition-colors">
                                 <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-[#3367A5] transition-colors"
                                 data-lang-en="Material Handling Conveyors"
                                 data-lang-id="Konveyor Penanganan Material">
                                 Material Handling Conveyors
@@ -252,15 +252,15 @@
                                 </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Motorized Roller, Belt &amp; Slat Conveyors" data-lang-id="Konveyor Roller Bermotor, Sabuk &amp; Slat">Motorized Roller, Belt &amp; Slat Conveyors</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Rotary Indexers &amp; 90-Degree Diverters" data-lang-id="Pengindeks Putar &amp; Pengarah 90 Derajat">Rotary Indexers &amp; 90-Degree Diverters</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Automatic Pallet Infeed &amp; Outfeed Lines" data-lang-id="Lini Infeed &amp; Outfeed Palet Otomatis">Automatic Pallet Infeed &amp; Outfeed Lines</span>
                                     </li>
                                 </ul>
@@ -269,14 +269,14 @@
                     </div>
 
                     <!-- Deliverable 3 -->
-                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-red-500 hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-3">
+                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-[#3367A5] hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-3">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-red-600 transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-[#3367A5] transition-colors">
                                 <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-[#3367A5] transition-colors"
                                 data-lang-en="MES &amp; ERP Floor Interfacing"
                                 data-lang-id="Antarmuka Lantai Produksi MES &amp; ERP">
                                 MES &amp; ERP Floor Interfacing
@@ -294,15 +294,15 @@
                                 </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Automated Job Order Synchronization" data-lang-id="Sinkronisasi Perintah Kerja Otomatis">Automated Job Order Synchronization</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Barcode &amp; RFID Material Verification" data-lang-id="Verifikasi Material Barcode &amp; RFID">Barcode &amp; RFID Material Verification</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Real-time WIP (Work-in-Progress) Auditing" data-lang-id="Audit WIP (Work-in-Progress) Real-Time">Real-time WIP (Work-in-Progress) Auditing</span>
                                     </li>
                                 </ul>
@@ -323,7 +323,7 @@
             <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-12">
                 
                 <div class="text-center space-y-3 max-w-2xl mx-auto reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-agrandir"
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-agrandir"
                         data-lang-en="Structured Methodology"
                         data-lang-id="Metodologi Terstruktur">
                         Structured Methodology
@@ -341,9 +341,9 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-1">
+                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all reveal-on-scroll reveal-stagger-1">
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold font-agrandir text-red-600">01</span>
+                            <span class="text-2xl font-bold font-agrandir text-[#3367A5]">01</span>
                             <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700"
                                 data-lang-en="Phase 1"
                                 data-lang-id="Fase 1">Phase 1</span>
@@ -358,9 +358,9 @@
                         </p>
                     </div>
 
-                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-2">
+                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all reveal-on-scroll reveal-stagger-2">
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold font-agrandir text-red-600">02</span>
+                            <span class="text-2xl font-bold font-agrandir text-[#3367A5]">02</span>
                             <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700"
                                 data-lang-en="Phase 2"
                                 data-lang-id="Fase 2">Phase 2</span>
@@ -375,9 +375,9 @@
                         </p>
                     </div>
 
-                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-3">
+                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all reveal-on-scroll reveal-stagger-3">
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold font-agrandir text-red-600">03</span>
+                            <span class="text-2xl font-bold font-agrandir text-[#3367A5]">03</span>
                             <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700"
                                 data-lang-en="Phase 3"
                                 data-lang-id="Fase 3">Phase 3</span>
@@ -392,9 +392,9 @@
                         </p>
                     </div>
 
-                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-4">
+                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all reveal-on-scroll reveal-stagger-4">
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold font-agrandir text-red-600">04</span>
+                            <span class="text-2xl font-bold font-agrandir text-[#3367A5]">04</span>
                             <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700"
                                 data-lang-en="Phase 4"
                                 data-lang-id="Fase 4">Phase 4</span>
@@ -421,7 +421,7 @@
             <div class="max-w-4xl mx-auto px-6 sm:px-12 space-y-8">
                 
                 <div class="text-center space-y-3 reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-agrandir"
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-agrandir"
                         data-lang-en="FAQS"
                         data-lang-id="TANYA JAWAB">
                         FAQS
@@ -488,7 +488,7 @@
         <!-- ========================================================================= -->
         <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
             <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-                <span class="inline-block text-xs font-bold uppercase tracking-widest text-red-500 font-agrandir"
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#3367A5] font-agrandir"
                     data-lang-en="LET'S COLLABORATE"
                     data-lang-id="MARI BERKOLABORASI">
                     LET'S COLLABORATE
@@ -506,7 +506,7 @@
 
                 <div class="pt-4 flex items-center justify-center">
                     <a href="{{ route('contact') }}"
-                        class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-red-600 font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-agrandir border-0 outline-none isolate">
+                        class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-[#3367A5] font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-agrandir border-0 outline-none isolate">
                         <!-- White Wipe Layer from Left to Right -->
                         <span
                             class="absolute inset-0 bg-white rounded-full -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
@@ -540,11 +540,11 @@
                 const isOpen = !content.classList.contains('hidden');
 
                 document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-                document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180', 'bg-red-600', 'text-white'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180', 'bg-[#3367A5]', 'text-white'));
 
                 if (!isOpen) {
                     content.classList.remove('hidden');
-                    icon.classList.add('rotate-180', 'bg-red-600', 'text-white');
+                    icon.classList.add('rotate-180', 'bg-[#3367A5]', 'text-white');
                 }
             });
         });

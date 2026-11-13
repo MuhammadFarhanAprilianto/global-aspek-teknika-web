@@ -79,7 +79,7 @@
     </style>
 </head>
 
-<body class="overflow-x-hidden w-full max-w-full bg-white text-neutral-900 selection:bg-red-600 selection:text-white">
+<body class="overflow-x-hidden w-full max-w-full bg-white text-neutral-900 selection:bg-[#3367A5] selection:text-white">
 
     <!-- Navbar -->
     @include('components.navbar.header')
@@ -99,7 +99,7 @@
                         data-lang-id="Sistem Inspeksi &amp; Pencatatan Data">
                         Inspection &amp; Record Data System
                     </h1>
-                    <p class="text-xl sm:text-2xl text-red-600 font-bold font-agrandir tracking-tight"
+                    <p class="text-xl sm:text-2xl text-[#3367A5] font-bold font-agrandir tracking-tight"
                         data-lang-en="Ultra High-Speed Machine Vision &amp; Real-Time Serialization Auditing"
                         data-lang-id="Machine Vision Kecepatan Ultra Tinggi &amp; Audit Serialisasi Real-Time">
                         Ultra High-Speed Machine Vision &amp; Real-Time Serialization Auditing
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <div class="rounded-2xl border border-neutral-200/80 bg-neutral-50/70 p-6 space-y-1 reveal-on-scroll reveal-stagger-2">
-                        <div class="text-3xl sm:text-4xl font-bold font-agrandir text-red-600">0.01 mm</div>
+                        <div class="text-3xl sm:text-4xl font-bold font-agrandir text-[#3367A5]">0.01 mm</div>
                         <div class="text-xs sm:text-sm text-neutral-500 font-questrial"
                             data-lang-en="Optical Defect Accuracy"
                             data-lang-id="Akurasi Cacat Optik">
@@ -150,7 +150,7 @@
             <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-12">
                 
                 <div class="text-center space-y-3 max-w-2xl mx-auto reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-500 font-agrandir"
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-agrandir"
                         data-lang-en="Core Capabilities"
                         data-lang-id="Kemampuan Utama">
                         Core Capabilities
@@ -170,15 +170,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                     
                     <!-- Deliverable 1 -->
-                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-red-500 hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-1">
+                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-[#3367A5] hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-1">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-red-600 transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-[#3367A5] transition-colors">
                                 <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 7V5a2 2 0 012-2h2m12 0h2a2 2 0 012 2v2m0 10v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8"></path>
                                 
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-[#3367A5] transition-colors"
                                 data-lang-en="High-Speed Vision Camera"
                                 data-lang-id="Kamera Vision Kecepatan Tinggi">
                                 High-Speed Vision Camera
@@ -196,15 +196,15 @@
                                 </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="800+ pcs/min Real-Time Processing" data-lang-id="Pemrosesan Real-Time 800+ pcs/menit">800+ pcs/min Real-Time Processing</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Sub-millimeter Dimensional Measurements" data-lang-id="Pengukuran Dimensi Sub-milimeter">Sub-millimeter Dimensional Measurements</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="1D/2D Barcode &amp; DataMatrix Grading" data-lang-id="Penilaian Mutu Barcode 1D/2D &amp; DataMatrix">1D/2D Barcode &amp; DataMatrix Grading</span>
                                     </li>
                                 </ul>
@@ -213,14 +213,14 @@
                     </div>
 
                     <!-- Deliverable 2 -->
-                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-red-500 hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-2">
+                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-[#3367A5] hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-2">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-red-600 transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-[#3367A5] transition-colors">
                                 <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-[#3367A5] transition-colors"
                                 data-lang-en="Serialization Management"
                                 data-lang-id="Manajemen Serialisasi">
                                 Serialization Management
@@ -238,15 +238,15 @@
                                 </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Unique Item &amp; Bundle Code Hierarchy" data-lang-id="Hierarki Kode Unik Item &amp; Bundel">Unique Item &amp; Bundle Code Hierarchy</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Anti-Counterfeiting Verification Database" data-lang-id="Basis Data Verifikasi Anti-Pemalsuan">Anti-Counterfeiting Verification Database</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Automated BPOM &amp; GS1 Standard Export" data-lang-id="Ekspor Standar BPOM &amp; GS1 Otomatis">Automated BPOM &amp; GS1 Standard Export</span>
                                     </li>
                                 </ul>
@@ -255,14 +255,14 @@
                     </div>
 
                     <!-- Deliverable 3 -->
-                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-red-500 hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-3">
+                    <div class="bg-white rounded-3xl p-7 sm:p-8 border border-neutral-200/80 shadow-lg space-y-6 flex flex-col justify-between hover:border-[#3367A5] hover:shadow-2xl transition-all duration-300 group reveal-on-scroll reveal-stagger-3">
                         <div class="space-y-4">
-                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-red-600 transition-colors">
+                            <div class="w-12 h-12 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-white shadow-md group-hover:bg-[#3367A5] transition-colors">
                                 <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-red-600 transition-colors"
+                            <h3 class="text-xl font-bold text-neutral-900 font-agrandir group-hover:text-[#3367A5] transition-colors"
                                 data-lang-en="Automated Rejector Gateway"
                                 data-lang-id="Gerbang Penolakan Otomatis">
                                 Automated Rejector Gateway
@@ -280,15 +280,15 @@
                                 </div>
                                 <ul class="space-y-1.5 text-xs text-neutral-600 font-questrial">
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Zero Line Stoppage Rejection" data-lang-id="Penolakan Tanpa Henti Lini Produksi">Zero Line Stoppage Rejection</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Reject Verification Sensor Feedback" data-lang-id="Umpan Balik Sensor Verifikasi Tolakan">Reject Verification Sensor Feedback</span>
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] shrink-0"></span>
                                         <span data-lang-en="Audit-Ready Defect Image Archival" data-lang-id="Pengarsipan Gambar Cacat Siap Audit">Audit-Ready Defect Image Archival</span>
                                     </li>
                                 </ul>
@@ -309,7 +309,7 @@
             <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-12">
                 
                 <div class="text-center space-y-3 max-w-2xl mx-auto reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-agrandir"
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-agrandir"
                         data-lang-en="Structured Methodology"
                         data-lang-id="Metodologi Terstruktur">
                         Structured Methodology
@@ -327,9 +327,9 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-1">
+                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all reveal-on-scroll reveal-stagger-1">
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold font-agrandir text-red-600">01</span>
+                            <span class="text-2xl font-bold font-agrandir text-[#3367A5]">01</span>
                             <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700"
                                 data-lang-en="Phase 1"
                                 data-lang-id="Fase 1">Phase 1</span>
@@ -344,9 +344,9 @@
                         </p>
                     </div>
 
-                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-2">
+                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all reveal-on-scroll reveal-stagger-2">
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold font-agrandir text-red-600">02</span>
+                            <span class="text-2xl font-bold font-agrandir text-[#3367A5]">02</span>
                             <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700"
                                 data-lang-en="Phase 2"
                                 data-lang-id="Fase 2">Phase 2</span>
@@ -361,9 +361,9 @@
                         </p>
                     </div>
 
-                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-3">
+                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all reveal-on-scroll reveal-stagger-3">
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold font-agrandir text-red-600">03</span>
+                            <span class="text-2xl font-bold font-agrandir text-[#3367A5]">03</span>
                             <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700"
                                 data-lang-en="Phase 3"
                                 data-lang-id="Fase 3">Phase 3</span>
@@ -378,9 +378,9 @@
                         </p>
                     </div>
 
-                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-red-500 hover:shadow-md transition-all reveal-on-scroll reveal-stagger-4">
+                    <div class="rounded-3xl p-6 sm:p-7 border border-neutral-200 bg-neutral-50/50 space-y-4 hover:bg-white hover:border-[#3367A5] hover:shadow-md transition-all reveal-on-scroll reveal-stagger-4">
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold font-agrandir text-red-600">04</span>
+                            <span class="text-2xl font-bold font-agrandir text-[#3367A5]">04</span>
                             <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-200/80 text-neutral-700"
                                 data-lang-en="Phase 4"
                                 data-lang-id="Fase 4">Phase 4</span>
@@ -407,7 +407,7 @@
             <div class="max-w-4xl mx-auto px-6 sm:px-12 space-y-8">
                 
                 <div class="text-center space-y-3 reveal-on-scroll">
-                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600 font-agrandir"
+                    <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-widest text-[#3367A5] font-agrandir"
                         data-lang-en="FAQS"
                         data-lang-id="TANYA JAWAB">
                         FAQS
@@ -474,7 +474,7 @@
         <!-- ========================================================================= -->
         <section class="w-full bg-[#07080b] text-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-900">
             <div class="max-w-4xl mx-auto px-6 sm:px-12 text-center space-y-8 relative z-10 reveal-on-scroll">
-                <span class="inline-block text-xs font-bold uppercase tracking-widest text-red-500 font-agrandir"
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#3367A5] font-agrandir"
                     data-lang-en="LET'S COLLABORATE"
                     data-lang-id="MARI BERKOLABORASI">
                     LET'S COLLABORATE
@@ -492,7 +492,7 @@
 
                 <div class="pt-4 flex items-center justify-center">
                     <a href="{{ route('contact') }}"
-                        class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-red-600 font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-agrandir border-0 outline-none isolate">
+                        class="cta-quote-btn group relative inline-flex items-center justify-center overflow-hidden px-8 sm:px-10 py-4 bg-[#3367A5] font-bold tracking-wider rounded-full hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-700 active:scale-95 whitespace-nowrap font-agrandir border-0 outline-none isolate">
                         <!-- White Wipe Layer from Left to Right -->
                         <span
                             class="absolute inset-0 bg-white rounded-full -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
@@ -526,11 +526,11 @@
                 const isOpen = !content.classList.contains('hidden');
 
                 document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-                document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180', 'bg-red-600', 'text-white'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180', 'bg-[#3367A5]', 'text-white'));
 
                 if (!isOpen) {
                     content.classList.remove('hidden');
-                    icon.classList.add('rotate-180', 'bg-red-600', 'text-white');
+                    icon.classList.add('rotate-180', 'bg-[#3367A5]', 'text-white');
                 }
             });
         });

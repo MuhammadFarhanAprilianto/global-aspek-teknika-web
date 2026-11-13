@@ -154,7 +154,7 @@
 
         <!-- Ambient Subtle Red Glow -->
         <div
-            class="absolute top-1/2 right-0 translate-x-1/4 -translate-y-1/2 w-[750px] h-[380px] bg-red-600/10 rounded-full blur-[160px] pointer-events-none">
+            class="absolute top-1/2 right-0 translate-x-1/4 -translate-y-1/2 w-[750px] h-[380px] bg-[#3367A5]/15 rounded-full blur-[160px] pointer-events-none">
         </div>
 
         <!-- D3 Map Container with Overlay (Flush Right, z-10) -->
@@ -169,31 +169,31 @@
                 <!-- Regional Marker Pins (Static Clean Red Dots aligned to real provincial locations) -->
                 <!-- 1. Jakarta (DKI Jakarta) -->
                 <g id="jakarta-pin" transform="translate(275, 311)">
-                    <circle r="4" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+                    <circle r="4" fill="#3367A5" stroke="#ffffff" stroke-width="1.5" />
                     <circle r="1.5" fill="#ffffff" />
                 </g>
 
                 <!-- 2. Surabaya (Jawa Timur) -->
                 <g id="surabaya-pin" transform="translate(398, 333)">
-                    <circle r="4" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+                    <circle r="4" fill="#3367A5" stroke="#ffffff" stroke-width="1.5" />
                     <circle r="1.5" fill="#ffffff" />
                 </g>
 
                 <!-- 3. Balikpapan (Kalimantan Timur) -->
                 <g id="balikpapan-pin" transform="translate(480, 191)">
-                    <circle r="4" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+                    <circle r="4" fill="#3367A5" stroke="#ffffff" stroke-width="1.5" />
                     <circle r="1.5" fill="#ffffff" />
                 </g>
 
                 <!-- 4. Makassar (Sulawesi Selatan) -->
                 <g id="makassar-pin" transform="translate(531, 289)">
-                    <circle r="4" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+                    <circle r="4" fill="#3367A5" stroke="#ffffff" stroke-width="1.5" />
                     <circle r="1.5" fill="#ffffff" />
                 </g>
 
                 <!-- 5. Jayapura (Papua) -->
                 <g id="jayapura-pin" transform="translate(940, 225)">
-                    <circle r="4" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" />
+                    <circle r="4" fill="#3367A5" stroke="#ffffff" stroke-width="1.5" />
                     <circle r="1.5" fill="#ffffff" />
                 </g>
             </svg>
@@ -326,9 +326,9 @@
         <div
             class="absolute bottom-6 sm:bottom-10 md:bottom-12 lg:bottom-16 left-4 sm:left-8 md:left-10 lg:left-16 z-40 pointer-events-none select-none reveal-on-scroll">
             <div class="flex items-center gap-2 mb-1.5 sm:mb-2">
-                <span class="w-5 sm:w-8 h-[2px] bg-red-600 rounded-full inline-block"></span>
+                <span class="w-5 sm:w-8 h-[2px] bg-[#3367A5] rounded-full inline-block"></span>
                 <span data-lang-en="Automation &amp; Engineering Excellence" data-lang-id="Keunggulan Rekayasa &amp; Otomasi"
-                    class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-red-500 font-questrial">Automation
+                    class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#3367A5] font-questrial">Automation
                     &amp; Engineering Excellence</span>
             </div>
             <h1 data-lang-en="Solution" data-lang-id="Solusi"
@@ -347,12 +347,12 @@
             <!-- Section Header -->
             <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 lg:mb-16 reveal-on-scroll">
                 <span data-lang-en="Our Capabilities" data-lang-id="Kemampuan Kami"
-                    class="inline-block text-sm sm:text-base font-bold uppercase tracking-widest text-red-500 font-questrial mb-2">Our
+                    class="inline-block text-sm sm:text-base font-bold uppercase tracking-widest text-[#3367A5] font-questrial mb-2">Our
                     Capabilities</span>
                 <h2 data-lang-en="Integrated Solutions" data-lang-id="Solusi Terintegrasi"
                     class="text-3xl sm:text-4xl md:text-5xl font-bold font-agrandir text-black uppercase tracking-tight">Integrated
                     Solutions</h2>
-                <div class="w-16 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
+                <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-4 rounded-full"></div>
             </div>
 
             <!-- Cards Grid -->
@@ -360,18 +360,18 @@
 
                 <!-- Solution 1: PLC Programming -->
                 <div
-                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-1">
+                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-[0_20px_45px_rgba(51,103,165,0.15)] group reveal-on-scroll reveal-stagger-1">
                     <div>
                         <!-- Card Title -->
                         <h3 data-lang-en="PLC Programming" data-lang-id="Pemrograman PLC"
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-[#3367A5] transition-colors">
                             PLC Programming
                         </h3>
 
                         <!-- Value Proposition Line -->
                         <p data-lang-en="Robust, fail-safe ladder &amp; structured text control architectures."
                            data-lang-id="Arsitektur kontrol ladder &amp; structured text yang andal dan fail-safe."
-                           class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                           class="text-xs sm:text-sm font-semibold text-[#3367A5] font-questrial mb-3">
                             Robust, fail-safe ladder &amp; structured text control architectures.
                         </p>
 
@@ -391,23 +391,23 @@
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Custom Ladder &amp; Structured Text Logic" data-lang-id="Logika Kustom Ladder &amp; Structured Text">Custom Ladder &amp; Structured Text Logic</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Multi-Brand PLC Migration &amp; Retrofit" data-lang-id="Migrasi &amp; Retrofit PLC Lintas Merek">Multi-Brand PLC Migration &amp; Retrofit</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="HMI / Touchscreen Operator Interface" data-lang-id="Antarmuka Operator HMI / Layar Sentuh">HMI / Touchscreen Operator Interface</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Safety Interlock &amp; Fault Diagnostics" data-lang-id="Interlock Keselamatan &amp; Diagnostik Gangguan">Safety Interlock &amp; Fault Diagnostics</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="On-Site Commissioning &amp; Support" data-lang-id="Komisioning di Lokasi &amp; Dukungan Teknis">On-Site Commissioning &amp; Support</span>
                                 </li>
                             </ul>
@@ -431,7 +431,7 @@
                         </div>
 
                         <a href="{{ route('plc-progamming') }}"
-                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#ef4444] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-red-600/20 hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
+                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#3367A5] hover:bg-[#255187] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-[0_8px_25px_rgba(51,103,165,0.35)] hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
                             <!-- White Wipe Layer from Left to Right -->
                             <span
                                 class="absolute inset-0 bg-white -translate-x-[105%] group-hover/btn:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
@@ -451,18 +451,18 @@
 
                 <!-- Solution 2: Inspection & Record Data -->
                 <div
-                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-2">
+                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-[0_20px_45px_rgba(51,103,165,0.15)] group reveal-on-scroll reveal-stagger-2">
                     <div>
                         <!-- Card Title -->
                         <h3 data-lang-en="Inspection &amp; Record Data" data-lang-id="Sistem Inspeksi &amp; Rekam Data"
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-[#3367A5] transition-colors">
                             Inspection &amp; Record Data
                         </h3>
 
                         <!-- Value Proposition Line -->
                         <p data-lang-en="Ultra high-speed optical inspection up to 800 pcs/minute."
                            data-lang-id="Inspeksi optik berkecepatan ultra tinggi hingga 800 pcs/menit."
-                           class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                           class="text-xs sm:text-sm font-semibold text-[#3367A5] font-questrial mb-3">
                             Ultra high-speed optical inspection up to 800 pcs/minute.
                         </p>
 
@@ -482,23 +482,23 @@
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="High-Speed Optical Sorting (800 pcs/min)" data-lang-id="Penyortiran Optik Kecepatan Tinggi (800 pcs/menit)">High-Speed Optical Sorting (800 pcs/min)</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Batch &amp; Expiration Verification" data-lang-id="Verifikasi Nomor Batch &amp; Kedaluwarsa">Batch &amp; Expiration Verification</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Defect Ejection &amp; Reject Mechanism" data-lang-id="Mekanisme Pemisahan &amp; Penolakan Cacat">Defect Ejection &amp; Reject Mechanism</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Historical Log &amp; Production Reports" data-lang-id="Riwayat Pencatatan &amp; Laporan Produksi">Historical Log &amp; Production Reports</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Multi-Angle Camera Setup" data-lang-id="Konfigurasi Kamera Multi-Sudut">Multi-Angle Camera Setup</span>
                                 </li>
                             </ul>
@@ -522,7 +522,7 @@
                         </div>
 
                         <a href="{{ route('inspection') }}"
-                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#ef4444] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-red-600/20 hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
+                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#3367A5] hover:bg-[#255187] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-[0_8px_25px_rgba(51,103,165,0.35)] hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
                             <!-- White Wipe Layer from Left to Right -->
                             <span
                                 class="absolute inset-0 bg-white -translate-x-[105%] group-hover/btn:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
@@ -542,18 +542,18 @@
 
                 <!-- Solution 3: Monitoring System -->
                 <div
-                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-3">
+                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-[0_20px_45px_rgba(51,103,165,0.15)] group reveal-on-scroll reveal-stagger-3">
                     <div>
                         <!-- Card Title -->
                         <h3 data-lang-en="Monitoring System" data-lang-id="Sistem Monitoring"
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors">
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-[#3367A5] transition-colors">
                             Monitoring System
                         </h3>
 
                         <!-- Value Proposition Line -->
                         <p data-lang-en="Integrated Andon IoT dashboards with real-time process control."
                            data-lang-id="Dashboard Andon IoT terintegrasi dengan kendali proses waktu-nyata."
-                           class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3">
+                           class="text-xs sm:text-sm font-semibold text-[#3367A5] font-questrial mb-3">
                             Integrated Andon IoT dashboards with real-time process control.
                         </p>
 
@@ -573,23 +573,23 @@
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Live Andon Status Display Boards" data-lang-id="Papan Tampilan Status Andon Langsung">Live Andon Status Display Boards</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="IoT Gateway &amp; Local/Cloud SCADA" data-lang-id="Gateway IoT &amp; SCADA Lokal/Cloud">IoT Gateway &amp; Local/Cloud SCADA</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="OEE &amp; Production Rate Tracking" data-lang-id="Pelacakan OEE &amp; Laju Kecepatan Produksi">OEE &amp; Production Rate Tracking</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Instant Alert Notifications" data-lang-id="Notifikasi Peringatan Instan">Instant Alert Notifications</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Mobile &amp; Tablet Dashboard Access" data-lang-id="Akses Dashboard Ponsel &amp; Tablet">Mobile &amp; Tablet Dashboard Access</span>
                                 </li>
                             </ul>
@@ -615,7 +615,7 @@
                         </div>
 
                         <a href="{{ route('monitoring') }}"
-                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#ef4444] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-red-600/20 hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
+                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#3367A5] hover:bg-[#255187] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-[0_8px_25px_rgba(51,103,165,0.35)] hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
                             <!-- White Wipe Layer from Left to Right -->
                             <span
                                 class="absolute inset-0 bg-white -translate-x-[105%] group-hover/btn:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
@@ -635,18 +635,18 @@
 
                 <!-- Solution 4: Integrator System -->
                 <div
-                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-4">
+                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-[0_20px_45px_rgba(51,103,165,0.15)] group reveal-on-scroll reveal-stagger-4">
                     <div>
                         <!-- Card Title -->
                         <h3
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors"
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-[#3367A5] transition-colors"
                             data-lang-en="Integrator System"
                             data-lang-id="Sistem Integrator">
                             Integrator System
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3"
+                        <p class="text-xs sm:text-sm font-semibold text-[#3367A5] font-questrial mb-3"
                             data-lang-en="Turnkey multidisciplinary engineering across industrial facilities."
                             data-lang-id="Rekayasa multidisiplin siap pakai di berbagai fasilitas industri.">
                             Turnkey multidisciplinary engineering across industrial facilities.
@@ -670,23 +670,23 @@
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="End-to-End Plant Automation Architecture" data-lang-id="Arsitektur Otomasi Pabrik End-to-End">End-to-End Plant Automation Architecture</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="MES & ERP Factory Floor Bridging" data-lang-id="Jembatan MES & ERP ke Lantai Produksi">MES & ERP Factory Floor Bridging</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Robotics & Motion Controller Setup" data-lang-id="Pengaturan Robotika & Pengontrol Gerak">Robotics & Motion Controller Setup</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Smart Building Energy & HVAC Control" data-lang-id="Kontrol Energi & HVAC Bangunan Cerdas">Smart Building Energy & HVAC Control</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Multi-Protocol Hardware Interfacing" data-lang-id="Antarmuka Perangkat Keras Multi-Protokol">Multi-Protocol Hardware Interfacing</span>
                                 </li>
                             </ul>
@@ -710,7 +710,7 @@
                         </div>
 
                         <a href="{{ route('intergrator') }}"
-                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#ef4444] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-red-600/20 hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
+                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#3367A5] hover:bg-[#255187] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-[0_8px_25px_rgba(51,103,165,0.35)] hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
                             <!-- White Wipe Layer from Left to Right -->
                             <span
                                 class="absolute inset-0 bg-white -translate-x-[105%] group-hover/btn:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
@@ -730,18 +730,18 @@
 
                 <!-- Solution 5: Laser Marking & Inkjet -->
                 <div
-                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-5">
+                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-[0_20px_45px_rgba(51,103,165,0.15)] group reveal-on-scroll reveal-stagger-5">
                     <div>
                         <!-- Card Title -->
                         <h3
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors"
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-[#3367A5] transition-colors"
                             data-lang-en="Laser Marking & Inkjet"
                             data-lang-id="Penandaan Laser & Cetak Inkjet">
                             Laser Marking & Inkjet
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3"
+                        <p class="text-xs sm:text-sm font-semibold text-[#3367A5] font-questrial mb-3"
                             data-lang-en="Permanent high-precision coding & high-speed barcode spraying."
                             data-lang-id="Pengkodean presisi tinggi permanen & pencetakan barcode kecepatan tinggi.">
                             Permanent high-precision coding & high-speed barcode spraying.
@@ -765,23 +765,23 @@
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Fiber & CO2 Laser Marking Systems" data-lang-id="Sistem Penandaan Laser Fiber & CO2">Fiber & CO2 Laser Marking Systems</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Continuous Inkjet (CIJ) Printing" data-lang-id="Pencetakan Continuous Inkjet (CIJ)">Continuous Inkjet (CIJ) Printing</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="2D DataMatrix & QR Code Stamping" data-lang-id="Pemberian Kode QR & DataMatrix 2D">2D DataMatrix & QR Code Stamping</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Batch Serialization & Traceability" data-lang-id="Serialisasi Batch & Ketertelusuran Produk">Batch Serialization & Traceability</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Integrated Conveyor Line Sync" data-lang-id="Sinkronisasi Konveyor Jalur Terintegrasi">Integrated Conveyor Line Sync</span>
                                 </li>
                             </ul>
@@ -805,7 +805,7 @@
                         </div>
 
                         <a href="{{ route('laser-marking') }}"
-                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#ef4444] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-red-600/20 hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
+                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#3367A5] hover:bg-[#255187] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-[0_8px_25px_rgba(51,103,165,0.35)] hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
                             <!-- White Wipe Layer from Left to Right -->
                             <span
                                 class="absolute inset-0 bg-white -translate-x-[105%] group-hover/btn:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
@@ -825,18 +825,18 @@
 
                 <!-- Solution 6: Strapping & Packaging -->
                 <div
-                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/10 group reveal-on-scroll reveal-stagger-6">
+                    class="bg-[#000000] border border-neutral-800/90 hover:border-neutral-700 rounded-3xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-[0_20px_45px_rgba(51,103,165,0.15)] group reveal-on-scroll reveal-stagger-6">
                     <div>
                         <!-- Card Title -->
                         <h3
-                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-red-500 transition-colors"
+                            class="text-xl sm:text-2xl font-bold font-agrandir text-white leading-tight mb-2 group-hover:text-[#3367A5] transition-colors"
                             data-lang-en="Strapping & Packaging"
                             data-lang-id="Strapping & Pengemasan">
                             Strapping & Packaging
                         </h3>
 
                         <!-- Value Proposition Line -->
-                        <p class="text-xs sm:text-sm font-semibold text-red-500 font-questrial mb-3"
+                        <p class="text-xs sm:text-sm font-semibold text-[#3367A5] font-questrial mb-3"
                             data-lang-en="Heavy-duty automated binding & sealing for secure transport."
                             data-lang-id="Pengikatan & penyegelan otomatis tugas berat untuk keamanan pengangkutan.">
                             Heavy-duty automated binding & sealing for secure transport.
@@ -860,23 +860,23 @@
                             </span>
                             <ul class="space-y-2">
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Fully Automatic Arch Strapping" data-lang-id="Strapping Busur Otomatis Penuh">Fully Automatic Arch Strapping</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="High-Tension PP & PET Banding" data-lang-id="Pengikat PP & PET Bertegangan Tinggi">High-Tension PP & PET Banding</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Palletizer & Conveyor Line Integration" data-lang-id="Integrasi Palletizer & Lini Konveyor">Palletizer & Conveyor Line Integration</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Smart Package Dimension Sensors" data-lang-id="Sensor Dimensi Paket Cerdas">Smart Package Dimension Sensors</span>
                                 </li>
                                 <li class="flex items-start gap-2 text-xs text-gray-300 font-questrial">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#3367A5] mt-1.5 shrink-0"></span>
                                     <span data-lang-en="Low-Maintenance Sealing Heads" data-lang-id="Kepala Penyegel Rendah Pemeliharaan">Low-Maintenance Sealing Heads</span>
                                 </li>
                             </ul>
@@ -901,7 +901,7 @@
                         </div>
 
                         <a href="{{ route('strapping') }}"
-                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#ef4444] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-red-600/20 hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
+                            class="solution-action-btn group/btn relative inline-flex items-center justify-between w-full overflow-hidden py-3.5 px-5 bg-[#3367A5] hover:bg-[#255187] font-agrandir font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl shadow-lg shadow-[0_8px_25px_rgba(51,103,165,0.35)] hover:shadow-xl transition-all duration-700 active:scale-95 border-0 outline-none isolate">
                             <!-- White Wipe Layer from Left to Right -->
                             <span
                                 class="absolute inset-0 bg-white -translate-x-[105%] group-hover/btn:translate-x-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"></span>
@@ -929,7 +929,7 @@
     <section class="bg-[#000000] text-white py-24 relative overflow-hidden border-t border-neutral-900">
         <div class="container mx-auto px-6 mb-14 text-center reveal-on-scroll">
             <span
-                class="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest text-red-500 font-agrandir mb-2"
+                class="inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#3367A5] font-agrandir mb-2"
                 data-lang-en="Trusted Partners"
                 data-lang-id="Mitra Tepercaya">
                 Trusted Partners
@@ -939,7 +939,7 @@
                 data-lang-id="Klien Kami">
                 Our Clients
             </h2>
-            <div class="w-16 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
+            <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-4 rounded-full"></div>
             <p class="text-xs sm:text-sm text-gray-400 font-questrial mt-4 max-w-xl mx-auto"
                 data-lang-en="Delivering cutting-edge industrial automation, robotics, and smart manufacturing to Indonesia's industry leaders."
                 data-lang-id="Menghadirkan otomasi industri terdepan, robotika, dan manufaktur cerdas untuk para pemimpin industri di Indonesia.">
@@ -1071,7 +1071,7 @@
                 .on("mouseover", function () {
                     d3.select(this)
                         .attr("r", 4.2)
-                        .attr("fill", "#ef4444")
+                        .attr("fill", "#3367A5")
                         .attr("opacity", 1);
                 })
                 .on("mouseout", function () {
