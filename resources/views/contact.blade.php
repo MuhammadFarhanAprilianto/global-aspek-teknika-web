@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - GAT</title>
+    <title>Contact Us - PT. Global Aspect Technology</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('storage/Logo_Perusahaan(1).png') }}" type="image/png" sizes="64x64">
@@ -94,8 +94,8 @@
         .contact-input:focus {
             outline: none;
             background-color: #ffffff;
-            border-color: #18181b;
-            box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.08);
+            border-color: #3367A5;
+            box-shadow: 0 0 0 3px rgba(51, 103, 165, 0.15);
         }
 
         .contact-input::placeholder {
@@ -138,12 +138,14 @@
             <!-- Header Section -->
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 md:mb-16 reveal-on-scroll">
                 <div>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-agrandir tracking-tight text-[#111111] leading-none">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#3367A5] font-agrandir mb-2" data-lang-en="GET IN TOUCH" data-lang-id="HUBUNGI KAMI">GET IN TOUCH</span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-agrandir tracking-tight text-[#111111] leading-none" data-lang-en="Contact Us" data-lang-id="Hubungi Kami">
                         Contact Us
                     </h1>
+                    <div class="w-16 h-1 bg-[#3367A5] rounded-full mt-4"></div>
                 </div>
                 <div class="lg:max-w-md">
-                    <p class="text-gray-500 font-questrial text-sm md:text-base leading-relaxed">
+                    <p class="text-gray-500 font-questrial text-sm md:text-base leading-relaxed" data-lang-en="Share your industrial automation, machine vision inspection, or system integration requirements. Our engineering team is ready to deliver tailored solutions within 24 hours." data-lang-id="Sampaikan kebutuhan sistem otomasi, vision inspection, atau integrasi industri Anda. Tim ahli kami siap memberikan solusi terbaik dalam 24 jam.">
                         Sampaikan kebutuhan sistem otomasi, vision inspection, atau integrasi industri Anda. Tim ahli kami siap memberikan solusi terbaik dalam 24 jam.
                     </p>
                 </div>
@@ -160,17 +162,23 @@
                         <!-- Row 1: Name & Email -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div>
-                                <label for="name" class="contact-label">Name <span class="text-red-500">*</span></label>
+                                <label for="name" class="contact-label">
+                                    <span data-lang-en="Name" data-lang-id="Nama Lengkap">Name</span>
+                                    <span class="text-[#3367A5] font-bold">*</span>
+                                </label>
                                 <input type="text" id="name" name="name" placeholder="Your full name" class="contact-input" required value="{{ old('name') }}">
                                 @error('name')
-                                    <span class="text-xs text-red-500 mt-1 block font-questrial">{{ $message }}</span>
+                                    <span class="text-xs text-[#3367A5] mt-1 block font-questrial">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div>
-                                <label for="email" class="contact-label">Email <span class="text-red-500">*</span></label>
+                                <label for="email" class="contact-label">
+                                    <span data-lang-en="Email" data-lang-id="Alamat Email">Email</span>
+                                    <span class="text-[#3367A5] font-bold">*</span>
+                                </label>
                                 <input type="email" id="email" name="email" placeholder="you@example.com" class="contact-input" required value="{{ old('email') }}">
                                 @error('email')
-                                    <span class="text-xs text-red-500 mt-1 block font-questrial">{{ $message }}</span>
+                                    <span class="text-xs text-[#3367A5] mt-1 block font-questrial">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
@@ -178,11 +186,11 @@
                         <!-- Row 2: Phone & Service Selection -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div>
-                                <label for="phone" class="contact-label">Phone Number</label>
+                                <label for="phone" class="contact-label" data-lang-en="Phone Number" data-lang-id="Nomor Telepon">Phone Number</label>
                                 <input type="tel" id="phone" name="phone" placeholder="+62 812 3456 7890" class="contact-input" value="{{ old('phone') }}">
                             </div>
                             <div>
-                                <label class="contact-label">Select Inquiry / Service</label>
+                                <label class="contact-label" data-lang-en="Select Inquiry / Service" data-lang-id="Pilih Layanan / Konsultasi">Select Inquiry / Service</label>
                                 
                                 <!-- Custom LabsStudio Style Dropdown -->
                                 <div class="relative" id="custom-service-dropdown">
@@ -194,11 +202,11 @@
                                         type="button" 
                                         id="dropdown-trigger-btn"
                                         onclick="toggleCustomDropdown()" 
-                                        class="contact-input flex items-center justify-between text-left cursor-pointer select-none group focus:ring-2 focus:ring-black">
+                                        class="contact-input flex items-center justify-between text-left cursor-pointer select-none group focus:ring-2 focus:ring-[#3367A5]">
                                         <span id="selected-service-text" class="{{ old('service') ? 'text-gray-900 font-medium' : 'text-gray-400' }}">
                                             {{ old('service', 'Choose inquiry type...') }}
                                         </span>
-                                        <div class="w-6 h-6 rounded-full bg-gray-200/60 group-hover:bg-gray-200 flex items-center justify-center transition-colors">
+                                        <div class="w-6 h-6 rounded-full bg-gray-200/60 group-hover:bg-[#3367A5]/10 group-hover:text-[#3367A5] flex items-center justify-center transition-colors">
                                             <svg id="dropdown-chevron" class="w-3.5 h-3.5 text-gray-600 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                             </svg>
@@ -225,13 +233,13 @@
                                         @foreach ($services as $srv)
                                             <div 
                                                 onclick="selectServiceOption('{{ $srv }}')" 
-                                                class="dropdown-item px-3.5 py-2.5 rounded-xl hover:bg-gray-100/90 cursor-pointer transition-all duration-150 flex items-center justify-between text-sm text-gray-700 hover:text-black font-questrial group {{ old('service') === $srv ? 'bg-gray-100 font-semibold text-black' : '' }}"
+                                                class="dropdown-item px-3.5 py-2.5 rounded-xl hover:bg-[#3367A5]/10 cursor-pointer transition-all duration-150 flex items-center justify-between text-sm text-gray-700 hover:text-[#3367A5] font-questrial group {{ old('service') === $srv ? 'bg-[#3367A5]/10 font-semibold text-[#3367A5]' : '' }}"
                                                 data-value="{{ $srv }}">
                                                 <div class="flex items-center gap-2.5">
-                                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-400 group-hover:bg-[#3367A5] transition-colors"></span>
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-400 group-hover:bg-[#3367A5] transition-colors {{ old('service') === $srv ? '!bg-[#3367A5]' : '' }}"></span>
                                                     <span>{{ $srv }}</span>
                                                 </div>
-                                                <span class="check-icon opacity-0 group-hover:opacity-40 transition-opacity {{ old('service') === $srv ? '!opacity-100 text-black' : '' }}">
+                                                <span class="check-icon opacity-0 group-hover:opacity-40 transition-opacity {{ old('service') === $srv ? '!opacity-100 text-[#3367A5]' : '' }}">
                                                     <svg class="w-4 h-4 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
                                                     </svg>
@@ -246,35 +254,38 @@
                         <!-- Row 3: Preferred Date/Timeline & Company -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div>
-                                <label for="preferred_date" class="contact-label">Preferred Date / Timeline</label>
+                                <label for="preferred_date" class="contact-label" data-lang-en="Preferred Date / Timeline" data-lang-id="Target Jadwal / Waktu">Preferred Date / Timeline</label>
                                 <input type="text" id="preferred_date" name="preferred_date" placeholder="dd/mm/yyyy atau Segera" class="contact-input" value="{{ old('preferred_date') }}">
                             </div>
                             <div>
-                                <label for="company" class="contact-label">Company / Organization</label>
+                                <label for="company" class="contact-label" data-lang-en="Company / Organization" data-lang-id="Perusahaan / Instansi">Company / Organization</label>
                                 <input type="text" id="company" name="company" placeholder="PT / CV / Institusi" class="contact-input" value="{{ old('company') }}">
                             </div>
                         </div>
 
                         <!-- Row 4: Message -->
                         <div>
-                            <label for="message" class="contact-label">Message / Special Requests <span class="text-red-500">*</span></label>
+                            <label for="message" class="contact-label">
+                                <span data-lang-en="Message / Special Requests" data-lang-id="Pesan / Detail Kebutuhan">Message / Special Requests</span>
+                                <span class="text-[#3367A5] font-bold">*</span>
+                            </label>
                             <textarea id="message" name="message" rows="4" placeholder="Anything else we should know about your inquiry or project?" class="contact-input resize-none" required>{{ old('message') }}</textarea>
                             @error('message')
-                                <span class="text-xs text-red-500 mt-1 block font-questrial">{{ $message }}</span>
+                                <span class="text-xs text-[#3367A5] mt-1 block font-questrial">{{ $message }}</span>
                             @enderror
                         </div>
 
-                        <!-- Row 5: Submit Button (LabsStdio Gliding Red Wipe Button) -->
+                        <!-- Row 5: Submit Button (Corporate Blue Gliding Wipe Button) -->
                         <div class="pt-2">
                             <button type="submit" 
                                 class="group relative inline-flex items-center justify-center overflow-hidden px-8 py-4 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-sm sm:text-base font-medium rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(51,103,165,0.35)] hover:border-[#3367A5]/60 transition-all duration-1000 active:scale-95 font-questrial cursor-pointer">
                                 
-                                <!-- Red Wipe Layer from Left to Right -->
+                                <!-- Corporate Blue Wipe Layer from Left to Right -->
                                 <span class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
 
                                 <!-- Content Layer -->
                                 <span class="relative z-10 flex items-center gap-3">
-                                    <span>Send Message</span>
+                                    <span data-lang-en="Send Message" data-lang-id="Kirim Pesan">Send Message</span>
                                     <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                                         <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17"></path>
@@ -292,16 +303,16 @@
                     <!-- Location Selector Bar (Above the Map Card) -->
                     <div class="flex items-center justify-between gap-3 mb-4">
                         <div class="inline-flex bg-gray-100 p-1 rounded-full border border-gray-200 shadow-sm">
-                            <button type="button" id="btn-map-office" onclick="switchMapLocation('office')" class="px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 bg-black text-white shadow-sm">
+                            <button type="button" id="btn-map-office" onclick="switchMapLocation('office')" class="px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 bg-[#3367A5] text-white shadow-sm" data-lang-en="Head Office" data-lang-id="Kantor Pusat">
                                 Head Office
                             </button>
-                            <button type="button" id="btn-map-workshop" onclick="switchMapLocation('workshop')" class="px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 text-gray-600 hover:text-black">
+                            <button type="button" id="btn-map-workshop" onclick="switchMapLocation('workshop')" class="px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 text-gray-600 hover:text-[#3367A5]" data-lang-en="Workshop" data-lang-id="Workshop">
                                 Workshop
                             </button>
                         </div>
 
-                        <a id="btn-open-maps" href="https://maps.google.com/?q=Cibis+Nine+Building+TB+Simatupang+Jakarta+Selatan" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-black hover:text-white text-gray-800 px-4 py-1.5 rounded-full text-xs font-semibold font-questrial border border-gray-200 shadow-sm transition-all duration-300 group" title="Buka di Google Maps">
-                            <span>Open in Maps</span>
+                        <a id="btn-open-maps" href="https://maps.google.com/?q=Cibis+Nine+Building+TB+Simatupang+Jakarta+Selatan" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-[#3367A5] hover:text-white hover:border-[#3367A5] text-gray-800 px-4 py-1.5 rounded-full text-xs font-semibold font-questrial border border-gray-200 shadow-sm transition-all duration-300 group" title="Buka di Google Maps">
+                            <span data-lang-en="Open in Maps" data-lang-id="Buka di Maps">Open in Maps</span>
                             <svg class="w-3.5 h-3.5 text-current group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                             </svg>
@@ -333,7 +344,7 @@
                                     </svg>
                                 </div>
                                 <div class="flex-1 min-w-0">
-                                    <h4 id="map-loc-title" class="font-bold font-agrandir text-sm md:text-base text-gray-900 leading-tight">Head Office (Jakarta Selatan)</h4>
+                                    <h4 id="map-loc-title" class="font-bold font-agrandir text-sm md:text-base text-gray-900 leading-tight" data-lang-en="Head Office (South Jakarta)" data-lang-id="Head Office (Jakarta Selatan)">Head Office (Jakarta Selatan)</h4>
                                     <p id="map-loc-desc" class="text-xs md:text-sm text-gray-600 font-questrial mt-1 leading-relaxed line-clamp-2">
                                         Cibis Nine Building floor 11, TB Simatupang Street, Pasar Minggu, Jakarta Selatan, 12560
                                     </p>
@@ -346,49 +357,49 @@
 
             </div>
 
-            <!-- Bottom 3-Column Info Cards (Exact match to reference style) -->
+            <!-- Bottom 3-Column Info Cards -->
             <div class="mt-20 md:mt-28 pt-12 border-t border-gray-100">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 text-center">
                     
                     <!-- Item 1: Call & WhatsApp -->
                     <div class="flex flex-col items-center group reveal-on-scroll reveal-stagger-1">
-                        <div class="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center mb-5 group-hover:border-black group-hover:bg-gray-50 transition-all duration-300">
-                            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center mb-5 group-hover:border-[#3367A5] group-hover:bg-[#3367A5]/5 group-hover:text-[#3367A5] transition-all duration-300">
+                            <svg class="w-6 h-6 text-gray-800 group-hover:text-[#3367A5] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold font-agrandir text-[#111111] mb-2">Call & WhatsApp</h3>
+                        <h3 class="text-lg md:text-xl font-bold font-agrandir text-[#111111] mb-2" data-lang-en="Call & WhatsApp" data-lang-id="Telepon & WhatsApp">Call & WhatsApp</h3>
                         <p class="text-gray-600 font-questrial text-sm md:text-base leading-relaxed">
-                            <a href="tel:+622182497788" class="hover:text-black transition block">+62 21 8249 7788</a>
-                            <a href="https://wa.me/6281288997766" target="_blank" class="hover:text-black transition block">+62 812 8899 7766</a>
+                            <a href="tel:+622182497788" class="hover:text-[#3367A5] transition block">+62 21 8249 7788</a>
+                            <a href="https://wa.me/6281288997766" target="_blank" class="hover:text-[#3367A5] transition block">+62 812 8899 7766</a>
                         </p>
                     </div>
 
                     <!-- Item 2: Working Hours -->
                     <div class="flex flex-col items-center group reveal-on-scroll reveal-stagger-2">
-                        <div class="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center mb-5 group-hover:border-black group-hover:bg-gray-50 transition-all duration-300">
-                            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center mb-5 group-hover:border-[#3367A5] group-hover:bg-[#3367A5]/5 group-hover:text-[#3367A5] transition-all duration-300">
+                            <svg class="w-6 h-6 text-gray-800 group-hover:text-[#3367A5] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold font-agrandir text-[#111111] mb-2">Working Hours</h3>
+                        <h3 class="text-lg md:text-xl font-bold font-agrandir text-[#111111] mb-2" data-lang-en="Working Hours" data-lang-id="Jam Operasional">Working Hours</h3>
                         <p class="text-gray-600 font-questrial text-sm md:text-base leading-relaxed">
-                            <span class="block">Senin - Jumat: 08:00 - 17:00</span>
-                            <span class="block text-gray-400">Sabtu - Minggu: Tutup</span>
+                            <span class="block" data-lang-en="Monday - Friday: 08:00 - 17:00" data-lang-id="Senin - Jumat: 08:00 - 17:00">Senin - Jumat: 08:00 - 17:00</span>
+                            <span class="block text-gray-400" data-lang-en="Saturday - Sunday: Closed" data-lang-id="Sabtu - Minggu: Tutup">Sabtu - Minggu: Tutup</span>
                         </p>
                     </div>
 
                     <!-- Item 3: Write to Us -->
                     <div class="flex flex-col items-center group reveal-on-scroll reveal-stagger-3">
-                        <div class="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center mb-5 group-hover:border-black group-hover:bg-gray-50 transition-all duration-300">
-                            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-14 h-14 rounded-full border border-gray-300 flex items-center justify-center mb-5 group-hover:border-[#3367A5] group-hover:bg-[#3367A5]/5 group-hover:text-[#3367A5] transition-all duration-300">
+                            <svg class="w-6 h-6 text-gray-800 group-hover:text-[#3367A5] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold font-agrandir text-[#111111] mb-2">Write to Us</h3>
+                        <h3 class="text-lg md:text-xl font-bold font-agrandir text-[#111111] mb-2" data-lang-en="Write to Us" data-lang-id="Kirim Email">Write to Us</h3>
                         <p class="text-gray-600 font-questrial text-sm md:text-base leading-relaxed">
-                            <a href="mailto:admin@gat-aspect.com" class="hover:text-black transition block">admin@gat-aspect.com</a>
-                            <a href="mailto:marketing@gat-aspect.com" class="hover:text-black transition block">marketing@gat-aspect.com</a>
+                            <a href="mailto:admin@gat-aspect.com" class="hover:text-[#3367A5] transition block">admin@gat-aspect.com</a>
+                            <a href="mailto:marketing@gat-aspect.com" class="hover:text-[#3367A5] transition block">marketing@gat-aspect.com</a>
                         </p>
                     </div>
 
@@ -398,21 +409,21 @@
             <!-- Address Locations Section -->
             <div class="mt-20 pt-16 border-t border-gray-100">
                 <div class="text-center mb-12 reveal-on-scroll">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-gray-400 font-agrandir mb-2">Our Locations</span>
-                    <h2 class="text-2xl md:text-3xl font-bold font-agrandir text-[#111111]">Kantor & Fasilitas Workshop</h2>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#3367A5] font-agrandir mb-2" data-lang-en="Our Locations" data-lang-id="Lokasi Kami">Our Locations</span>
+                    <h2 class="text-2xl md:text-3xl font-bold font-agrandir text-[#111111]" data-lang-en="Office & Workshop Facilities" data-lang-id="Kantor & Fasilitas Workshop">Kantor & Fasilitas Workshop</h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Head Office Card -->
-                    <div class="bg-[#fcfcfd] border border-gray-200/80 rounded-3xl p-8 hover:shadow-md transition-shadow reveal-on-scroll reveal-stagger-1">
+                    <div class="bg-[#fcfcfd] border border-gray-200/80 hover:border-[#3367A5]/40 rounded-3xl p-8 hover:shadow-lg transition-all reveal-on-scroll reveal-stagger-1 group">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-2xl bg-black text-white flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 rounded-2xl bg-neutral-900 group-hover:bg-[#3367A5] text-white flex items-center justify-center flex-shrink-0 transition-colors shadow-sm">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold font-agrandir text-lg text-gray-900">Head Office (Jakarta)</h4>
+                                <h4 class="font-bold font-agrandir text-lg text-gray-900 group-hover:text-[#3367A5] transition-colors" data-lang-en="Head Office (Jakarta)" data-lang-id="Kantor Pusat (Jakarta)">Head Office (Jakarta)</h4>
                                 <span class="text-xs text-gray-500 font-questrial">Cibis Nine Building Floor 11</span>
                             </div>
                         </div>
@@ -422,16 +433,16 @@
                     </div>
 
                     <!-- Workshop Card -->
-                    <div class="bg-[#fcfcfd] border border-gray-200/80 rounded-3xl p-8 hover:shadow-md transition-shadow reveal-on-scroll reveal-stagger-2">
+                    <div class="bg-[#fcfcfd] border border-gray-200/80 hover:border-[#3367A5]/40 rounded-3xl p-8 hover:shadow-lg transition-all reveal-on-scroll reveal-stagger-2 group">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-2xl bg-[#3367A5] text-white flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 rounded-2xl bg-[#3367A5] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold font-agrandir text-lg text-gray-900">Workshop & Assembly (Bogor)</h4>
+                                <h4 class="font-bold font-agrandir text-lg text-gray-900 group-hover:text-[#3367A5] transition-colors" data-lang-en="Workshop & Assembly (Bogor)" data-lang-id="Workshop & Fabrikasi (Bogor)">Workshop & Assembly (Bogor)</h4>
                                 <span class="text-xs text-gray-500 font-questrial">Komplek RFP I Cikeas Udik</span>
                             </div>
                         </div>
@@ -483,16 +494,16 @@
                 desc.textContent = "Cibis Nine Building floor 11, TB Simatupang Street, Pasar Minggu, Jakarta Selatan, 12560";
                 openBtn.href = "https://maps.google.com/?q=Cibis+Nine+Building+TB+Simatupang+Jakarta+Selatan";
                 
-                btnOffice.className = "px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 bg-black text-white shadow-sm";
-                btnWorkshop.className = "px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 text-gray-600 hover:text-black";
+                btnOffice.className = "px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 bg-[#3367A5] text-white shadow-sm";
+                btnWorkshop.className = "px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 text-gray-600 hover:text-[#3367A5]";
             } else {
                 frame.src = "https://maps.google.com/maps?q=Komplek+RFP+I+Cikeas+Udik+Gunung+Putri+Bogor&t=&z=15&ie=UTF8&iwloc=&output=embed";
                 title.textContent = "Workshop & Assembly (Bogor)";
                 desc.textContent = "Cibubur Country, komplek RFP I No.6, Cikeas Udik, Kec. Gunung Putri, Kabupaten Bogor, Jawa Barat 16966";
                 openBtn.href = "https://maps.google.com/?q=Komplek+RFP+I+Cikeas+Udik+Gunung+Putri+Bogor";
 
-                btnWorkshop.className = "px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 bg-black text-white shadow-sm";
-                btnOffice.className = "px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 text-gray-600 hover:text-black";
+                btnWorkshop.className = "px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 bg-[#3367A5] text-white shadow-sm";
+                btnOffice.className = "px-4 py-1.5 rounded-full text-xs font-semibold font-agrandir transition-all duration-300 text-gray-600 hover:text-[#3367A5]";
             }
         }
 
@@ -534,11 +545,11 @@
             items.forEach(item => {
                 const check = item.querySelector('.check-icon');
                 if (item.getAttribute('data-value') === value) {
-                    item.classList.add('bg-gray-100', 'font-semibold', 'text-black');
-                    if (check) check.classList.add('!opacity-100', 'text-black');
+                    item.classList.add('bg-[#3367A5]/10', 'font-semibold', 'text-[#3367A5]');
+                    if (check) check.classList.add('!opacity-100', 'text-[#3367A5]');
                 } else {
-                    item.classList.remove('bg-gray-100', 'font-semibold', 'text-black');
-                    if (check) check.classList.remove('!opacity-100', 'text-black');
+                    item.classList.remove('bg-[#3367A5]/10', 'font-semibold', 'text-[#3367A5]');
+                    if (check) check.classList.remove('!opacity-100', 'text-[#3367A5]');
                 }
             });
 
