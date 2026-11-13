@@ -276,7 +276,7 @@
                             </h3>
                             <p data-lang-en="Custom robotic workcells, material handling conveyors, and end-to-end plant automation engineered to accelerate throughput and eliminate production bottlenecks."
                                data-lang-id="Sel kerja robotik kustom, konveyor penanganan material, dan otomasi pabrik menyeluruh yang direkayasa untuk mempercepat laju output dan mengeliminasi kendala produksi."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]" style="text-align: justify; text-justify: inter-word;">
                                 Custom robotic workcells, material handling conveyors, and end-to-end plant automation engineered to accelerate throughput and eliminate production bottlenecks.
                             </p>
                         </div>
@@ -301,7 +301,7 @@
                             </h3>
                             <p data-lang-en="Developing new PLC logic, modifying existing machine sequences, and replacing obsolete control panels across top industrial brands including Mitsubishi, Omron, and Siemens."
                                data-lang-id="Mengembangkan logika PLC baru, memodifikasi sekuens mesin eksisting, dan memperbarui panel kontrol usang pada berbagai merek industri terkemuka seperti Mitsubishi, Omron, dan Siemens."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]" style="text-align: justify; text-justify: inter-word;">
                                 Developing new PLC logic, modifying existing machine sequences, and replacing obsolete control panels across top industrial brands including Mitsubishi, Omron, and Siemens.
                             </p>
                         </div>
@@ -326,7 +326,7 @@
                             </h3>
                             <p data-lang-en="High-speed optical inspection cameras for automated 1D/2D barcode tracking, dimensional verification, and automated reject mechanisms ensuring zero defective products escape."
                                data-lang-id="Kamera inspeksi optik berkecepatan tinggi untuk pelacakan barcode 1D/2D otomatis, verifikasi dimensi, dan mekanisme reject otomatis guna menjamin nol cacat lolos."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]" style="text-align: justify; text-justify: inter-word;">
                                 High-speed optical inspection cameras for automated 1D/2D barcode tracking, dimensional verification, and automated reject mechanisms ensuring zero defective products escape.
                             </p>
                         </div>
@@ -351,7 +351,7 @@
                             </h3>
                             <p data-lang-en="Centralized visualization of all machine statuses and production lines with automated shift data logging directly to SQL/MES, delivering complete paperless traceability."
                                data-lang-id="Visualisasi terpusat untuk status seluruh mesin dan lini produksi disertai pencatatan data shift otomatis langsung ke SQL/MES, mewujudkan pelacakan nirkertas secara penuh."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]" style="text-align: justify; text-justify: inter-word;">
                                 Centralized visualization of all machine statuses and production lines with automated shift data logging directly to SQL/MES, delivering complete paperless traceability.
                             </p>
                         </div>
@@ -376,7 +376,7 @@
                             </h3>
                             <p data-lang-en="High-speed batch coding and carton/pallet strapping solutions—featuring Thermal Inkjet (TIJ) printers, fiber laser markers, and heavy-duty battery or pneumatic strapping tools."
                                data-lang-id="Solusi pengkodean batch cepat dan pengikatan karton/palet—dilengkapi printer Thermal Inkjet (TIJ), penanda laser serat, serta alat strapping bertenaga baterai atau pneumatik tugas berat."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]" style="text-align: justify; text-justify: inter-word;">
                                 High-speed batch coding and carton/pallet strapping solutions—featuring Thermal Inkjet (TIJ) printers, fiber laser markers, and heavy-duty battery or pneumatic strapping tools.
                             </p>
                         </div>
@@ -401,7 +401,7 @@
                             </h3>
                             <p data-lang-en="Rapid-response on-site engineering maintenance, readily available spare parts, and dependable technical guarantees to safeguard your facility from costly unplanned downtime."
                                data-lang-id="Pemeliharaan teknis di lokasi yang responsif cepat, ketersediaan suku cadang siap pakai, dan jaminan teknis andal untuk melindungi fasilitas Anda dari risiko downtime yang merugikan."
-                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-center min-h-[5rem] sm:min-h-[5.5rem]">
+                                class="text-xs sm:text-sm text-gray-600 font-['Questrial'] mt-2.5 leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]" style="text-align: justify; text-justify: inter-word;">
                                 Rapid-response on-site engineering maintenance, readily available spare parts, and dependable technical guarantees to safeguard your facility from costly unplanned downtime.
                             </p>
                         </div>
