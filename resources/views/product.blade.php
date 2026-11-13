@@ -105,7 +105,7 @@
                 class="text-4xl sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-extrabold uppercase font-agrandir font-['Agrandir',sans-serif] tracking-wider text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-tight">
                 Product
             </h1>
-            <div class="w-20 sm:w-24 h-1.5 bg-red-600 mx-auto mt-2 rounded-full">
+            <div class="w-20 sm:w-24 h-1.5 bg-[#3367A5] mx-auto mt-2 rounded-full">
             </div>
         </div>
     </section>
@@ -124,10 +124,10 @@
                     <div class="relative z-30 w-full sm:w-[320px] lg:w-[340px] shrink-0" id="category-dropdown-wrapper">
                         <!-- Dropdown Trigger Button -->
                         <button type="button" id="category-dropdown-trigger"
-                            class="w-full flex items-center justify-between gap-3 px-5 py-3 rounded-full bg-white text-gray-900 border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600/40">
+                            class="w-full flex items-center justify-between gap-3 px-5 py-3 rounded-full bg-white text-gray-900 border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3367A5]/40">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <!-- Category Icon -->
-                                <svg class="w-4 h-4 text-red-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 text-[#3367A5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16m-7 6h7"></path>
                                 </svg>
                                 @php
@@ -154,7 +154,7 @@
                             
                             <!-- All Categories Option -->
                             <button type="button" data-slug="all"
-                                class="category-option-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-colors {{ empty($selectedCategory) || $selectedCategory === 'all' ? 'bg-red-600 text-white font-bold shadow-sm' : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-black' }}">
+                                class="category-option-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-colors {{ empty($selectedCategory) || $selectedCategory === 'all' ? 'bg-[#3367A5] text-white font-bold shadow-sm' : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-black' }}">
                                 <span class="truncate">Semua Kategori</span>
                                 <span class="ml-2 text-xs font-semibold px-2.5 py-0.5 rounded-full {{ empty($selectedCategory) || $selectedCategory === 'all' ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700' }}">({{ $categories->sum('products_count') }})</span>
                             </button>
@@ -162,7 +162,7 @@
                             <!-- Individual Category Options -->
                             @foreach($categories as $cat)
                             <button type="button" data-slug="{{ $cat->slug }}"
-                                class="category-option-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-colors {{ ($selectedCategory ?? '') === $cat->slug ? 'bg-red-600 text-white font-bold shadow-sm' : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-black' }}">
+                                class="category-option-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-colors {{ ($selectedCategory ?? '') === $cat->slug ? 'bg-[#3367A5] text-white font-bold shadow-sm' : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-black' }}">
                                 <span class="truncate">{{ $cat->name }}</span>
                                 <span class="ml-2 text-xs font-semibold px-2.5 py-0.5 rounded-full {{ ($selectedCategory ?? '') === $cat->slug ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700' }}">({{ $cat->products_count }})</span>
                             </button>
@@ -171,7 +171,7 @@
                     </div>
 
                     <!-- 2. Fast Search Box (Clean White Pill, Black Text, Red Lens Button) -->
-                    <div class="relative flex-1 w-full flex items-center rounded-full bg-white border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:border-gray-300 focus-within:ring-2 focus-within:ring-red-600/40 focus-within:border-red-600 transition-all duration-300 p-1.5 pl-5">
+                    <div class="relative flex-1 w-full flex items-center rounded-full bg-white border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:border-gray-300 focus-within:ring-2 focus-within:ring-[#3367A5]/40 focus-within:border-[#3367A5] transition-all duration-300 p-1.5 pl-5">
                         <input type="text" name="search" id="product-search-input" value="{{ $search ?? '' }}"
                             placeholder="Cari komponen, PLC, sensor, atau SKU..."
                             autocomplete="off"
@@ -188,7 +188,7 @@
 
                         <!-- Dedicated Lens Action Button (Icon Lensa - Direct Scroll to Product) -->
                         <button type="submit" id="product-search-submit-btn"
-                            class="inline-flex items-center justify-center size-9 sm:size-10 rounded-full bg-red-600 hover:bg-red-500 text-white shadow-md transition-all duration-300 hover:scale-105 shrink-0 cursor-pointer"
+                            class="inline-flex items-center justify-center size-9 sm:size-10 rounded-full bg-[#3367A5] hover:bg-[#3367A5] text-white shadow-md transition-all duration-300 hover:scale-105 shrink-0 cursor-pointer"
                             title="Cari & Langsung ke Produk">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
@@ -203,12 +203,12 @@
                 <div id="live-status-container" class="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-neutral-300 {{ empty($search) && (empty($selectedCategory) || $selectedCategory === 'all') ? 'hidden' : '' }}">
                     <span>Ditemukan <strong class="text-white" id="live-match-count">{{ $products->count() }}</strong> produk</span>
                     <span id="live-keyword-badge" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white {{ empty($search) ? 'hidden' : '' }}">
-                        Kata kunci: <strong class="text-red-400" id="live-keyword-text">"{{ $search ?? '' }}"</strong>
+                        Kata kunci: <strong class="text-[#4D88CF]" id="live-keyword-text">"{{ $search ?? '' }}"</strong>
                     </span>
                     <span id="live-category-badge" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white {{ empty($selectedCategory) || $selectedCategory === 'all' ? 'hidden' : '' }}">
-                        Kategori: <strong class="text-red-400" id="live-category-text">{{ $activeCatName }}</strong>
+                        Kategori: <strong class="text-[#4D88CF]" id="live-category-text">{{ $activeCatName }}</strong>
                     </span>
-                    <button type="button" id="live-reset-all-btn" class="text-red-400 hover:text-red-300 font-semibold underline underline-offset-2 ml-1 cursor-pointer">
+                    <button type="button" id="live-reset-all-btn" class="text-[#4D88CF] hover:text-[#4D88CF] font-semibold underline underline-offset-2 ml-1 cursor-pointer">
                         Reset Filter
                     </button>
                 </div>
@@ -246,7 +246,7 @@
                         <div class="flex flex-wrap items-center gap-1.5 mb-1.5">
                             @if($product->badge_primary)
                             <span
-                                class="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold font-['Agrandir',sans-serif] bg-red-600 text-white tracking-wide shadow-xs">
+                                class="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold font-['Agrandir',sans-serif] bg-[#3367A5] text-white tracking-wide shadow-xs">
                                 {{ $product->badge_primary }}
                             </span>
                             @endif
@@ -258,7 +258,7 @@
 
                         <!-- Title (Compact 2-Line Max, Elegant Size) -->
                         <h3
-                            class="text-sm sm:text-[15px] font-bold font-agrandir font-['Agrandir',sans-serif] text-white leading-snug mb-1 group-hover:text-red-400 transition-colors line-clamp-2">
+                            class="text-sm sm:text-[15px] font-bold font-agrandir font-['Agrandir',sans-serif] text-white leading-snug mb-1 group-hover:text-[#4D88CF] transition-colors line-clamp-2">
                             {{ $product->name }}
                         </h3>
 
@@ -272,8 +272,8 @@
                         <div class="pt-2 border-t border-neutral-800/80 flex items-center justify-between gap-2">
                             <div>
                                 <span class="block text-[9px] uppercase tracking-wider text-neutral-400 font-mono leading-none mb-1">SKU: {{ $product->sku }}</span>
-                                <span class="inline-flex items-center gap-1 text-xs sm:text-[13px] font-bold font-agrandir font-['Agrandir',sans-serif] text-white group-hover:text-red-400 transition-colors leading-none">
-                                    <svg class="w-3 h-3 text-neutral-400 group-hover:text-red-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <span class="inline-flex items-center gap-1 text-xs sm:text-[13px] font-bold font-agrandir font-['Agrandir',sans-serif] text-white group-hover:text-[#4D88CF] transition-colors leading-none">
+                                    <svg class="w-3 h-3 text-neutral-400 group-hover:text-[#4D88CF] transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                     </svg>
                                     <span>{{ $product->formatted_price }}</span>
@@ -282,7 +282,7 @@
 
                             <!-- Open Product Detail & Specification Picker Pop-Out -->
                             <button type="button"
-                                class="btn-add-to-cart inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold bg-red-600 hover:bg-red-500 text-white transition-all duration-300 shadow-sm shrink-0 active:scale-95 cursor-pointer"
+                                class="btn-add-to-cart inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold bg-[#3367A5] hover:bg-[#3367A5] text-white transition-all duration-300 shadow-sm shrink-0 active:scale-95 cursor-pointer"
                                 data-id="{{ $product->id }}"
                                 title="Lihat keterangan barang & pilih spesifikasi Quotation">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.1" viewBox="0 0 24 24">
@@ -296,20 +296,20 @@
                 @empty
                 <div class="col-span-full py-16 text-center text-neutral-400">
                     <p class="text-lg">Belum ada produk yang ditemukan untuk kategori ini.</p>
-                    <a href="{{ route('product') }}" class="mt-4 inline-block px-5 py-2 rounded-full bg-red-600 text-white text-sm">Lihat Semua Produk</a>
+                    <a href="{{ route('product') }}" class="mt-4 inline-block px-5 py-2 rounded-full bg-[#3367A5] text-white text-sm">Lihat Semua Produk</a>
                 </div>
                 @endforelse
 
                 <!-- Dynamic Live Instant Search Empty State -->
                 <div id="live-search-empty-state" class="hidden col-span-full py-16 text-center text-neutral-400">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-red-500">
+                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#3367A5]">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                     </div>
                     <p class="text-lg font-medium text-white mb-2">Produk Tidak Ditemukan</p>
                     <p class="text-sm text-neutral-400 max-w-md mx-auto" id="live-search-empty-text">Tidak ada produk yang cocok dengan kata kunci tersebut.</p>
-                    <button type="button" id="live-search-empty-reset-btn" class="mt-5 px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-500 text-white text-xs font-semibold transition-all shadow-md cursor-pointer">
+                    <button type="button" id="live-search-empty-reset-btn" class="mt-5 px-5 py-2.5 rounded-full bg-[#3367A5] hover:bg-[#3367A5] text-white text-xs font-semibold transition-all shadow-md cursor-pointer">
                         Tampilkan Semua Produk
                     </button>
                 </div>
@@ -334,12 +334,12 @@
     <button type="button" id="cart-drawer-trigger"
         class="fixed bottom-6 right-24 sm:bottom-8 sm:right-28 z-40 flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-gray-900 border border-gray-200 shadow-[0_8px_30px_rgba(0,0,0,0.25)] hover:bg-gray-50 transition-all duration-300 cursor-pointer font-['Questrial',sans-serif] text-xs sm:text-sm font-semibold group/cart">
         <span class="relative flex items-center justify-center">
-            <svg class="w-4 h-4 text-red-600 transition-transform group-hover/cart:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-[#3367A5] transition-transform group-hover/cart:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
             </svg>
         </span>
         <span>Keranjang</span>
-        <span id="cart-counter-badge" class="ml-0.5 px-2 py-0.5 rounded-full bg-red-600 text-white text-[10px] sm:text-xs font-bold leading-none">0</span>
+        <span id="cart-counter-badge" class="ml-0.5 px-2 py-0.5 rounded-full bg-[#3367A5] text-white text-[10px] sm:text-xs font-bold leading-none">0</span>
     </button>
 
     <!-- Subtle Corporate Toast Notification (Zero Neon) -->
@@ -372,7 +372,7 @@
             <!-- Modal Top Header -->
             <div class="px-5 sm:px-6 py-3.5 border-b border-gray-100 flex items-center justify-between shrink-0 bg-white">
                 <div class="flex items-center gap-2.5 min-w-0">
-                    <span id="detail-modal-badge-primary" class="hidden px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold font-['Agrandir',sans-serif] bg-red-600 text-white tracking-wide"></span>
+                    <span id="detail-modal-badge-primary" class="hidden px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold font-['Agrandir',sans-serif] bg-[#3367A5] text-white tracking-wide"></span>
                     <span id="detail-modal-badge-secondary" class="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium bg-gray-100 text-gray-700 border border-gray-200 tracking-wide truncate"></span>
                 </div>
 
@@ -464,7 +464,7 @@
                     </button>
 
                     <button type="button" id="detail-save-and-checkout-btn"
-                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm cursor-pointer">
+                        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#3367A5] hover:bg-[#255187] text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm cursor-pointer">
                         <span id="detail-primary-btn-label">Masukkan &amp; Lanjut Quote</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -492,8 +492,8 @@
             <!-- Modal Header -->
             <div class="px-5 sm:px-6 py-4 border-b border-gray-100 flex items-center justify-between shrink-0 bg-white">
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-red-50 border border-red-100 text-red-600 flex items-center justify-center shrink-0">
-                        <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <div class="w-9 h-9 rounded-xl bg-[#3367A5]/10 border border-[#3367A5]/20 text-[#3367A5] flex items-center justify-center shrink-0">
+                        <svg class="w-4 h-4 text-[#3367A5]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
                     </div>
@@ -528,8 +528,8 @@
                 </div>
 
                 @if ($errors->any())
-                    <div class="p-3 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs space-y-1">
-                        <p class="font-semibold text-red-900">Mohon periksa kembali data pengajuan Anda:</p>
+                    <div class="p-3 rounded-2xl bg-[#3367A5]/10 border border-[#3367A5]/30 text-[#255187] text-xs space-y-1">
+                        <p class="font-semibold text-[#255187]">Mohon periksa kembali data pengajuan Anda:</p>
                         <ul class="list-disc list-inside space-y-0.5">
                             @foreach ($errors->all() as $err)
                                 <li>{{ $err }}</li>
@@ -543,11 +543,11 @@
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Daftar Produk Dipilih</span>
                         <div class="flex items-center gap-3 text-[11px]">
-                            <button type="button" id="cart-continue-shopping" class="text-gray-700 hover:text-red-600 font-semibold transition-colors cursor-pointer">
+                            <button type="button" id="cart-continue-shopping" class="text-gray-700 hover:text-[#3367A5] font-semibold transition-colors cursor-pointer">
                                 + Tambah Produk Lain
                             </button>
                             <span class="text-gray-300">|</span>
-                            <button type="button" id="cart-clear-btn" class="text-gray-400 hover:text-red-600 transition-colors cursor-pointer">
+                            <button type="button" id="cart-clear-btn" class="text-gray-400 hover:text-[#3367A5] transition-colors cursor-pointer">
                                 Kosongkan
                             </button>
                         </div>
@@ -562,12 +562,12 @@
                 <div class="pt-3 border-t border-gray-100 space-y-3">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Identitas Pemesan Korporat</span>
-                        <span class="text-[11px] text-gray-400"><span class="text-red-600">*</span> Wajib diisi</span>
+                        <span class="text-[11px] text-gray-400"><span class="text-[#3367A5]">*</span> Wajib diisi</span>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                            <label for="modal-pic-name" class="block text-xs font-medium text-gray-700 mb-1">Nama Lengkap PIC <span class="text-red-600">*</span></label>
+                            <label for="modal-pic-name" class="block text-xs font-medium text-gray-700 mb-1">Nama Lengkap PIC <span class="text-[#3367A5]">*</span></label>
                             <input type="text" id="modal-pic-name" name="pic_name" required maxlength="120"
                                 value="{{ old('pic_name') }}"
                                 placeholder="Contoh: Budi Santoso"
@@ -575,7 +575,7 @@
                         </div>
 
                         <div>
-                            <label for="modal-company-name" class="block text-xs font-medium text-gray-700 mb-1">Nama Perusahaan / PT <span class="text-red-600">*</span></label>
+                            <label for="modal-company-name" class="block text-xs font-medium text-gray-700 mb-1">Nama Perusahaan / PT <span class="text-[#3367A5]">*</span></label>
                             <input type="text" id="modal-company-name" name="company_name" required maxlength="160"
                                 value="{{ old('company_name') }}"
                                 placeholder="Contoh: PT Manufaktur Presisi"
@@ -583,7 +583,7 @@
                         </div>
 
                         <div>
-                            <label for="modal-company-email" class="block text-xs font-medium text-gray-700 mb-1">Email Korporat <span class="text-red-600">*</span></label>
+                            <label for="modal-company-email" class="block text-xs font-medium text-gray-700 mb-1">Email Korporat <span class="text-[#3367A5]">*</span></label>
                             <input type="email" id="modal-company-email" name="company_email" required maxlength="160"
                                 value="{{ old('company_email') }}"
                                 placeholder="procurement@perusahaan.co.id"
@@ -591,7 +591,7 @@
                         </div>
 
                         <div>
-                            <label for="modal-company-phone" class="block text-xs font-medium text-gray-700 mb-1">No. Telepon / WhatsApp <span class="text-red-600">*</span></label>
+                            <label for="modal-company-phone" class="block text-xs font-medium text-gray-700 mb-1">No. Telepon / WhatsApp <span class="text-[#3367A5]">*</span></label>
                             <input type="tel" id="modal-company-phone" name="company_phone" required maxlength="25"
                                 value="{{ old('company_phone') }}"
                                 placeholder="0812xxxxxxxx atau 62812xxxxxxxx"
@@ -615,7 +615,7 @@
                         </div>
 
                         <div class="sm:col-span-2">
-                            <label for="modal-notes" class="block text-xs font-medium text-gray-700 mb-1">Urgensi / Kebutuhan Pesanan <span class="text-red-600">*</span></label>
+                            <label for="modal-notes" class="block text-xs font-medium text-gray-700 mb-1">Urgensi / Kebutuhan Pesanan <span class="text-[#3367A5]">*</span></label>
                             <textarea id="modal-notes" name="notes" required rows="2" maxlength="1000"
                                 placeholder="Contoh: Pengadaan mendesak penggantian sensor lini produksi minggu ini / kebutuhan proyek otomasi baru"
                                 class="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-gray-900 focus:outline-none text-xs sm:text-sm text-gray-900 placeholder-gray-400 transition-colors resize-none">{{ old('notes') }}</textarea>
@@ -639,7 +639,7 @@
                 </div>
 
                 <button type="submit" form="b2b-checkout-modal-form" id="cart-checkout-btn"
-                    class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-semibold text-xs sm:text-sm tracking-wide transition-colors shadow-sm cursor-pointer active:scale-[0.99]">
+                    class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#3367A5] hover:bg-[#3367A5] text-white font-semibold text-xs sm:text-sm tracking-wide transition-colors shadow-sm cursor-pointer active:scale-[0.99]">
                     <span id="cart-checkout-btn-label">Lanjut ke Halaman Pembayaran</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -809,7 +809,7 @@
                     const isSelected = (slug === selectedSlug) || (selectedSlug === 'all' && slug === 'all');
 
                     if (isSelected) {
-                        btn.className = 'category-option-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs sm:text-sm font-bold bg-red-600 text-white shadow-sm transition-colors';
+                        btn.className = 'category-option-btn w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs sm:text-sm font-bold bg-[#3367A5] text-white shadow-sm transition-colors';
                         if (badgePill) {
                             badgePill.className = 'ml-2 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-white/20 text-white';
                         }
@@ -1251,7 +1251,7 @@
                                     <div class="flex flex-wrap items-center gap-2 mt-0.5">
                                         <span class="text-[10px] text-gray-500 font-mono">SKU: ${escapeHtml(item.sku)}</span>
                                         ${canEditSpec ? `
-                                            <button type="button" onclick="editCartItemSpecs(${idx})" class="text-[10px] font-semibold text-red-600 hover:text-red-700 underline underline-offset-2 cursor-pointer">
+                                            <button type="button" onclick="editCartItemSpecs(${idx})" class="text-[10px] font-semibold text-[#3367A5] hover:text-[#255187] underline underline-offset-2 cursor-pointer">
                                                 Ubah Spek
                                             </button>
                                         ` : ''}
@@ -1264,7 +1264,7 @@
                                         <span class="px-2 py-1 text-xs font-bold text-gray-900 min-w-[22px] text-center">${Number(item.qty)}</span>
                                         <button type="button" class="px-2 py-1 text-xs text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors cursor-pointer" onclick="changeCartQty(${idx}, 1)">+</button>
                                     </div>
-                                    <button type="button" class="p-1.5 text-gray-400 hover:text-red-600 transition-colors cursor-pointer" onclick="removeCartItem(${idx})" title="Hapus produk">
+                                    <button type="button" class="p-1.5 text-gray-400 hover:text-[#3367A5] transition-colors cursor-pointer" onclick="removeCartItem(${idx})" title="Hapus produk">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                     </button>
                                 </div>
@@ -1366,9 +1366,9 @@
                                 <!-- Custom Website Dropdown Trigger (Clean White Pill, Black Text, Red Icon & Chevron) -->
                                 <button type="button"
                                     aria-expanded="false"
-                                    class="spec-dropdown-trigger w-full flex items-center justify-between gap-3 px-4 py-2.5 rounded-full bg-white text-gray-900 border border-gray-200 shadow-[0_3px_12px_rgba(0,0,0,0.06)] hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-600/35 cursor-pointer text-left">
+                                    class="spec-dropdown-trigger w-full flex items-center justify-between gap-3 px-4 py-2.5 rounded-full bg-white text-gray-900 border border-gray-200 shadow-[0_3px_12px_rgba(0,0,0,0.06)] hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#3367A5]/35 cursor-pointer text-left">
                                     <div class="flex items-center gap-2.5 min-w-0">
-                                        <svg class="w-3.5 h-3.5 text-red-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-3.5 h-3.5 text-[#3367A5] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16m-7 6h7"></path>
                                         </svg>
                                         <span class="spec-selected-label truncate text-xs sm:text-[13px] font-semibold tracking-wide text-gray-900">
@@ -1386,7 +1386,7 @@
                                     ${options.map((opt, optIdx) => {
                                         const isSelected = opt === currentPick;
                                         const itemClasses = isSelected
-                                            ? 'bg-red-600 text-white font-bold shadow-sm'
+                                            ? 'bg-[#3367A5] text-white font-bold shadow-sm'
                                             : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-black font-semibold';
                                         return `
                                             <button type="button"
