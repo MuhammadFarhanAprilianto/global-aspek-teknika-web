@@ -518,18 +518,18 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Industrial Strapping &amp; Packaging" data-lang-id="Strapping &amp; Pengemasan Industri"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
                             Industrial Strapping &amp; Packaging
                         </h3>
                         <p data-lang-en="Heavy-duty battery-powered friction welders (V2 3200N), pneumatic strapping sealers (A25), and high-tension pneumatic steel strap tools (KZ-19 8,500N)."
                            data-lang-id="Alat las gesek bertenaga baterai tugas berat (V2 3200N), sealer strapping pneumatik (A25), dan alat strapping baja pneumatik tegangan tinggi (KZ-19 8.500N)."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3 text-justify min-h-[4.75rem] sm:min-h-[5.5rem] lg:min-h-[6.25rem]" style="text-align: justify; text-justify: inter-word;">
                             Heavy-duty battery-powered friction welders (V2 3200N), pneumatic strapping sealers (A25), and high-tension pneumatic steel strap tools (KZ-19 8,500N).
                         </p>
                     </div>
 
                     <div class="mt-6 pt-5 border-t border-neutral-100">
-                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 min-h-[3rem] sm:min-h-[3.5rem] content-start">
                             <span data-lang-en="Battery V2 3200N" data-lang-id="Baterai V2 3200N"
                                 class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Battery
                                 V2 3200N</span>
@@ -574,18 +574,18 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Vision &amp; Auto-Inspection" data-lang-id="Sistem Visi &amp; Auto-Inspeksi"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
                             Vision &amp; Auto-Inspection
                         </h3>
                         <p data-lang-en="Sub-micron multi-angle dimensional measurement systems (±0.001 mm accuracy) and high-speed 1D/2D optical barcode readers for automated inline QC."
                            data-lang-id="Sistem pengukuran dimensi multi-sudut sub-mikron (akurasi ±0,001 mm) dan pembaca barcode optik 1D/2D berkecepatan tinggi untuk QC otomatis inline."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3 text-justify min-h-[4.75rem] sm:min-h-[5.5rem] lg:min-h-[6.25rem]" style="text-align: justify; text-justify: inter-word;">
                             Sub-micron multi-angle dimensional measurement systems (±0.001 mm accuracy) and high-speed 1D/2D optical barcode readers for automated inline QC.
                         </p>
                     </div>
 
                     <div class="mt-6 pt-5 border-t border-neutral-100">
-                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 min-h-[3rem] sm:min-h-[3.5rem] content-start">
                             <span data-lang-en="±0.001mm Accuracy" data-lang-id="Akurasi ±0.001mm"
                                 class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">±0.001mm
                                 Accuracy</span>
@@ -629,18 +629,18 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Industrial Coding &amp; Marking" data-lang-id="Pencetakan Kode &amp; Penandaan Industri"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
                             Industrial Coding &amp; Marking
                         </h3>
                         <p data-lang-en="High-speed Thermal Inkjet (TIJ G0510) printers and industrial laser marking for non-contact lot batch codes, expiry dates, and 2D serialization."
                            data-lang-id="Printer Thermal Inkjet kecepatan tinggi (TIJ G0510) dan laser marking industri untuk kode lot batch non-kontak, tanggal kedaluwarsa, dan serialisasi 2D."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3 text-justify min-h-[4.75rem] sm:min-h-[5.5rem] lg:min-h-[6.25rem]" style="text-align: justify; text-justify: inter-word;">
                             High-speed Thermal Inkjet (TIJ G0510) printers and industrial laser marking for non-contact lot batch codes, expiry dates, and 2D serialization.
                         </p>
                     </div>
 
                     <div class="mt-6 pt-5 border-t border-neutral-100">
-                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 min-h-[3rem] sm:min-h-[3.5rem] content-start">
                             <span data-lang-en="TIJ G0510 Inkjet" data-lang-id="Inkjet TIJ G0510"
                                 class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">TIJ
                                 G0510 Inkjet</span>
@@ -684,18 +684,18 @@
                             </span>
                         </div>
                         <h3 data-lang-en="PLC, Sensors &amp; Control Automation" data-lang-id="Otomasi PLC, Sensor &amp; Kontrol"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
                             PLC, Sensors &amp; Control Automation
                         </h3>
                         <p data-lang-en="Custom electrical control panels, multi-brand PLC programming (Siemens, Mitsubishi, Omron), precision process sensors, and synchronized HMI motion control."
                            data-lang-id="Panel kontrol listrik kustom, pemrograman PLC multi-merek (Siemens, Mitsubishi, Omron), sensor proses presisi, dan kontrol gerak HMI tersinkronisasi."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3 text-justify min-h-[4.75rem] sm:min-h-[5.5rem] lg:min-h-[6.25rem]" style="text-align: justify; text-justify: inter-word;">
                             Custom electrical control panels, multi-brand PLC programming (Siemens, Mitsubishi, Omron), precision process sensors, and synchronized HMI motion control.
                         </p>
                     </div>
 
                     <div class="mt-6 pt-5 border-t border-neutral-100">
-                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 min-h-[3rem] sm:min-h-[3.5rem] content-start">
                             <span data-lang-en="Multi-Brand PLC" data-lang-id="PLC Multi-Merek"
                                 class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Multi-Brand
                                 PLC</span>
@@ -737,18 +737,18 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Software" data-lang-id="Software"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
                             Software
                         </h3>
                         <p data-lang-en="Enterprise IoT telemetry dashboards, real-time OEE line analytics, batch serialization trace &amp; track, and edge Vision AI algorithms engineered for Industry 4.0 smart factory integration."
                            data-lang-id="Dashboard telemetri IoT enterprise, analitik OEE lini produksi real-time, serialisasi batch trace &amp; track, serta algoritma Vision AI edge untuk integrasi pabrik pintar Industri 4.0."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3 text-justify min-h-[4.75rem] sm:min-h-[5.5rem] lg:min-h-[6.25rem]" style="text-align: justify; text-justify: inter-word;">
                             Enterprise IoT telemetry dashboards, real-time OEE line analytics, batch serialization trace &amp; track, and edge Vision AI algorithms engineered for Industry 4.0 smart factory integration.
                         </p>
                     </div>
 
                     <div class="mt-6 pt-5 border-t border-neutral-100">
-                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 min-h-[3rem] sm:min-h-[3.5rem] content-start">
                             <span data-lang-en="IoT Monitoring" data-lang-id="Monitoring IoT"
                                 class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">IoT
                                 Monitoring</span>
@@ -795,18 +795,18 @@
                             </span>
                         </div>
                         <h3 data-lang-en="Mechanical &amp; Conveyor Integration" data-lang-id="Integrasi Mekanikal &amp; Konveyor"
-                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200">
+                            class="text-xl sm:text-2xl font-bold font-['Agrandir',sans-serif] text-neutral-900 group-hover:text-[#3367A5] transition-colors duration-200 min-h-[3.25rem] sm:min-h-[3.75rem] lg:min-h-[4rem] flex flex-col justify-center">
                             Mechanical &amp; Conveyor Integration
                         </h3>
                         <p data-lang-en="Precision anti-slip textured conveyor rollers, wear-resistant mechanical components, and turnkey automated modular conveyor line engineering."
                            data-lang-id="Roller konveyor bertekstur anti-selip presisi, komponen mekanik tahan aus, dan rekayasa jalur konveyor modular otomatis siap pakai."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial',sans-serif] leading-relaxed mt-3 text-justify min-h-[4.75rem] sm:min-h-[5.5rem] lg:min-h-[6.25rem]" style="text-align: justify; text-justify: inter-word;">
                             Precision anti-slip textured conveyor rollers, wear-resistant mechanical components, and turnkey automated modular conveyor line engineering.
                         </p>
                     </div>
 
                     <div class="mt-6 pt-5 border-t border-neutral-100">
-                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-4 min-h-[3rem] sm:min-h-[3.5rem] content-start">
                             <span data-lang-en="Anti-Slip Rollers" data-lang-id="Roller Anti-Selip"
                                 class="text-[11px] font-medium text-neutral-700 bg-neutral-100 px-2.5 py-1 rounded font-['Questrial',sans-serif]">Anti-Slip
                                 Rollers</span>
