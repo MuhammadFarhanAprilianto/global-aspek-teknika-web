@@ -157,12 +157,13 @@
                             01
                         </div>
                         <h3 data-lang-en="National Integration Standard" data-lang-id="Standar Integrasi Nasional"
-                            class="text-xl font-bold text-neutral-900 font-['Agrandir']">
+                            class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                             National Integration Standard
                         </h3>
                         <p data-lang-en="Setting the national benchmark in PLC programming, robotic cell synchronization, and optical quality verification across domestic industries."
                            data-lang-id="Menjadi tolok ukur nasional dalam pemrograman PLC, sinkronisasi sel robotik, dan verifikasi mutu optik di seluruh sektor industri tanah air."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
+                            style="text-align: justify; text-justify: inter-word;">
                             Setting the national benchmark in PLC programming, robotic cell synchronization, and optical quality verification across domestic industries.
                         </p>
                     </div>
@@ -179,12 +180,13 @@
                             02
                         </div>
                         <h3 data-lang-en="Sustainable Automation" data-lang-id="Otomasi Berkelanjutan"
-                            class="text-xl font-bold text-neutral-900 font-['Agrandir']">
+                            class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                             Sustainable Automation
                         </h3>
                         <p data-lang-en="Delivering resilient industrial architectures that maximize operational efficiency, lower electrical consumption, and eradicate costly production waste."
                            data-lang-id="Menghadirkan arsitektur industri tangguh yang memaksimalkan efisiensi operasional, menekan konsumsi daya listrik, dan memangkas pemborosan produksi."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
+                            style="text-align: justify; text-justify: inter-word;">
                             Delivering resilient industrial architectures that maximize operational efficiency, lower electrical consumption, and eradicate costly production waste.
                         </p>
                     </div>
@@ -201,12 +203,13 @@
                             03
                         </div>
                         <h3 data-lang-en="Zero-Downtime Guarantee" data-lang-id="Jaminan Tanpa Henti"
-                            class="text-xl font-bold text-neutral-900 font-['Agrandir']">
+                            class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
                             Zero-Downtime Guarantee
                         </h3>
                         <p data-lang-en="Providing manufacturing clients with total peace of mind through fail-safe system logic, real-time telemetry, and dedicated after-sales SLA guarantees."
                            data-lang-id="Memberikan ketenangan menyeluruh bagi klien manufaktur melalui logika sistem fail-safe, telemetri real-time, dan jaminan SLA purnajual yang berdedikasi."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify">
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
+                            style="text-align: justify; text-justify: inter-word;">
                             Providing manufacturing clients with total peace of mind through fail-safe system logic, real-time telemetry, and dedicated after-sales SLA guarantees.
                         </p>
                     </div>
@@ -240,60 +243,69 @@
             <!-- 3 Expanded Mission Cards -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Mission 1 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-5">
-                    <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
-                        01
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-1 flex flex-col justify-between">
+                    <div class="space-y-5">
+                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
+                            01
+                        </div>
+                        <h3 data-lang-en="Client-Centric Tailored Engineering" data-lang-id="Rekayasa Khusus Berorientasi Klien"
+                            class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                            Client-Centric Tailored Engineering
+                        </h3>
+                        <p data-lang-en="Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware."
+                           data-lang-id="Menganalisis secara mendalam parameter mekanis unik, kecepatan siklus, dan kendala lantai pabrik klien demi membangun solusi yang benar-benar sesuai kebutuhan."
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware.
+                        </p>
                     </div>
-                    <h3 data-lang-en="Client-Centric Tailored Engineering" data-lang-id="Rekayasa Khusus Berorientasi Klien"
-                        class="text-xl font-bold text-black font-['Agrandir']">
-                        Client-Centric Tailored Engineering
-                    </h3>
-                    <p data-lang-en="Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware."
-                       data-lang-id="Menganalisis secara mendalam parameter mekanis unik, kecepatan siklus, dan kendala lantai pabrik klien demi membangun solusi yang benar-benar sesuai kebutuhan."
-                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify">
-                        Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware.
-                    </p>
-                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700">
+                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700 mt-5">
                         <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
                         <span data-lang-en="Custom PLC, SCADA &amp; Vision Logic" data-lang-id="Logika Khusus PLC, SCADA &amp; Visi">Custom PLC, SCADA &amp; Vision Logic</span>
                     </div>
                 </div>
 
                 <!-- Mission 2 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-5">
-                    <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
-                        02
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-2 flex flex-col justify-between">
+                    <div class="space-y-5">
+                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
+                            02
+                        </div>
+                        <h3 data-lang-en="Continuous Employee Empowerment" data-lang-id="Pemberdayaan Berkelanjutan Karyawan"
+                            class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                            Continuous Employee Empowerment
+                        </h3>
+                        <p data-lang-en="Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics."
+                           data-lang-id="Berinvestasi pada pelatihan berkelanjutan, sertifikasi manufaktur global, dan laboratorium uji mandiri untuk memastikan para teknisi menguasai IoT industri dan robotika terkini."
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics.
+                        </p>
                     </div>
-                    <h3 data-lang-en="Continuous Employee Empowerment" data-lang-id="Pemberdayaan Berkelanjutan Karyawan"
-                        class="text-xl font-bold text-black font-['Agrandir']">
-                        Continuous Employee Empowerment
-                    </h3>
-                    <p data-lang-en="Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics."
-                       data-lang-id="Berinvestasi pada pelatihan berkelanjutan, sertifikasi manufaktur global, dan laboratorium uji mandiri untuk memastikan para teknisi menguasai IoT industri dan robotika terkini."
-                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify">
-                        Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics.
-                    </p>
-                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700">
+                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700 mt-5">
                         <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
                         <span data-lang-en="Certified Field Automation Engineers" data-lang-id="Teknisi Otomasi Lapangan Bersertifikat">Certified Field Automation Engineers</span>
                     </div>
                 </div>
 
                 <!-- Mission 3 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-5">
-                    <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
-                        03
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-3 flex flex-col justify-between">
+                    <div class="space-y-5">
+                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
+                            03
+                        </div>
+                        <h3 data-lang-en="Uncompromising After-Sales SLA" data-lang-id="Komitmen Purnajual &amp; SLA Tanpa Kompromi"
+                            class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                            Uncompromising After-Sales SLA
+                        </h3>
+                        <p data-lang-en="Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory."
+                           data-lang-id="Mendampingi para manajer pabrik secara berkelanjutan setelah komisioning dengan ketersediaan suku cadang cepat, perawatan preventif, dan konsultasi teknis 24/7."
+                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory.
+                        </p>
                     </div>
-                    <h3 data-lang-en="Uncompromising After-Sales SLA" data-lang-id="Komitmen Purnajual &amp; SLA Tanpa Kompromi"
-                        class="text-xl font-bold text-black font-['Agrandir']">
-                        Uncompromising After-Sales SLA
-                    </h3>
-                    <p data-lang-en="Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory."
-                       data-lang-id="Mendampingi para manajer pabrik secara berkelanjutan setelah komisioning dengan ketersediaan suku cadang cepat, perawatan preventif, dan konsultasi teknis 24/7."
-                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify">
-                        Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory.
-                    </p>
-                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700">
+                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700 mt-5">
                         <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
                         <span data-lang-en="24/7 Emergency Support Guarantees" data-lang-id="Jaminan Dukungan Darurat 24/7">24/7 Emergency Support Guarantees</span>
                     </div>
@@ -323,17 +335,20 @@
             <!-- 4 Goals Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Goal 1 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-1">
-                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">99.98%</div>
-                    <h4 data-lang-en="Zero-Defect Quality Target" data-lang-id="Target Nol Defek Mutu"
-                        class="text-lg font-bold text-white font-['Agrandir']">
-                        Zero-Defect Quality Target
-                    </h4>
-                    <p data-lang-en="Achieving sub-micron inspection accuracy across all automated vision lines to eliminate downstream customer product recalls."
-                       data-lang-id="Mencapai akurasi inspeksi sub-mikron pada seluruh lini visi otomatis guna meniadakan penarikan produk cacat di tangan konsumen."
-                        class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify">
-                        Achieving sub-micron inspection accuracy across all automated vision lines to eliminate downstream customer product recalls.
-                    </p>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-1 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">99.98%</div>
+                        <h4 data-lang-en="Zero-Defect Quality Target" data-lang-id="Target Nol Defek Mutu"
+                            class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
+                            Zero-Defect Quality Target
+                        </h4>
+                        <p data-lang-en="Achieving sub-micron inspection accuracy across all automated vision lines to eliminate downstream customer product recalls."
+                           data-lang-id="Mencapai akurasi inspeksi sub-mikron pada seluruh lini visi otomatis guna meniadakan penarikan produk cacat di tangan konsumen."
+                            class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Achieving sub-micron inspection accuracy across all automated vision lines to eliminate downstream customer product recalls.
+                        </p>
+                    </div>
                     <div class="pt-2 text-[11px] uppercase tracking-wider text-neutral-500 font-bold font-['Agrandir']"
                         data-lang-en="Quality Milestone" data-lang-id="Target Mutu">
                         Quality Milestone
@@ -341,35 +356,41 @@
                 </div>
 
                 <!-- Goal 2 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-2">
-                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">500+</div>
-                    <h4 data-lang-en="Smart Factory Implementations" data-lang-id="Implementasi Pabrik Cerdas"
-                        class="text-lg font-bold text-white font-['Agrandir']">
-                        Smart Factory Implementations
-                    </h4>
-                    <p data-lang-en="Scaling our SCADA and telemetry architecture to empower 500+ production lines across Java, Sumatra, Kalimantan, and Sulawesi."
-                       data-lang-id="Memperluas jangkauan SCADA dan telemetri kami hingga memberdayakan lebih dari 500 lini produksi di berbagai pulau di Indonesia."
-                        class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify">
-                        Scaling our SCADA and telemetry architecture to empower 500+ production lines across Java, Sumatra, Kalimantan, and Sulawesi.
-                    </p>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-2 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">500+</div>
+                        <h4 data-lang-en="Smart Factory Implementations" data-lang-id="Implementasi Pabrik Cerdas"
+                            class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
+                            Smart Factory Implementations
+                        </h4>
+                        <p data-lang-en="Scaling our SCADA and telemetry architecture to empower 500+ production lines across Java, Sumatra, Kalimantan, and Sulawesi."
+                           data-lang-id="Memperluas jangkauan SCADA dan telemetri kami hingga memberdayakan lebih dari 500 lini produksi di berbagai pulau di Indonesia."
+                            class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Scaling our SCADA and telemetry architecture to empower 500+ production lines across Java, Sumatra, Kalimantan, and Sulawesi.
+                        </p>
+                    </div>
                     <div class="pt-2 text-[11px] uppercase tracking-wider text-neutral-500 font-bold font-['Agrandir']"
-                        data-lang-id="Expansion Milestone" data-lang-id="Target Ekspansi">
+                        data-lang-en="Expansion Milestone" data-lang-id="Target Ekspansi">
                         Expansion Milestone
                     </div>
                 </div>
 
                 <!-- Goal 3 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-3">
-                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
-                    <h4 data-lang-en="Paperless IoT Traceability" data-lang-id="Pelacakan Nirkertas IoT Penuh"
-                        class="text-lg font-bold text-white font-['Agrandir']">
-                        Paperless IoT Traceability
-                    </h4>
-                    <p data-lang-en="Transitioning all machine logs and quality shifts directly into cloud-ready SQL historians and automated ERP dispatch systems."
-                       data-lang-id="Mengalihkan seluruh catatan log mesin dan shift mutu langsung ke pangkalan data SQL terpusat dan sistem ERP otomatis."
-                        class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify">
-                        Transitioning all machine logs and quality shifts directly into cloud-ready SQL historians and automated ERP dispatch systems.
-                    </p>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-3 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
+                        <h4 data-lang-en="Paperless IoT Traceability" data-lang-id="Pelacakan Nirkertas IoT Penuh"
+                            class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
+                            Paperless IoT Traceability
+                        </h4>
+                        <p data-lang-en="Transitioning all machine logs and quality shifts directly into cloud-ready SQL historians and automated ERP dispatch systems."
+                           data-lang-id="Mengalihkan seluruh catatan log mesin dan shift mutu langsung ke pangkalan data SQL terpusat dan sistem ERP otomatis."
+                            class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Transitioning all machine logs and quality shifts directly into cloud-ready SQL historians and automated ERP dispatch systems.
+                        </p>
+                    </div>
                     <div class="pt-2 text-[11px] uppercase tracking-wider text-neutral-500 font-bold font-['Agrandir']"
                         data-lang-en="Digitalization Milestone" data-lang-id="Target Digitalisasi">
                         Digitalization Milestone
@@ -377,17 +398,20 @@
                 </div>
 
                 <!-- Goal 4 -->
-                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 space-y-4 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-4">
-                    <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">-20%</div>
-                    <h4 data-lang-en="Energy &amp; Carbon Footprint" data-lang-id="Penurunan Konsumsi Daya"
-                        class="text-lg font-bold text-white font-['Agrandir']">
-                        Energy &amp; Carbon Footprint
-                    </h4>
-                    <p data-lang-en="Optimizing motor drives, smart pneumatics, and BMS HVAC balancing to reduce total electrical consumption for our clients."
-                       data-lang-id="Mengoptimalkan drive motor, sistem pneumatik cerdas, dan keseimbangan HVAC BMS untuk menghemat konsumsi daya listrik fasilitas."
-                        class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify">
-                        Optimizing motor drives, smart pneumatics, and BMS HVAC balancing to reduce total electrical consumption for our clients.
-                    </p>
+                <div class="p-7 rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-[#3367A5] transition-all duration-300 reveal-on-scroll reveal-stagger-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="text-3xl sm:text-4xl font-bold text-[#3367A5] font-['Agrandir']">-20%</div>
+                        <h4 data-lang-en="Energy &amp; Carbon Footprint" data-lang-id="Penurunan Konsumsi Daya"
+                            class="text-lg font-bold text-white font-['Agrandir'] min-h-[2.75rem] sm:min-h-[3rem] flex flex-col justify-start">
+                            Energy &amp; Carbon Footprint
+                        </h4>
+                        <p data-lang-en="Optimizing motor drives, smart pneumatics, and BMS HVAC balancing to reduce total electrical consumption for our clients."
+                           data-lang-id="Mengoptimalkan drive motor, sistem pneumatik cerdas, dan keseimbangan HVAC BMS untuk menghemat konsumsi daya listrik fasilitas."
+                            class="text-xs text-neutral-400 font-['Questrial'] leading-relaxed text-justify min-h-[4rem] sm:min-h-[4.5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Optimizing motor drives, smart pneumatics, and BMS HVAC balancing to reduce total electrical consumption for our clients.
+                        </p>
+                    </div>
                     <div class="pt-2 text-[11px] uppercase tracking-wider text-neutral-500 font-bold font-['Agrandir']"
                         data-lang-en="Sustainability Milestone" data-lang-id="Target Keberlanjutan">
                         Sustainability Milestone
@@ -417,47 +441,59 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Value 1 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-3">
-                    <div data-lang-en="Value 01" data-lang-id="Nilai 01" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase">Value 01</div>
-                    <h3 data-lang-en="Lasting Partnerships" data-lang-id="Kemitraan Jangka Panjang" class="text-lg font-bold text-gray-950 font-['Agrandir']">Lasting Partnerships</h3>
-                    <p data-lang-en="Maintain excellent service to foster lasting partnerships with our customers and clients across every project phase."
-                       data-lang-id="Menjaga kualitas layanan unggul demi membina kemitraan jangka panjang bersama para pelanggan dan mitra kerja di setiap fase proyek."
-                        class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify">
-                        Maintain excellent service to foster lasting partnerships with our customers and clients across every project phase.
-                    </p>
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-1 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div data-lang-en="Value 01" data-lang-id="Nilai 01" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-2">Value 01</div>
+                        <h3 data-lang-en="Lasting Partnerships" data-lang-id="Kemitraan Jangka Panjang" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[2.5rem] flex flex-col justify-start">Lasting Partnerships</h3>
+                        <p data-lang-en="Maintain excellent service to foster lasting partnerships with our customers and clients across every project phase."
+                           data-lang-id="Menjaga kualitas layanan unggul demi membina kemitraan jangka panjang bersama para pelanggan dan mitra kerja di setiap fase proyek."
+                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.5rem] sm:min-h-[5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Maintain excellent service to foster lasting partnerships with our customers and clients across every project phase.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Value 2 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-3">
-                    <div data-lang-en="Value 02" data-lang-id="Nilai 02" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase">Value 02</div>
-                    <h3 data-lang-en="Kindness &amp; Trust" data-lang-id="Integritas &amp; Kepercayaan" class="text-lg font-bold text-gray-950 font-['Agrandir']">Kindness &amp; Trust</h3>
-                    <p data-lang-en="Believe in treating our customers with sincerity, mutual respect, transparent communication, and enduring trust."
-                       data-lang-id="Membangun relasi bersama pelanggan berlandaskan ketulusan, rasa saling menghargai, komunikasi transparan, dan kepercayaan yang kokoh."
-                        class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify">
-                        Believe in treating our customers with sincerity, mutual respect, transparent communication, and enduring trust.
-                    </p>
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-2 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div data-lang-en="Value 02" data-lang-id="Nilai 02" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-2">Value 02</div>
+                        <h3 data-lang-en="Kindness &amp; Trust" data-lang-id="Integritas &amp; Kepercayaan" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[2.5rem] flex flex-col justify-start">Kindness &amp; Trust</h3>
+                        <p data-lang-en="Believe in treating our customers with sincerity, mutual respect, transparent communication, and enduring trust."
+                           data-lang-id="Membangun relasi bersama pelanggan berlandaskan ketulusan, rasa saling menghargai, komunikasi transparan, dan kepercayaan yang kokoh."
+                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.5rem] sm:min-h-[5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Believe in treating our customers with sincerity, mutual respect, transparent communication, and enduring trust.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Value 3 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-3">
-                    <div data-lang-en="Value 03" data-lang-id="Nilai 03" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase">Value 03</div>
-                    <h3 data-lang-en="Creativity &amp; Innovation" data-lang-id="Kreativitas &amp; Inovasi" class="text-lg font-bold text-gray-950 font-['Agrandir']">Creativity &amp; Innovation</h3>
-                    <p data-lang-en="Continue to grow and lead by actively embracing creativity, cutting-edge engineering, and ongoing technological evolution."
-                       data-lang-id="Terus berkembang dan memimpin dengan aktif merangkul kreativitas, rekayasa mutakhir, serta evolusi teknologi berkelanjutan."
-                        class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify">
-                        Continue to grow and lead by actively embracing creativity, cutting-edge engineering, and ongoing technological evolution.
-                    </p>
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-3 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div data-lang-en="Value 03" data-lang-id="Nilai 03" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-2">Value 03</div>
+                        <h3 data-lang-en="Creativity &amp; Innovation" data-lang-id="Kreativitas &amp; Inovasi" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[2.5rem] flex flex-col justify-start">Creativity &amp; Innovation</h3>
+                        <p data-lang-en="Continue to grow and lead by actively embracing creativity, cutting-edge engineering, and ongoing technological evolution."
+                           data-lang-id="Terus berkembang dan memimpin dengan aktif merangkul kreativitas, rekayasa mutakhir, serta evolusi teknologi berkelanjutan."
+                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.5rem] sm:min-h-[5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Continue to grow and lead by actively embracing creativity, cutting-edge engineering, and ongoing technological evolution.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Value 4 -->
-                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-4 space-y-3">
-                    <div data-lang-en="Value 04" data-lang-id="Nilai 04" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase">Value 04</div>
-                    <h3 data-lang-en="Team Development" data-lang-id="Pengembangan Tim" class="text-lg font-bold text-gray-950 font-['Agrandir']">Team Development</h3>
-                    <p data-lang-en="Constantly enhance the specialized capabilities of our dedicated team to drive service development and lasting operational excellence."
-                       data-lang-id="Senantiasa meningkatkan kapabilitas teknis tim demi mendorong kemajuan layanan dan keunggulan operasional yang langgeng."
-                        class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify">
-                        Constantly enhance the specialized capabilities of our dedicated team to drive service development and lasting operational excellence.
-                    </p>
+                <div class="p-7 rounded-2xl border border-gray-200 bg-white shadow-xs hover:border-[#3367A5] hover:shadow-md transition-all duration-300 reveal-on-scroll reveal-stagger-4 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <div data-lang-en="Value 04" data-lang-id="Nilai 04" class="text-[#3367A5] font-bold text-sm tracking-wider uppercase mb-2">Value 04</div>
+                        <h3 data-lang-en="Team Development" data-lang-id="Pengembangan Tim" class="text-lg font-bold text-gray-950 font-['Agrandir'] min-h-[2.5rem] flex flex-col justify-start">Team Development</h3>
+                        <p data-lang-en="Constantly enhance the specialized capabilities of our dedicated team to drive service development and lasting operational excellence."
+                           data-lang-id="Senantiasa meningkatkan kapabilitas teknis tim demi mendorong kemajuan layanan dan keunggulan operasional yang langgeng."
+                            class="text-xs sm:text-sm text-gray-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.5rem] sm:min-h-[5rem]"
+                            style="text-align: justify; text-justify: inter-word;">
+                            Constantly enhance the specialized capabilities of our dedicated team to drive service development and lasting operational excellence.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
