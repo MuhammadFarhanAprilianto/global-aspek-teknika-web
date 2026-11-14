@@ -166,72 +166,54 @@
             <!-- Vision Pillars (3 White Modern Cards) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                 <!-- Pillar 1 -->
-                <div class="p-8 rounded-3xl bg-white border border-neutral-100 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-1 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center text-xl font-bold font-['Agrandir'] shadow-xs">
-                            01
-                        </div>
-                        <h3 data-lang-en="National Integration Standard" data-lang-id="Standar Integrasi Nasional"
-                            class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
-                            National Integration Standard
-                        </h3>
-                        <p data-lang-en="Setting the national benchmark in PLC programming, robotic cell synchronization, and optical quality verification across domestic industries."
-                           data-lang-id="Menjadi tolok ukur nasional dalam pemrograman PLC, sinkronisasi sel robotik, dan verifikasi mutu optik di seluruh sektor industri tanah air."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Setting the national benchmark in PLC programming, robotic cell synchronization, and optical quality verification across domestic industries.
-                        </p>
+                <div class="p-8 rounded-3xl bg-white border border-neutral-100 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-1 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 flex flex-col justify-start">
+                    <div class="w-12 h-12 rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center text-xl font-bold font-['Agrandir'] shadow-xs">
+                        01
                     </div>
-                    <div class="pt-4 border-t border-neutral-100 text-xs text-[#3367A5] font-bold uppercase tracking-wider font-['Agrandir']"
-                        data-lang-en="Tier-1 Engineering" data-lang-id="Rekayasa Tier-1">
-                        Tier-1 Engineering
-                    </div>
+                    <h3 data-lang-en="National Integration Standard" data-lang-id="Standar Integrasi Nasional"
+                        class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                        National Integration Standard
+                    </h3>
+                    <p data-lang-en="Setting the national benchmark in PLC programming, robotic cell synchronization, and optical quality verification across domestic industries."
+                       data-lang-id="Menjadi tolok ukur nasional dalam pemrograman PLC, sinkronisasi sel robotik, dan verifikasi mutu optik di seluruh sektor industri tanah air."
+                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Setting the national benchmark in PLC programming, robotic cell synchronization, and optical quality verification across domestic industries.
+                    </p>
                 </div>
 
                 <!-- Pillar 2 -->
-                <div class="p-8 rounded-3xl bg-white border border-neutral-100 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-2 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center text-xl font-bold font-['Agrandir'] shadow-xs">
-                            02
-                        </div>
-                        <h3 data-lang-en="Sustainable Automation" data-lang-id="Otomasi Berkelanjutan"
-                            class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
-                            Sustainable Automation
-                        </h3>
-                        <p data-lang-en="Delivering resilient industrial architectures that maximize operational efficiency, lower electrical consumption, and eradicate costly production waste."
-                           data-lang-id="Menghadirkan arsitektur industri tangguh yang memaksimalkan efisiensi operasional, menekan konsumsi daya listrik, dan memangkas pemborosan produksi."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Delivering resilient industrial architectures that maximize operational efficiency, lower electrical consumption, and eradicate costly production waste.
-                        </p>
+                <div class="p-8 rounded-3xl bg-white border border-neutral-100 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-2 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 flex flex-col justify-start">
+                    <div class="w-12 h-12 rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center text-xl font-bold font-['Agrandir'] shadow-xs">
+                        02
                     </div>
-                    <div class="pt-4 border-t border-neutral-100 text-xs text-[#3367A5] font-bold uppercase tracking-wider font-['Agrandir']"
-                        data-lang-en="Eco-Efficient Operations" data-lang-id="Operasional Eko-Efisien">
-                        Eco-Efficient Operations
-                    </div>
+                    <h3 data-lang-en="Sustainable Automation" data-lang-id="Otomasi Berkelanjutan"
+                        class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                        Sustainable Automation
+                    </h3>
+                    <p data-lang-en="Delivering resilient industrial architectures that maximize operational efficiency, lower electrical consumption, and eradicate costly production waste."
+                       data-lang-id="Menghadirkan arsitektur industri tangguh yang memaksimalkan efisiensi operasional, menekan konsumsi daya listrik, dan memangkas pemborosan produksi."
+                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Delivering resilient industrial architectures that maximize operational efficiency, lower electrical consumption, and eradicate costly production waste.
+                    </p>
                 </div>
 
                 <!-- Pillar 3 -->
-                <div class="p-8 rounded-3xl bg-white border border-neutral-100 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center text-xl font-bold font-['Agrandir'] shadow-xs">
-                            03
-                        </div>
-                        <h3 data-lang-en="Zero-Downtime Guarantee" data-lang-id="Jaminan Tanpa Henti"
-                            class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
-                            Zero-Downtime Guarantee
-                        </h3>
-                        <p data-lang-en="Providing manufacturing clients with total peace of mind through fail-safe system logic, real-time telemetry, and dedicated after-sales SLA guarantees."
-                           data-lang-id="Memberikan ketenangan menyeluruh bagi klien manufaktur melalui logika sistem fail-safe, telemetri real-time, dan jaminan SLA purnajual yang berdedikasi."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Providing manufacturing clients with total peace of mind through fail-safe system logic, real-time telemetry, and dedicated after-sales SLA guarantees.
-                        </p>
+                <div class="p-8 rounded-3xl bg-white border border-neutral-100 transition-all duration-300 space-y-4 reveal-on-scroll reveal-stagger-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.45)] hover:-translate-y-1.5 flex flex-col justify-start">
+                    <div class="w-12 h-12 rounded-2xl bg-[#3367A5]/10 text-[#3367A5] flex items-center justify-center text-xl font-bold font-['Agrandir'] shadow-xs">
+                        03
                     </div>
-                    <div class="pt-4 border-t border-neutral-100 text-xs text-[#3367A5] font-bold uppercase tracking-wider font-['Agrandir']"
-                        data-lang-en="100% Operational Confidence" data-lang-id="100% Kepastian Operasional">
-                        100% Operational Confidence
-                    </div>
+                    <h3 data-lang-en="Zero-Downtime Guarantee" data-lang-id="Jaminan Tanpa Henti"
+                        class="text-xl font-bold text-neutral-900 font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                        Zero-Downtime Guarantee
+                    </h3>
+                    <p data-lang-en="Providing manufacturing clients with total peace of mind through fail-safe system logic, real-time telemetry, and dedicated after-sales SLA guarantees."
+                       data-lang-id="Memberikan ketenangan menyeluruh bagi klien manufaktur melalui logika sistem fail-safe, telemetri real-time, dan jaminan SLA purnajual yang berdedikasi."
+                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[4.75rem] sm:min-h-[5.25rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Providing manufacturing clients with total peace of mind through fail-safe system logic, real-time telemetry, and dedicated after-sales SLA guarantees.
+                    </p>
                 </div>
             </div>
         </div>
