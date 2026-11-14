@@ -240,72 +240,54 @@
             <!-- 3 Expanded Mission Cards -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Mission 1 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-1 flex flex-col justify-between">
-                    <div class="space-y-5">
-                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
-                            01
-                        </div>
-                        <h3 data-lang-en="Client-Centric Tailored Engineering" data-lang-id="Rekayasa Khusus Berorientasi Klien"
-                            class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
-                            Client-Centric Tailored Engineering
-                        </h3>
-                        <p data-lang-en="Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware."
-                           data-lang-id="Menganalisis secara mendalam parameter mekanis unik, kecepatan siklus, dan kendala lantai pabrik klien demi membangun solusi yang benar-benar sesuai kebutuhan."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware.
-                        </p>
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-1 flex flex-col justify-start space-y-5">
+                    <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
+                        01
                     </div>
-                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700 mt-5">
-                        <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
-                        <span data-lang-en="Custom PLC, SCADA &amp; Vision Logic" data-lang-id="Logika Khusus PLC, SCADA &amp; Visi">Custom PLC, SCADA &amp; Vision Logic</span>
-                    </div>
+                    <h3 data-lang-en="Client-Centric Tailored Engineering" data-lang-id="Rekayasa Khusus Berorientasi Klien"
+                        class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                        Client-Centric Tailored Engineering
+                    </h3>
+                    <p data-lang-en="Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware."
+                       data-lang-id="Menganalisis secara mendalam parameter mekanis unik, kecepatan siklus, dan kendala lantai pabrik klien demi membangun solusi yang benar-benar sesuai kebutuhan."
+                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Deeply analyzing the unique mechanical parameters, cycle speeds, and factory floor constraints of each client to build customized solutions rather than one-size-fits-all hardware.
+                    </p>
                 </div>
 
                 <!-- Mission 2 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-2 flex flex-col justify-between">
-                    <div class="space-y-5">
-                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
-                            02
-                        </div>
-                        <h3 data-lang-en="Continuous Employee Empowerment" data-lang-id="Pemberdayaan Berkelanjutan Karyawan"
-                            class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
-                            Continuous Employee Empowerment
-                        </h3>
-                        <p data-lang-en="Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics."
-                           data-lang-id="Berinvestasi pada pelatihan berkelanjutan, sertifikasi manufaktur global, dan laboratorium uji mandiri untuk memastikan para teknisi menguasai IoT industri dan robotika terkini."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics.
-                        </p>
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-2 flex flex-col justify-start space-y-5">
+                    <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
+                        02
                     </div>
-                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700 mt-5">
-                        <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
-                        <span data-lang-en="Certified Field Automation Engineers" data-lang-id="Teknisi Otomasi Lapangan Bersertifikat">Certified Field Automation Engineers</span>
-                    </div>
+                    <h3 data-lang-en="Continuous Employee Empowerment" data-lang-id="Pemberdayaan Berkelanjutan Karyawan"
+                        class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                        Continuous Employee Empowerment
+                    </h3>
+                    <p data-lang-en="Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics."
+                       data-lang-id="Berinvestasi pada pelatihan berkelanjutan, sertifikasi manufaktur global, dan laboratorium uji mandiri untuk memastikan para teknisi menguasai IoT industri dan robotika terkini."
+                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Investing in continuous training, international manufacturer certifications, and hands-on testing labs for our engineers to ensure mastery over latest industrial IoT and robotics.
+                    </p>
                 </div>
 
                 <!-- Mission 3 -->
-                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-3 flex flex-col justify-between">
-                    <div class="space-y-5">
-                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
-                            03
-                        </div>
-                        <h3 data-lang-en="Uncompromising After-Sales SLA" data-lang-id="Komitmen Purnajual &amp; SLA Tanpa Kompromi"
-                            class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
-                            Uncompromising After-Sales SLA
-                        </h3>
-                        <p data-lang-en="Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory."
-                           data-lang-id="Mendampingi para manajer pabrik secara berkelanjutan setelah komisioning dengan ketersediaan suku cadang cepat, perawatan preventif, dan konsultasi teknis 24/7."
-                            class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
-                            style="text-align: justify; text-justify: inter-word;">
-                            Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory.
-                        </p>
+                <div class="rounded-3xl border border-gray-200 p-8 sm:p-9 bg-neutral-50/50 hover:bg-white hover:border-[#3367A5] hover:shadow-lg transition-all duration-300 reveal-on-scroll reveal-stagger-3 flex flex-col justify-start space-y-5">
+                    <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-lg font-['Agrandir']">
+                        03
                     </div>
-                    <div class="pt-4 border-t border-gray-200/80 flex items-center gap-2 text-xs font-semibold text-gray-700 mt-5">
-                        <span class="w-2 h-2 rounded-full bg-[#3367A5]"></span>
-                        <span data-lang-en="24/7 Emergency Support Guarantees" data-lang-id="Jaminan Dukungan Darurat 24/7">24/7 Emergency Support Guarantees</span>
-                    </div>
+                    <h3 data-lang-en="Uncompromising After-Sales SLA" data-lang-id="Komitmen Purnajual &amp; SLA Tanpa Kompromi"
+                        class="text-xl font-bold text-black font-['Agrandir'] min-h-[3.25rem] sm:min-h-[3.5rem] flex flex-col justify-start">
+                        Uncompromising After-Sales SLA
+                    </h3>
+                    <p data-lang-en="Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory."
+                       data-lang-id="Mendampingi para manajer pabrik secara berkelanjutan setelah komisioning dengan ketersediaan suku cadang cepat, perawatan preventif, dan konsultasi teknis 24/7."
+                        class="text-xs sm:text-sm text-neutral-600 font-['Questrial'] leading-relaxed text-justify min-h-[5rem] sm:min-h-[5.5rem]"
+                        style="text-align: justify; text-justify: inter-word;">
+                        Standing shoulder-to-shoulder with our plant managers long after commissioning with rapid spare parts dispatch, preventive maintenance, and 24/7 technical advisory.
+                    </p>
                 </div>
             </div>
         </div>
