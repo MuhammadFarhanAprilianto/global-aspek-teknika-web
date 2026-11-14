@@ -105,6 +105,20 @@
         .cta-quote-btn:hover .cta-text-wrapper * {
             color: #000000 !important;
         }
+
+        /* Domain Tab Button (No border / No outline) */
+        .domain-tab-btn {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        .domain-tab-btn:focus,
+        .domain-tab-btn:active,
+        .domain-tab-btn:focus-visible {
+            outline: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
     </style>
 </head>
 
@@ -166,23 +180,23 @@
             <!-- Domain Nav Pills -->
             <div class="flex items-center justify-center flex-wrap gap-2.5 sm:gap-3 mb-12 reveal-on-scroll">
                 <button type="button" onclick="switchDomain('manufacturing')" id="btn-manufacturing"
-                    class="domain-tab-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-[#3367A5] text-white border-[#3367A5] shadow-md">
+                    class="domain-tab-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border-0 outline-none bg-[#3367A5] text-white">
                     <span data-lang-en="Manufacturing &amp; FMCG" data-lang-id="Manufaktur &amp; FMCG">Manufacturing &amp; FMCG</span>
                 </button>
                 <button type="button" onclick="switchDomain('automotive')" id="btn-automotive"
-                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-100 hover:text-black shadow-xs">
+                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border-0 outline-none bg-white text-neutral-900 hover:bg-neutral-100 hover:text-black">
                     <span data-lang-en="Automotive &amp; Heavy Machinery" data-lang-id="Otomotif &amp; Alat Berat">Automotive &amp; Heavy Machinery</span>
                 </button>
                 <button type="button" onclick="switchDomain('pharma')" id="btn-pharma"
-                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-100 hover:text-black shadow-xs">
+                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border-0 outline-none bg-white text-neutral-900 hover:bg-neutral-100 hover:text-black">
                     <span data-lang-en="Pharma &amp; Cleanrooms" data-lang-id="Farmasi &amp; Ruang Bersih">Pharma &amp; Cleanrooms</span>
                 </button>
                 <button type="button" onclick="switchDomain('bms')" id="btn-bms"
-                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-100 hover:text-black shadow-xs">
+                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border-0 outline-none bg-white text-neutral-900 hover:bg-neutral-100 hover:text-black">
                     <span data-lang-en="Smart BMS &amp; Utilities" data-lang-id="Smart BMS &amp; Utilitas">Smart BMS &amp; Utilities</span>
                 </button>
                 <button type="button" onclick="switchDomain('logistics')" id="btn-logistics"
-                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-100 hover:text-black shadow-xs">
+                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border-0 outline-none bg-white text-neutral-900 hover:bg-neutral-100 hover:text-black">
                     <span data-lang-en="End-of-Line Packaging" data-lang-id="Pengemasan Akhir Lini">End-of-Line Packaging</span>
                 </button>
             </div>
@@ -500,13 +514,13 @@
         function switchDomain(domainId) {
             // Update Tab Buttons
             document.querySelectorAll('.domain-tab-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-[#3367A5]', 'text-white', 'border-[#3367A5]', 'shadow-md');
-                btn.classList.add('bg-white', 'text-neutral-900', 'border-neutral-200', 'hover:bg-neutral-100', 'hover:text-black', 'shadow-xs');
+                btn.classList.remove('active', 'bg-[#3367A5]', 'text-white');
+                btn.classList.add('bg-white', 'text-neutral-900', 'hover:bg-neutral-100', 'hover:text-black');
             });
             const activeBtn = document.getElementById('btn-' + domainId);
             if (activeBtn) {
-                activeBtn.classList.remove('bg-white', 'text-neutral-900', 'border-neutral-200', 'hover:bg-neutral-100', 'hover:text-black', 'shadow-xs');
-                activeBtn.classList.add('active', 'bg-[#3367A5]', 'text-white', 'border-[#3367A5]', 'shadow-md');
+                activeBtn.classList.remove('bg-white', 'text-neutral-900', 'hover:bg-neutral-100', 'hover:text-black');
+                activeBtn.classList.add('active', 'bg-[#3367A5]', 'text-white');
             }
 
             // Update Content Panes
