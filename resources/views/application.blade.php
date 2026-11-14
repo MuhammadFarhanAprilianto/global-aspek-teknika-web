@@ -170,19 +170,19 @@
                     <span data-lang-en="Manufacturing &amp; FMCG" data-lang-id="Manufaktur &amp; FMCG">Manufacturing &amp; FMCG</span>
                 </button>
                 <button type="button" onclick="switchDomain('automotive')" id="btn-automotive"
-                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-neutral-900 text-neutral-400 border-neutral-800 hover:text-white hover:border-neutral-700">
+                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-100 hover:text-black shadow-xs">
                     <span data-lang-en="Automotive &amp; Heavy Machinery" data-lang-id="Otomotif &amp; Alat Berat">Automotive &amp; Heavy Machinery</span>
                 </button>
                 <button type="button" onclick="switchDomain('pharma')" id="btn-pharma"
-                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-neutral-900 text-neutral-400 border-neutral-800 hover:text-white hover:border-neutral-700">
+                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-100 hover:text-black shadow-xs">
                     <span data-lang-en="Pharma &amp; Cleanrooms" data-lang-id="Farmasi &amp; Ruang Bersih">Pharma &amp; Cleanrooms</span>
                 </button>
                 <button type="button" onclick="switchDomain('bms')" id="btn-bms"
-                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-neutral-900 text-neutral-400 border-neutral-800 hover:text-white hover:border-neutral-700">
+                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-100 hover:text-black shadow-xs">
                     <span data-lang-en="Smart BMS &amp; Utilities" data-lang-id="Smart BMS &amp; Utilitas">Smart BMS &amp; Utilities</span>
                 </button>
                 <button type="button" onclick="switchDomain('logistics')" id="btn-logistics"
-                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-neutral-900 text-neutral-400 border-neutral-800 hover:text-white hover:border-neutral-700">
+                    class="domain-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold font-['Agrandir'] transition-all duration-300 border bg-white text-neutral-900 border-neutral-200 hover:bg-neutral-100 hover:text-black shadow-xs">
                     <span data-lang-en="End-of-Line Packaging" data-lang-id="Pengemasan Akhir Lini">End-of-Line Packaging</span>
                 </button>
             </div>
@@ -501,11 +501,11 @@
             // Update Tab Buttons
             document.querySelectorAll('.domain-tab-btn').forEach(btn => {
                 btn.classList.remove('active', 'bg-[#3367A5]', 'text-white', 'border-[#3367A5]', 'shadow-md');
-                btn.classList.add('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
+                btn.classList.add('bg-white', 'text-neutral-900', 'border-neutral-200', 'hover:bg-neutral-100', 'hover:text-black', 'shadow-xs');
             });
             const activeBtn = document.getElementById('btn-' + domainId);
             if (activeBtn) {
-                activeBtn.classList.remove('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
+                activeBtn.classList.remove('bg-white', 'text-neutral-900', 'border-neutral-200', 'hover:bg-neutral-100', 'hover:text-black', 'shadow-xs');
                 activeBtn.classList.add('active', 'bg-[#3367A5]', 'text-white', 'border-[#3367A5]', 'shadow-md');
             }
 
