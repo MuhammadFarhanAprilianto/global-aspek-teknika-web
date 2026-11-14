@@ -70,6 +70,14 @@ Route::get('/application', function () {
     return view('application');
 })->name('application');
 
+Route::get('/simulator/{domain?}', function (?string $domain = 'manufacturing') {
+    $validDomains = ['manufacturing', 'automotive', 'pharma', 'bms', 'logistics'];
+    if (!in_array($domain, $validDomains, true)) {
+        $domain = 'manufacturing';
+    }
+    return view('simulator', ['activeDomain' => $domain]);
+})->name('simulator.show');
+
 Route::get('/projects', function () {
     return view('projects');
 })->name('projects');
