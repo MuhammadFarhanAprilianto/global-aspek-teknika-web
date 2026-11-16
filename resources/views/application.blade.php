@@ -166,6 +166,34 @@
             border: none !important;
             outline: none !important;
         }
+
+        /* Simulation Launch Button (Under Domain Images) */
+        .sim-launch-btn {
+            background-color: #3367A5 !important;
+            color: #ffffff !important;
+            border: none !important;
+            outline: none !important;
+            text-decoration: none !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .sim-launch-btn * {
+            color: #ffffff !important;
+            transition: color 0.3s ease, stroke 0.3s ease !important;
+        }
+        .sim-launch-btn svg {
+            stroke: #ffffff !important;
+        }
+        .sim-launch-btn:hover {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.18) !important;
+        }
+        .sim-launch-btn:hover * {
+            color: #000000 !important;
+        }
+        .sim-launch-btn:hover svg {
+            stroke: #000000 !important;
+        }
     </style>
 </head>
 
@@ -283,14 +311,11 @@
                                 class="w-full h-80 sm:h-96 object-cover object-center">
                         </div>
                         <a href="{{ route('simulator.show', 'manufacturing') }}"
-                            class="sim-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl bg-[#3367A5] hover:bg-white text-white hover:text-neutral-900 font-bold font-['Agrandir'] transition-all duration-300 shadow-lg no-underline group">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2.5 h-2.5 rounded-full bg-white group-hover:bg-[#3367A5] animate-pulse shrink-0"></span>
-                                <span class="text-sm sm:text-base"
-                                    data-lang-en="Simulation: Inspection Bottle &amp; Label Vision Simulator"
-                                    data-lang-id="Simulation: Simulator Inspeksi Visi Botol &amp; Label">Simulation: Inspection Bottle &amp; Label Vision Simulator</span>
-                            </div>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0">
+                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
+                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
+                                data-lang-en="Simulation: Inspection Bottle &amp; Label Vision Simulator"
+                                data-lang-id="Simulation: Simulator Inspeksi Visi Botol &amp; Label">Simulation: Inspection Bottle &amp; Label Vision Simulator</span>
+                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
                                 <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -333,14 +358,11 @@
                                 class="w-full h-80 sm:h-96 object-cover object-center">
                         </div>
                         <a href="{{ route('simulator.show', 'automotive') }}"
-                            class="sim-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl bg-[#3367A5] hover:bg-white text-white hover:text-neutral-900 font-bold font-['Agrandir'] transition-all duration-300 shadow-lg no-underline group">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2.5 h-2.5 rounded-full bg-white group-hover:bg-[#3367A5] animate-pulse shrink-0"></span>
-                                <span class="text-sm sm:text-base"
-                                    data-lang-en="Simulation: Sub-Micron Gear QA &amp; OEE Simulator (with Chart)"
-                                    data-lang-id="Simulation: Simulator QA Roda Gigi &amp; Grafik OEE">Simulation: Sub-Micron Gear QA &amp; OEE Simulator (with Chart)</span>
-                            </div>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0">
+                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
+                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
+                                data-lang-en="Simulation: Sub-Micron Gear QA &amp; OEE Simulator (with Chart)"
+                                data-lang-id="Simulation: Simulator QA Roda Gigi &amp; Grafik OEE">Simulation: Sub-Micron Gear QA &amp; OEE Simulator (with Chart)</span>
+                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
                                 <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -383,14 +405,11 @@
                                 class="w-full h-80 sm:h-96 object-cover object-center">
                         </div>
                         <a href="{{ route('simulator.show', 'pharma') }}"
-                            class="sim-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl bg-[#3367A5] hover:bg-white text-white hover:text-neutral-900 font-bold font-['Agrandir'] transition-all duration-300 shadow-lg no-underline group">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2.5 h-2.5 rounded-full bg-white group-hover:bg-[#3367A5] animate-pulse shrink-0"></span>
-                                <span class="text-sm sm:text-base"
-                                    data-lang-en="Simulation: Blister 10-Cavity Matrix &amp; 2D OCR Simulator"
-                                    data-lang-id="Simulation: Simulator Matriks Blister &amp; Kode Batch OCR">Simulation: Blister 10-Cavity Matrix &amp; 2D OCR Simulator</span>
-                            </div>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0">
+                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
+                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
+                                data-lang-en="Simulation: Blister 10-Cavity Matrix &amp; 2D OCR Simulator"
+                                data-lang-id="Simulation: Simulator Matriks Blister &amp; Kode Batch OCR">Simulation: Blister 10-Cavity Matrix &amp; 2D OCR Simulator</span>
+                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
                                 <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -433,14 +452,11 @@
                                 class="w-full h-80 sm:h-96 object-cover object-center">
                         </div>
                         <a href="{{ route('simulator.show', 'bms') }}"
-                            class="sim-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl bg-[#3367A5] hover:bg-white text-white hover:text-neutral-900 font-bold font-['Agrandir'] transition-all duration-300 shadow-lg no-underline group">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2.5 h-2.5 rounded-full bg-white group-hover:bg-[#3367A5] animate-pulse shrink-0"></span>
-                                <span class="text-sm sm:text-base"
-                                    data-lang-en="Simulation: EIS Energy Information, EnPI &amp; Cos &phi; Simulator"
-                                    data-lang-id="Simulation: Simulator Informasi Energi EIS, EnPI &amp; Cos &phi;">Simulation: EIS Energy Information, EnPI &amp; Cos &phi; Simulator</span>
-                            </div>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0">
+                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
+                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
+                                data-lang-en="Simulation: EIS Energy Information, EnPI &amp; Cos &phi; Simulator"
+                                data-lang-id="Simulation: Simulator Informasi Energi EIS, EnPI &amp; Cos &phi;">Simulation: EIS Energy Information, EnPI &amp; Cos &phi; Simulator</span>
+                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
                                 <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -483,14 +499,11 @@
                                 class="w-full h-80 sm:h-96 object-cover object-center">
                         </div>
                         <a href="{{ route('simulator.show', 'logistics') }}"
-                            class="sim-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl bg-[#3367A5] hover:bg-white text-white hover:text-neutral-900 font-bold font-['Agrandir'] transition-all duration-300 shadow-lg no-underline group">
-                            <div class="flex items-center gap-3">
-                                <span class="w-2.5 h-2.5 rounded-full bg-white group-hover:bg-[#3367A5] animate-pulse shrink-0"></span>
-                                <span class="text-sm sm:text-base"
-                                    data-lang-en="Simulation: High-Speed TIJ Coding &amp; 3,500N Arch Strapping"
-                                    data-lang-id="Simulation: Simulator Coding TIJ &amp; Strapping Karton 3.500N">Simulation: High-Speed TIJ Coding &amp; 3,500N Arch Strapping</span>
-                            </div>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0">
+                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
+                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
+                                data-lang-en="Simulation: High-Speed TIJ Coding &amp; 3,500N Arch Strapping"
+                                data-lang-id="Simulation: Simulator Coding TIJ &amp; Strapping Karton 3.500N">Simulation: High-Speed TIJ Coding &amp; 3,500N Arch Strapping</span>
+                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
                                 <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
