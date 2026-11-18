@@ -196,158 +196,194 @@
             <!-- SIMULATOR 1: MANUFACTURING & FMCG (INSPECTION BOTTLE SIMULATOR)   -->
             <!-- ================================================================= -->
             <div id="sim-pane-manufacturing" class="sim-pane {{ $currentDomain === 'manufacturing' ? '' : 'hidden' }} pt-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    <!-- Left: Large Interactive Optical Camera & Conveyor Viewport -->
-                    <div class="lg:col-span-7 rounded-3xl bg-neutral-900 border border-neutral-800 p-6 sm:p-8 shadow-2xl space-y-6">
-                        <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-neutral-800">
+                <div class="bg-white text-gray-900 rounded-3xl p-6 sm:p-10 shadow-2xl border border-gray-200 space-y-6">
+                    
+                    <!-- Header / Title matching Image 3 -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
+                        <div>
+                            <h2 class="text-2xl sm:text-3xl font-normal text-slate-800 tracking-tight" style="font-family: 'Questrial', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Inspection Bottle Simulator
+                            </h2>
+                            <p class="text-xs text-gray-500 mt-1 font-sans">
+                                High-Speed Optical Inspection &amp; Multi-Conveyor Flow Dynamics
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#3367A5] border border-blue-200">
+                                <span class="w-2 h-2 rounded-full bg-[#3367A5] mr-2 animate-pulse"></span>
+                                Live Simulation Active
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- 6 Parameter Cards Grid matching Image 3 (3 columns x 2 rows) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                        <!-- Card 1: Conveyor 1 -->
+                        <div class="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-sm space-y-3.5 hover:shadow-md transition">
+                            <h3 class="text-sm font-bold text-gray-800">Conveyor 1</h3>
+                            
                             <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-[#3367A5] font-['Agrandir']"
-                                    data-lang-en="PROJECT SIMULATOR 01 // MANUFACTURING &amp; FMCG"
-                                    data-lang-id="SIMULATOR PROYEK 01 // MANUFAKTUR &amp; FMCG">PROJECT SIMULATOR 01 // MANUFACTURING &amp; FMCG</span>
-                                <h2 class="text-xl sm:text-2xl font-bold text-white font-['Agrandir'] mt-0.5"
-                                    data-lang-en="High-Speed Bottle Cap, Fill Level &amp; Label Vision Simulator"
-                                    data-lang-id="Simulator Visi Tutup Botol, Level Isi &amp; Label Berkecepatan Tinggi">
-                                    High-Speed Bottle Cap, Fill Level &amp; Label Vision Simulator
-                                </h2>
+                                <label for="cv1-speed" class="block text-xs text-gray-500 font-medium mb-1">Speed (mm/s):</label>
+                                <input type="number" id="cv1-speed" value="433" min="10" max="3000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
                             </div>
-                            <div class="flex items-center gap-2">
-                                <button type="button" onclick="toggleBottleSim()" id="sim1-toggle-btn"
-                                    class="sim-btn px-4 py-2 rounded-full text-xs font-bold font-['Agrandir'] bg-[#3367A5] text-white hover:bg-[#285284] transition-all">
-                                    <span id="sim1-toggle-label" data-lang-en="Pause Line" data-lang-id="Jeda Lini">Pause Line</span>
-                                </button>
-                                <button type="button" onclick="resetBottleSim()"
-                                    class="sim-btn px-4 py-2 rounded-full text-xs font-bold font-['Agrandir'] bg-white text-neutral-900 hover:bg-neutral-200 transition-all"
-                                    data-lang-en="Reset Counter" data-lang-id="Reset Hitungan">Reset Counter</button>
+
+                            <div>
+                                <label for="cv1-cpm" class="block text-xs text-gray-500 font-medium mb-1">CPM:</label>
+                                <input type="number" id="cv1-cpm" value="600" min="10" max="2000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div>
+                                <label for="cv1-length" class="block text-xs text-gray-500 font-medium mb-1">Length (mm):</label>
+                                <input type="number" id="cv1-length" value="3000" min="500" max="10000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div class="pt-1 text-xs text-gray-600 font-medium">
+                                Spacing: <span id="cv1-spacing-text">43.3</span> mm
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Conveyor 2 -->
+                        <div class="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-sm space-y-3.5 hover:shadow-md transition">
+                            <h3 class="text-sm font-bold text-gray-800">Conveyor 2</h3>
+
+                            <div>
+                                <label for="cv2-speed" class="block text-xs text-gray-500 font-medium mb-1">Speed (mm/s):</label>
+                                <input type="number" id="cv2-speed" value="500" min="10" max="3000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div>
+                                <label for="cv2-length" class="block text-xs text-gray-500 font-medium mb-1">Length (mm):</label>
+                                <input type="number" id="cv2-length" value="1000" min="200" max="10000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div class="pt-1 space-y-1 text-xs text-gray-600 font-medium">
+                                <div>Spacing: <span id="cv2-spacing-text">50.0</span> mm</div>
+                                <div>Time per bottle: <span id="cv2-time-text">0.10</span> s</div>
                             </div>
                         </div>
 
-                        <!-- Camera HUD Viewport -->
-                        <div class="rounded-2xl bg-black border border-neutral-800 p-5">
-                            <div class="flex items-center justify-between text-xs font-mono text-gray-400 mb-3">
-                                <span>CAM-01 GIGE VISION // ROI: CAP + FILL + LABEL [300 FPS]</span>
-                                <span id="sim1-judge-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-[#3367A5] text-white">PASS // OK</span>
+                        <!-- Card 3: Conveyor 3 -->
+                        <div class="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-sm space-y-3.5 hover:shadow-md transition">
+                            <h3 class="text-sm font-bold text-gray-800">Conveyor 3</h3>
+
+                            <div>
+                                <label for="cv3-speed" class="block text-xs text-gray-500 font-medium mb-1">Speed (mm/s):</label>
+                                <input type="number" id="cv3-speed" value="500" min="10" max="3000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
                             </div>
 
-                            <svg viewBox="0 0 500 175" class="w-full h-56 sm:h-64 select-none">
-                                <!-- Background Grid -->
-                                <g stroke="#171717" stroke-width="1">
-                                    <line x1="0" y1="40" x2="500" y2="40" />
-                                    <line x1="0" y1="80" x2="500" y2="80" />
-                                    <line x1="0" y1="120" x2="500" y2="120" />
-                                    <line x1="125" y1="0" x2="125" y2="150" />
-                                    <line x1="250" y1="0" x2="250" y2="150" />
-                                    <line x1="375" y1="0" x2="375" y2="150" />
-                                </g>
+                            <div>
+                                <label for="cv3-length" class="block text-xs text-gray-500 font-medium mb-1">Length (mm):</label>
+                                <input type="number" id="cv3-length" value="2000" min="500" max="10000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
 
-                                <!-- Vision Camera Field of View Cone -->
-                                <polygon points="210,20 290,20 330,145 170,145" fill="rgba(51,103,165,0.14)" />
-
-                                <!-- Top Optical Camera Head -->
-                                <rect x="205" y="2" width="90" height="20" rx="4" fill="#262626" stroke="#3367A5" stroke-width="1.5" />
-                                <circle cx="250" cy="12" r="4.5" fill="#3367A5" />
-
-                                <!-- Incoming Bottle (Left Queue) -->
-                                <g opacity="0.45" transform="translate(65, 36)">
-                                    <rect x="14" y="0" width="16" height="9" rx="2" fill="#3367A5" />
-                                    <path d="M12,9 L32,9 L38,28 L38,98 C38,101 35,104 32,104 L12,104 C9,104 6,101 6,98 L6,28 Z" fill="#171717" stroke="#525252" stroke-width="1.5" />
-                                    <rect x="9" y="34" width="26" height="66" rx="2" fill="rgba(51,103,165,0.35)" />
-                                    <rect x="8" y="50" width="28" height="24" rx="2" fill="#ffffff" />
-                                </g>
-
-                                <!-- Center Inspected Bottle (Active Under Camera) -->
-                                <g id="sim1-active-bottle" transform="translate(228, 36)">
-                                    <rect id="sim1-bottle-cap" x="14" y="0" width="16" height="9" rx="2" fill="#3367A5" />
-                                    <path d="M12,9 L32,9 L38,28 L38,98 C38,101 35,104 32,104 L12,104 C9,104 6,101 6,98 L6,28 Z" fill="#171717" stroke="#ffffff" stroke-width="2" />
-                                    <rect id="sim1-bottle-fill" x="9" y="34" width="26" height="66" rx="2" fill="rgba(51,103,165,0.58)" />
-                                    <g id="sim1-bottle-label" transform="rotate(0 22 62)">
-                                        <rect x="8" y="50" width="28" height="24" rx="2" fill="#ffffff" />
-                                        <rect x="12" y="55" width="20" height="4" fill="#3367A5" />
-                                        <rect x="12" y="62" width="14" height="3" fill="#171717" />
-                                        <rect x="12" y="67" width="18" height="3" fill="#525252" />
-                                    </g>
-                                </g>
-
-                                <!-- Optical ROI Bounding Box -->
-                                <rect id="sim1-roi-box" x="218" y="30" width="64" height="114" rx="6" fill="none" stroke="#3367A5" stroke-width="2" stroke-dasharray="5 3" />
-                                <line x1="205" y1="70" x2="295" y2="70" stroke="#3367A5" stroke-width="1" stroke-dasharray="2 2" />
-
-                                <!-- Pneumatic Ejector Actuator -->
-                                <g id="sim1-reject-piston" transform="translate(385, 66)">
-                                    <rect x="0" y="0" width="52" height="24" rx="4" fill="#262626" stroke="#525252" stroke-width="1.5" />
-                                    <text x="26" y="15" text-anchor="middle" fill="#ffffff" font-size="8" font-family="monospace">EJECTOR</text>
-                                </g>
-
-                                <!-- Conveyor Belt -->
-                                <line x1="10" y1="150" x2="490" y2="150" stroke="#404040" stroke-width="4" />
-                                <line id="sim1-belt-anim" x1="10" y1="150" x2="490" y2="150" stroke="#3367A5" stroke-width="3" stroke-dasharray="12 12" class="animate-conveyor" />
-                            </svg>
-
-                            <div class="mt-3 flex items-center justify-between text-xs bg-neutral-900 px-4 py-3 rounded-xl border border-neutral-800">
-                                <span class="text-gray-400" data-lang-en="Camera Diagnostic Telemetry:" data-lang-id="Telemetri Diagnostik Kamera:">Camera Diagnostic Telemetry:</span>
-                                <span id="sim1-diag-msg" class="font-bold text-white font-['Agrandir']">CAP OK | FILL 100% | LABEL ALIGNED (0.1°)</span>
+                            <div class="pt-1 text-xs text-gray-600 font-medium">
+                                Spacing: <span id="cv3-spacing-text">50.0</span> mm
                             </div>
                         </div>
+
+                        <!-- Card 4: Camera Settings (CV2) -->
+                        <div class="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-sm space-y-3.5 hover:shadow-md transition">
+                            <h3 class="text-sm font-bold text-gray-800">Camera Settings (CV2)</h3>
+
+                            <div>
+                                <label for="cam-pos" class="block text-xs text-gray-500 font-medium mb-1">Position (mm):</label>
+                                <input type="number" id="cam-pos" value="130" min="0" max="5000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div>
+                                <label for="cam-len" class="block text-xs text-gray-500 font-medium mb-1">Inspection Length (mm):</label>
+                                <input type="number" id="cam-len" value="300" min="10" max="5000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div>
+                                <label for="cam-offset" class="block text-xs text-gray-500 font-medium mb-1">Vertical Offset (px):</label>
+                                <input type="number" id="cam-offset" value="35" min="0" max="200"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div>
+                                <label for="cam-speed" class="block text-xs text-gray-500 font-medium mb-1">Inspection Speed (mm/s):</label>
+                                <input type="number" id="cam-speed" value="1000" min="10" max="5000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div class="pt-1 space-y-1 text-xs text-gray-600 font-medium">
+                                <div>Bottles in inspection: <span id="cam-bottles-text" class="font-bold text-gray-800">0</span></div>
+                                <div>Inspection Time: <span id="cam-time-text">0.30</span> s</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Delay Zone (Gate) -->
+                        <div class="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-sm space-y-3.5 hover:shadow-md transition">
+                            <h3 class="text-sm font-bold text-gray-800">Delay Zone (Gate)</h3>
+
+                            <div>
+                                <label for="gate-pos" class="block text-xs text-gray-500 font-medium mb-1">Position (mm):</label>
+                                <input type="number" id="gate-pos" value="10" min="0" max="5000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div>
+                                <label for="gate-len" class="block text-xs text-gray-500 font-medium mb-1">Length (mm):</label>
+                                <input type="number" id="gate-len" value="80" min="10" max="2000"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div>
+                                <label for="gate-offset" class="block text-xs text-gray-500 font-medium mb-1">Vertical Offset (px):</label>
+                                <input type="number" id="gate-offset" value="50" min="0" max="200"
+                                    class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
+                            </div>
+
+                            <div class="pt-1 space-y-1 text-xs text-gray-600 font-medium">
+                                <div>Bottles in delay: <span id="gate-bottles-text" class="font-bold text-gray-800">0</span></div>
+                                <div>Last Delay: <span id="gate-last-delay-text">0.30</span> s</div>
+                                <div>Average Delay: <span id="gate-avg-delay-text">0.30</span> s</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Control -->
+                        <div class="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+                            <div>
+                                <h3 class="text-sm font-bold text-gray-800 mb-4">Control</h3>
+                                <div class="flex items-center gap-2.5">
+                                    <button type="button" id="bottleSimBtnStart" onclick="startBottleSim()"
+                                        class="flex-1 py-2.5 px-3 rounded-full bg-[#3367A5] hover:bg-[#285284] text-white font-medium text-xs sm:text-sm transition-all shadow-sm flex items-center justify-center gap-1">
+                                        Start
+                                    </button>
+                                    <button type="button" id="bottleSimBtnStop" onclick="stopBottleSim()"
+                                        class="flex-1 py-2.5 px-3 rounded-full bg-neutral-900 hover:bg-black text-white font-medium text-xs sm:text-sm transition-all shadow-sm flex items-center justify-center gap-1">
+                                        Stop
+                                    </button>
+                                    <button type="button" id="bottleSimBtnReset" onclick="resetBottleSim()"
+                                        class="flex-1 py-2.5 px-3 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-300 text-gray-800 font-medium text-xs sm:text-sm transition-all shadow-sm flex items-center justify-center gap-1">
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-[11px] text-gray-400 mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                                <span>Real-time Multi-Conveyor Physics</span>
+                                <span id="bottleSimStatusPill" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-200">RUNNING</span>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Right: Control Console & Live Telemetry Counters -->
-                    <div class="lg:col-span-5 rounded-3xl bg-neutral-900 border border-neutral-800 p-6 sm:p-8 shadow-2xl space-y-6">
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <h3 class="text-sm font-bold uppercase tracking-wider text-white font-['Agrandir']"
-                                    data-lang-en="1. Inject Defect Scenario"
-                                    data-lang-id="1. Simulasikan Kondisi Cacat Botol">1. Inject Defect Scenario</h3>
-                                <span id="sim1-mode-indicator" class="text-xs font-bold text-[#3367A5] font-['Agrandir']">MODE: NORMAL</span>
-                            </div>
-                            <div class="grid grid-cols-2 gap-3">
-                                <button type="button" onclick="setBottleDefectMode('normal')" id="sim1-mode-normal"
-                                    class="sim-btn px-4 py-3 rounded-xl text-xs font-bold font-['Agrandir'] bg-[#3367A5] text-white transition-all"
-                                    data-lang-en="Normal Bottle (OK)" data-lang-id="Botol Normal (OK)">Normal Bottle (OK)</button>
-                                <button type="button" onclick="setBottleDefectMode('cap')" id="sim1-mode-cap"
-                                    class="sim-btn px-4 py-3 rounded-xl text-xs font-bold font-['Agrandir'] bg-white text-neutral-900 hover:bg-neutral-200 transition-all"
-                                    data-lang-en="Missing Cap Defect" data-lang-id="Cacat Tanpa Tutup">Missing Cap Defect</button>
-                                <button type="button" onclick="setBottleDefectMode('fill')" id="sim1-mode-fill"
-                                    class="sim-btn px-4 py-3 rounded-xl text-xs font-bold font-['Agrandir'] bg-white text-neutral-900 hover:bg-neutral-200 transition-all"
-                                    data-lang-en="Underfill / Low Fill" data-lang-id="Cacat Isi Kurang">Underfill / Low Fill</button>
-                                <button type="button" onclick="setBottleDefectMode('label')" id="sim1-mode-label"
-                                    class="sim-btn px-4 py-3 rounded-xl text-xs font-bold font-['Agrandir'] bg-white text-neutral-900 hover:bg-neutral-200 transition-all"
-                                    data-lang-en="Skewed Label (+14°)" data-lang-id="Cacat Label Miring">Skewed Label (+14°)</button>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-2">
-                            <div class="flex justify-between text-xs">
-                                <span class="text-gray-400" data-lang-en="2. Conveyor Throughput Setpoint" data-lang-id="2. Kecepatan Konveyor Produksi">2. Conveyor Throughput Setpoint</span>
-                                <span class="font-bold text-white font-['Agrandir']"><span id="sim1-speed-val">600</span> pcs/min</span>
-                            </div>
-                            <input type="range" id="sim1-speed-slider" min="200" max="850" step="50" value="600"
-                                oninput="updateBottleSpeed(this.value)" class="sim-range">
-                        </div>
-
-                        <!-- Live Counters -->
-                        <div>
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-white font-['Agrandir'] mb-3"
-                                data-lang-en="3. Real-Time Vision PLC Counters"
-                                data-lang-id="3. Penghitung PLC Visi Real-Time">3. Real-Time Vision PLC Counters</h3>
-                            <div class="grid grid-cols-2 gap-3 text-center">
-                                <div class="p-4 rounded-2xl bg-white text-neutral-900">
-                                    <div id="sim1-cnt-total" class="text-2xl font-bold font-['Agrandir'] text-neutral-900">1,240</div>
-                                    <div class="text-xs font-bold uppercase text-neutral-500 mt-1" data-lang-en="Total Inspected" data-lang-id="Total Diperiksa">Total Inspected</div>
-                                </div>
-                                <div class="p-4 rounded-2xl bg-white text-neutral-900">
-                                    <div id="sim1-cnt-ok" class="text-2xl font-bold font-['Agrandir'] text-[#3367A5]">1,236</div>
-                                    <div class="text-xs font-bold uppercase text-neutral-500 mt-1" data-lang-en="Good (PASS)" data-lang-id="Lulus (PASS)">Good (PASS)</div>
-                                </div>
-                                <div class="p-4 rounded-2xl bg-white text-neutral-900">
-                                    <div id="sim1-cnt-ng" class="text-2xl font-bold font-['Agrandir'] text-neutral-900">4</div>
-                                    <div class="text-xs font-bold uppercase text-neutral-500 mt-1" data-lang-en="Rejected (NG)" data-lang-id="Ditolak (NG)">Rejected (NG)</div>
-                                </div>
-                                <div class="p-4 rounded-2xl bg-[#3367A5] text-white">
-                                    <div id="sim1-cnt-yield" class="text-2xl font-bold font-['Agrandir']">99.7%</div>
-                                    <div class="text-xs font-bold uppercase text-blue-100 mt-1" data-lang-en="First Pass Yield" data-lang-id="Rasio Mutu">First Pass Yield</div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Canvas Simulation Container matching Image 3 -->
+                    <div class="border border-gray-300 rounded-2xl bg-white p-3 sm:p-5 overflow-hidden relative shadow-sm">
+                        <canvas id="bottleSimCanvas" class="w-full block" style="height: 360px; min-height: 320px;"></canvas>
                     </div>
+
                 </div>
             </div>
 
@@ -801,156 +837,443 @@
                 targetPane.classList.remove('hidden');
             }
 
+            if (domainId === 'manufacturing') {
+                setTimeout(resizeBottleCanvas, 60);
+            }
+
             if (window.history && window.history.replaceState) {
                 window.history.replaceState({}, '', '/simulator/' + domainId);
             }
         }
 
-        /* Simulator 1: Bottle Vision */
-        const sim1State = {
+        /* ========================================================================= */
+        /* SIMULATOR 1: INSPECTION BOTTLE SIMULATOR ENGINE (SMARTEK-STYLE REPLICA)   */
+        /* ========================================================================= */
+        const bottleSim = {
             running: true,
-            mode: 'normal',
-            speed: 600,
-            total: 1240,
-            ok: 1236,
-            ng: 4,
-            timer: null
+            animId: null,
+            lastTimestamp: 0,
+            bottles: [], // array of { pos: mm, inDelay: bool, delayTimer: sec, passedGate: bool, inCam: bool }
+            lastDelay: 0.30,
+            delays: [0.30],
+            avgDelay: 0.30
         };
 
-        function applyBottleVisuals() {
-            const capEl = document.getElementById('sim1-bottle-cap');
-            const fillEl = document.getElementById('sim1-bottle-fill');
-            const labelEl = document.getElementById('sim1-bottle-label');
-            const roiBox = document.getElementById('sim1-roi-box');
-            const judgeBadge = document.getElementById('sim1-judge-badge');
-            const diagMsg = document.getElementById('sim1-diag-msg');
-            const modeInd = document.getElementById('sim1-mode-indicator');
-            const piston = document.getElementById('sim1-reject-piston');
+        function getBottleSimParams() {
+            const cv1_speed = parseFloat(document.getElementById('cv1-speed')?.value) || 433;
+            const cv1_cpm = parseFloat(document.getElementById('cv1-cpm')?.value) || 600;
+            const cv1_len = parseFloat(document.getElementById('cv1-length')?.value) || 3000;
 
-            if (!capEl || !fillEl || !labelEl) return;
+            const cv2_speed = parseFloat(document.getElementById('cv2-speed')?.value) || 500;
+            const cv2_len = parseFloat(document.getElementById('cv2-length')?.value) || 1000;
 
-            capEl.setAttribute('opacity', '1');
-            fillEl.setAttribute('y', '34');
-            fillEl.setAttribute('height', '66');
-            labelEl.setAttribute('transform', 'rotate(0 22 62)');
+            const cv3_speed = parseFloat(document.getElementById('cv3-speed')?.value) || 500;
+            const cv3_len = parseFloat(document.getElementById('cv3-length')?.value) || 2000;
 
-            if (sim1State.mode === 'normal') {
-                roiBox.setAttribute('stroke', '#3367A5');
-                judgeBadge.textContent = 'PASS // OK';
-                judgeBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-[#3367A5] text-white';
-                diagMsg.textContent = 'CAP OK | FILL 100% | LABEL ALIGNED (0.1°)';
-                modeInd.textContent = 'MODE: NORMAL';
-                if (piston) piston.setAttribute('transform', 'translate(385, 66)');
-            } else if (sim1State.mode === 'cap') {
-                capEl.setAttribute('opacity', '0.1');
-                roiBox.setAttribute('stroke', '#ffffff');
-                judgeBadge.textContent = 'REJECT // NG';
-                judgeBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-white text-black';
-                diagMsg.textContent = 'FAULT: MISSING BOTTLE CAP -> EJECTED';
-                modeInd.textContent = 'MODE: MISSING CAP';
-                if (piston) piston.setAttribute('transform', 'translate(362, 66)');
-            } else if (sim1State.mode === 'fill') {
-                fillEl.setAttribute('y', '64');
-                fillEl.setAttribute('height', '36');
-                roiBox.setAttribute('stroke', '#ffffff');
-                judgeBadge.textContent = 'REJECT // NG';
-                judgeBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-white text-black';
-                diagMsg.textContent = 'FAULT: UNDERFILL LEVEL (54%) -> EJECTED';
-                modeInd.textContent = 'MODE: LOW FILL';
-                if (piston) piston.setAttribute('transform', 'translate(362, 66)');
-            } else if (sim1State.mode === 'label') {
-                labelEl.setAttribute('transform', 'rotate(14 22 62)');
-                roiBox.setAttribute('stroke', '#ffffff');
-                judgeBadge.textContent = 'REJECT // NG';
-                judgeBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-white text-black';
-                diagMsg.textContent = 'FAULT: LABEL SKEW (+14.0°) -> EJECTED';
-                modeInd.textContent = 'MODE: SKEWED LABEL';
-                if (piston) piston.setAttribute('transform', 'translate(362, 66)');
-            }
+            const cam_pos = parseFloat(document.getElementById('cam-pos')?.value) || 130;
+            const cam_len = parseFloat(document.getElementById('cam-len')?.value) || 300;
+            const cam_offset = parseFloat(document.getElementById('cam-offset')?.value) || 35;
+            const cam_speed = parseFloat(document.getElementById('cam-speed')?.value) || 1000;
+
+            const gate_pos = parseFloat(document.getElementById('gate-pos')?.value) || 10;
+            const gate_len = parseFloat(document.getElementById('gate-len')?.value) || 80;
+            const gate_offset = parseFloat(document.getElementById('gate-offset')?.value) || 50;
+
+            const bps = cv1_cpm > 0 ? (cv1_cpm / 60) : 10;
+            const cv1_spacing = bps > 0 ? (cv1_speed / bps) : 43.3;
+            const cv2_spacing = bps > 0 ? (cv2_speed / bps) : 50.0;
+            const cv3_spacing = bps > 0 ? (cv3_speed / bps) : 50.0;
+            const cv2_time = cv2_speed > 0 ? (cv2_spacing / cv2_speed) : 0.10;
+            const cam_time = cam_speed > 0 ? (cam_len / cam_speed) : 0.30;
+
+            return {
+                cv1_speed, cv1_cpm, cv1_len, cv1_spacing,
+                cv2_speed, cv2_len, cv2_spacing, cv2_time,
+                cv3_speed, cv3_len, cv3_spacing,
+                cam_pos, cam_len, cam_offset, cam_speed, cam_time,
+                gate_pos, gate_len, gate_offset,
+                total_len: cv1_len + cv2_len + cv3_len
+            };
         }
 
-        function stepBottleSim() {
-            sim1State.total += 1;
-            if (sim1State.mode === 'normal') {
-                sim1State.ok += 1;
-            } else {
-                sim1State.ng += 1;
-            }
+        function updateBottleParamDisplays() {
+            const p = getBottleSimParams();
+            const el1 = document.getElementById('cv1-spacing-text');
+            const el2 = document.getElementById('cv2-spacing-text');
+            const el3 = document.getElementById('cv2-time-text');
+            const el4 = document.getElementById('cv3-spacing-text');
+            const el5 = document.getElementById('cam-time-text');
 
-            const totalEl = document.getElementById('sim1-cnt-total');
-            const okEl = document.getElementById('sim1-cnt-ok');
-            const ngEl = document.getElementById('sim1-cnt-ng');
-            const yieldEl = document.getElementById('sim1-cnt-yield');
-            const activeBottle = document.getElementById('sim1-active-bottle');
-
-            if (totalEl) totalEl.textContent = sim1State.total.toLocaleString();
-            if (okEl) okEl.textContent = sim1State.ok.toLocaleString();
-            if (ngEl) ngEl.textContent = sim1State.ng.toLocaleString();
-            if (yieldEl) {
-                const y = ((sim1State.ok / sim1State.total) * 100).toFixed(1);
-                yieldEl.textContent = y + '%';
-            }
-
-            if (activeBottle) {
-                activeBottle.setAttribute('transform', 'translate(225, 36)');
-                setTimeout(() => {
-                    activeBottle.setAttribute('transform', 'translate(228, 36)');
-                }, 140);
-            }
+            if (el1) el1.textContent = p.cv1_spacing.toFixed(1);
+            if (el2) el2.textContent = p.cv2_spacing.toFixed(1);
+            if (el3) el3.textContent = p.cv2_time.toFixed(2);
+            if (el4) el4.textContent = p.cv3_spacing.toFixed(1);
+            if (el5) el5.textContent = p.cam_time.toFixed(2);
         }
 
-        function restartBottleTimer() {
-            if (sim1State.timer) clearInterval(sim1State.timer);
-            if (!sim1State.running) return;
-            const intervalMs = Math.max(260, Math.round(1100 - (sim1State.speed * 0.9)));
-            sim1State.timer = setInterval(stepBottleSim, intervalMs);
-        }
+        function initBottleSimQueue() {
+            const p = getBottleSimParams();
+            bottleSim.bottles = [];
 
-        function setBottleDefectMode(mode) {
-            sim1State.mode = mode;
-            ['normal', 'cap', 'fill', 'label'].forEach(m => {
-                const btn = document.getElementById('sim1-mode-' + m);
-                if (!btn) return;
-                if (m === mode) {
-                    btn.className = "sim-btn px-4 py-3 rounded-xl text-xs font-bold font-['Agrandir'] bg-[#3367A5] text-white transition-all";
-                } else {
-                    btn.className = "sim-btn px-4 py-3 rounded-xl text-xs font-bold font-['Agrandir'] bg-white text-neutral-900 hover:bg-neutral-200 transition-all";
-                }
+            // 1. Fill CV1 with densely queued bottles matching reference spacing
+            const gateEntryMm = p.cv1_len + p.gate_pos;
+            let pos = gateEntryMm - 5;
+            while (pos >= 100) {
+                bottleSim.bottles.push({
+                    pos: pos,
+                    inDelay: false,
+                    delayTimer: 0,
+                    passedGate: false,
+                    inCam: false
+                });
+                pos -= Math.max(35, p.cv1_spacing);
+            }
+
+            // 2. Put 1 bottle actively inside the Delay Gate
+            bottleSim.bottles.push({
+                pos: gateEntryMm + (p.gate_len * 0.4),
+                inDelay: true,
+                delayTimer: 0.15,
+                passedGate: false,
+                inCam: false
             });
-            applyBottleVisuals();
-            stepBottleSim();
+
+            // 3. Put 1 bottle actively inside the Camera Zone
+            const camEntryMm = p.cv1_len + p.cam_pos;
+            bottleSim.bottles.push({
+                pos: camEntryMm + (p.cam_len * 0.45),
+                inDelay: false,
+                delayTimer: 0,
+                passedGate: true,
+                inCam: true
+            });
+
+            // 4. Distribute spaced bottles along CV3
+            let cv3Pos = p.cv1_len + p.cv2_len + 150;
+            while (cv3Pos < p.total_len) {
+                bottleSim.bottles.push({
+                    pos: cv3Pos,
+                    inDelay: false,
+                    delayTimer: 0,
+                    passedGate: true,
+                    inCam: false
+                });
+                cv3Pos += Math.max(45, p.cv3_spacing * 2.5);
+            }
+
+            // Sort bottles ascending by position
+            bottleSim.bottles.sort((a, b) => a.pos - b.pos);
         }
 
-        function updateBottleSpeed(val) {
-            sim1State.speed = parseInt(val, 10) || 600;
-            const label = document.getElementById('sim1-speed-val');
-            if (label) label.textContent = sim1State.speed;
-            restartBottleTimer();
+        function resizeBottleCanvas() {
+            const canvas = document.getElementById('bottleSimCanvas');
+            if (!canvas) return;
+            const rect = canvas.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = Math.max(600, rect.width) * dpr;
+            canvas.height = 360 * dpr;
         }
 
-        function toggleBottleSim() {
-            sim1State.running = !sim1State.running;
-            const label = document.getElementById('sim1-toggle-label');
-            const belt = document.getElementById('sim1-belt-anim');
-            const isId = localStorage.getItem('selectedLang') === 'id';
+        function renderBottleSim(timestamp) {
+            if (!bottleSim.lastTimestamp) bottleSim.lastTimestamp = timestamp;
+            const dt = Math.min(0.06, (timestamp - bottleSim.lastTimestamp) / 1000);
+            bottleSim.lastTimestamp = timestamp;
 
-            if (sim1State.running) {
-                if (label) label.textContent = isId ? 'Jeda Lini' : 'Pause Line';
-                if (belt) belt.classList.add('animate-conveyor');
-                restartBottleTimer();
-            } else {
-                if (label) label.textContent = isId ? 'Jalankan Lini' : 'Start Line';
-                if (belt) belt.classList.remove('animate-conveyor');
-                if (sim1State.timer) clearInterval(sim1State.timer);
+            const canvas = document.getElementById('bottleSimCanvas');
+            if (canvas && canvas.offsetParent !== null) { // visible in DOM
+                const ctx = canvas.getContext('2d');
+                const dpr = window.devicePixelRatio || 1;
+                const p = getBottleSimParams();
+
+                // Logical canvas dimensions
+                const w = canvas.width / dpr;
+                const h = canvas.height / dpr;
+                const padX = 25;
+                const drawW = w - (2 * padX);
+                const baselineY = h * 0.73;
+
+                function mmToPx(mm) {
+                    return padX + (mm / p.total_len) * drawW;
+                }
+
+                const gateStartMm = p.cv1_len + p.gate_pos;
+                const gateEndMm = gateStartMm + p.gate_len;
+                const camStartMm = p.cv1_len + p.cam_pos;
+                const camEndMm = camStartMm + p.cam_len;
+
+                // --- PHYSICS UPDATE ---
+                if (bottleSim.running && dt > 0) {
+                    let prevPosAhead = Infinity;
+
+                    // Iterate bottles from rightmost to leftmost
+                    for (let i = bottleSim.bottles.length - 1; i >= 0; i--) {
+                        const b = bottleSim.bottles[i];
+                        b.inCam = false;
+
+                        if (!b.passedGate) {
+                            // On CV1 or waiting at gate
+                            if (b.pos >= gateStartMm - 2 && b.pos <= gateEndMm) {
+                                // Inside or at gate threshold
+                                b.inDelay = true;
+                                b.delayTimer += dt;
+                                b.pos = Math.min(gateStartMm + (p.gate_len * 0.5), b.pos + 12 * dt);
+
+                                const nominalDelay = 0.30;
+                                if (b.delayTimer >= nominalDelay) {
+                                    b.inDelay = false;
+                                    b.passedGate = true;
+                                    bottleSim.lastDelay = b.delayTimer;
+                                    bottleSim.delays.push(b.delayTimer);
+                                    if (bottleSim.delays.length > 20) bottleSim.delays.shift();
+                                    bottleSim.avgDelay = bottleSim.delays.reduce((acc, v) => acc + v, 0) / bottleSim.delays.length;
+                                    b.pos = gateEndMm + 2;
+                                }
+                            } else {
+                                b.inDelay = false;
+                                const maxAllowable = Math.min(gateStartMm - 10, prevPosAhead - 28);
+                                const desiredPos = b.pos + (p.cv1_speed * dt);
+                                b.pos = Math.min(desiredPos, maxAllowable);
+                            }
+                        } else {
+                            // Passed gate: on CV2 or CV3
+                            b.inDelay = false;
+                            if (b.pos >= camStartMm && b.pos <= camEndMm) {
+                                b.inCam = true;
+                                b.pos += p.cam_speed * dt;
+                            } else if (b.pos < p.cv1_len + p.cv2_len) {
+                                b.pos += p.cv2_speed * dt;
+                            } else {
+                                b.pos += p.cv3_speed * dt;
+                            }
+                        }
+
+                        prevPosAhead = b.pos;
+                    }
+
+                    // Remove bottles that exited off the right
+                    bottleSim.bottles = bottleSim.bottles.filter(b => b.pos <= p.total_len + 80);
+
+                    // Spawn new bottle on CV1 entrance
+                    const firstBottle = bottleSim.bottles[0];
+                    if (!firstBottle || firstBottle.pos >= Math.max(30, p.cv1_spacing)) {
+                        bottleSim.bottles.unshift({
+                            pos: 0,
+                            inDelay: false,
+                            delayTimer: 0,
+                            passedGate: false,
+                            inCam: false
+                        });
+                    }
+                }
+
+                // --- CANVAS DRAWING ---
+                ctx.save();
+                ctx.scale(dpr, dpr);
+                ctx.clearRect(0, 0, w, h);
+
+                // Pure white background
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, w, h);
+
+                // 1. Boundary Vertical Dashed Red Lines
+                const x_bound_1 = mmToPx(p.cv1_len);
+                const x_bound_2 = mmToPx(p.cv1_len + p.cv2_len);
+
+                ctx.setLineDash([5, 5]);
+                ctx.strokeStyle = '#ef4444';
+                ctx.lineWidth = 1.4;
+
+                ctx.beginPath();
+                ctx.moveTo(x_bound_1, 15);
+                ctx.lineTo(x_bound_1, h - 15);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(x_bound_2, 15);
+                ctx.lineTo(x_bound_2, h - 15);
+                ctx.stroke();
+
+                ctx.setLineDash([]); // Reset line dash
+
+                // 2. Delay Zone (Gate) Bracket - Green
+                const gatePxX = mmToPx(gateStartMm);
+                const gatePxW = Math.max(10, mmToPx(gateEndMm) - gatePxX);
+                const gateH = Math.max(35, p.gate_offset || 50);
+
+                ctx.fillStyle = 'rgba(16, 185, 129, 0.22)';
+                ctx.strokeStyle = '#10b981';
+                ctx.lineWidth = 2;
+                ctx.fillRect(gatePxX, baselineY - gateH, gatePxW, gateH);
+                ctx.strokeRect(gatePxX, baselineY - gateH, gatePxW, gateH);
+
+                ctx.fillStyle = '#10b981';
+                ctx.font = 'bold 9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(`Delay Zone: ${(p.gate_len / 1000).toFixed(2)} m`, gatePxX + (gatePxW / 2), baselineY - gateH - 5);
+
+                // 3. Camera Zone Bracket - Amber / Orange
+                const camPxX = mmToPx(camStartMm);
+                const camPxW = Math.max(16, mmToPx(camEndMm) - camPxX);
+                const camH = Math.max(32, p.cam_offset || 35);
+
+                ctx.fillStyle = 'rgba(245, 158, 11, 0.16)';
+                ctx.strokeStyle = '#f59e0b';
+                ctx.lineWidth = 2;
+                ctx.fillRect(camPxX, baselineY - camH, camPxW, camH);
+                ctx.strokeRect(camPxX, baselineY - camH, camPxW, camH);
+
+                ctx.fillStyle = '#d97706';
+                ctx.font = 'bold 9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(`Camera Zone: ${(p.cam_len / 1000).toFixed(2)} m`, camPxX + (camPxW / 2), baselineY - camH - 5);
+
+                // Camera Zone Sub-labels below line
+                ctx.fillStyle = '#d97706';
+                ctx.font = '9px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(`Speed: ${p.cam_speed} mm/s`, camPxX + (camPxW / 2), baselineY + 16);
+                ctx.fillText(`Spacing: ${p.cv2_spacing.toFixed(1)} mm`, camPxX + (camPxW / 2), baselineY + 27);
+
+                // 4. Main Conveyor Belt Baseline
+                ctx.beginPath();
+                ctx.moveTo(padX, baselineY);
+                ctx.lineTo(padX + drawW, baselineY);
+                ctx.strokeStyle = '#1e293b';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // 5. Annotations
+                // CV1 Labels
+                const cv1MidX = mmToPx(p.cv1_len * 0.5);
+                ctx.textAlign = 'center';
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(`CV1: ${(p.cv1_len / 1000).toFixed(2)} m`, cv1MidX, baselineY - 12);
+
+                ctx.fillStyle = '#475569';
+                ctx.font = '9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(`Speed: ${p.cv1_speed} mm/s`, cv1MidX, baselineY + 16);
+                ctx.fillText(`Spacing: ${p.cv1_spacing.toFixed(1)} mm`, cv1MidX, baselineY + 27);
+
+                // CV2 Labels (stacked high above camera & gate)
+                const cv2MidX = mmToPx(p.cv1_len + (p.cv2_len * 0.5));
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(`CV2: ${(p.cv2_len / 1000).toFixed(2)} m`, cv2MidX, baselineY - 65);
+                ctx.fillStyle = '#475569';
+                ctx.font = '9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(`Speed: ${p.cv2_speed} mm/s`, cv2MidX, baselineY - 52);
+                ctx.fillText(`Spacing: ${p.cv2_spacing.toFixed(1)} mm`, cv2MidX, baselineY - 40);
+
+                // CV3 Labels
+                const cv3MidX = mmToPx(p.cv1_len + p.cv2_len + (p.cv3_len * 0.5));
+                ctx.fillStyle = '#0f172a';
+                ctx.font = 'bold 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(`CV3: ${(p.cv3_len / 1000).toFixed(2)} m`, cv3MidX, baselineY - 12);
+
+                ctx.fillStyle = '#475569';
+                ctx.font = '9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText(`Speed: ${p.cv3_speed} mm/s`, cv3MidX, baselineY + 16);
+                ctx.fillText(`Spacing: ${p.cv3_spacing.toFixed(1)} mm`, cv3MidX, baselineY + 27);
+
+                // 6. Draw Moving Blue Circular Bottles
+                let inCamCount = 0;
+                let inDelayCount = 0;
+                const bottleRadius = 7.5;
+
+                bottleSim.bottles.forEach(b => {
+                    const bx = mmToPx(b.pos);
+                    const by = baselineY - bottleRadius;
+
+                    if (b.inCam) inCamCount++;
+                    if (b.inDelay) inDelayCount++;
+
+                    ctx.beginPath();
+                    ctx.arc(bx, by, bottleRadius, 0, Math.PI * 2);
+                    ctx.fillStyle = '#38bdf8'; // vibrant sky blue circle matching Smartek reference
+                    ctx.strokeStyle = '#0284c7'; // dark blue border
+                    ctx.lineWidth = 1.4;
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Subtle optical inspection highlight when inside camera zone
+                    if (b.inCam) {
+                        ctx.beginPath();
+                        ctx.arc(bx, by, bottleRadius + 2.5, 0, Math.PI * 2);
+                        ctx.strokeStyle = 'rgba(245, 158, 11, 0.7)';
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
+                    }
+                });
+
+                // 7. Update Live UI Counters in Parameter Cards
+                const camBottlesEl = document.getElementById('cam-bottles-text');
+                const gateBottlesEl = document.getElementById('gate-bottles-text');
+                const lastDelayEl = document.getElementById('gate-last-delay-text');
+                const avgDelayEl = document.getElementById('gate-avg-delay-text');
+
+                if (camBottlesEl) camBottlesEl.textContent = inCamCount;
+                if (gateBottlesEl) gateBottlesEl.textContent = inDelayCount;
+                if (lastDelayEl) lastDelayEl.textContent = bottleSim.lastDelay.toFixed(2) + ' s';
+                if (avgDelayEl) avgDelayEl.textContent = bottleSim.avgDelay.toFixed(2) + ' s';
+
+                ctx.restore();
+            }
+
+            bottleSim.animId = requestAnimationFrame(renderBottleSim);
+        }
+
+        function startBottleSim() {
+            bottleSim.running = true;
+            const statusPill = document.getElementById('bottleSimStatusPill');
+            if (statusPill) {
+                statusPill.textContent = 'RUNNING';
+                statusPill.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-200';
+            }
+        }
+
+        function stopBottleSim() {
+            bottleSim.running = false;
+            const statusPill = document.getElementById('bottleSimStatusPill');
+            if (statusPill) {
+                statusPill.textContent = 'STOPPED';
+                statusPill.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-neutral-100 text-neutral-600 border border-neutral-300';
             }
         }
 
         function resetBottleSim() {
-            sim1State.total = 0;
-            sim1State.ok = 0;
-            sim1State.ng = 0;
-            setBottleDefectMode('normal');
+            initBottleSimQueue();
+            updateBottleParamDisplays();
+            const statusPill = document.getElementById('bottleSimStatusPill');
+            if (statusPill) {
+                statusPill.textContent = bottleSim.running ? 'RUNNING' : 'STOPPED';
+            }
         }
+
+        // Attach dynamic input listeners to recalculate spacing & time in real-time
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputIds = [
+                'cv1-speed', 'cv1-cpm', 'cv1-length',
+                'cv2-speed', 'cv2-length',
+                'cv3-speed', 'cv3-length',
+                'cam-pos', 'cam-len', 'cam-offset', 'cam-speed',
+                'gate-pos', 'gate-len', 'gate-offset'
+            ];
+
+            inputIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        updateBottleParamDisplays();
+                    });
+                }
+            });
+
+            resizeBottleCanvas();
+            initBottleSimQueue();
+            updateBottleParamDisplays();
+            window.addEventListener('resize', resizeBottleCanvas);
+            bottleSim.animId = requestAnimationFrame(renderBottleSim);
+        });
 
         /* Simulator 2: Automotive Gear & OEE */
         function scanAutomotivePart(injectDefect) {
@@ -1211,3 +1534,4 @@
 </body>
 
 </html>
+
