@@ -270,7 +270,7 @@
 
                             <div>
                                 <label for="cam-offset" class="block text-xs text-gray-500 font-medium mb-1">Vertical Offset (px):</label>
-                                <input type="number" id="cam-offset" value="35" min="0" max="200"
+                                <input type="number" id="cam-offset" value="65" min="0" max="200"
                                     class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
                             </div>
 
@@ -304,7 +304,7 @@
 
                             <div>
                                 <label for="gate-offset" class="block text-xs text-gray-500 font-medium mb-1">Vertical Offset (px):</label>
-                                <input type="number" id="gate-offset" value="50" min="0" max="200"
+                                <input type="number" id="gate-offset" value="72" min="0" max="200"
                                     class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
                             </div>
 
@@ -344,7 +344,7 @@
 
                     <!-- Canvas Simulation Container matching Image 3 -->
                     <div class="border border-gray-300 rounded-2xl bg-white p-3 sm:p-5 overflow-hidden relative shadow-sm">
-                        <canvas id="bottleSimCanvas" class="w-full block" style="height: 360px; min-height: 320px;"></canvas>
+                        <canvas id="bottleSimCanvas" class="w-full block" style="height: 390px; min-height: 350px;"></canvas>
                     </div>
 
                 </div>
@@ -881,7 +881,106 @@
             const rect = canvas.getBoundingClientRect();
             const dpr = window.devicePixelRatio || 1;
             canvas.width = Math.max(600, rect.width) * dpr;
-            canvas.height = 360 * dpr;
+            canvas.height = 390 * dpr;
+        }
+
+        function drawBottleSilhouette(ctx, bx, baselineY, inCam) {
+            const halfW = 7;
+            const neckHalfW = 3;
+            const capHalfW = 4;
+            const bodyTopY = baselineY - 22;
+            const shoulderTopY = baselineY - 30;
+            const neckTopY = baselineY - 37;
+            const capTopY = baselineY - 44;
+
+            ctx.save();
+
+            // 1. Bottle Body & Neck
+            ctx.beginPath();
+            ctx.moveTo(bx - halfW + 1.5, baselineY);
+            ctx.quadraticCurveTo(bx - halfW, baselineY, bx - halfW, baselineY - 1.5);
+            ctx.lineTo(bx - halfW, bodyTopY);
+            ctx.quadraticCurveTo(bx - halfW, shoulderTopY + 2, bx - neckHalfW, shoulderTopY);
+            ctx.lineTo(bx - neckHalfW, neckTopY);
+            ctx.lineTo(bx + neckHalfW, neckTopY);
+            ctx.lineTo(bx + neckHalfW, shoulderTopY);
+            ctx.quadraticCurveTo(bx + halfW, shoulderTopY + 2, bx + halfW, bodyTopY);
+            ctx.lineTo(bx + halfW, baselineY - 1.5);
+            ctx.quadraticCurveTo(bx + halfW, baselineY, bx + halfW - 1.5, baselineY);
+            ctx.closePath();
+
+            if (inCam) {
+                ctx.fillStyle = 'rgba(245, 158, 11, 0.28)';
+                ctx.strokeStyle = '#f59e0b';
+                ctx.lineWidth = 1.4;
+            } else {
+                ctx.fillStyle = 'rgba(51, 103, 165, 0.42)';
+                ctx.strokeStyle = '#3367A5';
+                ctx.lineWidth = 1.2;
+            }
+            ctx.fill();
+            ctx.stroke();
+
+            // 2. Bottle Cap
+            const capH = 6;
+            const capW = capHalfW * 2;
+            ctx.beginPath();
+            ctx.rect(bx - capHalfW, capTopY, capW, capH);
+            ctx.fillStyle = inCam ? '#d97706' : '#1e293b';
+            ctx.fill();
+            ctx.strokeStyle = inCam ? '#f59e0b' : '#0f172a';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // 3. Label Band on Body
+            const labelTopY = baselineY - 19;
+            const labelH = 10;
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fillRect(bx - halfW + 1, labelTopY, (halfW - 1) * 2, labelH);
+            ctx.fillStyle = inCam ? '#f59e0b' : '#3367A5';
+            ctx.fillRect(bx - halfW + 1, labelTopY + 3.5, (halfW - 1) * 2, 2.5);
+
+            // 4. Optical Inspection Reticle & Laser Scan Bounding Box (when inside Camera Zone)
+            if (inCam) {
+                // Target ROI Bounding Box with dashed amber border
+                ctx.setLineDash([2, 2]);
+                ctx.strokeStyle = '#f59e0b';
+                ctx.lineWidth = 1;
+                const roiPadX = 3.5;
+                const roiPadY = 3.5;
+                const rx = bx - halfW - roiPadX;
+                const ry = capTopY - roiPadY;
+                const rw = (halfW + roiPadX) * 2;
+                const rh = (baselineY - capTopY) + roiPadY;
+
+                ctx.strokeRect(rx, ry, rw, rh);
+                ctx.setLineDash([]);
+
+                // Corner crosshair brackets
+                const cLen = 2.5;
+                ctx.strokeStyle = '#d97706';
+                ctx.lineWidth = 1.2;
+                ctx.beginPath();
+                // Top-left
+                ctx.moveTo(rx - 1, ry + cLen); ctx.lineTo(rx - 1, ry - 1); ctx.lineTo(rx + cLen, ry - 1);
+                // Top-right
+                ctx.moveTo(rx + rw - cLen, ry - 1); ctx.lineTo(rx + rw + 1, ry - 1); ctx.lineTo(rx + rw + 1, ry + cLen);
+                // Bottom-left
+                ctx.moveTo(rx - 1, ry + rh - cLen); ctx.lineTo(rx - 1, ry + rh + 1); ctx.lineTo(rx + cLen, ry + rh + 1);
+                // Bottom-right
+                ctx.moveTo(rx + rw - cLen, ry + rh + 1); ctx.lineTo(rx + rw + 1, ry + rh + 1); ctx.lineTo(rx + rw + 1, ry + rh - cLen);
+                ctx.stroke();
+
+                // Red optical laser fill-level inspection line across neck/shoulder
+                ctx.strokeStyle = '#ef4444';
+                ctx.lineWidth = 1.2;
+                ctx.beginPath();
+                ctx.moveTo(bx - halfW - 2, shoulderTopY);
+                ctx.lineTo(bx + halfW + 2, shoulderTopY);
+                ctx.stroke();
+            }
+
+            ctx.restore();
         }
 
         function renderBottleSim(timestamp) {
@@ -900,7 +999,7 @@
                 const h = canvas.height / dpr;
                 const padX = 25;
                 const drawW = w - (2 * padX);
-                const baselineY = h * 0.73;
+                const baselineY = Math.round(h * 0.74);
 
                 function mmToPx(mm) {
                     return padX + (mm / p.total_len) * drawW;
@@ -918,7 +1017,7 @@
                     const spawnInterval = 1 / ratePerSec;
                     bottleSim.spawnTimer += dt;
 
-                    const minGapMm = 28; // Minimum physical spacing between bottle centers
+                    const minGapMm = 80; // Minimum physical spacing between bottle silhouettes
 
                     if (bottleSim.spawnTimer >= spawnInterval) {
                         const firstBottle = bottleSim.bottles[0];
@@ -1029,10 +1128,10 @@
 
                 ctx.setLineDash([]); // Reset line dash
 
-                // 2. Delay Zone (Gate) Bracket - Green
+                // 2. Delay Zone (Gate) Bracket - Green (Enlarged for standing bottle silhouette)
                 const gatePxX = mmToPx(gateStartMm);
-                const gatePxW = Math.max(10, mmToPx(gateEndMm) - gatePxX);
-                const gateH = Math.max(35, p.gate_offset || 50);
+                const gatePxW = Math.max(18, mmToPx(gateEndMm) - gatePxX);
+                const gateH = Math.max(72, p.gate_offset || 72);
                 const gateBelow = 8; // Bracket clamps slightly across baseline like reference
                 const gateRightX = gatePxX + gatePxW;
 
@@ -1046,12 +1145,12 @@
                 ctx.fillStyle = '#10b981';
                 ctx.font = 'bold 9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText(`Delay Zone: ${(p.gate_len / 1000).toFixed(2)} m`, gatePxX + (gatePxW / 2), baselineY - gateH - 18);
+                ctx.fillText(`Delay Zone: ${(p.gate_len / 1000).toFixed(2)} m`, gatePxX + (gatePxW / 2), baselineY - 84);
 
-                // 3. Camera Zone Bracket - Amber / Orange
+                // 3. Camera Zone Bracket - Amber / Orange (Enlarged for standing bottle silhouette)
                 const camPxX = mmToPx(camStartMm);
-                const camPxW = Math.max(16, mmToPx(camEndMm) - camPxX);
-                const camH = Math.max(32, p.cam_offset || 35);
+                const camPxW = Math.max(48, mmToPx(camEndMm) - camPxX);
+                const camH = Math.max(65, p.cam_offset || 65);
 
                 ctx.fillStyle = 'rgba(245, 158, 11, 0.16)';
                 ctx.strokeStyle = '#f59e0b';
@@ -1063,7 +1162,7 @@
                 ctx.fillStyle = '#d97706';
                 ctx.font = 'bold 9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText(`Camera Zone: ${(p.cam_len / 1000).toFixed(2)} m`, camPxX + (camPxW / 2), baselineY - camH - 6);
+                ctx.fillText(`Camera Zone: ${(p.cam_len / 1000).toFixed(2)} m`, camPxX + (camPxW / 2), baselineY - 73);
 
                 // Camera Zone Sub-labels below line
                 ctx.fillStyle = '#d97706';
@@ -1097,11 +1196,11 @@
                 const cv2MidX = mmToPx(p.cv1_len + (p.cv2_len * 0.5));
                 ctx.fillStyle = '#0f172a';
                 ctx.font = 'bold 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.fillText(`CV2: ${(p.cv2_len / 1000).toFixed(2)} m`, cv2MidX, baselineY - 110);
+                ctx.fillText(`CV2: ${(p.cv2_len / 1000).toFixed(2)} m`, cv2MidX, baselineY - 128);
                 ctx.fillStyle = '#475569';
                 ctx.font = '9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.fillText(`Speed: ${p.cv2_speed} mm/s`, cv2MidX, baselineY - 96);
-                ctx.fillText(`Spacing: ${p.cv2_spacing.toFixed(1)} mm`, cv2MidX, baselineY - 82);
+                ctx.fillText(`Speed: ${p.cv2_speed} mm/s`, cv2MidX, baselineY - 114);
+                ctx.fillText(`Spacing: ${p.cv2_spacing.toFixed(1)} mm`, cv2MidX, baselineY - 100);
 
                 // CV3 Labels
                 const cv3MidX = mmToPx(p.cv1_len + p.cv2_len + (p.cv3_len * 0.5));
@@ -1114,34 +1213,16 @@
                 ctx.fillText(`Speed: ${p.cv3_speed} mm/s`, cv3MidX, baselineY + 18);
                 ctx.fillText(`Spacing: ${p.cv3_spacing.toFixed(1)} mm`, cv3MidX, baselineY + 31);
 
-                // 6. Draw Moving Blue Circular Bottles
+                // 6. Draw Moving Standing Bottle Silhouettes
                 let inCamCount = 0;
                 let inDelayCount = 0;
-                const bottleRadius = 5.5;
 
                 bottleSim.bottles.forEach(b => {
                     const bx = mmToPx(b.pos);
-                    const by = baselineY - bottleRadius;
-
                     if (b.inCam) inCamCount++;
                     if (b.inDelay) inDelayCount++;
 
-                    ctx.beginPath();
-                    ctx.arc(bx, by, bottleRadius, 0, Math.PI * 2);
-                    ctx.fillStyle = '#38bdf8'; // vibrant sky blue circle
-                    ctx.strokeStyle = '#0284c7'; // dark blue border
-                    ctx.lineWidth = 1.3;
-                    ctx.fill();
-                    ctx.stroke();
-
-                    // Subtle optical inspection highlight when inside camera zone
-                    if (b.inCam) {
-                        ctx.beginPath();
-                        ctx.arc(bx, by, bottleRadius + 2.5, 0, Math.PI * 2);
-                        ctx.strokeStyle = 'rgba(245, 158, 11, 0.8)';
-                        ctx.lineWidth = 1.5;
-                        ctx.stroke();
-                    }
+                    drawBottleSilhouette(ctx, bx, baselineY, b.inCam);
                 });
 
                 // 7. Update Live UI Counters in Parameter Cards
