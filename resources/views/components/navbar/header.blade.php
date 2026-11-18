@@ -53,6 +53,25 @@
         pointer-events: auto !important;
         transform: translateX(-50%) translateY(0) !important;
     }
+    .app-flyout-menu {
+        position: absolute;
+        left: 100%;
+        top: -12px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateX(8px);
+        transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+        z-index: 1050;
+    }
+    .group\/app:hover .app-flyout-menu,
+    .group\/app:focus-within .app-flyout-menu,
+    .app-flyout-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateX(0) !important;
+    }
 </style>
 
 <!-- Master Dynamic Navbar with LabsStdio Scroll Transition Logic -->
@@ -128,24 +147,112 @@
                                         </div>
                                     </a>
 
-                                    <!-- Item 2: Application -->
-                                    <a href="{{ route('application') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                        <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                    <!-- Item 2: Application with Side Flyout -->
+                                    <div class="relative group/app">
+                                        <a href="{{ route('application') }}" class="group/item flex items-center justify-between gap-3 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                            <div class="flex items-start gap-3.5 min-w-0">
+                                                <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                                    <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="space-y-0.5">
+                                                    <h4 data-lang-en="Applications" data-lang-id="Aplikasi Industri"
+                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                                        Applications
+                                                    </h4>
+                                                    <p data-lang-en="Smart automation architectures &amp; cross-sector use cases" data-lang-id="Arsitektur otomasi cerdas &amp; use case lintas sektor"
+                                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                                        Smart automation architectures &amp; cross-sector use cases
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <svg class="w-4 h-4 text-neutral-400 group-hover/item:text-[#3367A5] group-hover/item:translate-x-0.5 transition-all shrink-0 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                                             </svg>
+                                        </a>
+
+                                        <!-- Side Flyout Submenu (5 Operational Domains - Matching Image 1) -->
+                                        <div class="app-flyout-menu pl-3.5 w-[360px] xl:w-[380px]">
+                                            <div class="relative bg-white rounded-[26px] shadow-[0_25px_60px_rgba(0,0,0,0.18)] border border-neutral-200/90 p-4 space-y-1.5 text-left">
+                                                <!-- Left Caret Notch -->
+                                                <div class="absolute -left-1.5 top-7 w-3 h-3 bg-white border-b border-l border-neutral-200/90 rotate-45 z-10 hidden sm:block"></div>
+
+                                                <div class="px-2.5 py-1 mb-1 border-b border-neutral-100 flex items-center justify-between">
+                                                    <span class="text-[10px] font-bold tracking-wider uppercase text-neutral-400 font-['Agrandir',sans-serif]" data-lang-en="Operational Domains" data-lang-id="Domain Operasional">
+                                                        Operational Domains
+                                                    </span>
+                                                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#3367A5]/10 text-[#3367A5] font-bold font-['Agrandir',sans-serif]">5 Sectors</span>
+                                                </div>
+
+                                                <!-- Domain 1: Manufacturing & FMCG -->
+                                                <a href="{{ route('application.manufacturing') }}"
+                                                   class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-3 min-w-0">
+                                                        <span class="w-8 h-8 rounded-xl bg-[#3367A5] text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center shrink-0 shadow-sm">01</span>
+                                                        <div class="min-w-0">
+                                                            <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Manufacturing &amp; FMCG</div>
+                                                            <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">High-speed inspection &amp; packaging</div>
+                                                        </div>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                </a>
+
+                                                <!-- Domain 2: Automotive & Heavy Machinery -->
+                                                <a href="{{ route('application.automotive') }}"
+                                                   class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-3 min-w-0">
+                                                        <span class="w-8 h-8 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">02</span>
+                                                        <div class="min-w-0">
+                                                            <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Automotive &amp; Machinery</div>
+                                                            <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">Robotic cells &amp; sub-micron QA</div>
+                                                        </div>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                </a>
+
+                                                <!-- Domain 3: Pharma & Cleanrooms -->
+                                                <a href="{{ route('application.pharma') }}"
+                                                   class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-3 min-w-0">
+                                                        <span class="w-8 h-8 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">03</span>
+                                                        <div class="min-w-0">
+                                                            <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Pharma &amp; Cleanrooms</div>
+                                                            <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">Blister seal integrity &amp; 2D OCR</div>
+                                                        </div>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                </a>
+
+                                                <!-- Domain 4: Smart BMS & Utilities -->
+                                                <a href="{{ route('application.bms') }}"
+                                                   class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-3 min-w-0">
+                                                        <span class="w-8 h-8 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">04</span>
+                                                        <div class="min-w-0">
+                                                            <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Smart BMS &amp; Utilities</div>
+                                                            <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">Web SCADA &amp; energy telemetry</div>
+                                                        </div>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                </a>
+
+                                                <!-- Domain 5: End-of-Line Packaging -->
+                                                <a href="{{ route('application.packaging') }}"
+                                                   class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-3 min-w-0">
+                                                        <span class="w-8 h-8 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">05</span>
+                                                        <div class="min-w-0">
+                                                            <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">End-of-Line Packaging</div>
+                                                            <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">3,500N arch strapping &amp; turntables</div>
+                                                        </div>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                </a>
+
+                                            </div>
                                         </div>
-                                        <div class="space-y-0.5">
-                                            <h4 data-lang-en="Applications" data-lang-id="Aplikasi Industri"
-                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                Applications
-                                            </h4>
-                                            <p data-lang-en="Smart automation architectures &amp; cross-sector use cases" data-lang-id="Arsitektur otomasi cerdas &amp; use case lintas sektor"
-                                                class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                Smart automation architectures &amp; cross-sector use cases
-                                            </p>
-                                        </div>
-                                    </a>
+                                    </div>
 
                                     <!-- Item 3: Projects -->
                                     <a href="{{ route('projects') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
@@ -439,24 +546,112 @@
                                             </div>
                                         </a>
 
-                                        <!-- Item 2: Application -->
-                                        <a href="{{ route('application') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                        <!-- Item 2: Application with Side Flyout -->
+                                        <div class="relative group/app">
+                                            <a href="{{ route('application') }}" class="group/item flex items-center justify-between gap-3 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                                <div class="flex items-start gap-3.5 min-w-0">
+                                                    <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="space-y-0.5">
+                                                        <h4 data-lang-en="Applications" data-lang-id="Aplikasi Industri"
+                                                            class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                                            Applications
+                                                        </h4>
+                                                        <p data-lang-en="Smart automation architectures &amp; cross-sector use cases" data-lang-id="Arsitektur otomasi cerdas &amp; use case lintas sektor"
+                                                            class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                                            Smart automation architectures &amp; cross-sector use cases
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <svg class="w-4 h-4 text-neutral-400 group-hover/item:text-[#3367A5] group-hover/item:translate-x-0.5 transition-all shrink-0 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                                                 </svg>
+                                            </a>
+
+                                            <!-- Side Flyout Submenu (5 Operational Domains - Matching Image 1) -->
+                                            <div class="app-flyout-menu pl-3.5 w-[360px] xl:w-[380px]">
+                                                <div class="relative bg-white rounded-[26px] shadow-[0_25px_60px_rgba(0,0,0,0.18)] border border-neutral-200/90 p-4 space-y-1.5 text-left">
+                                                    <!-- Left Caret Notch -->
+                                                    <div class="absolute -left-1.5 top-7 w-3 h-3 bg-white border-b border-l border-neutral-200/90 rotate-45 z-10 hidden sm:block"></div>
+
+                                                    <div class="px-2.5 py-1 mb-1 border-b border-neutral-100 flex items-center justify-between">
+                                                        <span class="text-[10px] font-bold tracking-wider uppercase text-neutral-400 font-['Agrandir',sans-serif]" data-lang-en="Operational Domains" data-lang-id="Domain Operasional">
+                                                            Operational Domains
+                                                        </span>
+                                                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#3367A5]/10 text-[#3367A5] font-bold font-['Agrandir',sans-serif]">5 Sectors</span>
+                                                    </div>
+
+                                                    <!-- Domain 1: Manufacturing & FMCG -->
+                                                    <a href="{{ route('application.manufacturing') }}"
+                                                       class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                        <div class="flex items-center gap-3 min-w-0">
+                                                            <span class="w-8 h-8 rounded-xl bg-[#3367A5] text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center shrink-0 shadow-sm">01</span>
+                                                            <div class="min-w-0">
+                                                                <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Manufacturing &amp; FMCG</div>
+                                                                <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">High-speed inspection &amp; packaging</div>
+                                                            </div>
+                                                        </div>
+                                                        <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                    </a>
+
+                                                    <!-- Domain 2: Automotive & Heavy Machinery -->
+                                                    <a href="{{ route('application.automotive') }}"
+                                                       class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                        <div class="flex items-center gap-3 min-w-0">
+                                                            <span class="w-8 h-8 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">02</span>
+                                                            <div class="min-w-0">
+                                                                <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Automotive &amp; Machinery</div>
+                                                                <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">Robotic cells &amp; sub-micron QA</div>
+                                                            </div>
+                                                        </div>
+                                                        <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                    </a>
+
+                                                    <!-- Domain 3: Pharma & Cleanrooms -->
+                                                    <a href="{{ route('application.pharma') }}"
+                                                       class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                        <div class="flex items-center gap-3 min-w-0">
+                                                            <span class="w-8 h-8 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">03</span>
+                                                            <div class="min-w-0">
+                                                                <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Pharma &amp; Cleanrooms</div>
+                                                                <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">Blister seal integrity &amp; 2D OCR</div>
+                                                            </div>
+                                                        </div>
+                                                        <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                    </a>
+
+                                                    <!-- Domain 4: Smart BMS & Utilities -->
+                                                    <a href="{{ route('application.bms') }}"
+                                                       class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                        <div class="flex items-center gap-3 min-w-0">
+                                                            <span class="w-8 h-8 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">04</span>
+                                                            <div class="min-w-0">
+                                                                <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Smart BMS &amp; Utilities</div>
+                                                                <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">Web SCADA &amp; energy telemetry</div>
+                                                            </div>
+                                                        </div>
+                                                        <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                    </a>
+
+                                                    <!-- Domain 5: End-of-Line Packaging -->
+                                                    <a href="{{ route('application.packaging') }}"
+                                                       class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                        <div class="flex items-center gap-3 min-w-0">
+                                                            <span class="w-8 h-8 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">05</span>
+                                                            <div class="min-w-0">
+                                                                <div class="text-xs font-bold text-neutral-900 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">End-of-Line Packaging</div>
+                                                                <div class="text-[11px] text-neutral-400 font-['Questrial',sans-serif] truncate">3,500N arch strapping &amp; turntables</div>
+                                                            </div>
+                                                        </div>
+                                                        <svg class="w-3.5 h-3.5 text-neutral-400 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                                                    </a>
+
+                                                </div>
                                             </div>
-                                            <div class="space-y-0.5">
-                                                <h4 data-lang-en="Applications" data-lang-id="Aplikasi Industri"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                    Applications
-                                                </h4>
-                                                <p data-lang-en="Smart automation architectures &amp; cross-sector use cases" data-lang-id="Arsitektur otomasi cerdas &amp; use case lintas sektor"
-                                                    class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                    Smart automation architectures &amp; cross-sector use cases
-                                                </p>
-                                            </div>
-                                        </a>
+                                        </div>
 
                                         <!-- Item 3: Projects -->
                                         <a href="{{ route('projects') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
@@ -698,8 +893,17 @@
                         <div class="pl-4 space-y-1 border-l-2 border-[#3367A5]/30 ml-2">
                             <a href="{{ route('vision-mission') }}" data-lang-en="Vision, Mission &amp; Goals" data-lang-id="Visi, Misi &amp; Tujuan"
                                 class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('vision-mission') ? 'text-[#3367A5] font-bold' : '' }}">Vision, Mission &amp; Goals</a>
-                            <a href="{{ route('application') }}" data-lang-en="Applications" data-lang-id="Aplikasi Industri"
-                                class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('application') ? 'text-[#3367A5] font-bold' : '' }}">Applications</a>
+                            <div class="space-y-0.5">
+                                <a href="{{ route('application') }}" data-lang-en="Applications" data-lang-id="Aplikasi Industri"
+                                    class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('application*') ? 'text-[#3367A5] font-bold' : '' }}">Applications</a>
+                                <div class="pl-3.5 space-y-1 border-l border-neutral-200 ml-3">
+                                    <a href="{{ route('application.manufacturing') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.manufacturing') ? 'text-[#3367A5] font-bold' : '' }}">&bull; Manufacturing &amp; FMCG</a>
+                                    <a href="{{ route('application.automotive') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.automotive') ? 'text-[#3367A5] font-bold' : '' }}">&bull; Automotive &amp; Machinery</a>
+                                    <a href="{{ route('application.pharma') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.pharma') ? 'text-[#3367A5] font-bold' : '' }}">&bull; Pharma &amp; Cleanrooms</a>
+                                    <a href="{{ route('application.bms') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.bms') ? 'text-[#3367A5] font-bold' : '' }}">&bull; Smart BMS &amp; Utilities</a>
+                                    <a href="{{ route('application.packaging') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.packaging') ? 'text-[#3367A5] font-bold' : '' }}">&bull; End-of-Line Packaging</a>
+                                </div>
+                            </div>
                             <a href="{{ route('projects') }}" data-lang-en="Projects" data-lang-id="Proyek &amp; Portofolio"
                                 class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('projects') || request()->routeIs('project') ? 'text-[#3367A5] font-bold' : '' }}">Projects</a>
                         </div>
