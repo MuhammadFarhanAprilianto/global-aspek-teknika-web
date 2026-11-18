@@ -13,11 +13,13 @@
         margin: 0;
         padding: 0;
     }
+
     @supports not (overflow: clip) {
         html {
             overflow-x: hidden;
         }
     }
+
     body {
         overflow-x: clip;
         width: 100%;
@@ -26,14 +28,17 @@
         padding: 0;
         position: relative;
     }
+
     @supports not (overflow: clip) {
         body {
             overflow-x: hidden;
         }
     }
+
     .mega-dropdown-wrapper {
         position: relative;
     }
+
     .mega-dropdown-menu {
         position: absolute;
         left: 50%;
@@ -45,6 +50,7 @@
         transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
         z-index: 1000;
     }
+
     .mega-dropdown-wrapper:hover .mega-dropdown-menu,
     .mega-dropdown-wrapper:focus-within .mega-dropdown-menu,
     .mega-dropdown-menu:hover {
@@ -64,6 +70,27 @@
         transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
         z-index: 1050;
     }
+    .group\/app:hover .app-flyout-menu,
+    .group\/app:focus-within .app-flyout-menu,
+    .app-flyout-menu:hover {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateX(0) !important;
+    }
+
+    .app-flyout-menu {
+        position: absolute;
+        left: 100%;
+        top: -12px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateX(8px);
+        transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+        z-index: 1050;
+    }
+
     .group\/app:hover .app-flyout-menu,
     .group\/app:focus-within .app-flyout-menu,
     .app-flyout-menu:hover {
@@ -112,40 +139,51 @@
                     <a href="{{ route('about') }}" data-nav-link
                         data-active="{{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'true' : 'false' }}"
                         class="relative z-10 flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'text-white font-medium' : 'text-gray-700' }}">
-                        <span data-lang-en="About Us" data-lang-id="Tentang Kami" class="whitespace-nowrap">About Us</span>
+                        <span data-lang-en="About Us" data-lang-id="Tentang Kami" class="whitespace-nowrap">About
+                            Us</span>
                         <svg class="w-4 h-4 {{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'text-white' : 'text-gray-400' }} transition-transform duration-300 group-hover:rotate-180 shrink-0"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </a>
 
                     <!-- Dropdown Menu (LabsStdio Style) -->
                     <div class="mega-dropdown-menu pt-3 w-[460px] lg:w-[500px]">
                         <!-- Outer Card with Caret Arrow -->
-                        <div class="relative bg-white rounded-[32px] shadow-[0_30px_70px_rgba(0,0,0,0.16)] border border-neutral-200/90 p-6 sm:p-7 text-left">
+                        <div
+                            class="relative bg-white rounded-[32px] shadow-[0_30px_70px_rgba(0,0,0,0.16)] border border-neutral-200/90 p-6 sm:p-7 text-left">
                             <!-- Top Caret Notch -->
-                            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-neutral-200/90 rotate-45 z-10"></div>
+                            <div
+                                class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-neutral-200/90 rotate-45 z-10">
+                            </div>
 
                             <!-- List of Sub-Pages -->
                             <div class="space-y-2.5">
-                                    <!-- Item 1: Vision, Mission & Goals -->
-                                    <a href="{{ route('vision-mission') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                        <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                            </svg>
-                                        </div>
-                                        <div class="space-y-0.5">
-                                            <h4 data-lang-en="Vision, Mission &amp; Goals" data-lang-id="Visi, Misi &amp; Tujuan"
-                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                Vision, Mission &amp; Goals
-                                            </h4>
-                                            <p data-lang-en="Strategic roadmap, corporate values &amp; enduring vision" data-lang-id="Peta jalan strategis, nilai perusahaan &amp; visi berkelanjutan"
-                                                class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                Strategic roadmap, corporate values &amp; enduring vision
-                                            </p>
-                                        </div>
-                                    </a>
+                                <!-- Item 1: Vision, Mission & Goals -->
+                                <a href="{{ route('vision-mission') }}"
+                                    class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
+                                    </div>
+                                    <div class="space-y-0.5">
+                                        <h4 data-lang-en="Vision, Mission &amp; Goals"
+                                            data-lang-id="Visi, Misi &amp; Tujuan"
+                                            class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                            Vision, Mission &amp; Goals
+                                        </h4>
+                                        <p data-lang-en="Strategic roadmap, corporate values &amp; enduring vision"
+                                            data-lang-id="Peta jalan strategis, nilai perusahaan &amp; visi berkelanjutan"
+                                            class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                            Strategic roadmap, corporate values &amp; enduring vision
+                                        </p>
+                                    </div>
+                                </a>
 
                                     <!-- Item 2: Application with Side Flyout -->
                                     <div class="relative group/app">
@@ -311,162 +349,419 @@
                                                 </svg>
                                             </div>
                                             <div class="space-y-0.5">
-                                                <h4 data-lang-en="PLC Programming" data-lang-id="Pemrograman PLC"
+                                                <h4 data-lang-en="Applications" data-lang-id="Aplikasi Industri"
                                                     class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                    PLC Programming
+                                                    Applications
                                                 </h4>
-                                                <p data-lang-en="Mitsubishi, Omron, Siemens, etc." data-lang-id="Mitsubishi, Omron, Siemens, dll."
+                                                <p data-lang-en="Smart automation architectures &amp; cross-sector use cases"
+                                                    data-lang-id="Arsitektur otomasi cerdas &amp; use case lintas sektor"
                                                     class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                    Mitsubishi, Omron, Siemens, etc.
+                                                    Smart automation architectures &amp; cross-sector use cases
                                                 </p>
                                             </div>
-                                        </a>
+                                        </div>
+                                        <svg class="w-4 h-4 text-neutral-400 group-hover/item:text-[#3367A5] group-hover/item:translate-x-0.5 transition-all shrink-0 ml-1"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </a>
 
-                                        <!-- Item 2: Inspection & Record Data System -->
-                                        <a href="{{ route('inspection') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7V5a2 2 0 012-2h2m12 0h2a2 2 0 012 2v2m0 10v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8"></path>
-                                                </svg>
+                                    <!-- Side Flyout Submenu (5 Operational Domains) -->
+                                    <div class="app-flyout-menu pl-3.5 w-[320px] xl:w-[340px]">
+                                        <div
+                                            class="relative bg-white rounded-[26px] shadow-[0_25px_60px_rgba(0,0,0,0.18)] border border-neutral-200/90 p-4 space-y-1 text-left">
+                                            <!-- Left Caret Notch -->
+                                            <div
+                                                class="absolute -left-1.5 top-6 w-3 h-3 bg-white border-b border-l border-neutral-200/90 rotate-45 z-10 hidden sm:block">
                                             </div>
-                                            <div class="space-y-0.5">
-                                                <h4 data-lang-en="Inspection &amp; Record Data System" data-lang-id="Sistem Inspeksi &amp; Rekam Data"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                    Inspection &amp; Record Data System
-                                                </h4>
-                                                <p data-lang-en="High-precision quality assurance" data-lang-id="Jaminan kualitas presisi tinggi"
-                                                    class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                    High-precision quality assurance
-                                                </p>
-                                            </div>
-                                        </a>
 
-                                        <!-- Item 3: Monitoring System -->
-                                        <a href="{{ route('monitoring') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                                </svg>
+                                            <div
+                                                class="px-2.5 py-1 mb-1 border-b border-neutral-100 flex items-center justify-between">
+                                                <span
+                                                    class="text-[10px] font-bold tracking-wider uppercase text-neutral-400 font-['Agrandir',sans-serif]"
+                                                    data-lang-en="Operational Domains"
+                                                    data-lang-id="Domain Operasional">
+                                                    Operational Domains
+                                                </span>
+                                                <span
+                                                    class="text-[10px] px-2 py-0.5 rounded-full bg-[#3367A5]/10 text-[#3367A5] font-semibold">5
+                                                    Sectors</span>
                                             </div>
-                                            <div class="space-y-0.5">
-                                                <h4 data-lang-en="Monitoring System" data-lang-id="Sistem Monitoring"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                    Monitoring System
-                                                </h4>
-                                                <p data-lang-en="Real-time industrial telemetry" data-lang-id="Telemetri industri waktu-nyata"
-                                                    class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                    Real-time industrial telemetry
-                                                </p>
-                                            </div>
-                                        </a>
-                                </div>
 
-                                <!-- Column 2 -->
-                                <div class="space-y-3.5">
-                                        <!-- Item 4: Integrator System -->
-                                        <a href="{{ route('intergrator') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <!-- Domain 1: Manufacturing & FMCG -->
+                                            <a href="{{ route('application') }}?domain=manufacturing#domain-content-area"
+                                                onclick="handleDomainNav('manufacturing', event)"
+                                                class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                <div class="flex items-center gap-2.5 min-w-0">
+                                                    <span
+                                                        class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">01</span>
+                                                    <span
+                                                        class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Manufacturing
+                                                        &amp; FMCG</span>
+                                                </div>
+                                                <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    stroke-width="2.5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 5l7 7-7 7" />
                                                 </svg>
-                                            </div>
-                                            <div class="space-y-0.5">
-                                                <h4 data-lang-en="Integrator System" data-lang-id="Sistem Integrator"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                    Integrator System
-                                                </h4>
-                                                <p data-lang-en="End-to-end industrial workflows" data-lang-id="Alur kerja industri terintegrasi"
-                                                    class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                    End-to-end industrial workflows
-                                                </p>
-                                            </div>
-                                        </a>
+                                            </a>
 
-                                        <!-- Item 5: Laser Marking & Inkjet Printing -->
-                                        <a href="{{ route('laser-marking') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                                            <!-- Domain 1: Manufacturing & FMCG -->
+                                            <a href="{{ route('application.manufacturing') }}"
+                                                class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                <div class="flex items-center gap-2.5 min-w-0">
+                                                    <span
+                                                        class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">01</span>
+                                                    <span
+                                                        class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Manufacturing
+                                                        &amp; FMCG</span>
+                                                </div>
+                                                <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    stroke-width="2.5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 5l7 7-7 7" />
                                                 </svg>
-                                            </div>
-                                            <div class="space-y-0.5">
-                                                <h4 data-lang-en="Laser Marking &amp; Inkjet Printing" data-lang-id="Penandaan Laser &amp; Cetak Inkjet"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                    Laser Marking &amp; Inkjet Printing
-                                                </h4>
-                                                <p data-lang-en="Precision industrial tracing" data-lang-id="Pelacakan industri presisi"
-                                                    class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                    Precision industrial tracing
-                                                </p>
-                                            </div>
-                                        </a>
+                                            </a>
 
-                                        <!-- Item 6: Strapping -->
-                                        <a href="{{ route('strapping') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                            <!-- Domain 2: Automotive & Heavy Machinery -->
+                                            <a href="{{ route('application.automotive') }}"
+                                                class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                <div class="flex items-center gap-2.5 min-w-0">
+                                                    <span
+                                                        class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">02</span>
+                                                    <span
+                                                        class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Automotive
+                                                        &amp; Machinery</span>
+                                                </div>
+                                                <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    stroke-width="2.5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 5l7 7-7 7" />
                                                 </svg>
-                                            </div>
-                                            <div class="space-y-0.5">
-                                                <h4 data-lang-en="Strapping" data-lang-id="Strapping"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                    Strapping
-                                                </h4>
-                                                <p data-lang-en="Automated packaging systems" data-lang-id="Sistem pengemasan otomatis"
-                                                    class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                    Automated packaging systems
-                                                </p>
-                                            </div>
-                                        </a>
+                                            </a>
+
+                                            <!-- Domain 3: Pharma & Cleanrooms -->
+                                            <a href="{{ route('application.pharma') }}"
+                                                class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                <div class="flex items-center gap-2.5 min-w-0">
+                                                    <span
+                                                        class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">03</span>
+                                                    <span
+                                                        class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Pharma
+                                                        &amp; Cleanrooms</span>
+                                                </div>
+                                                <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    stroke-width="2.5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </a>
+
+                                            <!-- Domain 4: Smart BMS & Utilities -->
+                                            <a href="{{ route('application.bms') }}"
+                                                class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                <div class="flex items-center gap-2.5 min-w-0">
+                                                    <span
+                                                        class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">04</span>
+                                                    <span
+                                                        class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Smart
+                                                        BMS &amp; Utilities</span>
+                                                </div>
+                                                <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    stroke-width="2.5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </a>
+
+                                            <!-- Domain 5: End-of-Line Packaging -->
+                                            <a href="{{ route('application.packaging') }}"
+                                                class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                <div class="flex items-center gap-2.5 min-w-0">
+                                                    <span
+                                                        class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">05</span>
+                                                    <span
+                                                        class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">End-of-Line
+                                                        Packaging</span>
+                                                </div>
+                                                <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                    stroke-width="2.5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <!-- Item 3: Projects -->
+                            <a href="{{ route('projects') }}"
+                                class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Projects" data-lang-id="Proyek &amp; Portofolio"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Projects
+                                    </h4>
+                                    <p data-lang-en="Real-world engineering implementations &amp; client case studies"
+                                        data-lang-id="Implementasi rekayasa nyata &amp; studi kasus klien"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Real-world engineering implementations &amp; client case studies
+                                    </p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
+        </div>
 
-                <a href="{{ route('product') }}" data-nav-link
-                    data-active="{{ request()->routeIs('product*') || request()->is('product*') ? 'true' : 'false' }}"
-                    data-lang-en="Products" data-lang-id="Produk"
-                    class="relative z-10 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('product*') || request()->is('product*') ? 'text-white font-medium' : 'text-gray-700' }}">
-                    Products
-                </a>
-
-                <a href="{{ route('contact') }}" data-nav-link
-                    data-active="{{ request()->routeIs('contact*') || request()->is('contact*') ? 'true' : 'false' }}"
-                    data-lang-en="Contact Us" data-lang-id="Kontak Kami"
-                    class="relative z-10 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('contact*') || request()->is('contact*') ? 'text-white font-medium' : 'text-gray-700' }}">
-                    Contact Us
-                </a>
-            </nav>
-
-            <!-- Right Action: Quote CTA (LabsStdio Red Gliding Button) -->
-            <div class="hidden md:flex items-center shrink-0">
-                <a href="{{ route('contact') }}"
-                    class="group relative inline-flex items-center justify-center overflow-hidden px-5 lg:px-6 py-2.5 lg:py-3 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-xs sm:text-sm lg:text-[15px] font-normal tracking-wider rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(51,103,165,0.4)] hover:border-[#3367A5]/60 transition-all duration-1000 active:scale-95 whitespace-nowrap shrink-0">
-                    <!-- Red Wipe Layer from Left to Right -->
-                    <span
-                        class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
-
-                    <!-- Text Layer -->
-                    <span data-lang-en="Get A Quote" data-lang-id="Minta Penawaran" class="relative z-10 flex items-center gap-2">
-                        Get A Quote
-                    </span>
-                </a>
-            </div>
-
-            <!-- Mobile Hamburger Toggle -->
-            <button type="button"
-                class="btn-menu-open md:hidden p-2.5 text-gray-700 hover:text-black hover:bg-gray-100 rounded-2xl transition focus:outline-none shrink-0"
-                aria-label="Open Navigation">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+        <!-- Solutions Dropdown -->
+        <div class="mega-dropdown-wrapper group py-2 shrink-0">
+            <a href="{{ route('solution') }}" data-nav-link
+                data-active="{{ request()->routeIs('solution*') || request()->routeIs('plc-progamming') || request()->routeIs('inspection') || request()->routeIs('monitoring') || request()->routeIs('intergrator') || request()->routeIs('laser-marking') || request()->routeIs('strapping') || request()->is('solution*') || request()->is('plc-progamming*') || request()->is('inspection*') || request()->is('monitoring*') || request()->is('intergrator*') || request()->is('laser-marking*') || request()->is('strapping*') ? 'true' : 'false' }}"
+                class="relative z-10 flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('solution*') || request()->routeIs('plc-progamming') || request()->routeIs('inspection') || request()->routeIs('monitoring') || request()->routeIs('intergrator') || request()->routeIs('laser-marking') || request()->routeIs('strapping') || request()->is('solution*') || request()->is('plc-progamming*') || request()->is('inspection*') || request()->is('monitoring*') || request()->is('intergrator*') || request()->is('laser-marking*') || request()->is('strapping*') ? 'text-white font-medium' : 'text-gray-700' }}">
+                <span data-lang-en="Solutions" data-lang-id="Solusi" class="whitespace-nowrap">Solutions</span>
+                <svg class="w-4 h-4 {{ request()->routeIs('solution*') || request()->routeIs('plc-progamming') || request()->routeIs('inspection') || request()->routeIs('monitoring') || request()->routeIs('intergrator') || request()->routeIs('laser-marking') || request()->routeIs('strapping') || request()->is('solution*') || request()->is('plc-progamming*') || request()->is('inspection*') || request()->is('monitoring*') || request()->is('intergrator*') || request()->is('laser-marking*') || request()->is('strapping*') ? 'text-white' : 'text-gray-400' }} transition-transform duration-300 group-hover:rotate-180 shrink-0"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
                     </path>
                 </svg>
-            </button>
+            </a>
 
+            <!-- Dropdown Mega Menu (LabsStdio Style) -->
+            <div class="mega-dropdown-menu pt-3 w-[680px] lg:w-[750px]">
+
+                <!-- Outer Card with Caret Arrow (LabsStudio Rounded 32px & Shadow) -->
+                <div
+                    class="relative bg-white rounded-[32px] shadow-[0_30px_70px_rgba(0,0,0,0.16)] border border-neutral-200/90 p-7 sm:p-8 text-left">
+                    <!-- Top Caret Notch -->
+                    <div
+                        class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-neutral-200/90 rotate-45 z-10">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-7">
+                        <!-- Column 1 -->
+                        <div class="space-y-3.5">
+                            <!-- Item 1: PLC Programming -->
+                            <a href="{{ route('plc-progamming') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <rect x="4" y="4" width="16" height="16" rx="2">
+                                        </rect>
+                                        <rect x="9" y="9" width="6" height="6"></rect>
+                                        <path stroke-linecap="round"
+                                            d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="PLC Programming" data-lang-id="Pemrograman PLC"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        PLC Programming
+                                    </h4>
+                                    <p data-lang-en="Mitsubishi, Omron, Siemens, etc."
+                                        data-lang-id="Mitsubishi, Omron, Siemens, dll."
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Mitsubishi, Omron, Siemens, etc.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Item 2: Inspection & Record Data System -->
+                            <a href="{{ route('inspection') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M3 7V5a2 2 0 012-2h2m12 0h2a2 2 0 012 2v2m0 10v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Inspection &amp; Record Data System"
+                                        data-lang-id="Sistem Inspeksi &amp; Rekam Data"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Inspection &amp; Record Data System
+                                    </h4>
+                                    <p data-lang-en="High-precision quality assurance"
+                                        data-lang-id="Jaminan kualitas presisi tinggi"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        High-precision quality assurance
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Item 3: Monitoring System -->
+                            <a href="{{ route('monitoring') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Monitoring System" data-lang-id="Sistem Monitoring"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Monitoring System
+                                    </h4>
+                                    <p data-lang-en="Real-time industrial telemetry"
+                                        data-lang-id="Telemetri industri waktu-nyata"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Real-time industrial telemetry
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Column 2 -->
+                        <div class="space-y-3.5">
+                            <!-- Item 4: Integrator System -->
+                            <a href="{{ route('intergrator') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Integrator System" data-lang-id="Sistem Integrator"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Integrator System
+                                    </h4>
+                                    <p data-lang-en="End-to-end industrial workflows"
+                                        data-lang-id="Alur kerja industri terintegrasi"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        End-to-end industrial workflows
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Item 5: Laser Marking & Inkjet Printing -->
+                            <a href="{{ route('laser-marking') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Laser Marking &amp; Inkjet Printing"
+                                        data-lang-id="Penandaan Laser &amp; Cetak Inkjet"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Laser Marking &amp; Inkjet Printing
+                                    </h4>
+                                    <p data-lang-en="Precision industrial tracing"
+                                        data-lang-id="Pelacakan industri presisi"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Precision industrial tracing
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Item 6: Strapping -->
+                            <a href="{{ route('strapping') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Strapping" data-lang-id="Strapping"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Strapping
+                                    </h4>
+                                    <p data-lang-en="Automated packaging systems"
+                                        data-lang-id="Sistem pengemasan otomatis"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Automated packaging systems
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <a href="{{ route('product') }}" data-nav-link
+            data-active="{{ request()->routeIs('product*') || request()->is('product*') ? 'true' : 'false' }}"
+            data-lang-en="Products" data-lang-id="Produk"
+            class="relative z-10 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('product*') || request()->is('product*') ? 'text-white font-medium' : 'text-gray-700' }}">
+            Products
+        </a>
+
+        <a href="{{ route('contact') }}" data-nav-link
+            data-active="{{ request()->routeIs('contact*') || request()->is('contact*') ? 'true' : 'false' }}"
+            data-lang-en="Contact Us" data-lang-id="Kontak Kami"
+            class="relative z-10 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('contact*') || request()->is('contact*') ? 'text-white font-medium' : 'text-gray-700' }}">
+            Contact Us
+        </a>
+        </nav>
+
+        <!-- Right Action: Quote CTA (LabsStdio Red Gliding Button) -->
+        <div class="hidden md:flex items-center shrink-0">
+            <a href="{{ route('contact') }}"
+                class="group relative inline-flex items-center justify-center overflow-hidden px-5 lg:px-6 py-2.5 lg:py-3 bg-gradient-to-b from-[#24262c] to-[#121316] text-white text-xs sm:text-sm lg:text-[15px] font-normal tracking-wider rounded-full border border-neutral-700/60 shadow-[0_4px_16px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:shadow-[0_6px_22px_rgba(51,103,165,0.4)] hover:border-[#3367A5]/60 transition-all duration-1000 active:scale-95 whitespace-nowrap shrink-0">
+                <!-- Red Wipe Layer from Left to Right -->
+                <span
+                    class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
+
+                <!-- Text Layer -->
+                <span data-lang-en="Get A Quote" data-lang-id="Minta Penawaran"
+                    class="relative z-10 flex items-center gap-2">
+                    Get A Quote
+                </span>
+            </a>
+        </div>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button"
+            class="btn-menu-open md:hidden p-2.5 text-gray-700 hover:text-black hover:bg-gray-100 rounded-2xl transition focus:outline-none shrink-0"
+            aria-label="Open Navigation">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
+        </button>
+
+    </div>
     </div>
 
 
@@ -510,7 +805,8 @@
                         <a href="{{ route('about') }}" data-nav-link
                             data-active="{{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'true' : 'false' }}"
                             class="relative z-10 flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'text-white font-medium' : 'text-gray-700' }}">
-                            <span data-lang-en="About Us" data-lang-id="Tentang Kami" class="whitespace-nowrap">About Us</span>
+                            <span data-lang-en="About Us" data-lang-id="Tentang Kami" class="whitespace-nowrap">About
+                                Us</span>
                             <svg class="w-4 h-4 {{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'text-white' : 'text-gray-400' }} transition-transform duration-300 group-hover:rotate-180 shrink-0"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -521,30 +817,39 @@
                         <!-- Dropdown Mega Menu (LabsStdio Style) -->
                         <div class="mega-dropdown-menu pt-3 w-[460px] lg:w-[500px]">
                             <!-- Outer Card with Caret Arrow -->
-                            <div class="relative bg-white rounded-[32px] shadow-[0_30px_70px_rgba(0,0,0,0.16)] border border-neutral-200/90 p-6 sm:p-7 text-left">
+                            <div
+                                class="relative bg-white rounded-[32px] shadow-[0_30px_70px_rgba(0,0,0,0.16)] border border-neutral-200/90 p-6 sm:p-7 text-left">
                                 <!-- Top Caret Notch -->
-                                <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-neutral-200/90 rotate-45 z-10"></div>
+                                <div
+                                    class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-neutral-200/90 rotate-45 z-10">
+                                </div>
 
                                 <!-- List of Sub-Pages -->
                                 <div class="space-y-2.5">
-                                        <!-- Item 1: Vision, Mission & Goals -->
-                                        <a href="{{ route('vision-mission') }}" class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                            <div class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                                </svg>
-                                            </div>
-                                            <div class="space-y-0.5">
-                                                <h4 data-lang-en="Vision, Mission &amp; Goals" data-lang-id="Visi, Misi &amp; Tujuan"
-                                                    class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                    Vision, Mission &amp; Goals
-                                                </h4>
-                                                <p data-lang-en="Strategic roadmap, corporate values &amp; enduring vision" data-lang-id="Peta jalan strategis, nilai perusahaan &amp; visi berkelanjutan"
-                                                    class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                    Strategic roadmap, corporate values &amp; enduring vision
-                                                </p>
-                                            </div>
-                                        </a>
+                                    <!-- Item 1: Vision, Mission & Goals -->
+                                    <a href="{{ route('vision-mission') }}"
+                                        class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                            </svg>
+                                        </div>
+                                        <div class="space-y-0.5">
+                                            <h4 data-lang-en="Vision, Mission &amp; Goals"
+                                                data-lang-id="Visi, Misi &amp; Tujuan"
+                                                class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                                Vision, Mission &amp; Goals
+                                            </h4>
+                                            <p data-lang-en="Strategic roadmap, corporate values &amp; enduring vision"
+                                                data-lang-id="Peta jalan strategis, nilai perusahaan &amp; visi berkelanjutan"
+                                                class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                                Strategic roadmap, corporate values &amp; enduring vision
+                                            </p>
+                                        </div>
+                                    </a>
 
                                         <!-- Item 2: Application with Side Flyout -->
                                         <div class="relative group/app">
@@ -710,148 +1015,406 @@
                                                     </svg>
                                                 </div>
                                                 <div class="space-y-0.5">
-                                                    <h4 data-lang-en="PLC Programming" data-lang-id="Pemrograman PLC"
+                                                    <h4 data-lang-en="Applications" data-lang-id="Aplikasi Industri"
                                                         class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                        PLC Programming
+                                                        Applications
                                                     </h4>
-                                                    <p data-lang-en="Mitsubishi, Omron, Siemens, etc." data-lang-id="Mitsubishi, Omron, Siemens, dll."
+                                                    <p data-lang-en="Smart automation architectures &amp; cross-sector use cases"
+                                                        data-lang-id="Arsitektur otomasi cerdas &amp; use case lintas sektor"
                                                         class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                        Mitsubishi, Omron, Siemens, etc.
+                                                        Smart automation architectures &amp; cross-sector use cases
                                                     </p>
                                                 </div>
-                                            </a>
+                                            </div>
+                                            <svg class="w-4 h-4 text-neutral-400 group-hover/item:text-[#3367A5] group-hover/item:translate-x-0.5 transition-all shrink-0 ml-1"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
 
-                                            <!-- Item 2: Inspection & Record Data System -->
-                                            <a href="{{ route('inspection') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 7V5a2 2 0 012-2h2m12 0h2a2 2 0 012 2v2m0 10v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8"></path>
-                                                    </svg>
+                                        <!-- Side Flyout Submenu (5 Operational Domains) -->
+                                        <div class="app-flyout-menu pl-3.5 w-[320px] xl:w-[340px]">
+                                            <div
+                                                class="relative bg-white rounded-[26px] shadow-[0_25px_60px_rgba(0,0,0,0.18)] border border-neutral-200/90 p-4 space-y-1 text-left">
+                                                <!-- Left Caret Notch -->
+                                                <div
+                                                    class="absolute -left-1.5 top-6 w-3 h-3 bg-white border-b border-l border-neutral-200/90 rotate-45 z-10 hidden sm:block">
                                                 </div>
-                                                <div class="space-y-0.5">
-                                                    <h4 data-lang-en="Inspection &amp; Record Data System" data-lang-id="Sistem Inspeksi &amp; Rekam Data"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                        Inspection &amp; Record Data System
-                                                    </h4>
-                                                    <p data-lang-en="High-precision quality assurance" data-lang-id="Jaminan kualitas presisi tinggi"
-                                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                        High-precision quality assurance
-                                                    </p>
-                                                </div>
-                                            </a>
 
-                                            <!-- Item 3: Monitoring System -->
-                                            <a href="{{ route('monitoring') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                                    </svg>
+                                                <div
+                                                    class="px-2.5 py-1 mb-1 border-b border-neutral-100 flex items-center justify-between">
+                                                    <span
+                                                        class="text-[10px] font-bold tracking-wider uppercase text-neutral-400 font-['Agrandir',sans-serif]"
+                                                        data-lang-en="Operational Domains"
+                                                        data-lang-id="Domain Operasional">
+                                                        Operational Domains
+                                                    </span>
+                                                    <span
+                                                        class="text-[10px] px-2 py-0.5 rounded-full bg-[#3367A5]/10 text-[#3367A5] font-semibold">5
+                                                        Sectors</span>
                                                 </div>
-                                                <div class="space-y-0.5">
-                                                    <h4 data-lang-en="Monitoring System" data-lang-id="Sistem Monitoring"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                        Monitoring System
-                                                    </h4>
-                                                    <p data-lang-en="Real-time industrial telemetry" data-lang-id="Telemetri industri waktu-nyata"
-                                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                        Real-time industrial telemetry
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
 
-                                    <!-- Column 2 -->
-                                    <div class="space-y-3.5">
-                                            <!-- Item 4: Integrator System -->
-                                            <a href="{{ route('intergrator') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                <!-- Domain 1: Manufacturing & FMCG -->
+                                                <a href="{{ route('application') }}?domain=manufacturing#domain-content-area"
+                                                    onclick="handleDomainNav('manufacturing', event)"
+                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-2.5 min-w-0">
+                                                        <span
+                                                            class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">01</span>
+                                                        <span
+                                                            class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Manufacturing
+                                                            &amp; FMCG</span>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9 5l7 7-7 7" />
                                                     </svg>
-                                                </div>
-                                                <div class="space-y-0.5">
-                                                    <h4 data-lang-en="Integrator System" data-lang-id="Sistem Integrator"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                        Integrator System
-                                                    </h4>
-                                                    <p data-lang-en="End-to-end industrial workflows" data-lang-id="Alur kerja industri terintegrasi"
-                                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                        End-to-end industrial workflows
-                                                    </p>
-                                                </div>
-                                            </a>
+                                                </a>
 
-                                            <!-- Item 5: Laser Marking & Inkjet Printing -->
-                                            <a href="{{ route('laser-marking') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                                                <!-- Domain 1: Manufacturing & FMCG -->
+                                                <a href="{{ route('application.manufacturing') }}"
+                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-2.5 min-w-0">
+                                                        <span
+                                                            class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">01</span>
+                                                        <span
+                                                            class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Manufacturing
+                                                            &amp; FMCG</span>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9 5l7 7-7 7" />
                                                     </svg>
-                                                </div>
-                                                <div class="space-y-0.5">
-                                                    <h4 data-lang-en="Laser Marking &amp; Inkjet Printing" data-lang-id="Penandaan Laser &amp; Cetak Inkjet"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                        Laser Marking &amp; Inkjet Printing
-                                                    </h4>
-                                                    <p data-lang-en="Precision industrial tracing" data-lang-id="Pelacakan industri presisi"
-                                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                        Precision industrial tracing
-                                                    </p>
-                                                </div>
-                                            </a>
+                                                </a>
 
-                                            <!-- Item 6: Strapping -->
-                                            <a href="{{ route('strapping') }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
-                                                <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                                <!-- Domain 2: Automotive & Heavy Machinery -->
+                                                <a href="{{ route('application.automotive') }}"
+                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-2.5 min-w-0">
+                                                        <span
+                                                            class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">02</span>
+                                                        <span
+                                                            class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Automotive
+                                                            &amp; Machinery</span>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9 5l7 7-7 7" />
                                                     </svg>
-                                                </div>
-                                                <div class="space-y-0.5">
-                                                    <h4 data-lang-en="Strapping" data-lang-id="Strapping"
-                                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
-                                                        Strapping
-                                                    </h4>
-                                                    <p data-lang-en="Automated packaging systems" data-lang-id="Sistem pengemasan otomatis"
-                                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
-                                                        Automated packaging systems
-                                                    </p>
-                                                </div>
-                                            </a>
+                                                </a>
+
+                                                <!-- Domain 3: Pharma & Cleanrooms -->
+                                                <a href="{{ route('application.pharma') }}"
+                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-2.5 min-w-0">
+                                                        <span
+                                                            class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">03</span>
+                                                        <span
+                                                            class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Pharma
+                                                            &amp; Cleanrooms</span>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </a>
+
+                                                <!-- Domain 4: Smart BMS & Utilities -->
+                                                <a href="{{ route('application.bms') }}"
+                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-2.5 min-w-0">
+                                                        <span
+                                                            class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">04</span>
+                                                        <span
+                                                            class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">Smart
+                                                            BMS &amp; Utilities</span>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </a>
+
+                                                <!-- Domain 5: End-of-Line Packaging -->
+                                                <a href="{{ route('application.packaging') }}"
+                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
+                                                    <div class="flex items-center gap-2.5 min-w-0">
+                                                        <span
+                                                            class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">05</span>
+                                                        <span
+                                                            class="text-xs font-bold text-neutral-800 group-hover/sub:text-[#3367A5] font-['Agrandir',sans-serif] transition-colors truncate">End-of-Line
+                                                            Packaging</span>
+                                                    </div>
+                                                    <svg class="w-3.5 h-3.5 text-neutral-300 group-hover/sub:text-[#3367A5] group-hover/sub:translate-x-0.5 transition-all shrink-0 ml-2"
+                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                        stroke-width="2.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+
+                                <!-- Item 3: Projects -->
+                                <a href="{{ route('projects') }}"
+                                    class="group/item flex items-start gap-3.5 p-2.5 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                        </svg>
+                                    </div>
+                                    <div class="space-y-0.5">
+                                        <h4 data-lang-en="Projects" data-lang-id="Proyek &amp; Portofolio"
+                                            class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                            Projects
+                                        </h4>
+                                        <p data-lang-en="Real-world engineering implementations &amp; client case studies"
+                                            data-lang-id="Implementasi rekayasa nyata &amp; studi kasus klien"
+                                            class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                            Real-world engineering implementations &amp; client case studies
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
-
-                    <a href="{{ route('product') }}" data-nav-link
-                        data-active="{{ request()->routeIs('product*') || request()->is('product*') ? 'true' : 'false' }}"
-                        data-lang-en="Products" data-lang-id="Produk"
-                        class="relative z-10 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('product*') || request()->is('product*') ? 'text-white font-medium' : 'text-gray-700' }}">
-                        Products
-                    </a>
-
-                    <a href="{{ route('contact') }}" data-nav-link
-                        data-active="{{ request()->routeIs('contact*') || request()->is('contact*') ? 'true' : 'false' }}"
-                        data-lang-en="Contact Us" data-lang-id="Kontak Kami"
-                        class="relative z-10 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('contact*') || request()->is('contact*') ? 'text-white font-medium' : 'text-gray-700' }}">
-                        Contact Us
-                    </a>
-                </nav>
-
-                <!-- Mobile Hamburger inside Pill -->
-                <button type="button"
-                    class="btn-menu-open md:hidden p-2 text-gray-700 hover:text-black hover:bg-gray-100 rounded-full transition focus:outline-none shrink-0"
-                    aria-label="Open Navigation">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </nav>
-
         </div>
+
+        <!-- Solutions Pill Dropdown -->
+        <div class="mega-dropdown-wrapper group shrink-0">
+            <a href="{{ route('solution') }}" data-nav-link
+                data-active="{{ request()->routeIs('solution*') || request()->routeIs('plc-progamming') || request()->routeIs('inspection') || request()->routeIs('monitoring') || request()->routeIs('intergrator') || request()->routeIs('laser-marking') || request()->routeIs('strapping') || request()->is('solution*') || request()->is('plc-progamming*') || request()->is('inspection*') || request()->is('monitoring*') || request()->is('intergrator*') || request()->is('laser-marking*') || request()->is('strapping*') ? 'true' : 'false' }}"
+                class="relative z-10 flex items-center gap-1.5 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('solution*') || request()->routeIs('plc-progamming') || request()->routeIs('inspection') || request()->routeIs('monitoring') || request()->routeIs('intergrator') || request()->routeIs('laser-marking') || request()->routeIs('strapping') || request()->is('solution*') || request()->is('plc-progamming*') || request()->is('inspection*') || request()->is('monitoring*') || request()->is('intergrator*') || request()->is('laser-marking*') || request()->is('strapping*') ? 'text-white font-medium' : 'text-gray-700' }}">
+                <span data-lang-en="Solutions" data-lang-id="Solusi" class="whitespace-nowrap">Solutions</span>
+                <svg class="w-4 h-4 {{ request()->routeIs('solution*') || request()->routeIs('plc-progamming') || request()->routeIs('inspection') || request()->routeIs('monitoring') || request()->routeIs('intergrator') || request()->routeIs('laser-marking') || request()->routeIs('strapping') || request()->is('solution*') || request()->is('plc-progamming*') || request()->is('inspection*') || request()->is('monitoring*') || request()->is('intergrator*') || request()->is('laser-marking*') || request()->is('strapping*') ? 'text-white' : 'text-gray-400' }} transition-transform duration-300 group-hover:rotate-180 shrink-0"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </a>
+
+            <!-- Dropdown Mega Menu (LabsStdio Style) -->
+            <div class="mega-dropdown-menu pt-3 w-[680px] lg:w-[750px]">
+
+                <!-- Outer Card with Caret Arrow (LabsStudio Rounded 32px & Shadow) -->
+                <div
+                    class="relative bg-white rounded-[32px] shadow-[0_30px_70px_rgba(0,0,0,0.16)] border border-neutral-200/90 p-7 sm:p-8 text-left">
+                    <!-- Top Caret Notch -->
+                    <div
+                        class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-neutral-200/90 rotate-45 z-10">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-7">
+                        <!-- Column 1 -->
+                        <div class="space-y-3.5">
+                            <!-- Item 1: PLC Programming -->
+                            <a href="{{ route('plc-progamming') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <rect x="4" y="4" width="16" height="16" rx="2">
+                                        </rect>
+                                        <rect x="9" y="9" width="6" height="6"></rect>
+                                        <path stroke-linecap="round"
+                                            d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="PLC Programming" data-lang-id="Pemrograman PLC"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        PLC Programming
+                                    </h4>
+                                    <p data-lang-en="Mitsubishi, Omron, Siemens, etc."
+                                        data-lang-id="Mitsubishi, Omron, Siemens, dll."
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Mitsubishi, Omron, Siemens, etc.
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Item 2: Inspection & Record Data System -->
+                            <a href="{{ route('inspection') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M3 7V5a2 2 0 012-2h2m12 0h2a2 2 0 012 2v2m0 10v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Inspection &amp; Record Data System"
+                                        data-lang-id="Sistem Inspeksi &amp; Rekam Data"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Inspection &amp; Record Data System
+                                    </h4>
+                                    <p data-lang-en="High-precision quality assurance"
+                                        data-lang-id="Jaminan kualitas presisi tinggi"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        High-precision quality assurance
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Item 3: Monitoring System -->
+                            <a href="{{ route('monitoring') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Monitoring System" data-lang-id="Sistem Monitoring"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Monitoring System
+                                    </h4>
+                                    <p data-lang-en="Real-time industrial telemetry"
+                                        data-lang-id="Telemetri industri waktu-nyata"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Real-time industrial telemetry
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Column 2 -->
+                        <div class="space-y-3.5">
+                            <!-- Item 4: Integrator System -->
+                            <a href="{{ route('intergrator') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Integrator System" data-lang-id="Sistem Integrator"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Integrator System
+                                    </h4>
+                                    <p data-lang-en="End-to-end industrial workflows"
+                                        data-lang-id="Alur kerja industri terintegrasi"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        End-to-end industrial workflows
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Item 5: Laser Marking & Inkjet Printing -->
+                            <a href="{{ route('laser-marking') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Laser Marking &amp; Inkjet Printing"
+                                        data-lang-id="Penandaan Laser &amp; Cetak Inkjet"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Laser Marking &amp; Inkjet Printing
+                                    </h4>
+                                    <p data-lang-en="Precision industrial tracing"
+                                        data-lang-id="Pelacakan industri presisi"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Precision industrial tracing
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Item 6: Strapping -->
+                            <a href="{{ route('strapping') }}"
+                                class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
+                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="space-y-0.5">
+                                    <h4 data-lang-en="Strapping" data-lang-id="Strapping"
+                                        class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
+                                        Strapping
+                                    </h4>
+                                    <p data-lang-en="Automated packaging systems"
+                                        data-lang-id="Sistem pengemasan otomatis"
+                                        class="text-xs text-neutral-500 font-['Agrandir',sans-serif]">
+                                        Automated packaging systems
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="{{ route('product') }}" data-nav-link
+            data-active="{{ request()->routeIs('product*') || request()->is('product*') ? 'true' : 'false' }}"
+            data-lang-en="Products" data-lang-id="Produk"
+            class="relative z-10 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('product*') || request()->is('product*') ? 'text-white font-medium' : 'text-gray-700' }}">
+            Products
+        </a>
+
+        <a href="{{ route('contact') }}" data-nav-link
+            data-active="{{ request()->routeIs('contact*') || request()->is('contact*') ? 'true' : 'false' }}"
+            data-lang-en="Contact Us" data-lang-id="Kontak Kami"
+            class="relative z-10 px-4 lg:px-5 py-2 lg:py-2.5 rounded-full transition-colors duration-200 whitespace-nowrap {{ request()->routeIs('contact*') || request()->is('contact*') ? 'text-white font-medium' : 'text-gray-700' }}">
+            Contact Us
+        </a>
+        </nav>
+
+        <!-- Mobile Hamburger inside Pill -->
+        <button type="button"
+            class="btn-menu-open md:hidden p-2 text-gray-700 hover:text-black hover:bg-gray-100 rounded-full transition focus:outline-none shrink-0"
+            aria-label="Open Navigation">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
+        </button>
+        </nav>
+
+    </div>
     </div>
 
 
@@ -889,7 +1452,8 @@
                     <!-- About Us Section with Sub-Links in Mobile Menu -->
                     <div class="space-y-1">
                         <a href="{{ route('about') }}" data-lang-en="About Us" data-lang-id="Tentang Kami"
-                            class="block px-3 py-2 rounded-xl text-gray-800 hover:bg-gray-100 transition {{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'bg-gray-100 font-medium' : '' }}">About Us</a>
+                            class="block px-3 py-2 rounded-xl text-gray-800 hover:bg-gray-100 transition {{ request()->routeIs('about*') || request()->routeIs('vision-mission') || request()->routeIs('application') || request()->routeIs('projects') || request()->routeIs('project') || request()->is('about*') || request()->is('vision-mission*') || request()->is('application*') || request()->is('projects*') || request()->is('project*') ? 'bg-gray-100 font-medium' : '' }}">About
+                            Us</a>
                         <div class="pl-4 space-y-1 border-l-2 border-[#3367A5]/30 ml-2">
                             <a href="{{ route('vision-mission') }}" data-lang-en="Vision, Mission &amp; Goals" data-lang-id="Visi, Misi &amp; Tujuan"
                                 class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('vision-mission') ? 'text-[#3367A5] font-bold' : '' }}">Vision, Mission &amp; Goals</a>
@@ -908,7 +1472,8 @@
                                 class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('projects') || request()->routeIs('project') ? 'text-[#3367A5] font-bold' : '' }}">Projects</a>
                         </div>
                     </div>
-                    <a href="{{ route('solution') }}" data-lang-en="Solutions &amp; Services" data-lang-id="Solusi &amp; Layanan"
+                    <a href="{{ route('solution') }}" data-lang-en="Solutions &amp; Services"
+                        data-lang-id="Solusi &amp; Layanan"
                         class="block px-3 py-2 rounded-xl text-gray-800 hover:bg-gray-100 transition {{ request()->routeIs('solution*') || request()->routeIs('plc-progamming') || request()->routeIs('inspection') || request()->routeIs('monitoring') || request()->routeIs('intergrator') || request()->routeIs('laser-marking') || request()->routeIs('strapping') || request()->is('solution*') || request()->is('plc-progamming*') || request()->is('inspection*') || request()->is('monitoring*') || request()->is('intergrator*') || request()->is('laser-marking*') || request()->is('strapping*') ? 'bg-gray-100 font-medium' : '' }}">Solutions
                         &amp; Services</a>
                     <a href="{{ route('product') }}" data-lang-en="Products" data-lang-id="Produk"
@@ -934,7 +1499,8 @@
                         class="group relative overflow-hidden w-full text-center py-3 px-4 bg-black text-white rounded-full text-sm font-normal tracking-wider shadow-md transition-all duration-1000 active:scale-95">
                         <span
                             class="absolute inset-0 bg-[#3367A5] rounded-full -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"></span>
-                        <span data-lang-en="Get A Quote" data-lang-id="Minta Penawaran" class="relative z-10">Get A Quote</span>
+                        <span data-lang-en="Get A Quote" data-lang-id="Minta Penawaran" class="relative z-10">Get A
+                            Quote</span>
                     </a>
                 </div>
             </div>
@@ -948,7 +1514,7 @@
 <!-- LABSSTDIO SCROLL & TRANSITION LOGIC                                       -->
 <!-- ========================================================================= -->
 <script>
-    (function () {
+    (function() {
         const header = document.getElementById('site-header');
         const navInitial = document.getElementById('navbar-initial');
         const navScrolled = document.getElementById('navbar-scrolled');
@@ -1061,7 +1627,8 @@
                 if (immediate) {
                     pill.style.transition = 'none';
                 } else {
-                    pill.style.transition = 'left 300ms cubic-bezier(0.25, 1, 0.5, 1), width 300ms cubic-bezier(0.25, 1, 0.5, 1), opacity 200ms ease';
+                    pill.style.transition =
+                        'left 300ms cubic-bezier(0.25, 1, 0.5, 1), width 300ms cubic-bezier(0.25, 1, 0.5, 1), opacity 200ms ease';
                 }
 
                 pill.style.left = left + 'px';
@@ -1072,7 +1639,8 @@
 
                 if (immediate) {
                     void pill.offsetWidth;
-                    pill.style.transition = 'left 300ms cubic-bezier(0.25, 1, 0.5, 1), width 300ms cubic-bezier(0.25, 1, 0.5, 1), opacity 200ms ease';
+                    pill.style.transition =
+                        'left 300ms cubic-bezier(0.25, 1, 0.5, 1), width 300ms cubic-bezier(0.25, 1, 0.5, 1), opacity 200ms ease';
                 }
             }
 
@@ -1120,12 +1688,19 @@
                 const mo = new MutationObserver(() => {
                     update(false);
                 });
-                mo.observe(container, { childList: true, characterData: true, subtree: true });
+                mo.observe(container, {
+                    childList: true,
+                    characterData: true,
+                    subtree: true
+                });
             }
 
             update(true);
 
-            return { update, slideTo };
+            return {
+                update,
+                slideTo
+            };
         }
 
         const pillInitial = initHorizontalSlidePill('nav-track-initial', 'nav-pill-initial');
@@ -1157,25 +1732,27 @@
             document.fonts.ready.then(() => updateAllPills(true));
         }
 
-        window.addEventListener('scroll', updateNavbarState, { passive: true });
+        window.addEventListener('scroll', updateNavbarState, {
+            passive: true
+        });
         updateNavbarState();
 
         // Mobile Menu Event Handlers
         menuOpenBtns.forEach(btn => {
-            btn.addEventListener('click', function (e) {
+            btn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 if (mobileMenu) mobileMenu.classList.remove('hidden');
             });
         });
 
         if (menuClose && mobileMenu) {
-            menuClose.addEventListener('click', function () {
+            menuClose.addEventListener('click', function() {
                 mobileMenu.classList.add('hidden');
             });
         }
 
         if (mobileMenu) {
-            mobileMenu.addEventListener('click', function (e) {
+            mobileMenu.addEventListener('click', function(e) {
                 if (e.target === mobileMenu || e.target.classList.contains('min-h-screen')) {
                     mobileMenu.classList.add('hidden');
                 }
@@ -1229,9 +1806,24 @@
         setTimeout(() => {
             label.innerText = originalText;
             if (icon) {
-                icon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+                icon.innerHTML =
+                    '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
                 icon.classList.remove('text-emerald-600');
             }
         }, 2000);
     }
+
+    // Global helper for Operational Domain navigation fallback
+    window.handleDomainNav = function(domainId, e) {
+        const routeMap = {
+            'manufacturing': '/application/manufacturing',
+            'automotive': '/application/automotive',
+            'pharma': '/application/pharma',
+            'bms': '/application/bms',
+            'packaging': '/application/packaging',
+            'logistics': '/application/packaging'
+        };
+        const url = routeMap[domainId] || '/application';
+        window.location.href = url;
+    };
 </script>
