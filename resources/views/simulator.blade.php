@@ -145,44 +145,24 @@
         <div class="container mx-auto px-6 sm:px-10 lg:px-16">
 
             <!-- Back Link & Page Title Header -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-neutral-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-neutral-800">
                 <div>
-                    <a href="{{ route('application') }}#domain-content-area"
-                        class="sim-btn inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-neutral-900 hover:bg-neutral-200 text-xs font-bold font-['Agrandir'] transition-all mb-4">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                        </svg>
-                        <span data-lang-en="Back to Applications" data-lang-id="Kembali ke Halaman Aplikasi">Back to Applications</span>
-                    </a>
-                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold font-['Agrandir'] text-white mt-1"
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold font-['Agrandir'] text-white"
                         data-lang-en="PROJECT SYSTEM SIMULATOR"
                         data-lang-id="SIMULATOR SISTEM PROYEK">
                         PROJECT SYSTEM SIMULATOR
                     </h1>
                 </div>
 
-                <!-- Domain Simulator Switcher Pills -->
-                <div class="flex items-center flex-wrap gap-2">
-                    <button type="button" onclick="switchSimulator('manufacturing')" id="btn-manufacturing"
-                        class="domain-tab-btn px-4 py-2 rounded-full text-xs font-bold font-['Agrandir'] transition-all {{ $currentDomain === 'manufacturing' ? 'bg-[#3367A5] text-white active' : 'bg-white text-neutral-900 hover:bg-neutral-200' }}">
-                        <span data-lang-en="1. Bottle Vision (FMCG)" data-lang-id="1. Visi Botol (FMCG)">1. Bottle Vision (FMCG)</span>
-                    </button>
-                    <button type="button" onclick="switchSimulator('automotive')" id="btn-automotive"
-                        class="domain-tab-btn px-4 py-2 rounded-full text-xs font-bold font-['Agrandir'] transition-all {{ $currentDomain === 'automotive' ? 'bg-[#3367A5] text-white active' : 'bg-white text-neutral-900 hover:bg-neutral-200' }}">
-                        <span data-lang-en="2. Gear QA &amp; OEE Chart" data-lang-id="2. QA Roda Gigi &amp; OEE">2. Gear QA &amp; OEE Chart</span>
-                    </button>
-                    <button type="button" onclick="switchSimulator('pharma')" id="btn-pharma"
-                        class="domain-tab-btn px-4 py-2 rounded-full text-xs font-bold font-['Agrandir'] transition-all {{ $currentDomain === 'pharma' ? 'bg-[#3367A5] text-white active' : 'bg-white text-neutral-900 hover:bg-neutral-200' }}">
-                        <span data-lang-en="3. Pharma Blister &amp; OCR" data-lang-id="3. Blister Farmasi &amp; OCR">3. Pharma Blister &amp; OCR</span>
-                    </button>
-                    <button type="button" onclick="switchSimulator('bms')" id="btn-bms"
-                        class="domain-tab-btn px-4 py-2 rounded-full text-xs font-bold font-['Agrandir'] transition-all {{ $currentDomain === 'bms' ? 'bg-[#3367A5] text-white active' : 'bg-white text-neutral-900 hover:bg-neutral-200' }}">
-                        <span data-lang-en="4. EIS Energy &amp; Cos &phi;" data-lang-id="4. EIS Energi &amp; Cos &phi;">4. EIS Energy &amp; Cos &phi;</span>
-                    </button>
-                    <button type="button" onclick="switchSimulator('logistics')" id="btn-logistics"
-                        class="domain-tab-btn px-4 py-2 rounded-full text-xs font-bold font-['Agrandir'] transition-all {{ $currentDomain === 'logistics' ? 'bg-[#3367A5] text-white active' : 'bg-white text-neutral-900 hover:bg-neutral-200' }}">
-                        <span data-lang-en="5. TIJ &amp; Arch Strapping" data-lang-id="5. TIJ &amp; Strapping Karton">5. TIJ &amp; Arch Strapping</span>
-                    </button>
+                <!-- Right: Back to Applications Button (Direct replacement for domain switcher pills) -->
+                <div>
+                    <a href="{{ route('application') }}#domain-content-area"
+                        class="sim-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 hover:bg-neutral-200 text-xs sm:text-sm font-bold font-['Agrandir'] transition-all shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        <span data-lang-en="Back to Applications" data-lang-id="Kembali ke Halaman Aplikasi">Back to Applications</span>
+                    </a>
                 </div>
             </div>
 
