@@ -307,8 +307,11 @@
                     </div>
                     <div class="lg:col-span-6 space-y-4">
                         <div class="rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl relative">
-                            <img src="{{ asset('storage/gat_scada_interface_dark.jpg') }}" alt="Manufacturing SCADA"
-                                class="w-full h-80 sm:h-96 object-cover object-center">
+                            <video autoplay loop muted playsinline preload="auto"
+                                class="w-full h-80 sm:h-96 object-cover object-center block">
+                                <source src="{{ asset('storage/VideoSection02.mp4') }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <a href="{{ route('simulator.show', 'manufacturing') }}"
                             class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
