@@ -1036,6 +1036,7 @@
                 const gatePxW = Math.max(10, mmToPx(gateEndMm) - gatePxX);
                 const gateH = Math.max(35, p.gate_offset || 50);
                 const gateBelow = 8; // Bracket clamps slightly across baseline like reference
+                const gateRightX = gatePxX + gatePxW;
 
                 ctx.fillStyle = 'rgba(16, 185, 129, 0.22)';
                 ctx.strokeStyle = '#10b981';
@@ -1043,10 +1044,11 @@
                 ctx.fillRect(gatePxX, baselineY - (gateH - gateBelow), gatePxW, gateH);
                 ctx.strokeRect(gatePxX, baselineY - (gateH - gateBelow), gatePxW, gateH);
 
+                // Delay Zone text ends cleanly at gate's right edge so it never encroaches on camera zone
                 ctx.fillStyle = '#10b981';
                 ctx.font = 'bold 9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.textAlign = 'left';
-                ctx.fillText(`Delay Zone: ${(p.gate_len / 1000).toFixed(2)} m`, gatePxX - 5, baselineY - (gateH - gateBelow) - 7);
+                ctx.textAlign = 'right';
+                ctx.fillText(`Delay Zone: ${(p.gate_len / 1000).toFixed(2)} m`, gateRightX, baselineY - (gateH - gateBelow) - 10);
 
                 // 3. Camera Zone Bracket - Amber / Orange
                 const camPxX = mmToPx(camStartMm);
@@ -1059,10 +1061,12 @@
                 ctx.fillRect(camPxX, baselineY - camH, camPxW, camH);
                 ctx.strokeRect(camPxX, baselineY - camH, camPxW, camH);
 
+                // Camera Zone text starts to the right of the gate with guaranteed spacing
                 ctx.fillStyle = '#d97706';
                 ctx.font = 'bold 9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
                 ctx.textAlign = 'left';
-                ctx.fillText(`Camera Zone: ${(p.cam_len / 1000).toFixed(2)} m`, camPxX, baselineY - camH - 7);
+                const camLabelStartX = Math.max(camPxX + 4, gateRightX + 12);
+                ctx.fillText(`Camera Zone: ${(p.cam_len / 1000).toFixed(2)} m`, camLabelStartX, baselineY - camH - 8);
 
                 // Camera Zone Sub-labels below line
                 ctx.fillStyle = '#d97706';
@@ -1096,11 +1100,11 @@
                 const cv2MidX = mmToPx(p.cv1_len + (p.cv2_len * 0.5));
                 ctx.fillStyle = '#0f172a';
                 ctx.font = 'bold 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.fillText(`CV2: ${(p.cv2_len / 1000).toFixed(2)} m`, cv2MidX, baselineY - 105);
+                ctx.fillText(`CV2: ${(p.cv2_len / 1000).toFixed(2)} m`, cv2MidX, baselineY - 110);
                 ctx.fillStyle = '#475569';
                 ctx.font = '9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.fillText(`Speed: ${p.cv2_speed} mm/s`, cv2MidX, baselineY - 91);
-                ctx.fillText(`Spacing: ${p.cv2_spacing.toFixed(1)} mm`, cv2MidX, baselineY - 77);
+                ctx.fillText(`Speed: ${p.cv2_speed} mm/s`, cv2MidX, baselineY - 96);
+                ctx.fillText(`Spacing: ${p.cv2_spacing.toFixed(1)} mm`, cv2MidX, baselineY - 82);
 
                 // CV3 Labels
                 const cv3MidX = mmToPx(p.cv1_len + p.cv2_len + (p.cv3_len * 0.5));
