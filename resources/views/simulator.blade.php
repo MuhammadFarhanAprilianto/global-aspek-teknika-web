@@ -214,7 +214,7 @@
 
                             <div>
                                 <label for="cv1-cpm" class="block text-xs text-gray-500 font-medium mb-1">CPM:</label>
-                                <input type="number" id="cv1-cpm" value="600" min="10" max="2000"
+                                <input type="number" id="cv1-cpm" value="130" min="10" max="2000"
                                     class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
                             </div>
 
@@ -225,7 +225,7 @@
                             </div>
 
                             <div class="pt-1 text-xs text-gray-600 font-medium">
-                                Spacing: <span id="cv1-spacing-text">43.3</span> mm
+                                Spacing: <span id="cv1-spacing-text">199.8</span> mm
                             </div>
                         </div>
 
@@ -246,8 +246,8 @@
                             </div>
 
                             <div class="pt-1 space-y-1 text-xs text-gray-600 font-medium">
-                                <div>Spacing: <span id="cv2-spacing-text">50.0</span> mm</div>
-                                <div>Time per bottle: <span id="cv2-time-text">0.10</span> s</div>
+                                <div>Spacing: <span id="cv2-spacing-text">230.8</span> mm</div>
+                                <div>Time per bottle: <span id="cv2-time-text">0.46</span> s</div>
                             </div>
                         </div>
 
@@ -268,7 +268,7 @@
                             </div>
 
                             <div class="pt-1 text-xs text-gray-600 font-medium">
-                                Spacing: <span id="cv3-spacing-text">50.0</span> mm
+                                Spacing: <span id="cv3-spacing-text">230.8</span> mm
                             </div>
                         </div>
 
@@ -296,13 +296,13 @@
 
                             <div>
                                 <label for="cam-speed" class="block text-xs text-gray-500 font-medium mb-1">Inspection Speed (mm/s):</label>
-                                <input type="number" id="cam-speed" value="1000" min="10" max="5000"
+                                <input type="number" id="cam-speed" value="750" min="10" max="5000"
                                     class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
                             </div>
 
                             <div class="pt-1 space-y-1 text-xs text-gray-600 font-medium">
                                 <div>Bottles in inspection: <span id="cam-bottles-text" class="font-bold text-gray-800">0</span></div>
-                                <div>Inspection Time: <span id="cam-time-text">0.30</span> s</div>
+                                <div>Inspection Time: <span id="cam-time-text">0.40</span> s</div>
                             </div>
                         </div>
 
@@ -933,65 +933,83 @@
 
                 // --- PHYSICS UPDATE (ONLY WHEN RUNNING) ---
                 if (bottleSim.running && dt > 0) {
-                    // 1. Spawning bottles at CV1 based on CPM rate
-                    const ratePerSec = p.cv1_cpm > 0 ? (p.cv1_cpm / 60) : 10;
+                    // 1. Spawning bottles at CV1 entrance based on CPM
+                    const ratePerSec = p.cv1_cpm > 0 ? (p.cv1_cpm / 60) : 2.17;
                     const spawnInterval = 1 / ratePerSec;
                     bottleSim.spawnTimer += dt;
 
+                    const minGapMm = 28; // Minimum physical spacing between bottle centers
+
                     if (bottleSim.spawnTimer >= spawnInterval) {
                         const firstBottle = bottleSim.bottles[0];
-                        const minDistanceToSpawn = Math.max(15, p.cv1_spacing * 0.85);
-                        if (!firstBottle || firstBottle.pos >= minDistanceToSpawn) {
+                        // Only spawn if entrance at pos 0 is clear
+                        if (!firstBottle || firstBottle.pos >= Math.max(minGapMm, p.cv1_spacing * 0.85)) {
                             bottleSim.bottles.unshift({
                                 pos: 0,
+                                passedGate: false,
                                 inDelay: false,
                                 delayTimer: 0,
-                                passedGate: false,
                                 inCam: false
                             });
                             bottleSim.spawnTimer = 0;
                         }
                     }
 
-                    // 2. Move existing bottles
+                    // 2. Check if Camera Zone or approach is occupied
+                    // In machine vision logic: Delay Zone holds next bottle while camera is inspecting
+                    const isCameraOccupied = bottleSim.bottles.some(b => b.passedGate && b.pos >= camStartMm && b.pos <= camEndMm);
+                    const isBetweenGateAndCam = bottleSim.bottles.some(b => b.passedGate && b.pos >= gateStartMm && b.pos < camStartMm);
+                    const canReleaseFromGate = !isCameraOccupied && !isBetweenGateAndCam;
+
+                    // 3. Move existing bottles (from rightmost to leftmost)
                     let prevPosAhead = Infinity;
+                    let hasReleasedOne = false;
+
                     for (let i = bottleSim.bottles.length - 1; i >= 0; i--) {
                         const b = bottleSim.bottles[i];
                         b.inCam = false;
 
-                        if (!b.passedGate) {
-                            // Approaching or inside Gate
-                            if (b.pos >= gateStartMm - 2 && b.pos <= gateEndMm) {
-                                b.inDelay = true;
-                                b.delayTimer += dt;
-                                b.pos = Math.min(gateStartMm + (p.gate_len * 0.5), b.pos + (8 * dt));
-
-                                const nominalDelay = 0.30;
-                                if (b.delayTimer >= nominalDelay) {
-                                    b.inDelay = false;
-                                    b.passedGate = true;
-                                    bottleSim.lastDelay = b.delayTimer;
-                                    bottleSim.delays.push(b.delayTimer);
-                                    if (bottleSim.delays.length > 20) bottleSim.delays.shift();
-                                    bottleSim.avgDelay = bottleSim.delays.reduce((acc, v) => acc + v, 0) / bottleSim.delays.length;
-                                    b.pos = gateEndMm + 2;
-                                }
-                            } else {
-                                b.inDelay = false;
-                                const maxAllowable = Math.min(gateStartMm - 5, prevPosAhead - 16);
-                                const desiredPos = b.pos + (p.cv1_speed * dt);
-                                b.pos = Math.min(desiredPos, maxAllowable);
-                            }
-                        } else {
-                            // Passed gate: on CV2 or CV3
+                        if (b.passedGate) {
                             b.inDelay = false;
+                            // Bottle is past the gate: CV2 -> Camera Zone -> CV3
                             if (b.pos >= camStartMm && b.pos <= camEndMm) {
+                                // Under optical inspection in Camera Zone
                                 b.inCam = true;
                                 b.pos += p.cam_speed * dt;
                             } else if (b.pos < p.cv1_len + p.cv2_len) {
+                                // Moving along CV2
                                 b.pos += p.cv2_speed * dt;
                             } else {
+                                // Moving along CV3
                                 b.pos += p.cv3_speed * dt;
+                            }
+                        } else {
+                            // Bottle is approaching or at Delay Zone gate
+                            if (b.pos >= gateStartMm - 2) {
+                                if (canReleaseFromGate && !hasReleasedOne) {
+                                    // Release this single bottle into Camera Zone!
+                                    b.passedGate = true;
+                                    b.inDelay = false;
+                                    hasReleasedOne = true;
+
+                                    if (b.delayTimer > 0) {
+                                        bottleSim.lastDelay = b.delayTimer;
+                                        bottleSim.delays.push(b.delayTimer);
+                                        if (bottleSim.delays.length > 20) bottleSim.delays.shift();
+                                        bottleSim.avgDelay = bottleSim.delays.reduce((acc, v) => acc + v, 0) / bottleSim.delays.length;
+                                    }
+                                    b.pos = Math.max(gateStartMm + 2, b.pos + p.cv2_speed * dt);
+                                } else {
+                                    // Gate holds bottle while preceding item is in Camera Zone
+                                    b.inDelay = true;
+                                    b.delayTimer += dt;
+                                    b.pos = gateStartMm;
+                                }
+                            } else {
+                                // Moving along CV1 towards gate
+                                b.inDelay = false;
+                                const maxAllowable = Math.min(gateStartMm, prevPosAhead - minGapMm);
+                                b.pos = Math.min(b.pos + (p.cv1_speed * dt), maxAllowable);
                             }
                         }
 
@@ -1044,11 +1062,11 @@
                 ctx.fillRect(gatePxX, baselineY - (gateH - gateBelow), gatePxW, gateH);
                 ctx.strokeRect(gatePxX, baselineY - (gateH - gateBelow), gatePxW, gateH);
 
-                // Delay Zone text ends cleanly at gate's right edge so it never encroaches on camera zone
+                // Delay Zone text centered above green gate, placed higher to prevent clashing (matching video)
                 ctx.fillStyle = '#10b981';
                 ctx.font = 'bold 9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.textAlign = 'right';
-                ctx.fillText(`Delay Zone: ${(p.gate_len / 1000).toFixed(2)} m`, gateRightX, baselineY - (gateH - gateBelow) - 10);
+                ctx.textAlign = 'center';
+                ctx.fillText(`Delay Zone: ${(p.gate_len / 1000).toFixed(2)} m`, gatePxX + (gatePxW / 2), baselineY - gateH - 18);
 
                 // 3. Camera Zone Bracket - Amber / Orange
                 const camPxX = mmToPx(camStartMm);
@@ -1061,12 +1079,11 @@
                 ctx.fillRect(camPxX, baselineY - camH, camPxW, camH);
                 ctx.strokeRect(camPxX, baselineY - camH, camPxW, camH);
 
-                // Camera Zone text starts to the right of the gate with guaranteed spacing
+                // Camera Zone text centered directly above orange camera box (matching video)
                 ctx.fillStyle = '#d97706';
                 ctx.font = 'bold 9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.textAlign = 'left';
-                const camLabelStartX = Math.max(camPxX + 4, gateRightX + 12);
-                ctx.fillText(`Camera Zone: ${(p.cam_len / 1000).toFixed(2)} m`, camLabelStartX, baselineY - camH - 8);
+                ctx.textAlign = 'center';
+                ctx.fillText(`Camera Zone: ${(p.cam_len / 1000).toFixed(2)} m`, camPxX + (camPxW / 2), baselineY - camH - 6);
 
                 // Camera Zone Sub-labels below line
                 ctx.fillStyle = '#d97706';
