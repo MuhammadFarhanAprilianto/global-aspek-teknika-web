@@ -313,8 +313,8 @@
                         <a href="{{ route('simulator.show', 'manufacturing') }}"
                             class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
                             <span class="text-sm sm:text-base font-bold font-['Agrandir']"
-                                data-lang-en="Simulation: Inspection Bottle &amp; Label Vision Simulator"
-                                data-lang-id="Simulation: Simulator Inspeksi Visi Botol &amp; Label">Simulation: Inspection Bottle &amp; Label Vision Simulator</span>
+                                data-lang-en="Simulation: Inspection Bottle Simulator"
+                                data-lang-id="Simulation: Simulator Inspeksi Botol">Simulation: Inspection Bottle Simulator</span>
                             <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
                                 <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
                                 <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
