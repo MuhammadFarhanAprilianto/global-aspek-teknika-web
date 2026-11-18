@@ -281,26 +281,26 @@
                 
                 <!-- 1. Manufacturing & FMCG -->
                 <div id="pane-manufacturing" class="domain-pane grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6">
-                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
+                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
+                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
                             data-lang-en="Integrated Production Lines with Zero-Defect Control"
                             data-lang-id="Lini Produksi Terintegrasi dengan Kendali Nol Cacat">
                             Integrated Production Lines with Zero-Defect Control
                         </h3>
-                        <p class="text-sm sm:text-base text-gray-300 font-['Questrial'] leading-relaxed text-justify"
+                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
                             data-lang-en="FMCG lines demand continuous high throughput without unexpected stops. We synchronize PLC logic across filling, capping, cartooning, and palletizing while running in-line optical cameras that inspect labels, fill levels, and barcodes at speeds exceeding 800 units per minute."
                             data-lang-id="Lini FMCG menuntut output tinggi yang konsisten tanpa henti mendadak. Kami menyelaraskan logika PLC pada proses pengisian, penutupan botol, pengemasan kardus, dan paletisasi sembari menjalankan kamera optik berkecepatan tinggi yang memverifikasi label dan isi hingga 800 botol/menit.">
                             FMCG lines demand continuous high throughput without unexpected stops. We synchronize PLC logic across filling, capping, cartooning, and palletizing while running in-line optical cameras that inspect labels, fill levels, and barcodes at speeds exceeding 800 units per minute.
                         </p>
 
                         <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">800+ pcs/m</div>
+                        <div class="grid grid-cols-2 gap-4 pt-1">
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">800+ pcs/m</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Inspection Rate" data-lang-id="Kecepatan Inspeksi">Inspection Rate</div>
                             </div>
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">+32%</div>
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">+32%</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Overall Line OEE" data-lang-id="Peningkatan OEE">Overall Line OEE</div>
                             </div>
                         </div>
@@ -330,26 +330,26 @@
 
                 <!-- 2. Automotive & Heavy Machinery -->
                 <div id="pane-automotive" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6">
-                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
+                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
+                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
                             data-lang-en="Robotic Workcells &amp; Sub-Micron Dimensional QA"
                             data-lang-id="Sel Robotik &amp; QA Dimensi Sub-Mikron">
                             Robotic Workcells &amp; Sub-Micron Dimensional QA
                         </h3>
-                        <p class="text-sm sm:text-base text-gray-300 font-['Questrial'] leading-relaxed text-justify"
+                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
                             data-lang-en="Automotive component plants (such as Komatsu and transmission suppliers) require rigorous dimensional tolerances. GAT retrofits hydraulic presses, implements multi-axis robotic loading cells, and integrates telecentric vision cameras verifying gear teeth and hole pitch to 0.001mm accuracy."
                             data-lang-id="Pabrik komponen otomotif (seperti mitra Komatsu) memerlukan toleransi dimensi yang sangat ketat. GAT memodernisasi mesin press hidrolik, mengintegrasikan robot perakitan multi-axis, dan memasang kamera visi telesentris untuk verifikasi gigi roda dan pitch lubang dengan akurasi 0.001mm.">
                             Automotive component plants (such as Komatsu and transmission suppliers) require rigorous dimensional tolerances. GAT retrofits hydraulic presses, implements multi-axis robotic loading cells, and integrates telecentric vision cameras verifying gear teeth and hole pitch to 0.001mm accuracy.
                         </p>
 
                         <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">&plusmn;0.001mm</div>
+                        <div class="grid grid-cols-2 gap-4 pt-1">
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">&plusmn;0.001mm</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Optical Tolerance" data-lang-id="Toleransi Optik">Optical Tolerance</div>
                             </div>
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">SIL-3</div>
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">SIL-3</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Safety Interlock Level" data-lang-id="Tingkat Keamanan">Safety Interlock Level</div>
                             </div>
                         </div>
@@ -377,26 +377,26 @@
 
                 <!-- 3. Pharma & Cleanrooms -->
                 <div id="pane-pharma" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6">
-                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
+                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
+                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
                             data-lang-en="Blister Inspection, Serialization &amp; Cleanroom SCADA"
                             data-lang-id="Inspeksi Blister, Serialisasi &amp; SCADA Ruang Bersih">
                             Blister Inspection, Serialization &amp; Cleanroom SCADA
                         </h3>
-                        <p class="text-sm sm:text-base text-gray-300 font-['Questrial'] leading-relaxed text-justify"
+                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
                             data-lang-en="Pharmaceutical manufacturing demands uncompromised product safety. We integrate vision inspection cameras verifying tablet color and blister seal integrity, synchronized with high-resolution TIJ inkjet batch coding and audit-trail database logging for total GMP compliance."
                             data-lang-id="Manufaktur farmasi menuntut jaminan keamanan produk tanpa kompromi. Kami menghadirkan kamera inspeksi yang memverifikasi warna tablet dan kerapatan seal blister, disinkronkan dengan pencetakan kode batch TIJ resolusi tinggi dan pencatatan audit-trail untuk kepatuhan GMP penuh.">
                             Pharmaceutical manufacturing demands uncompromised product safety. We integrate vision inspection cameras verifying tablet color and blister seal integrity, synchronized with high-resolution TIJ inkjet batch coding and audit-trail database logging for total GMP compliance.
                         </p>
 
                         <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
+                        <div class="grid grid-cols-2 gap-4 pt-1">
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Audit Compliance" data-lang-id="Kepatuhan Audit">Audit Compliance</div>
                             </div>
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">Zero Fail</div>
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">Zero Fail</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Blister Seal Leakage" data-lang-id="Kebocoran Seal Blister">Blister Seal Leakage</div>
                             </div>
                         </div>
@@ -424,26 +424,26 @@
 
                 <!-- 4. Smart BMS & Utilities -->
                 <div id="pane-bms" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6">
-                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
+                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
+                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
                             data-lang-en="Building Management &amp; Facility Utilities Telemetry"
                             data-lang-id="Telemetri BMS &amp; Utilitas Fasilitas Gedung">
                             Building Management &amp; Facility Utilities Telemetry
                         </h3>
-                        <p class="text-sm sm:text-base text-gray-300 font-['Questrial'] leading-relaxed text-justify"
+                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
                             data-lang-en="Smart commercial towers and manufacturing plants use our universal web-based SCADA interface to unify multi-chiller sequences, AHU air balances, gas leakage alarms, and electrical sub-meters into one accessible web portal without per-seat licensing fees."
                             data-lang-id="Gedung komersial dan pabrik manufaktur menggunakan antarmuka SCADA web kami untuk menyatukan kontrol chiller, sirkulasi udara AHU, alarm kebocoran gas, dan sub-meter listrik ke dalam satu portal web terpadu tanpa biaya lisensi per-pengguna yang mahal.">
                             Smart commercial towers and manufacturing plants use our universal web-based SCADA interface to unify multi-chiller sequences, AHU air balances, gas leakage alarms, and electrical sub-meters into one accessible web portal without per-seat licensing fees.
                         </p>
 
                         <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">-18%</div>
+                        <div class="grid grid-cols-2 gap-4 pt-1">
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">-18%</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Chiller Power Saved" data-lang-id="Penghematan Daya Chiller">Chiller Power Saved</div>
                             </div>
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">&lt;2s</div>
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">&lt;2s</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Alarm Dispatch" data-lang-id="Penyampaian Alarm">Alarm Dispatch</div>
                             </div>
                         </div>
@@ -471,26 +471,26 @@
 
                 <!-- 5. End-of-Line Packaging -->
                 <div id="pane-logistics" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6">
-                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-['Agrandir'] text-white"
+                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
+                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
                             data-lang-en="Automated Arch Strapping &amp; Warehouse Dispatch"
                             data-lang-id="Otomasi Strapping Busur &amp; Pengiriman Gudang">
                             Automated Arch Strapping &amp; Warehouse Dispatch
                         </h3>
-                        <p class="text-sm sm:text-base text-gray-300 font-['Questrial'] leading-relaxed text-justify"
+                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
                             data-lang-en="End-of-line packaging is frequently the primary bottleneck in manufacturing. We install automatic arch strapping units delivering up to 3,500N tension, synchronized with motorized roller turntables and carton sealers to eliminate packaging backlog."
                             data-lang-id="Pengemasan akhir lini kerap menjadi titik hambat utama di pabrik. Kami mengintegrasikan unit strapping busur otomatis dengan kekuatan tarik hingga 3.500N, disinkronkan dengan meja putar rol konveyor dan penutup karton untuk menghilangkan antrean kemasan.">
                             End-of-line packaging is frequently the primary bottleneck in manufacturing. We install automatic arch strapping units delivering up to 3,500N tension, synchronized with motorized roller turntables and carton sealers to eliminate packaging backlog.
                         </p>
 
                         <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-2">
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-[#3367A5] font-['Agrandir']">60+</div>
+                        <div class="grid grid-cols-2 gap-4 pt-1">
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">60+</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Straps / Minute" data-lang-id="Ikatan / Menit">Straps / Minute</div>
                             </div>
-                            <div class="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl font-bold text-neutral-900 font-['Agrandir']">0.2s</div>
+                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">0.2s</div>
                                 <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Friction Weld Seal" data-lang-id="Waktu Las Gesek">Friction Weld Seal</div>
                             </div>
                         </div>
