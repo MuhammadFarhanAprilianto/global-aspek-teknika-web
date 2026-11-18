@@ -70,6 +70,50 @@ Route::get('/application', function () {
     return view('application');
 })->name('application');
 
+// Dedicated Operational Domain Pages
+Route::get('/application/manufacturing', function () {
+    return view('applications.manufacturing');
+})->name('application.manufacturing');
+
+Route::get('/application/automotive', function () {
+    return view('applications.automotive');
+})->name('application.automotive');
+
+Route::get('/application/pharma', function () {
+    return view('applications.pharma');
+})->name('application.pharma');
+
+Route::get('/application/bms', function () {
+    return view('applications.bms');
+})->name('application.bms');
+
+Route::get('/application/packaging', function () {
+    return view('applications.packaging');
+})->name('application.packaging');
+
+// Aliases for Domain Pages
+Route::get('/manufacturing', function () {
+    return redirect()->route('application.manufacturing');
+});
+Route::get('/automotive', function () {
+    return redirect()->route('application.automotive');
+});
+Route::get('/pharma', function () {
+    return redirect()->route('application.pharma');
+});
+Route::get('/bms', function () {
+    return redirect()->route('application.bms');
+});
+Route::get('/smart-bms', function () {
+    return redirect()->route('application.bms');
+});
+Route::get('/packaging', function () {
+    return redirect()->route('application.packaging');
+});
+Route::get('/application/logistics', function () {
+    return redirect()->route('application.packaging');
+});
+
 Route::get('/simulator/{domain?}', function (?string $domain = 'manufacturing') {
     $validDomains = ['manufacturing', 'automotive', 'pharma', 'bms', 'logistics'];
     if (!in_array($domain, $validDomains, true)) {

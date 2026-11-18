@@ -234,264 +234,184 @@
     </section>
 
     <!-- ========================================================================= -->
-    <!-- 2. INTERACTIVE DOMAIN SWITCHER (SmartICS Style)                            -->
+    <!-- 2. OPERATIONAL DOMAINS DIRECTORY                                          -->
     <!-- ========================================================================= -->
     <section class="bg-neutral-950 text-white py-20 sm:py-24 lg:py-28 border-b border-neutral-900">
         <div class="container mx-auto px-6 sm:px-10 lg:px-20">
             <!-- Header -->
-            <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16 reveal-on-scroll">
-                <h2 data-lang-en="WHERE GAT SYSTEMS ARE DEPLOYED" data-lang-id="PENERAPAN SISTEM GAT DI INDUSTRI"
+            <div class="max-w-3xl mx-auto text-center mb-16 reveal-on-scroll">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#3367A5] font-['Agrandir']">Specialized Sectors</span>
+                <h2 data-lang-en="5 OPERATIONAL DOMAINS" data-lang-id="5 DOMAIN OPERASIONAL"
                     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-['Agrandir'] mt-2">
-                    WHERE GAT SYSTEMS ARE DEPLOYED
+                    5 OPERATIONAL DOMAINS
                 </h2>
                 <div class="w-16 h-1 bg-[#3367A5] mx-auto mt-3 mb-6 rounded-full"></div>
-                <p data-lang-en="Explore our tailored system architectures, field deployment models, and measurable benefits across 5 specialized industry domains."
-                   data-lang-id="Jelajahi arsitektur sistem, model implementasi lapangan, dan manfaat nyata dari 5 domain industri spesialisasi kami."
+                <p data-lang-en="Explore our dedicated industry architectures, field deployment models, and measurable benefits across 5 specialized operational domains."
+                   data-lang-id="Jelajahi arsitektur industri khusus, model implementasi lapangan, dan manfaat nyata di 5 domain operasional spesialisasi kami."
                     class="text-base sm:text-lg text-gray-400 leading-relaxed font-['Questrial']">
-                    Explore our tailored system architectures, field deployment models, and measurable benefits across 5 specialized industry domains.
+                    Explore our dedicated industry architectures, field deployment models, and measurable benefits across 5 specialized operational domains.
                 </p>
             </div>
 
-            <!-- Domain Content Containers -->
-            <div id="domain-content-area" class="reveal-on-scroll">
-                
-                <!-- 1. Manufacturing & FMCG -->
-                <div id="pane-manufacturing" class="domain-pane grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
-                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
-                            data-lang-en="Integrated Production Lines with Zero-Defect Control"
-                            data-lang-id="Lini Produksi Terintegrasi dengan Kendali Nol Cacat">
-                            Integrated Production Lines with Zero-Defect Control
-                        </h3>
-                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
-                            data-lang-en="FMCG lines demand continuous high throughput without unexpected stops. We synchronize PLC logic across filling, capping, cartooning, and palletizing while running in-line optical cameras that inspect labels, fill levels, and barcodes at speeds exceeding 800 units per minute."
-                            data-lang-id="Lini FMCG menuntut output tinggi yang konsisten tanpa henti mendadak. Kami menyelaraskan logika PLC pada proses pengisian, penutupan botol, pengemasan kardus, dan paletisasi sembari menjalankan kamera optik berkecepatan tinggi yang memverifikasi label dan isi hingga 800 botol/menit.">
-                            FMCG lines demand continuous high throughput without unexpected stops. We synchronize PLC logic across filling, capping, cartooning, and palletizing while running in-line optical cameras that inspect labels, fill levels, and barcodes at speeds exceeding 800 units per minute.
-                        </p>
-
-                        <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-1">
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">800+ pcs/m</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Inspection Rate" data-lang-id="Kecepatan Inspeksi">Inspection Rate</div>
-                            </div>
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">+32%</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Overall Line OEE" data-lang-id="Peningkatan OEE">Overall Line OEE</div>
-                            </div>
-                        </div>
+            <!-- Domain Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+                <!-- 01. Manufacturing & FMCG -->
+                <div class="group rounded-3xl bg-neutral-900 border border-neutral-800 hover:border-[#3367A5] hover:shadow-[0_15px_35px_rgba(51,103,165,0.2)] transition-all duration-300 flex flex-col justify-between overflow-hidden reveal-on-scroll reveal-stagger-1">
+                    <div class="relative h-56 overflow-hidden bg-neutral-950">
+                        <video autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <source src="{{ asset('storage/VideoSection02.mp4') }}" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[11px] font-bold text-[#3367A5] font-['Agrandir'] border border-white/10">01 &bull; FMCG</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#3367A5] text-[11px] font-bold text-white font-['Agrandir']">800+ pcs/m</span>
                     </div>
-                    <div class="lg:col-span-6 space-y-4">
-                        <div class="rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl relative">
-                            <video autoplay loop muted playsinline preload="auto"
-                                class="w-full h-80 sm:h-96 object-cover object-center block">
-                                <source src="{{ asset('storage/VideoSection02.mp4') }}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl sm:text-2xl font-bold font-['Agrandir'] text-white group-hover:text-[#3367A5] transition-colors">
+                                Manufacturing &amp; FMCG
+                            </h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 font-['Questrial'] leading-relaxed">
+                                Continuous high throughput synchronization across filling, capping, cartooning, and palletizing with in-line machine vision verification.
+                            </p>
                         </div>
-                        <a href="{{ route('simulator.show', 'manufacturing') }}"
-                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
-                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
-                                data-lang-en="Simulation: Inspection Bottle Simulator"
-                                data-lang-id="Simulation: Simulator Inspeksi Botol">Simulation: Inspection Bottle Simulator</span>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
-                                <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </span>
-                        </a>
+                        <div class="pt-2 border-t border-neutral-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-neutral-500 font-['Agrandir']">Inspection &bull; OEE +32%</span>
+                            <a href="{{ route('application.manufacturing') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-white group-hover:text-[#3367A5] font-['Agrandir'] transition-colors">
+                                <span>View Page</span>
+                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 2. Automotive & Heavy Machinery -->
-                <div id="pane-automotive" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
-                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
-                            data-lang-en="Robotic Workcells &amp; Sub-Micron Dimensional QA"
-                            data-lang-id="Sel Robotik &amp; QA Dimensi Sub-Mikron">
-                            Robotic Workcells &amp; Sub-Micron Dimensional QA
-                        </h3>
-                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
-                            data-lang-en="Automotive component plants (such as Komatsu and transmission suppliers) require rigorous dimensional tolerances. GAT retrofits hydraulic presses, implements multi-axis robotic loading cells, and integrates telecentric vision cameras verifying gear teeth and hole pitch to 0.001mm accuracy."
-                            data-lang-id="Pabrik komponen otomotif (seperti mitra Komatsu) memerlukan toleransi dimensi yang sangat ketat. GAT memodernisasi mesin press hidrolik, mengintegrasikan robot perakitan multi-axis, dan memasang kamera visi telesentris untuk verifikasi gigi roda dan pitch lubang dengan akurasi 0.001mm.">
-                            Automotive component plants (such as Komatsu and transmission suppliers) require rigorous dimensional tolerances. GAT retrofits hydraulic presses, implements multi-axis robotic loading cells, and integrates telecentric vision cameras verifying gear teeth and hole pitch to 0.001mm accuracy.
-                        </p>
-
-                        <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-1">
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">&plusmn;0.001mm</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Optical Tolerance" data-lang-id="Toleransi Optik">Optical Tolerance</div>
-                            </div>
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">SIL-3</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Safety Interlock Level" data-lang-id="Tingkat Keamanan">Safety Interlock Level</div>
-                            </div>
-                        </div>
+                <!-- 02. Automotive & Heavy Machinery -->
+                <div class="group rounded-3xl bg-neutral-900 border border-neutral-800 hover:border-[#3367A5] hover:shadow-[0_15px_35px_rgba(51,103,165,0.2)] transition-all duration-300 flex flex-col justify-between overflow-hidden reveal-on-scroll reveal-stagger-2">
+                    <div class="relative h-56 overflow-hidden bg-neutral-950">
+                        <img src="{{ asset('storage/turnkey_integration.webp') }}" alt="Automotive Integration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[11px] font-bold text-[#3367A5] font-['Agrandir'] border border-white/10">02 &bull; AUTOMOTIVE</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#3367A5] text-[11px] font-bold text-white font-['Agrandir']">&plusmn;0.001mm</span>
                     </div>
-
-                    <div class="lg:col-span-6 space-y-4">
-                        <div class="rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl relative">
-                            <img src="{{ asset('storage/turnkey_integration.webp') }}" alt="Automotive Integration"
-                                class="w-full h-80 sm:h-96 object-cover object-center">
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl sm:text-2xl font-bold font-['Agrandir'] text-white group-hover:text-[#3367A5] transition-colors">
+                                Automotive &amp; Heavy Machinery
+                            </h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 font-['Questrial'] leading-relaxed">
+                                Hydraulic press retrofits, multi-axis robotic loading cells, and telecentric vision cameras verifying gear pitch and dimensions.
+                            </p>
                         </div>
-                        <a href="{{ route('simulator.show', 'automotive') }}"
-                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
-                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
-                                data-lang-en="Simulation: Sub-Micron Gear QA &amp; OEE Simulator (with Chart)"
-                                data-lang-id="Simulation: Simulator QA Roda Gigi &amp; Grafik OEE">Simulation: Sub-Micron Gear QA &amp; OEE Simulator (with Chart)</span>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
-                                <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </span>
-                        </a>
+                        <div class="pt-2 border-t border-neutral-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-neutral-500 font-['Agrandir']">SIL-3 &bull; Robotics</span>
+                            <a href="{{ route('application.automotive') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-white group-hover:text-[#3367A5] font-['Agrandir'] transition-colors">
+                                <span>View Page</span>
+                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 3. Pharma & Cleanrooms -->
-                <div id="pane-pharma" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
-                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
-                            data-lang-en="Blister Inspection, Serialization &amp; Cleanroom SCADA"
-                            data-lang-id="Inspeksi Blister, Serialisasi &amp; SCADA Ruang Bersih">
-                            Blister Inspection, Serialization &amp; Cleanroom SCADA
-                        </h3>
-                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
-                            data-lang-en="Pharmaceutical manufacturing demands uncompromised product safety. We integrate vision inspection cameras verifying tablet color and blister seal integrity, synchronized with high-resolution TIJ inkjet batch coding and audit-trail database logging for total GMP compliance."
-                            data-lang-id="Manufaktur farmasi menuntut jaminan keamanan produk tanpa kompromi. Kami menghadirkan kamera inspeksi yang memverifikasi warna tablet dan kerapatan seal blister, disinkronkan dengan pencetakan kode batch TIJ resolusi tinggi dan pencatatan audit-trail untuk kepatuhan GMP penuh.">
-                            Pharmaceutical manufacturing demands uncompromised product safety. We integrate vision inspection cameras verifying tablet color and blister seal integrity, synchronized with high-resolution TIJ inkjet batch coding and audit-trail database logging for total GMP compliance.
-                        </p>
-
-                        <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-1">
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">100%</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Audit Compliance" data-lang-id="Kepatuhan Audit">Audit Compliance</div>
-                            </div>
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">Zero Fail</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Blister Seal Leakage" data-lang-id="Kebocoran Seal Blister">Blister Seal Leakage</div>
-                            </div>
-                        </div>
+                <!-- 03. Pharma & Cleanrooms -->
+                <div class="group rounded-3xl bg-neutral-900 border border-neutral-800 hover:border-[#3367A5] hover:shadow-[0_15px_35px_rgba(51,103,165,0.2)] transition-all duration-300 flex flex-col justify-between overflow-hidden reveal-on-scroll reveal-stagger-3">
+                    <div class="relative h-56 overflow-hidden bg-neutral-950">
+                        <img src="{{ asset('storage/automated_vision_system.webp') }}" alt="Pharma Optical Inspection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[11px] font-bold text-[#3367A5] font-['Agrandir'] border border-white/10">03 &bull; PHARMA</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#3367A5] text-[11px] font-bold text-white font-['Agrandir']">GMP 100%</span>
                     </div>
-
-                    <div class="lg:col-span-6 space-y-4">
-                        <div class="rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl relative">
-                            <img src="{{ asset('storage/automated_vision_system.webp') }}" alt="Pharma Optical Inspection"
-                                class="w-full h-80 sm:h-96 object-cover object-center">
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl sm:text-2xl font-bold font-['Agrandir'] text-white group-hover:text-[#3367A5] transition-colors">
+                                Pharma &amp; Cleanrooms
+                            </h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 font-['Questrial'] leading-relaxed">
+                                Vision inspection cameras verifying tablet color and blister seal integrity, synchronized with high-resolution TIJ serialization.
+                            </p>
                         </div>
-                        <a href="{{ route('simulator.show', 'pharma') }}"
-                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
-                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
-                                data-lang-en="Simulation: Blister 10-Cavity Matrix &amp; 2D OCR Simulator"
-                                data-lang-id="Simulation: Simulator Matriks Blister &amp; Kode Batch OCR">Simulation: Blister 10-Cavity Matrix &amp; 2D OCR Simulator</span>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
-                                <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </span>
-                        </a>
+                        <div class="pt-2 border-t border-neutral-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-neutral-500 font-['Agrandir']">Audit Trail &bull; Zero Fail</span>
+                            <a href="{{ route('application.pharma') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-white group-hover:text-[#3367A5] font-['Agrandir'] transition-colors">
+                                <span>View Page</span>
+                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 4. Smart BMS & Utilities -->
-                <div id="pane-bms" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
-                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
-                            data-lang-en="Building Management &amp; Facility Utilities Telemetry"
-                            data-lang-id="Telemetri BMS &amp; Utilitas Fasilitas Gedung">
-                            Building Management &amp; Facility Utilities Telemetry
-                        </h3>
-                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
-                            data-lang-en="Smart commercial towers and manufacturing plants use our universal web-based SCADA interface to unify multi-chiller sequences, AHU air balances, gas leakage alarms, and electrical sub-meters into one accessible web portal without per-seat licensing fees."
-                            data-lang-id="Gedung komersial dan pabrik manufaktur menggunakan antarmuka SCADA web kami untuk menyatukan kontrol chiller, sirkulasi udara AHU, alarm kebocoran gas, dan sub-meter listrik ke dalam satu portal web terpadu tanpa biaya lisensi per-pengguna yang mahal.">
-                            Smart commercial towers and manufacturing plants use our universal web-based SCADA interface to unify multi-chiller sequences, AHU air balances, gas leakage alarms, and electrical sub-meters into one accessible web portal without per-seat licensing fees.
-                        </p>
-
-                        <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-1">
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">-18%</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Chiller Power Saved" data-lang-id="Penghematan Daya Chiller">Chiller Power Saved</div>
-                            </div>
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">&lt;2s</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Alarm Dispatch" data-lang-id="Penyampaian Alarm">Alarm Dispatch</div>
-                            </div>
-                        </div>
+                <!-- 04. Smart BMS & Utilities -->
+                <div class="group rounded-3xl bg-neutral-900 border border-neutral-800 hover:border-[#3367A5] hover:shadow-[0_15px_35px_rgba(51,103,165,0.2)] transition-all duration-300 flex flex-col justify-between overflow-hidden reveal-on-scroll reveal-stagger-1">
+                    <div class="relative h-56 overflow-hidden bg-neutral-950">
+                        <img src="{{ asset('storage/smartics_building_bms.jpg') }}" alt="Building Management Systems" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[11px] font-bold text-[#3367A5] font-['Agrandir'] border border-white/10">04 &bull; UTILITIES</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#3367A5] text-[11px] font-bold text-white font-['Agrandir']">-18% Power</span>
                     </div>
-
-                    <div class="lg:col-span-6 space-y-4">
-                        <div class="rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl relative">
-                            <img src="{{ asset('storage/smartics_building_bms.jpg') }}" alt="Building Management Systems"
-                                class="w-full h-80 sm:h-96 object-cover object-center">
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl sm:text-2xl font-bold font-['Agrandir'] text-white group-hover:text-[#3367A5] transition-colors">
+                                Smart BMS &amp; Utilities
+                            </h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 font-['Questrial'] leading-relaxed">
+                                Universal web SCADA interface unifying multi-chiller sequences, AHU air balances, gas leakage alarms, and electrical sub-meters.
+                            </p>
                         </div>
-                        <a href="{{ route('simulator.show', 'bms') }}"
-                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
-                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
-                                data-lang-en="Simulation: EIS Energy Information, EnPI &amp; Cos &phi; Simulator"
-                                data-lang-id="Simulation: Simulator Informasi Energi EIS, EnPI &amp; Cos &phi;">Simulation: EIS Energy Information, EnPI &amp; Cos &phi; Simulator</span>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
-                                <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </span>
-                        </a>
+                        <div class="pt-2 border-t border-neutral-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-neutral-500 font-['Agrandir']">Web SCADA &bull; Cos &phi;</span>
+                            <a href="{{ route('application.bms') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-white group-hover:text-[#3367A5] font-['Agrandir'] transition-colors">
+                                <span>View Page</span>
+                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 5. End-of-Line Packaging -->
-                <div id="pane-logistics" class="domain-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6 lg:space-y-7 flex flex-col justify-between">
-                        <h3 class="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold font-['Agrandir'] text-white leading-[1.15] tracking-tight"
-                            data-lang-en="Automated Arch Strapping &amp; Warehouse Dispatch"
-                            data-lang-id="Otomasi Strapping Busur &amp; Pengiriman Gudang">
-                            Automated Arch Strapping &amp; Warehouse Dispatch
-                        </h3>
-                        <p class="text-sm sm:text-base lg:text-[17px] text-gray-300 font-['Questrial'] leading-relaxed text-justify"
-                            data-lang-en="End-of-line packaging is frequently the primary bottleneck in manufacturing. We install automatic arch strapping units delivering up to 3,500N tension, synchronized with motorized roller turntables and carton sealers to eliminate packaging backlog."
-                            data-lang-id="Pengemasan akhir lini kerap menjadi titik hambat utama di pabrik. Kami mengintegrasikan unit strapping busur otomatis dengan kekuatan tarik hingga 3.500N, disinkronkan dengan meja putar rol konveyor dan penutup karton untuk menghilangkan antrean kemasan.">
-                            End-of-line packaging is frequently the primary bottleneck in manufacturing. We install automatic arch strapping units delivering up to 3,500N tension, synchronized with motorized roller turntables and carton sealers to eliminate packaging backlog.
-                        </p>
-
-                        <!-- Key Highlights -->
-                        <div class="grid grid-cols-2 gap-4 pt-1">
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3367A5] font-['Agrandir']">60+</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Straps / Minute" data-lang-id="Ikatan / Menit">Straps / Minute</div>
-                            </div>
-                            <div class="p-4 sm:p-5 lg:p-6 rounded-2xl bg-white border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
-                                <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-900 font-['Agrandir']">0.2s</div>
-                                <div class="text-xs sm:text-sm text-neutral-600 font-medium font-['Questrial'] mt-1" data-lang-en="Friction Weld Seal" data-lang-id="Waktu Las Gesek">Friction Weld Seal</div>
-                            </div>
-                        </div>
+                <!-- 05. End-of-Line Packaging -->
+                <div class="group rounded-3xl bg-neutral-900 border border-neutral-800 hover:border-[#3367A5] hover:shadow-[0_15px_35px_rgba(51,103,165,0.2)] transition-all duration-300 flex flex-col justify-between overflow-hidden reveal-on-scroll reveal-stagger-2">
+                    <div class="relative h-56 overflow-hidden bg-neutral-950">
+                        <img src="{{ asset('storage/strapping_panel_system.webp') }}" alt="Strapping System Integration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[11px] font-bold text-[#3367A5] font-['Agrandir'] border border-white/10">05 &bull; PACKAGING</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#3367A5] text-[11px] font-bold text-white font-['Agrandir']">60 straps/m</span>
                     </div>
-
-                    <div class="lg:col-span-6 space-y-4">
-                        <div class="rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl relative">
-                            <img src="{{ asset('storage/strapping_panel_system.webp') }}" alt="Strapping System Integration"
-                                class="w-full h-80 sm:h-96 object-cover object-center">
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-xl sm:text-2xl font-bold font-['Agrandir'] text-white group-hover:text-[#3367A5] transition-colors">
+                                End-of-Line Packaging
+                            </h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 font-['Questrial'] leading-relaxed">
+                                Automatic arch strapping units delivering up to 3,500N tension, synchronized with motorized roller turntables and carton sealers.
+                            </p>
                         </div>
-                        <a href="{{ route('simulator.show', 'logistics') }}"
-                            class="sim-launch-btn w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold font-['Agrandir'] shadow-lg no-underline group">
-                            <span class="text-sm sm:text-base font-bold font-['Agrandir']"
-                                data-lang-en="Simulation: High-Speed TIJ Coding &amp; 3,500N Arch Strapping"
-                                data-lang-id="Simulation: Simulator Coding TIJ &amp; Strapping Karton 3.500N">Simulation: High-Speed TIJ Coding &amp; 3,500N Arch Strapping</span>
-                            <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm uppercase tracking-wider shrink-0 font-bold font-['Agrandir']">
-                                <span data-lang-en="Launch" data-lang-id="Buka">Launch</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </span>
-                        </a>
+                        <div class="pt-2 border-t border-neutral-800 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-neutral-500 font-['Agrandir']">3,500N Force &bull; Turntable</span>
+                            <a href="{{ route('application.packaging') }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-white group-hover:text-[#3367A5] font-['Agrandir'] transition-colors">
+                                <span>View Page</span>
+                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Custom Plant Consultation Card -->
+                <div class="group rounded-3xl bg-gradient-to-br from-[#121824] to-[#07080b] border border-[#3367A5]/40 hover:border-[#3367A5] p-6 sm:p-7 flex flex-col justify-between reveal-on-scroll reveal-stagger-3">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-[#3367A5]/20 text-[#3367A5] flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold font-['Agrandir'] text-white">
+                            Custom Plant Architecture
+                        </h3>
+                        <p class="text-xs sm:text-sm text-neutral-300 font-['Questrial'] leading-relaxed">
+                            Have unique requirements outside these 5 operational sectors? Our engineering team designs custom automation cells and fieldbus interfaces tailored to your factory layout.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="{{ route('contact') }}" class="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full bg-[#3367A5] text-white hover:bg-white hover:text-black font-bold font-['Agrandir'] text-xs sm:text-sm transition-all duration-300">
+                            <span>Request Architecture Draft</span>
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -637,51 +557,9 @@
     <!-- Footer -->
     @include('components.footer.footer')
 
-    <!-- Script for Domain Switcher & Smooth Scroll -->
+    <!-- Script for Smooth Scroll & Observer -->
     <script>
-        function switchDomain(domainId) {
-            if (domainId === 'packaging') domainId = 'logistics';
-
-            // Update Tab Buttons (if any exist)
-            document.querySelectorAll('.domain-tab-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-[#3367A5]', 'text-white');
-                btn.classList.add('bg-white', 'text-neutral-900', 'hover:bg-neutral-100', 'hover:text-black');
-            });
-            const activeBtn = document.getElementById('btn-' + domainId);
-            if (activeBtn) {
-                activeBtn.classList.remove('bg-white', 'text-neutral-900', 'hover:bg-neutral-100', 'hover:text-black');
-                activeBtn.classList.add('active', 'bg-[#3367A5]', 'text-white');
-            }
-
-            // Update Content Panes
-            document.querySelectorAll('.domain-pane').forEach(pane => {
-                pane.classList.add('hidden');
-            });
-            const targetPane = document.getElementById('pane-' + domainId);
-            if (targetPane) {
-                targetPane.classList.remove('hidden');
-            }
-        }
-        window.switchDomain = switchDomain;
-
         document.addEventListener('DOMContentLoaded', function () {
-            // Handle initial domain parameter from URL (e.g. ?domain=automotive#domain-content-area)
-            try {
-                const urlParams = new URLSearchParams(window.location.search);
-                const domainParam = urlParams.get('domain');
-                if (domainParam) {
-                    const targetId = (domainParam === 'packaging') ? 'logistics' : domainParam;
-                    switchDomain(targetId);
-                    if (window.location.hash === '#domain-content-area') {
-                        setTimeout(() => {
-                            const area = document.getElementById('domain-content-area');
-                            if (area) area.scrollIntoView({ behavior: 'smooth' });
-                        }, 200);
-                    }
-                }
-            } catch (err) {
-                console.warn('Domain URL parameter error:', err);
-            }
 
             // Initialize Lenis Smooth Scroll
             try {

@@ -186,8 +186,7 @@
                                                 </div>
 
                                                 <!-- Domain 1: Manufacturing & FMCG -->
-                                                <a href="{{ route('application') }}?domain=manufacturing#domain-content-area"
-                                                   onclick="handleDomainNav('manufacturing', event)"
+                                                <a href="{{ route('application.manufacturing') }}"
                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                     <div class="flex items-center gap-2.5 min-w-0">
                                                         <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">01</span>
@@ -197,8 +196,7 @@
                                                 </a>
 
                                                 <!-- Domain 2: Automotive & Heavy Machinery -->
-                                                <a href="{{ route('application') }}?domain=automotive#domain-content-area"
-                                                   onclick="handleDomainNav('automotive', event)"
+                                                <a href="{{ route('application.automotive') }}"
                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                     <div class="flex items-center gap-2.5 min-w-0">
                                                         <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">02</span>
@@ -208,8 +206,7 @@
                                                 </a>
 
                                                 <!-- Domain 3: Pharma & Cleanrooms -->
-                                                <a href="{{ route('application') }}?domain=pharma#domain-content-area"
-                                                   onclick="handleDomainNav('pharma', event)"
+                                                <a href="{{ route('application.pharma') }}"
                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                     <div class="flex items-center gap-2.5 min-w-0">
                                                         <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">03</span>
@@ -219,8 +216,7 @@
                                                 </a>
 
                                                 <!-- Domain 4: Smart BMS & Utilities -->
-                                                <a href="{{ route('application') }}?domain=bms#domain-content-area"
-                                                   onclick="handleDomainNav('bms', event)"
+                                                <a href="{{ route('application.bms') }}"
                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                     <div class="flex items-center gap-2.5 min-w-0">
                                                         <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">04</span>
@@ -230,8 +226,7 @@
                                                 </a>
 
                                                 <!-- Domain 5: End-of-Line Packaging -->
-                                                <a href="{{ route('application') }}?domain=logistics#domain-content-area"
-                                                   onclick="handleDomainNav('logistics', event)"
+                                                <a href="{{ route('application.packaging') }}"
                                                    class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                     <div class="flex items-center gap-2.5 min-w-0">
                                                         <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">05</span>
@@ -574,8 +569,7 @@
                                                     </div>
 
                                                     <!-- Domain 1: Manufacturing & FMCG -->
-                                                    <a href="{{ route('application') }}?domain=manufacturing#domain-content-area"
-                                                       onclick="handleDomainNav('manufacturing', event)"
+                                                    <a href="{{ route('application.manufacturing') }}"
                                                        class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                         <div class="flex items-center gap-2.5 min-w-0">
                                                             <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">01</span>
@@ -585,8 +579,7 @@
                                                     </a>
 
                                                     <!-- Domain 2: Automotive & Heavy Machinery -->
-                                                    <a href="{{ route('application') }}?domain=automotive#domain-content-area"
-                                                       onclick="handleDomainNav('automotive', event)"
+                                                    <a href="{{ route('application.automotive') }}"
                                                        class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                         <div class="flex items-center gap-2.5 min-w-0">
                                                             <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">02</span>
@@ -596,8 +589,7 @@
                                                     </a>
 
                                                     <!-- Domain 3: Pharma & Cleanrooms -->
-                                                    <a href="{{ route('application') }}?domain=pharma#domain-content-area"
-                                                       onclick="handleDomainNav('pharma', event)"
+                                                    <a href="{{ route('application.pharma') }}"
                                                        class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                         <div class="flex items-center gap-2.5 min-w-0">
                                                             <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">03</span>
@@ -607,8 +599,7 @@
                                                     </a>
 
                                                     <!-- Domain 4: Smart BMS & Utilities -->
-                                                    <a href="{{ route('application') }}?domain=bms#domain-content-area"
-                                                       onclick="handleDomainNav('bms', event)"
+                                                    <a href="{{ route('application.bms') }}"
                                                        class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                         <div class="flex items-center gap-2.5 min-w-0">
                                                             <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">04</span>
@@ -618,8 +609,7 @@
                                                     </a>
 
                                                     <!-- Domain 5: End-of-Line Packaging -->
-                                                    <a href="{{ route('application') }}?domain=logistics#domain-content-area"
-                                                       onclick="handleDomainNav('logistics', event)"
+                                                    <a href="{{ route('application.packaging') }}"
                                                        class="group/sub flex items-center justify-between p-2 rounded-2xl hover:bg-neutral-50 transition-all">
                                                         <div class="flex items-center gap-2.5 min-w-0">
                                                             <span class="w-7 h-7 rounded-xl bg-neutral-100 group-hover/sub:bg-[#3367A5] text-neutral-600 group-hover/sub:text-white text-xs font-bold font-['Agrandir',sans-serif] flex items-center justify-center transition-colors shrink-0">05</span>
@@ -875,11 +865,11 @@
                                 <a href="{{ route('application') }}" data-lang-en="Applications" data-lang-id="Aplikasi Industri"
                                     class="block px-3 py-1.5 rounded-lg text-sm text-gray-600 hover:text-black hover:bg-gray-50 transition {{ request()->routeIs('application') ? 'text-[#3367A5] font-bold' : '' }}">Applications</a>
                                 <div class="pl-3.5 space-y-1 border-l border-neutral-200 ml-3">
-                                    <a href="{{ route('application') }}?domain=manufacturing#domain-content-area" onclick="handleDomainNav('manufacturing', event)" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium">&bull; Manufacturing &amp; FMCG</a>
-                                    <a href="{{ route('application') }}?domain=automotive#domain-content-area" onclick="handleDomainNav('automotive', event)" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium">&bull; Automotive &amp; Machinery</a>
-                                    <a href="{{ route('application') }}?domain=pharma#domain-content-area" onclick="handleDomainNav('pharma', event)" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium">&bull; Pharma &amp; Cleanrooms</a>
-                                    <a href="{{ route('application') }}?domain=bms#domain-content-area" onclick="handleDomainNav('bms', event)" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium">&bull; Smart BMS &amp; Utilities</a>
-                                    <a href="{{ route('application') }}?domain=logistics#domain-content-area" onclick="handleDomainNav('logistics', event)" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium">&bull; End-of-Line Packaging</a>
+                                    <a href="{{ route('application.manufacturing') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.manufacturing') ? 'text-[#3367A5] font-bold' : '' }}">&bull; Manufacturing &amp; FMCG</a>
+                                    <a href="{{ route('application.automotive') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.automotive') ? 'text-[#3367A5] font-bold' : '' }}">&bull; Automotive &amp; Machinery</a>
+                                    <a href="{{ route('application.pharma') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.pharma') ? 'text-[#3367A5] font-bold' : '' }}">&bull; Pharma &amp; Cleanrooms</a>
+                                    <a href="{{ route('application.bms') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.bms') ? 'text-[#3367A5] font-bold' : '' }}">&bull; Smart BMS &amp; Utilities</a>
+                                    <a href="{{ route('application.packaging') }}" class="block px-2 py-1 text-xs text-gray-500 hover:text-[#3367A5] font-medium {{ request()->routeIs('application.packaging') ? 'text-[#3367A5] font-bold' : '' }}">&bull; End-of-Line Packaging</a>
                                 </div>
                             </div>
                             <a href="{{ route('projects') }}" data-lang-en="Projects" data-lang-id="Proyek &amp; Portofolio"
@@ -1213,25 +1203,17 @@
         }, 2000);
     }
 
-    // Global helper for Operational Domain navigation from Navbar flyout & mobile menu
+    // Global helper for Operational Domain navigation fallback
     window.handleDomainNav = function(domainId, e) {
-        const isAppPage = window.location.pathname.endsWith('/application') || window.location.pathname.includes('/application');
-        if (isAppPage) {
-            if (e) e.preventDefault();
-            const targetId = (domainId === 'packaging') ? 'logistics' : domainId;
-            if (typeof window.switchDomain === 'function') {
-                window.switchDomain(targetId);
-            }
-            const area = document.getElementById('domain-content-area');
-            if (area) {
-                area.scrollIntoView({ behavior: 'smooth' });
-            }
-            window.history.replaceState(null, '', window.location.pathname + '?domain=' + targetId + '#domain-content-area');
-            const mob = document.getElementById('mobile-menu');
-            if (mob && !mob.classList.contains('hidden')) {
-                mob.classList.add('hidden');
-                document.body.style.overflow = '';
-            }
-        }
+        const routeMap = {
+            'manufacturing': '/application/manufacturing',
+            'automotive': '/application/automotive',
+            'pharma': '/application/pharma',
+            'bms': '/application/bms',
+            'packaging': '/application/packaging',
+            'logistics': '/application/packaging'
+        };
+        const url = routeMap[domainId] || '/application';
+        window.location.href = url;
     };
 </script>
