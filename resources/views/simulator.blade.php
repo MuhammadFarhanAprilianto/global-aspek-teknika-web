@@ -1180,12 +1180,12 @@
                 ctx.stroke();
 
                 // 5. Annotations
-                // CV1 Labels
+                // CV1 Labels (elevated above standing bottle silhouettes)
                 const cv1MidX = mmToPx(p.cv1_len * 0.5);
                 ctx.textAlign = 'center';
                 ctx.fillStyle = '#0f172a';
                 ctx.font = 'bold 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.fillText(`CV1: ${(p.cv1_len / 1000).toFixed(2)} m`, cv1MidX, baselineY - 14);
+                ctx.fillText(`CV1: ${(p.cv1_len / 1000).toFixed(2)} m`, cv1MidX, baselineY - 60);
 
                 ctx.fillStyle = '#475569';
                 ctx.font = '9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -1202,11 +1202,11 @@
                 ctx.fillText(`Speed: ${p.cv2_speed} mm/s`, cv2MidX, baselineY - 114);
                 ctx.fillText(`Spacing: ${p.cv2_spacing.toFixed(1)} mm`, cv2MidX, baselineY - 100);
 
-                // CV3 Labels
+                // CV3 Labels (elevated above standing bottle silhouettes)
                 const cv3MidX = mmToPx(p.cv1_len + p.cv2_len + (p.cv3_len * 0.5));
                 ctx.fillStyle = '#0f172a';
                 ctx.font = 'bold 10px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-                ctx.fillText(`CV3: ${(p.cv3_len / 1000).toFixed(2)} m`, cv3MidX, baselineY - 14);
+                ctx.fillText(`CV3: ${(p.cv3_len / 1000).toFixed(2)} m`, cv3MidX, baselineY - 60);
 
                 ctx.fillStyle = '#475569';
                 ctx.font = '9.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
