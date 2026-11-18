@@ -154,12 +154,6 @@
                         </svg>
                         <span data-lang-en="Back to Applications" data-lang-id="Kembali ke Halaman Aplikasi">Back to Applications</span>
                     </a>
-                    <div class="flex items-center gap-2.5">
-                        <span class="w-2.5 h-2.5 rounded-full bg-[#3367A5] animate-pulse"></span>
-                        <span class="text-xs font-bold uppercase tracking-widest text-[#3367A5] font-['Agrandir']"
-                            data-lang-en="GAT INTERACTIVE VIRTUAL LAB // LIVE SIMULATION"
-                            data-lang-id="LABORATORIUM VIRTUAL INTERAKTIF GAT // SIMULASI LANGSUNG">GAT INTERACTIVE VIRTUAL LAB // LIVE SIMULATION</span>
-                    </div>
                     <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold font-['Agrandir'] text-white mt-1"
                         data-lang-en="PROJECT SYSTEM SIMULATOR"
                         data-lang-id="SIMULATOR SISTEM PROYEK">
@@ -199,21 +193,10 @@
                 <div class="bg-white text-gray-900 rounded-3xl p-6 sm:p-10 shadow-2xl border border-gray-200 space-y-6">
                     
                     <!-- Header / Title matching Image 3 -->
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
-                        <div>
-                            <h2 class="text-2xl sm:text-3xl font-normal text-slate-800 tracking-tight" style="font-family: 'Questrial', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Inspection Bottle Simulator
-                            </h2>
-                            <p class="text-xs text-gray-500 mt-1 font-sans">
-                                High-Speed Optical Inspection &amp; Multi-Conveyor Flow Dynamics
-                            </p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#3367A5] border border-blue-200">
-                                <span class="w-2 h-2 rounded-full bg-[#3367A5] mr-2 animate-pulse"></span>
-                                Live Simulation Active
-                            </span>
-                        </div>
+                    <div class="pb-2">
+                        <h2 class="text-2xl sm:text-3xl font-normal text-slate-800 tracking-tight" style="font-family: 'Questrial', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            Inspection Bottle Simulator
+                        </h2>
                     </div>
 
                     <!-- 6 Parameter Cards Grid matching Image 3 (3 columns x 2 rows) -->
