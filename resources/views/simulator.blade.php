@@ -347,8 +347,8 @@
 
                             <div class="pt-1 space-y-1 text-xs text-gray-600 font-medium">
                                 <div>Bottles in delay: <span id="gate-bottles-text" class="font-bold text-gray-800">0</span></div>
-                                <div>Last Delay: <span id="gate-last-delay-text">0.30</span> s</div>
-                                <div>Average Delay: <span id="gate-avg-delay-text">0.30</span> s</div>
+                                <div>Last Delay: <span id="gate-last-delay-text">0.00</span> s</div>
+                                <div>Average Delay: <span id="gate-avg-delay-text">0.00</span> s</div>
                             </div>
                         </div>
 
@@ -373,7 +373,7 @@
                             </div>
                             <div class="text-[11px] text-gray-400 mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
                                 <span>Real-time Multi-Conveyor Physics</span>
-                                <span id="bottleSimStatusPill" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-200">RUNNING</span>
+                                <span id="bottleSimStatusPill" class="px-2 py-0.5 rounded text-[10px] font-bold bg-neutral-100 text-neutral-600 border border-neutral-300">STOPPED</span>
                             </div>
                         </div>
 
@@ -850,13 +850,14 @@
         /* SIMULATOR 1: INSPECTION BOTTLE SIMULATOR ENGINE (SMARTEK-STYLE REPLICA)   */
         /* ========================================================================= */
         const bottleSim = {
-            running: true,
+            running: false, // Idle/stopped initially until user clicks Start
             animId: null,
             lastTimestamp: 0,
-            bottles: [], // array of { pos: mm, inDelay: bool, delayTimer: sec, passedGate: bool, inCam: bool }
-            lastDelay: 0.30,
-            delays: [0.30],
-            avgDelay: 0.30
+            bottles: [], // Empty initially - no bottles on conveyor until started
+            spawnTimer: 0,
+            lastDelay: 0,
+            delays: [],
+            avgDelay: 0
         };
 
         function getBottleSimParams() {
@@ -911,60 +912,6 @@
             if (el5) el5.textContent = p.cam_time.toFixed(2);
         }
 
-        function initBottleSimQueue() {
-            const p = getBottleSimParams();
-            bottleSim.bottles = [];
-
-            // 1. Fill CV1 with densely queued bottles matching reference spacing
-            const gateEntryMm = p.cv1_len + p.gate_pos;
-            let pos = gateEntryMm - 5;
-            while (pos >= 100) {
-                bottleSim.bottles.push({
-                    pos: pos,
-                    inDelay: false,
-                    delayTimer: 0,
-                    passedGate: false,
-                    inCam: false
-                });
-                pos -= Math.max(35, p.cv1_spacing);
-            }
-
-            // 2. Put 1 bottle actively inside the Delay Gate
-            bottleSim.bottles.push({
-                pos: gateEntryMm + (p.gate_len * 0.4),
-                inDelay: true,
-                delayTimer: 0.15,
-                passedGate: false,
-                inCam: false
-            });
-
-            // 3. Put 1 bottle actively inside the Camera Zone
-            const camEntryMm = p.cv1_len + p.cam_pos;
-            bottleSim.bottles.push({
-                pos: camEntryMm + (p.cam_len * 0.45),
-                inDelay: false,
-                delayTimer: 0,
-                passedGate: true,
-                inCam: true
-            });
-
-            // 4. Distribute spaced bottles along CV3
-            let cv3Pos = p.cv1_len + p.cv2_len + 150;
-            while (cv3Pos < p.total_len) {
-                bottleSim.bottles.push({
-                    pos: cv3Pos,
-                    inDelay: false,
-                    delayTimer: 0,
-                    passedGate: true,
-                    inCam: false
-                });
-                cv3Pos += Math.max(45, p.cv3_spacing * 2.5);
-            }
-
-            // Sort bottles ascending by position
-            bottleSim.bottles.sort((a, b) => a.pos - b.pos);
-        }
-
         function resizeBottleCanvas() {
             const canvas = document.getElementById('bottleSimCanvas');
             if (!canvas) return;
@@ -1001,22 +948,40 @@
                 const camStartMm = p.cv1_len + p.cam_pos;
                 const camEndMm = camStartMm + p.cam_len;
 
-                // --- PHYSICS UPDATE ---
+                // --- PHYSICS UPDATE (ONLY WHEN RUNNING) ---
                 if (bottleSim.running && dt > 0) {
-                    let prevPosAhead = Infinity;
+                    // 1. Spawning bottles at CV1 based on CPM rate
+                    const ratePerSec = p.cv1_cpm > 0 ? (p.cv1_cpm / 60) : 10;
+                    const spawnInterval = 1 / ratePerSec;
+                    bottleSim.spawnTimer += dt;
 
-                    // Iterate bottles from rightmost to leftmost
+                    if (bottleSim.spawnTimer >= spawnInterval) {
+                        const firstBottle = bottleSim.bottles[0];
+                        const minDistanceToSpawn = Math.max(15, p.cv1_spacing * 0.85);
+                        if (!firstBottle || firstBottle.pos >= minDistanceToSpawn) {
+                            bottleSim.bottles.unshift({
+                                pos: 0,
+                                inDelay: false,
+                                delayTimer: 0,
+                                passedGate: false,
+                                inCam: false
+                            });
+                            bottleSim.spawnTimer = 0;
+                        }
+                    }
+
+                    // 2. Move existing bottles
+                    let prevPosAhead = Infinity;
                     for (let i = bottleSim.bottles.length - 1; i >= 0; i--) {
                         const b = bottleSim.bottles[i];
                         b.inCam = false;
 
                         if (!b.passedGate) {
-                            // On CV1 or waiting at gate
+                            // Approaching or inside Gate
                             if (b.pos >= gateStartMm - 2 && b.pos <= gateEndMm) {
-                                // Inside or at gate threshold
                                 b.inDelay = true;
                                 b.delayTimer += dt;
-                                b.pos = Math.min(gateStartMm + (p.gate_len * 0.5), b.pos + 12 * dt);
+                                b.pos = Math.min(gateStartMm + (p.gate_len * 0.5), b.pos + (8 * dt));
 
                                 const nominalDelay = 0.30;
                                 if (b.delayTimer >= nominalDelay) {
@@ -1030,7 +995,7 @@
                                 }
                             } else {
                                 b.inDelay = false;
-                                const maxAllowable = Math.min(gateStartMm - 10, prevPosAhead - 28);
+                                const maxAllowable = Math.min(gateStartMm - 5, prevPosAhead - 16);
                                 const desiredPos = b.pos + (p.cv1_speed * dt);
                                 b.pos = Math.min(desiredPos, maxAllowable);
                             }
@@ -1051,19 +1016,7 @@
                     }
 
                     // Remove bottles that exited off the right
-                    bottleSim.bottles = bottleSim.bottles.filter(b => b.pos <= p.total_len + 80);
-
-                    // Spawn new bottle on CV1 entrance
-                    const firstBottle = bottleSim.bottles[0];
-                    if (!firstBottle || firstBottle.pos >= Math.max(30, p.cv1_spacing)) {
-                        bottleSim.bottles.unshift({
-                            pos: 0,
-                            inDelay: false,
-                            delayTimer: 0,
-                            passedGate: false,
-                            inCam: false
-                        });
-                    }
+                    bottleSim.bottles = bottleSim.bottles.filter(b => b.pos <= p.total_len + 50);
                 }
 
                 // --- CANVAS DRAWING ---
@@ -1178,7 +1131,7 @@
                 // 6. Draw Moving Blue Circular Bottles
                 let inCamCount = 0;
                 let inDelayCount = 0;
-                const bottleRadius = 7.5;
+                const bottleRadius = 5.5;
 
                 bottleSim.bottles.forEach(b => {
                     const bx = mmToPx(b.pos);
@@ -1189,9 +1142,9 @@
 
                     ctx.beginPath();
                     ctx.arc(bx, by, bottleRadius, 0, Math.PI * 2);
-                    ctx.fillStyle = '#38bdf8'; // vibrant sky blue circle matching Smartek reference
+                    ctx.fillStyle = '#38bdf8'; // vibrant sky blue circle
                     ctx.strokeStyle = '#0284c7'; // dark blue border
-                    ctx.lineWidth = 1.4;
+                    ctx.lineWidth = 1.3;
                     ctx.fill();
                     ctx.stroke();
 
@@ -1199,7 +1152,7 @@
                     if (b.inCam) {
                         ctx.beginPath();
                         ctx.arc(bx, by, bottleRadius + 2.5, 0, Math.PI * 2);
-                        ctx.strokeStyle = 'rgba(245, 158, 11, 0.7)';
+                        ctx.strokeStyle = 'rgba(245, 158, 11, 0.8)';
                         ctx.lineWidth = 1.5;
                         ctx.stroke();
                     }
@@ -1213,8 +1166,8 @@
 
                 if (camBottlesEl) camBottlesEl.textContent = inCamCount;
                 if (gateBottlesEl) gateBottlesEl.textContent = inDelayCount;
-                if (lastDelayEl) lastDelayEl.textContent = bottleSim.lastDelay.toFixed(2) + ' s';
-                if (avgDelayEl) avgDelayEl.textContent = bottleSim.avgDelay.toFixed(2) + ' s';
+                if (lastDelayEl) lastDelayEl.textContent = bottleSim.lastDelay > 0 ? bottleSim.lastDelay.toFixed(2) + ' s' : '0.00 s';
+                if (avgDelayEl) avgDelayEl.textContent = bottleSim.avgDelay > 0 ? bottleSim.avgDelay.toFixed(2) + ' s' : '0.00 s';
 
                 ctx.restore();
             }
@@ -1241,12 +1194,29 @@
         }
 
         function resetBottleSim() {
-            initBottleSimQueue();
-            updateBottleParamDisplays();
+            bottleSim.running = false;
+            bottleSim.bottles = [];
+            bottleSim.lastDelay = 0;
+            bottleSim.delays = [];
+            bottleSim.avgDelay = 0;
+            bottleSim.spawnTimer = 0;
+
+            const camBottlesEl = document.getElementById('cam-bottles-text');
+            const gateBottlesEl = document.getElementById('gate-bottles-text');
+            const lastDelayEl = document.getElementById('gate-last-delay-text');
+            const avgDelayEl = document.getElementById('gate-avg-delay-text');
+
+            if (camBottlesEl) camBottlesEl.textContent = '0';
+            if (gateBottlesEl) gateBottlesEl.textContent = '0';
+            if (lastDelayEl) lastDelayEl.textContent = '0.00 s';
+            if (avgDelayEl) avgDelayEl.textContent = '0.00 s';
+
             const statusPill = document.getElementById('bottleSimStatusPill');
             if (statusPill) {
-                statusPill.textContent = bottleSim.running ? 'RUNNING' : 'STOPPED';
+                statusPill.textContent = 'STOPPED';
+                statusPill.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-neutral-100 text-neutral-600 border border-neutral-300';
             }
+            updateBottleParamDisplays();
         }
 
         // Attach dynamic input listeners to recalculate spacing & time in real-time
@@ -1269,7 +1239,7 @@
             });
 
             resizeBottleCanvas();
-            initBottleSimQueue();
+            resetBottleSim(); // Empty state on initial load matching user reference
             updateBottleParamDisplays();
             window.addEventListener('resize', resizeBottleCanvas);
             bottleSim.animId = requestAnimationFrame(renderBottleSim);
