@@ -258,7 +258,7 @@
 
                             <div>
                                 <label for="cam-pos" class="block text-xs text-gray-500 font-medium mb-1">Position (mm):</label>
-                                <input type="number" id="cam-pos" value="130" min="0" max="5000"
+                                <input type="number" id="cam-pos" value="250" min="0" max="5000"
                                     class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50/50 text-gray-800 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#3367A5] transition">
                             </div>
 
@@ -834,14 +834,14 @@
             const cv3_speed = parseFloat(document.getElementById('cv3-speed')?.value) || 500;
             const cv3_len = parseFloat(document.getElementById('cv3-length')?.value) || 2000;
 
-            const cam_pos = parseFloat(document.getElementById('cam-pos')?.value) || 130;
+            const cam_pos = parseFloat(document.getElementById('cam-pos')?.value) || 250;
             const cam_len = parseFloat(document.getElementById('cam-len')?.value) || 300;
-            const cam_offset = parseFloat(document.getElementById('cam-offset')?.value) || 35;
+            const cam_offset = parseFloat(document.getElementById('cam-offset')?.value) || 65;
             const cam_speed = parseFloat(document.getElementById('cam-speed')?.value) || 1000;
 
             const gate_pos = parseFloat(document.getElementById('gate-pos')?.value) || 10;
             const gate_len = parseFloat(document.getElementById('gate-len')?.value) || 80;
-            const gate_offset = parseFloat(document.getElementById('gate-offset')?.value) || 50;
+            const gate_offset = parseFloat(document.getElementById('gate-offset')?.value) || 72;
 
             const bps = cv1_cpm > 0 ? (cv1_cpm / 60) : 10;
             const cv1_spacing = bps > 0 ? (cv1_speed / bps) : 43.3;
@@ -1130,7 +1130,7 @@
 
                 // 2. Delay Zone (Gate) Bracket - Green (Enlarged for standing bottle silhouette)
                 const gatePxX = mmToPx(gateStartMm);
-                const gatePxW = Math.max(18, mmToPx(gateEndMm) - gatePxX);
+                const gatePxW = Math.max(16, mmToPx(gateEndMm) - gatePxX);
                 const gateH = Math.max(72, p.gate_offset || 72);
                 const gateBelow = 8; // Bracket clamps slightly across baseline like reference
                 const gateRightX = gatePxX + gatePxW;
@@ -1147,9 +1147,9 @@
                 ctx.textAlign = 'center';
                 ctx.fillText(`Delay Zone: ${(p.gate_len / 1000).toFixed(2)} m`, gatePxX + (gatePxW / 2), baselineY - 84);
 
-                // 3. Camera Zone Bracket - Amber / Orange (Enlarged for standing bottle silhouette)
-                const camPxX = mmToPx(camStartMm);
-                const camPxW = Math.max(48, mmToPx(camEndMm) - camPxX);
+                // 3. Camera Zone Bracket - Amber / Orange (Shifted right with clean gap from Delay Zone)
+                const camPxX = Math.max(mmToPx(camStartMm), gateRightX + 20);
+                const camPxW = Math.max(48, mmToPx(camEndMm) - mmToPx(camStartMm));
                 const camH = Math.max(65, p.cam_offset || 65);
 
                 ctx.fillStyle = 'rgba(245, 158, 11, 0.16)';
