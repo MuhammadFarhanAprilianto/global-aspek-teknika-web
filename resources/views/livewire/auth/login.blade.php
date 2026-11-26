@@ -442,7 +442,6 @@ new #[Layout('components.layouts.auth')] class extends Component {
                             <label class="inline-flex items-center gap-2 cursor-pointer select-none">
                                 <input type="checkbox" name="remember" value="1" wire:model="remember"
                                     class="w-4 h-4 rounded text-[#3367A5] focus:ring-[#3367A5] border-slate-300 cursor-pointer">
-                                    class="w-4 h-4 rounded text-[#3367A5] focus:ring-[#3367A5] border-slate-300 cursor-pointer">
                                 <span class="text-xs sm:text-sm text-slate-700 font-medium font-['Questrial',sans-serif]">Ingat sesi saya</span>
                             </label>
                             <p class="text-[11px] text-slate-400 font-['Questrial',sans-serif] pl-6">
