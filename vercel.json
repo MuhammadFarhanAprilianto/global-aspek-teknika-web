@@ -37,6 +37,7 @@
         }
     ],
     "env": {
+        "APP_NAME": "PT Global Aspect Technology",
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_STORAGE": "/tmp/storage",
@@ -48,6 +49,9 @@
         "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
         "CACHE_STORE": "array",
         "SESSION_DRIVER": "cookie",
+        "SESSION_COOKIE": "gat_session",
+        "SESSION_LIFETIME": "1440",
+        "SESSION_SECURE_COOKIE": "true",
         "LOG_CHANNEL": "stderr"
     }
 }

@@ -54,7 +54,11 @@ putenv('APP_SERVICES_CACHE=/tmp/bootstrap/cache/services.php');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 // Sanitize environment variables to prevent empty string driver errors
 $driverDefaults = [
+    'APP_NAME' => 'PT Global Aspect Technology',
     'SESSION_DRIVER' => 'cookie',
+    'SESSION_COOKIE' => 'gat_session',
+    'SESSION_LIFETIME' => '1440',
+    'SESSION_SECURE_COOKIE' => 'true',
     'CACHE_STORE' => 'array',
     'CACHE_DRIVER' => 'array',
     'QUEUE_CONNECTION' => 'sync',
@@ -66,11 +70,16 @@ $driverDefaults = [
     'APP_MAINTENANCE_DRIVER' => 'file',
 ];
 
-// Force cookie sessions on Vercel stateless serverless when file driver would break across containers
+// Force cookie sessions & valid non-zero lifetime on Vercel stateless serverless
 if (getenv('SESSION_DRIVER') === 'file') {
     putenv('SESSION_DRIVER=cookie');
     $_ENV['SESSION_DRIVER'] = 'cookie';
     $_SERVER['SESSION_DRIVER'] = 'cookie';
+}
+if ((int) getenv('SESSION_LIFETIME') <= 0) {
+    putenv('SESSION_LIFETIME=1440');
+    $_ENV['SESSION_LIFETIME'] = '1440';
+    $_SERVER['SESSION_LIFETIME'] = '1440';
 }
 
 foreach ($driverDefaults as $key => $default) {

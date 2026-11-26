@@ -58,6 +58,13 @@ new #[Layout('components.layouts.auth')] class extends Component {
             Cookie::queue(Cookie::forget('remember_admin_email'));
         }
 
+        if (session()->has('gat_pending_2fa_user_id')) {
+            $this->pendingTwoFactorUserId = (int) session()->pull('gat_pending_2fa_user_id');
+            $this->remember = (bool) session()->pull('gat_pending_2fa_remember', false);
+            $this->requiresTwoFactor = true;
+            return;
+        }
+
         $rawSaved = request()->cookie('gat_saved_credentials');
         if (is_string($rawSaved) && $rawSaved !== '') {
             try {
@@ -76,6 +83,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
             } catch (\Throwable $e) {
                 Cookie::queue(Cookie::forget('gat_saved_credentials'));
             }
+        }
+        if (old('email')) {
+            $this->email = (string) old('email');
         }
     }
 
@@ -391,15 +401,15 @@ new #[Layout('components.layouts.auth')] class extends Component {
                         </div>
                     @endif
 
-                    <!-- Step 1: Email & Password Form (Livewire + Safe POST Fallback) -->
-                    <form method="POST" action="{{ route('login.post') }}" wire:submit="login" class="space-y-4">
+                    <!-- Step 1: Standard POST Login Form (Enables native Edge/Chrome "Save Password?" & reliable serverless login) -->
+                    <form method="POST" action="{{ route('login.post') }}" class="space-y-4" x-data="{ submitting: false }" @submit="submitting = true">
                         @csrf
                         <!-- Email Address Field -->
                         <div class="space-y-1.5">
                             <label for="email"
                                 class="block text-xs font-bold text-slate-700 uppercase tracking-wider font-['Questrial',sans-serif]">Email</label>
                             <div class="relative">
-                                <input type="email" id="email" name="email" wire:model="email" required autofocus
+                                <input type="email" id="email" name="email" value="{{ old('email', $email) }}" required autofocus
                                     autocomplete="username" placeholder="nama@perusahaan.co.id"
                                     class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#3367A5] focus:ring-2 focus:ring-[#3367A5]/20 outline-none transition font-['Questrial',sans-serif]">
                             </div>
@@ -413,7 +423,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                             <label for="password"
                                 class="block text-xs font-bold text-slate-700 uppercase tracking-wider font-['Questrial',sans-serif]">Password</label>
                             <div class="relative flex items-center">
-                                <input :type="showPass ? 'text' : 'password'" id="password" name="password" wire:model="password" required
+                                <input :type="showPass ? 'text' : 'password'" id="password" name="password" value="{{ $password }}" required
                                     autocomplete="current-password" placeholder="••••••••••"
                                     class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 pr-12 text-sm text-slate-900 placeholder-slate-400 focus:bg-white focus:border-[#3367A5] focus:ring-2 focus:ring-[#3367A5]/20 outline-none transition font-['Questrial',sans-serif]">
                                 <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
@@ -437,26 +447,26 @@ new #[Layout('components.layouts.auth')] class extends Component {
                             @enderror
                         </div>
 
-                        <!-- Encrypted Per-Device Remember Session & Credential Auto-Fill -->
+                        <!-- Encrypted Per-Device Remember Session & Browser Password Manager Support -->
                         <div class="flex flex-col gap-1 pt-1">
                             <label class="inline-flex items-center gap-2 cursor-pointer select-none">
-                                <input type="checkbox" name="remember" value="1" wire:model="remember"
+                                <input type="checkbox" name="remember" value="1" {{ $remember ? 'checked' : '' }}
                                     class="w-4 h-4 rounded text-[#3367A5] focus:ring-[#3367A5] border-slate-300 cursor-pointer">
                                 <span class="text-xs sm:text-sm text-slate-700 font-medium font-['Questrial',sans-serif]">Ingat sesi saya</span>
                             </label>
                             <p class="text-[11px] text-slate-400 font-['Questrial',sans-serif] pl-6">
-                                Email &amp; password akan disimpan terenkripsi di perangkat ini selama 30 hari.
+                                Simpan sesi &amp; izinkan browser Edge/Chrome menyimpan akun agar login berikutnya tinggal klik.
                             </p>
                         </div>
 
                         <!-- Submit Button with Loading Infinity Animation -->
                         <div class="pt-2">
-                            <button type="submit" wire:loading.attr="disabled"
+                            <button type="submit" :disabled="submitting"
                                 class="w-full h-12 py-3 px-6 rounded-xl bg-[#3367A5] hover:bg-[#255187] text-white font-bold font-['Agrandir',sans-serif] text-sm tracking-wide shadow-lg shadow-[#3367A5]/25 hover:shadow-xl transition-all duration-300 active:scale-[0.99] flex items-center justify-center disabled:opacity-90 cursor-pointer overflow-hidden relative">
-                                <span wire:loading.remove wire:target="login" class="transition-opacity duration-200">
+                                <span x-show="!submitting" class="transition-opacity duration-200">
                                     Masuk ke Dashboard
                                 </span>
-                                <span wire:loading wire:target="login" class="inline-flex items-center justify-center transition-opacity duration-200">
+                                <span x-show="submitting" x-cloak class="inline-flex items-center justify-center transition-opacity duration-200">
                                     <svg class="w-10 h-5 text-white inline-block" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path class="infinity-track" d="M18 8 C8 8, 4 12, 4 16 C4 20, 8 24, 18 24 C28 24, 36 8, 46 8 C56 8, 60 12, 60 16 C60 20, 56 24, 46 24 C36 24, 28 8, 18 8 Z" />
                                         <path class="infinity-flow" d="M18 8 C8 8, 4 12, 4 16 C4 20, 8 24, 18 24 C28 24, 36 8, 46 8 C56 8, 60 12, 60 16 C60 20, 56 24, 46 24 C36 24, 28 8, 18 8 Z" />

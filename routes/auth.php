@@ -8,27 +8,38 @@ Route::middleware('guest')->group(function () {
     Volt::route('login', 'auth.login')
         ->name('login');
 
-    // Safe POST fallback when JS/Livewire is delayed or blocked on cold serverless requests
+    // Standard HTML POST login (Triggers native Edge/Chrome Password Manager + reliable serverless redirect)
     Route::post('login', function (\Illuminate\Http\Request $request) {
         $credentials = $request->validate([
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
+        ], [
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'password.required' => 'Password wajib diisi.',
         ]);
 
         $email = \Illuminate\Support\Str::lower(trim($credentials['email']));
         $user = \App\Models\User::where('email', $email)->first();
 
         if (! $user || ! \Illuminate\Support\Facades\Hash::check($credentials['password'], $user->password)) {
+            try {
+                \App\Models\AdminSecurityLog::record('login_failed', 'danger', $user, $email, 'Percobaan login gagal (email atau kata sandi salah).');
+            } catch (\Throwable $e) {
+            }
             return back()->withErrors(['email' => 'Email atau kata sandi tidak valid.'])->withInput($request->only('email'));
         }
 
         if ($user->role !== 'admin' && ! ($user->is_admin ?? false)) {
-            return back()->withErrors(['email' => 'Akses ditolak. Portal ini khusus untuk Administrator PT Global Aspect Technology.']);
+            return back()->withErrors(['email' => 'Akses ditolak. Portal ini khusus untuk Administrator PT Global Aspect Technology.'])->withInput($request->only('email'));
         }
 
-        // If 2FA is enabled, fall back cleanly to Livewire 2FA screen
+        // Jika akun mengaktifkan 2FA, alihkan ke tantangan 2FA Livewire
         if ($user->hasTwoFactorEnabled()) {
-            return back()->with('status', 'Akun ini mengaktifkan 2FA. Silakan tunggu halaman selesai memuat lalu masuk kembali.');
+            $request->session()->put('gat_pending_2fa_user_id', $user->id);
+            $request->session()->put('gat_pending_2fa_pass', \Illuminate\Support\Facades\Crypt::encryptString($credentials['password']));
+            $request->session()->put('gat_pending_2fa_remember', $request->boolean('remember'));
+            return redirect()->route('login');
         }
 
         $remember = $request->boolean('remember');
@@ -58,6 +69,12 @@ Route::middleware('guest')->group(function () {
         $request->session()->put('admin_session_version', (int) ($user->session_version ?: 1));
         $request->session()->put('admin_last_activity', now()->timestamp);
         $request->session()->put('admin_session_synced_at', now()->timestamp);
+
+        try {
+            \App\Models\AdminActiveSession::syncCurrent($user, $request->session()->getId());
+            \App\Models\AdminSecurityLog::record('login_success', 'success', $user, $user->email, 'Login berhasil ke portal Administrator.');
+        } catch (\Throwable $e) {
+        }
 
         return redirect()->intended(route('admin.dashboard', absolute: false));
     })->name('login.post');
