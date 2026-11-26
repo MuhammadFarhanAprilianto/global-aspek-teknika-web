@@ -1,5 +1,7 @@
 /node_modules
 /tests
+/docs
+/deploy
 .git
 .github
 scratch/

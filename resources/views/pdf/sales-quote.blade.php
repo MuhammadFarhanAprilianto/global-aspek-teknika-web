@@ -66,13 +66,13 @@
         <tr>
             <td style="width: 44%; vertical-align: top; padding-top: 2px;">
                 @if (!empty($logoBase64))
-                    <img src="{{ $logoBase64 }}" alt="PT Global Aspek Teknologi" style="width: 175px; height: auto;">
+                    <img src="{{ $logoBase64 }}" alt="PT Global Aspect Technology" style="width: 175px; height: auto;">
                 @else
-                    <span class="bold" style="font-size: 15px;">PT Global Aspek Teknologi</span>
+                    <span class="bold" style="font-size: 15px;">PT Global Aspect Technology</span>
                 @endif
             </td>
             <td style="width: 56%; vertical-align: top; font-size: 11.5px; line-height: 1.48;">
-                <p class="bold" style="font-size: 12.5px; margin-bottom: 2px;">PT Global Aspek Teknologi</p>
+                <p class="bold" style="font-size: 12.5px; margin-bottom: 2px;">PT Global Aspect Technology</p>
                 <p>Cibis Nine Building Lantai 11</p>
                 <p>Jl. TB Simatupang No.2 RT:001/RW:005 Kel. Cilandak Timur, Kec.</p>
                 <p>Ps. Minggu - Kota Jakarta Selatan, 12560</p>
@@ -173,7 +173,7 @@
                             </td>
                             <td style="vertical-align: middle; padding-left: 8px; font-size: 7.8px; line-height: 1.3; color: #475467;">
                                 <div class="bold" style="color: #0f172a; font-size: 8.5px; margin-bottom: 1px;">VERIFIKASI KEASLIAN DIGITAL</div>
-                                <div>Pindai (Scan) QR Code dengan kamera ponsel untuk memvalidasi keaslian dokumen Sales Quote ini langsung pada portal web resmi PT Global Aspek Teknologi.</div>
+                                <div>Pindai (Scan) QR Code dengan kamera ponsel untuk memvalidasi keaslian dokumen Sales Quote ini langsung pada portal web resmi PT Global Aspect Technology.</div>
                                 <div style="font-family: monospace; color: #64748b; font-size: 7.5px; margin-top: 1px;">SEC-HASH: {{ $shortHash ?? strtoupper(substr($order->verification_hash, 0, 16)) }}</div>
                             </td>
                         </tr>

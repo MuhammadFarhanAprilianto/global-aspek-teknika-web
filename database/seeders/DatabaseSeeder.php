@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::firstOrCreate(
-            ['email' => 'admin@admin.com'],
+            ['email' => 'users@gat-aspect.com'],
             [
                 'name' => 'Administrator',
-                'password' => Hash::make('admin123'),
+                'password' => Hash::make('Gat-Aspectuser84*'),
                 'role' => 'admin',
                 'email_verified_at' => now(),
             ]

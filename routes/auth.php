@@ -8,8 +8,14 @@ Route::middleware('guest')->group(function () {
     Volt::route('login', 'auth.login')
         ->name('login');
 
-    Volt::route('register', 'auth.register')
-        ->name('register');
+    Route::get('admin/login', function () {
+        return redirect()->route('login');
+    })->name('admin.login');
+
+    // Registrasi publik ditutup demi keamanan ketat portal Administrator
+    Route::get('register', function () {
+        return redirect()->route('login')->with('status', 'Pendaftaran akun publik dinonaktifkan. Hubungi Administrator PT Global Aspect Technology.');
+    })->name('register');
 
     Volt::route('forgot-password', 'auth.forgot-password')
         ->name('password.request');

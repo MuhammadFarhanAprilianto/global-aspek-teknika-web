@@ -9,7 +9,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('contact'); // Pastikan file contact.blade.php ada di resources/views
+        return view('public.contact'); // Pastikan file contact.blade.php ada di resources/views
     }
 
     public function send(Request $request)
@@ -23,6 +23,17 @@ class ContactController extends Controller
             'preferred_date' => 'nullable|string|max:100',
             'company' => 'nullable|string|max:255',
             'message' => 'required|string|min:3|max:2000',
+        ]);
+
+        // 1. Simpan pesan ke database agar tercatat secara permanen di Dashboard Admin GAT
+        \App\Models\ContactMessage::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'] ?? null,
+            'company' => $data['company'] ?? null,
+            'service' => $data['service'] ?? null,
+            'message' => $data['message'],
+            'status' => 'unread',
         ]);
 
         $recipient = config('mail.from.address', env('MAIL_TO_ADDRESS', 'admin@example.com'));

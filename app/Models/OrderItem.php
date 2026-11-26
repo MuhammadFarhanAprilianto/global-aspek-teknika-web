@@ -38,7 +38,11 @@ class OrderItem extends Model
         if (! empty($this->selected_specifications) && is_array($this->selected_specifications)) {
             $clean = [];
             foreach ($this->selected_specifications as $key => $val) {
-                $clean[(string) $key] = is_array($val) ? implode(', ', $val) : (string) $val;
+                if (is_array($val)) {
+                    $clean[(string) $key] = isset($val['value']) ? (string) $val['value'] : implode(', ', $val);
+                } else {
+                    $clean[(string) $key] = (string) $val;
+                }
             }
 
             return $clean;
@@ -48,7 +52,12 @@ class OrderItem extends Model
         if (! empty($fallback) && is_array($fallback)) {
             $clean = [];
             foreach ($fallback as $key => $val) {
-                $clean[(string) $key] = is_array($val) ? (string) ($val[0] ?? '') : (string) $val;
+                if (is_array($val)) {
+                    $first = $val[0] ?? '';
+                    $clean[(string) $key] = is_array($first) ? (string) ($first['value'] ?? '') : (string) $first;
+                } else {
+                    $clean[(string) $key] = (string) $val;
+                }
             }
 
             return $clean;

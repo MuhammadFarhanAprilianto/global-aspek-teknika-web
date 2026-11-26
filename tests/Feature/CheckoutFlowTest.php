@@ -76,7 +76,7 @@ it('calculates server-side B2B subtotal and 11% PPN strictly from database and r
     // Mengakses halaman checkout menggunakan Signed URL berhasil & menampilkan Sales Quote resmi GAT
     $checkoutResponse = $this->get($redirectUrl);
     $checkoutResponse->assertOk()
-        ->assertSee('PT Global Aspek Teknologi')
+        ->assertSee('PT Global Aspect Technology')
         ->assertSee('BILL TO')
         ->assertSee('Quote')
         ->assertSee('PT Manufaktur Presisi Nusantara')

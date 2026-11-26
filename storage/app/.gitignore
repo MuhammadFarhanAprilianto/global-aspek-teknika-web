@@ -2,5 +2,12 @@
 !private/
 !public/
 !public/**
+public/avatars/
+public/avatars/**
+public/BG_LOGIN01.jpeg
+public/BG_Login.jpeg
+public/BG_Login_original_736.jpeg
+public/Logo_GAT_Trimmed.png
+public/Logo_Perusahaan(1)_original.png
 !.gitignore
 

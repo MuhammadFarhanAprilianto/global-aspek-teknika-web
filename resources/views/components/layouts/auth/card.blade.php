@@ -8,7 +8,7 @@
             <div class="flex w-full max-w-md flex-col gap-6">
                 <a href="{{ route('home') }}" class="flex flex-col items-center gap-2.5 font-medium mb-1" wire:navigate>
                     <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="{{ config('app.name') }}" class="h-12 w-auto object-contain">
-                    <span class="text-sm font-semibold tracking-wide text-neutral-800 dark:text-neutral-200">PT Global Aspek Teknika</span>
+                    <span class="text-sm font-semibold tracking-wide text-neutral-800 dark:text-neutral-200">PT Global Aspect Technology</span>
                 </a>
 
                 <div class="flex flex-col gap-6">

@@ -9,7 +9,7 @@
                 <div class="absolute inset-0 bg-neutral-900"></div>
                 <a href="{{ route('home') }}" class="relative z-20 flex items-center gap-3 text-lg font-medium" wire:navigate>
                     <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="{{ config('app.name') }}" class="h-9 w-auto object-contain">
-                    <span>PT Global Aspek Teknika</span>
+                    <span>PT Global Aspect Technology</span>
                 </a>
 
                 @php
@@ -27,7 +27,7 @@
                 <div class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
                     <a href="{{ route('home') }}" class="z-20 flex flex-col items-center gap-2.5 font-medium lg:hidden" wire:navigate>
                         <img src="{{ asset('storage/Logo_Perusahaan.webp') }}" alt="{{ config('app.name') }}" class="h-10 w-auto object-contain">
-                        <span class="text-sm font-semibold tracking-wide text-neutral-800 dark:text-neutral-200">PT Global Aspek Teknika</span>
+                        <span class="text-sm font-semibold tracking-wide text-neutral-800 dark:text-neutral-200">PT Global Aspect Technology</span>
                     </a>
                     {{ $slot }}
                 </div>

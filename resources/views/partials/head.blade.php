@@ -1,7 +1,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>{{ isset($title) ? $title . ' - ' . config('app.name', 'PT Global Aspek Teknika') : config('app.name', 'PT Global Aspek Teknika') }}</title>
+<title>{{ isset($title) ? $title . ' - ' . config('app.name', 'PT Global Aspect Technology') : config('app.name', 'PT Global Aspect Technology') }}</title>
 
 <!-- Favicon -->
 <link rel="icon" href="{{ asset('storage/Logo_Perusahaan(1).png') }}" type="image/png" sizes="64x64">

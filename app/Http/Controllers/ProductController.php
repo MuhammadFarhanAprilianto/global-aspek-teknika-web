@@ -57,7 +57,7 @@ class ProductController extends Controller
             ->latest()
             ->get();
 
-        return view('product', compact('products', 'categories', 'selectedCategory', 'search'));
+        return view('public.product', compact('products', 'categories', 'selectedCategory', 'search'));
     }
 
     /**

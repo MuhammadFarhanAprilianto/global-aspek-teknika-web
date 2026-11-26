@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\SiteSetting;
 use App\Services\FonnteWhatsAppService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use chillerlan\QRCode\QRCode;
@@ -238,7 +239,7 @@ class CheckoutController extends Controller
             'hash' => strtolower($shortHash),
         ]);
 
-        return view('checkout', [
+        return view('public.checkout', [
             'order' => $order,
             'shortHash' => $shortHash,
             'submitPoUrl' => $submitPoUrl,
@@ -273,7 +274,7 @@ class CheckoutController extends Controller
 
                 return redirect()->to($redirectBackUrl)->with(
                     'po_success',
-                    'Pesanan perusahaan Anda telah berhasil dikonfirmasi ke WhatsApp Admin sebelumnya. Tim PT Global Aspek Teknologi sedang menindaklanjuti pengajuan ini.'
+                    'Pesanan perusahaan Anda telah berhasil dikonfirmasi ke WhatsApp Admin sebelumnya. Tim PT Global Aspect Technology sedang menindaklanjuti pengajuan ini.'
                 );
             }
         }
@@ -327,6 +328,11 @@ class CheckoutController extends Controller
 
         session()->flash('clear_rfq_cart', true);
 
+        $order->loadMissing(['items.product:id,sku,name,specifications']);
+        $adminWaNumber = SiteSetting::adminWaNumber();
+        $directWaText = $whatsappService->buildAdminCaption($order);
+        $directWaUrl = 'https://wa.me/' . $adminWaNumber . '?text=' . rawurlencode($directWaText);
+
         $waResult = $whatsappService->sendOrderConfirmationPdf($order);
         $expiresAt = $order->expires_at ?? now()->addDays(14);
         $redirectBackUrl = URL::temporarySignedRoute('checkout.show', $expiresAt, [
@@ -334,14 +340,23 @@ class CheckoutController extends Controller
         ]);
 
         if ($waResult['sent']) {
+            $order->update([
+                'whatsapp_contacted_at' => now(),
+                'whatsapp_message_log' => 'PDF Sales Quote & rincian pesanan terkirim otomatis via WhatsApp Gateway ke Admin Order Quotation (' . $adminWaNumber . ') pada ' . now()->format('d M Y, H:i') . ' WIB.',
+            ]);
+
             return redirect()->to($redirectBackUrl)->with('po_success', $waResult['message']);
         }
 
-        return redirect()->to($redirectBackUrl)->with('whatsapp_warning', $waResult['message']);
+        // Jika WhatsApp Gateway lokal tidak dijalankan, pesanan tetap tersimpan sukses
+        // dan langsung diarahkan ke tombol WhatsApp Admin Order Quotation aktif (wa.me).
+        return redirect()->to($redirectBackUrl)
+            ->with('po_success', 'Pesanan perusahaan Anda berhasil tercatat di sistem PT Global Aspect Technology. Klik tombol WhatsApp di bawah untuk langsung mengirim rincian pesanan ke WhatsApp Admin Order Quotation.')
+            ->with('wa_direct_url', $directWaUrl);
     }
 
     /**
-     * Generate & Stream Dokumen PDF Sales Quote Resmi PT Global Aspek Teknologi (Signed URL).
+     * Generate & Stream Dokumen PDF Sales Quote Resmi PT Global Aspect Technology (Signed URL).
      * Dilengkapi QR Code Verifikasi Keaslian Dokumen Digital Anti-Pemalsuan Fisik.
      */
     public function downloadQuotePdf(Request $request, Order $order, string $filename, FonnteWhatsAppService $whatsappService): Response
@@ -380,6 +395,24 @@ class CheckoutController extends Controller
     }
 
     /**
+     * Catat log klik tombol WhatsApp oleh customer dari halaman Pembayaran/Checkout ke Dashboard Admin.
+     */
+    public function logWhatsAppClick(Request $request, Order $order)
+    {
+        $message = $request->input('message', 'Pengunjung mengklik tombol Hubungi Admin WhatsApp untuk Pesanan #' . ($order->invoice_number ?: $order->uuid));
+        $order->update([
+            'whatsapp_contacted_at' => now(),
+            'whatsapp_message_log' => $message,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Log WhatsApp berhasil dicatat ke Dashboard GAT.',
+            'contacted_at' => now()->toDateTimeString(),
+        ]);
+    }
+
+    /**
      * Halaman Verifikasi Keaslian Proforma Invoice (Anti-Fraud / Anti-BEC).
      */
     public function verify(string $uuid, string $hash): View
@@ -391,7 +424,7 @@ class CheckoutController extends Controller
             && strlen($hash) === 16
             && hash_equals($expectedShortHash, strtolower($hash));
 
-        return view('verify-invoice', [
+        return view('public.verify-invoice', [
             'isValid' => $isValid,
             'order' => $isValid ? $order : null,
             'providedHash' => strtoupper($hash),
@@ -414,7 +447,7 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Generate nomor Sales Quote resmi sesuai standar PT Global Aspek Teknologi (Contoh: QU/1001/26).
+     * Generate nomor Sales Quote resmi sesuai standar PT Global Aspect Technology (Contoh: QU/1001/26).
      */
     private function generateUniqueInvoiceNumber(): string
     {
@@ -451,7 +484,18 @@ class CheckoutController extends Controller
             // Ekstrak daftar opsi jika berupa array atau string yang dipisah " / "
             $options = [];
             if (is_array($specVal)) {
-                $options = array_values(array_filter(array_map(fn ($v) => trim((string) $v), $specVal), fn ($v) => $v !== ''));
+                foreach ($specVal as $v) {
+                    if (is_array($v)) {
+                        if (isset($v['is_active']) && ! $v['is_active']) {
+                            continue; // Abaikan opsi yang dinonaktifkan
+                        }
+                        $text = trim((string) ($v['value'] ?? ''));
+                        if ($text !== '') $options[] = $text;
+                    } else {
+                        $text = trim((string) $v);
+                        if ($text !== '') $options[] = $text;
+                    }
+                }
             } elseif (is_string($specVal) && str_contains($specVal, ' / ')) {
                 $options = array_values(array_filter(array_map('trim', explode(' / ', $specVal)), fn ($v) => $v !== ''));
             }

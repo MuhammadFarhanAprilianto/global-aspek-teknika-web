@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Order;
+use App\Models\SiteSetting;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -19,16 +20,53 @@ class FonnteWhatsAppService
      */
     public function sendOrderConfirmationPdf(Order $order): array
     {
-        $token = trim((string) config('services.whatsapp.fonnte_token', ''));
-        $endpoint = (string) config('services.whatsapp.fonnte_endpoint', 'https://api.fonnte.com/send');
-        $adminPhone = $this->normalizePhone((string) config('services.whatsapp.admin_number', '6285732021121'));
+        $settings = SiteSetting::allMerged();
+        $enabled = ($settings['wa_gateway_enabled'] ?? '1') === '1';
+        $token = trim((string) ($settings['wa_gateway_token'] ?: config('services.whatsapp.fonnte_token', '')));
+        $endpoint = trim((string) ($settings['wa_gateway_endpoint'] ?: config('services.whatsapp.fonnte_endpoint', 'https://api.fonnte.com/send')));
+        $adminPhone = $this->normalizePhone((string) ($settings['wa_admin_number'] ?: config('services.whatsapp.admin_number', '6285732021121')));
 
-        if ($token === '') {
+        // Kirim notifikasi ke Webhook Eksternal jika dikonfigurasi di Admin Panel
+        $this->dispatchExternalWebhook('order.confirmed', [
+            'order_uuid' => $order->uuid,
+            'order_number' => $order->order_number,
+            'company_name' => $order->company_name,
+            'pic_name' => $order->pic_name,
+            'company_phone' => $order->company_phone,
+            'grand_total' => (float) $order->grand_total,
+            'timestamp' => now()->toIso8601String(),
+        ], $settings);
+
+        if (! $enabled) {
             return [
                 'sent' => false,
                 'configured' => false,
-                'message' => 'Pesanan berhasil tercatat di sistem. Untuk mengaktifkan pengiriman otomatis File PDF Sales Quote ke WhatsApp (' . $adminPhone . '), silakan masukkan FONNTE_TOKEN Anda di file .env.',
+                'message' => 'Pesanan berhasil tercatat di sistem. Pengiriman otomatis WhatsApp Gateway sedang dinonaktifkan di menu WA & Social.',
             ];
+        }
+
+        if ($token === '' || $endpoint === '') {
+            return [
+                'sent' => false,
+                'configured' => false,
+                'message' => 'Pesanan berhasil tercatat di sistem. Untuk mengaktifkan pengiriman otomatis File PDF Sales Quote ke WhatsApp (' . $adminPhone . '), silakan lengkapi Endpoint & Token di menu WA & Social.',
+            ];
+        }
+
+        // Fast local-port check agar checkout langsung selesai instan jika gateway lokal tidak dijalankan
+        $parsedEndpoint = parse_url($endpoint);
+        $epHost = $parsedEndpoint['host'] ?? '';
+        $epPort = (int) ($parsedEndpoint['port'] ?? (($parsedEndpoint['scheme'] ?? 'http') === 'https' ? 443 : 80));
+        if (in_array($epHost, ['127.0.0.1', 'localhost'], true)) {
+            $socket = @fsockopen($epHost, $epPort, $errno, $errstr, 0.5);
+            if ($socket === false) {
+                return [
+                    'sent' => false,
+                    'configured' => false,
+                    'message' => 'Server WhatsApp Gateway lokal tidak aktif; gunakan tautan WhatsApp langsung.',
+                ];
+            }
+            fclose($socket);
         }
 
         $order->loadMissing(['items.product:id,sku,name,specifications']);
@@ -139,7 +177,7 @@ class FonnteWhatsAppService
             }
 
             // 3. Kirim salinan PDF Sales Quote ke nomor WhatsApp Pembeli (jika diaktifkan & nomor berbeda dari Admin)
-            $sendCopyToBuyer = (bool) config('services.whatsapp.send_copy_to_buyer', true);
+            $sendCopyToBuyer = ($settings['wa_send_copy_to_buyer'] ?? '1') === '1';
             $buyerPhone = $this->normalizePhone((string) $order->company_phone);
 
             if ($sendCopyToBuyer && $buyerPhone !== '' && $buyerPhone !== $adminPhone) {
@@ -157,7 +195,7 @@ class FonnteWhatsAppService
             return [
                 'sent' => true,
                 'configured' => true,
-                'message' => 'Terima kasih, pengajuan pesanan perusahaan Anda telah kami terima. Tim PT Global Aspek Teknologi akan segera menindaklanjuti dan menghubungi Anda untuk proses selanjutnya.',
+                'message' => 'Terima kasih, pengajuan pesanan perusahaan Anda telah kami terima. Tim PT Global Aspect Technology akan segera menindaklanjuti dan menghubungi Anda untuk proses selanjutnya.',
             ];
         } catch (\Throwable $e) {
             Log::error('Fonnte WhatsApp exception', [
@@ -184,7 +222,7 @@ class FonnteWhatsAppService
         }
 
         $lines = [
-            'Selamat pagi/siang Admin PT Global Aspek Teknologi,',
+            'Selamat pagi/siang Admin PT Global Aspect Technology,',
             '',
             'Perkenalkan saya *' . $order->pic_name . '*, perwakilan dari *' . $order->company_name . '*.',
             'Berikut data perusahaan kami:',
@@ -230,7 +268,7 @@ class FonnteWhatsAppService
         $lines = [
             'Yth. Bapak/Ibu *' . $order->pic_name . '* (*' . $order->company_name . '*),',
             '',
-            'Terima kasih telah mengonfirmasi pesanan di *PT Global Aspek Teknologi*.',
+            'Terima kasih telah mengonfirmasi pesanan di *PT Global Aspect Technology*.',
             'Terlampir salinan dokumen *PDF Sales Quote* untuk pengajuan Anda:',
         ];
 
@@ -245,6 +283,74 @@ class FonnteWhatsAppService
         $lines[] = 'Tim Admin kami sedang memverifikasi pesanan Anda dan akan segera menghubungi Anda untuk penerbitan Nomor Quote resmi. Terima kasih.';
 
         return implode("\n", $lines);
+    }
+
+    /**
+     * Uji kirim pesan WhatsApp langsung dari Admin Dashboard (menu WA & Social).
+     *
+     * @return array{ok: bool, message: string}
+     */
+    public function sendTestMessage(string $targetPhone, string $message): array
+    {
+        $settings = SiteSetting::allMerged();
+        $token = trim((string) ($settings['wa_gateway_token'] ?? ''));
+        $endpoint = trim((string) ($settings['wa_gateway_endpoint'] ?? ''));
+        $target = $this->normalizePhone($targetPhone);
+
+        if ($endpoint === '' || $target === '') {
+            return ['ok' => false, 'message' => 'Endpoint Gateway dan Nomor Tujuan WA wajib diisi.'];
+        }
+
+        try {
+            $res = Http::timeout(15)
+                ->withHeaders($token !== '' ? ['Authorization' => $token] : [])
+                ->post($endpoint, [
+                    'target' => $target,
+                    'message' => $message,
+                    'countryCode' => '62',
+                ]);
+
+            $json = $res->json();
+            if ($res->successful() && (($json['status'] ?? false) === true)) {
+                return ['ok' => true, 'message' => "Pesan uji berhasil dikirim ke {$target}."];
+            }
+
+            $reason = is_array($json)
+                ? (string) ($json['reason'] ?? $json['detail'] ?? 'Gateway mengembalikan status gagal.')
+                : ('HTTP ' . $res->status());
+
+            return ['ok' => false, 'message' => 'Gagal mengirim pesan uji: ' . $reason];
+        } catch (\Throwable $e) {
+            return ['ok' => false, 'message' => 'Tidak dapat terhubung ke server WhatsApp Gateway: ' . $e->getMessage()];
+        }
+    }
+
+    /**
+     * Teruskan payload event ke External Webhook URL (opsional: n8n / Zapier / CRM internal).
+     */
+    public function dispatchExternalWebhook(string $event, array $payload, ?array $settings = null): void
+    {
+        $settings = $settings ?? SiteSetting::allMerged();
+        $webhookUrl = trim((string) ($settings['wa_webhook_url'] ?? ''));
+        if ($webhookUrl === '' || ! filter_var($webhookUrl, FILTER_VALIDATE_URL)) {
+            return;
+        }
+
+        try {
+            $headers = ['X-GAT-Event' => $event];
+            $secret = trim((string) ($settings['wa_webhook_secret'] ?? ''));
+            if ($secret !== '') {
+                $headers['X-GAT-Webhook-Secret'] = $secret;
+            }
+
+            Http::timeout(5)->withHeaders($headers)->post($webhookUrl, [
+                'event' => $event,
+                'source' => 'PT Global Aspect Technology',
+                'data' => $payload,
+            ]);
+        } catch (\Throwable $e) {
+            Log::warning('External webhook dispatch failed', ['event' => $event, 'error' => $e->getMessage()]);
+        }
     }
 
     public function normalizePhone(string $rawPhone): string

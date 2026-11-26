@@ -35,6 +35,8 @@ class Order extends Model
         'user_agent',
         'expires_at',
         'po_submitted_at',
+        'whatsapp_contacted_at',
+        'whatsapp_message_log',
     ];
 
     protected $casts = [
@@ -46,6 +48,7 @@ class Order extends Model
         'grand_total' => 'decimal:2',
         'expires_at' => 'datetime',
         'po_submitted_at' => 'datetime',
+        'whatsapp_contacted_at' => 'datetime',
     ];
 
     public function getRouteKeyName(): string
