@@ -20,7 +20,12 @@ $app = Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->render(function (\Illuminate\Session\TokenMismatchException $e, \Illuminate\Http\Request $request) {
+            if ($request->is('login') || $request->routeIs('login', 'login.post')) {
+                return redirect()->route('login')
+                    ->with('status', 'Sesi halaman login telah disegarkan. Silakan klik Masuk kembali.');
+            }
+        });
     })->create();
 
 if (isset($_ENV['VERCEL']) || isset($_SERVER['VERCEL']) || getenv('VERCEL') || getenv('APP_STORAGE')) {
