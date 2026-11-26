@@ -54,7 +54,7 @@ putenv('APP_SERVICES_CACHE=/tmp/bootstrap/cache/services.php');
 putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
 // Sanitize environment variables to prevent empty string driver errors
 $driverDefaults = [
-    'SESSION_DRIVER' => 'file',
+    'SESSION_DRIVER' => 'cookie',
     'CACHE_STORE' => 'array',
     'CACHE_DRIVER' => 'array',
     'QUEUE_CONNECTION' => 'sync',
@@ -65,6 +65,13 @@ $driverDefaults = [
     'BROADCAST_CONNECTION' => 'log',
     'APP_MAINTENANCE_DRIVER' => 'file',
 ];
+
+// Force cookie sessions on Vercel stateless serverless when file driver would break across containers
+if (getenv('SESSION_DRIVER') === 'file') {
+    putenv('SESSION_DRIVER=cookie');
+    $_ENV['SESSION_DRIVER'] = 'cookie';
+    $_SERVER['SESSION_DRIVER'] = 'cookie';
+}
 
 foreach ($driverDefaults as $key => $default) {
     $val = getenv($key);

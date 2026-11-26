@@ -391,8 +391,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
                         </div>
                     @endif
 
-                    <!-- Step 1: Email & Password Form -->
-                    <form wire:submit="login" class="space-y-4">
+                    <!-- Step 1: Email & Password Form (Livewire + Safe POST Fallback) -->
+                    <form method="POST" action="{{ route('login.post') }}" wire:submit="login" class="space-y-4">
+                        @csrf
                         <!-- Email Address Field -->
                         <div class="space-y-1.5">
                             <label for="email"
@@ -439,7 +440,8 @@ new #[Layout('components.layouts.auth')] class extends Component {
                         <!-- Encrypted Per-Device Remember Session & Credential Auto-Fill -->
                         <div class="flex flex-col gap-1 pt-1">
                             <label class="inline-flex items-center gap-2 cursor-pointer select-none">
-                                <input type="checkbox" wire:model="remember"
+                                <input type="checkbox" name="remember" value="1" wire:model="remember"
+                                    class="w-4 h-4 rounded text-[#3367A5] focus:ring-[#3367A5] border-slate-300 cursor-pointer">
                                     class="w-4 h-4 rounded text-[#3367A5] focus:ring-[#3367A5] border-slate-300 cursor-pointer">
                                 <span class="text-xs sm:text-sm text-slate-700 font-medium font-['Questrial',sans-serif]">Ingat sesi saya</span>
                             </label>
