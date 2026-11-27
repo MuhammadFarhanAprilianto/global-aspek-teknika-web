@@ -675,3 +675,63 @@ it('includes official signed PDF link in direct wa.me URL and integrates Supabas
         ->and(\App\Models\Solution::count())->toBe(6)
         ->and(\App\Models\VisitorLog::count())->toBe($visitorsBefore);
 });
+
+it('records whatsapp_contacted_at immediately when browser opens direct wa.me on checkout confirm and serves live JSON to admin orders', function () {
+    $category = ProductCategory::create([
+        'name' => 'Vision Systems',
+        'slug' => 'vision-systems',
+        'sort_order' => 1,
+    ]);
+
+    $product = Product::create([
+        'category_id' => $category->id,
+        'sku' => 'GAT-VIS-001',
+        'name' => 'Sistem Pengukuran Dimensi Presisi Tinggi',
+        'slug' => 'sistem-pengukuran-dimensi',
+        'price' => 125000000,
+        'is_rfq_only' => true,
+        'stock' => 3,
+        'min_order_quantity' => 1,
+        'status' => 'published',
+    ]);
+
+    $this->post(route('checkout.initiate'), [
+        'cart_items_json' => json_encode([['id' => $product->id, 'qty' => 1]]),
+        'pic_name' => 'Farhan',
+        'company_name' => 'PT Delima Mas Kencana',
+        'company_email' => 'farhankey666@gmail.com',
+        'company_phone' => '085732021121',
+        'notes' => 'Butuh',
+    ])->assertRedirect();
+
+    $order = Order::firstOrFail();
+    $submitUrl = URL::temporarySignedRoute('checkout.submit-po', now()->addDays(14), ['order' => $order->uuid]);
+
+    Http::fake([
+        '*' => Http::response(['status' => false], 503),
+    ]);
+
+    $this->post($submitUrl, [
+        'wa_opened_on_submit' => '1',
+    ])->assertRedirect()
+      ->assertSessionHas('wa_flash', 'sent');
+
+    $order->refresh();
+    expect($order->status)->toBe('po_submitted')
+        ->and($order->whatsapp_contacted_at)->not->toBeNull();
+
+    $admin = \App\Models\User::factory()->create(['role' => 'admin']);
+    $jsonRes = $this->actingAs($admin)
+        ->getJson(route('admin.orders.index', ['format' => 'json']))
+        ->assertOk()
+        ->assertJsonPath('stats.po_submitted', 1)
+        ->assertJsonPath('orders.0.uuid', $order->uuid);
+
+    expect($jsonRes->json('orders.0.whatsapp_contacted_at'))->not->toBeNull();
+
+    $this->actingAs($admin)
+        ->get(route('admin.orders.index'))
+        ->assertOk()
+        ->assertSee('x-teleport="body"', false)
+        ->assertSee('position: fixed;', false);
+});

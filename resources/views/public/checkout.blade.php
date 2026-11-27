@@ -403,6 +403,7 @@
                                 data-direct-wa-url="{{ $directWaUrl }}"
                                 class="pt-3 border-t border-gray-200 space-y-3.5 js-confirm-order-form">
                                 @csrf
+                                <input type="hidden" name="wa_opened_on_submit" value="0" class="js-wa-opened-input">
 
                                 @if ($isOrderSubmitted && $isWaConfirmed)
                                     <div id="wa-inline-status-badge" class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-2 text-xs text-emerald-900">
@@ -481,24 +482,37 @@
             clearLocalB2BCart();
         @endif
 
+        function notifyAdminOrdersChanged() {
+            try {
+                if (typeof BroadcastChannel !== 'undefined') {
+                    new BroadcastChannel('gat_cms_sync').postMessage({ type: 'public_submission' });
+                }
+            } catch (err) {}
+        }
+
         function logWhatsAppInteraction(e, logUrl, messageText) {
             try {
-                if (navigator.sendBeacon) {
-                    const formData = new FormData();
-                    formData.append('message', messageText);
-                    formData.append('_token', '{{ csrf_token() }}');
-                    navigator.sendBeacon(logUrl, formData);
-                } else {
-                    fetch(logUrl, {
-                        method: 'POST',
-                        keepalive: true,
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        },
-                        body: JSON.stringify({ message: messageText })
-                    });
-                }
+                fetch(logUrl, {
+                    method: 'POST',
+                    keepalive: true,
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ message: messageText })
+                }).then(() => {
+                    notifyAdminOrdersChanged();
+                }).catch(() => {
+                    if (navigator.sendBeacon) {
+                        const formData = new FormData();
+                        formData.append('message', messageText);
+                        formData.append('_token', '{{ csrf_token() }}');
+                        navigator.sendBeacon(logUrl, formData);
+                        notifyAdminOrdersChanged();
+                    }
+                });
             } catch (err) {
                 console.warn('WhatsApp log tracking error:', err);
             }
@@ -534,12 +548,21 @@
                     const directWaUrl = formEl.getAttribute('data-direct-wa-url');
                     const fileInput = formEl.querySelector('#po-document-input');
                     const fileTooLarge = fileInput && fileInput.files && fileInput.files[0] && fileInput.files[0].size > 5 * 1024 * 1024;
+                    const waFlagInput = formEl.querySelector('.js-wa-opened-input');
 
                     if (!autoWa && !alreadySubmitted && directWaUrl && !fileTooLarge) {
+                        let waOpened = false;
                         try {
-                            window.open(directWaUrl, '_blank', 'noopener,noreferrer');
+                            const waWin = window.open(directWaUrl, '_blank');
+                            if (waWin) {
+                                waWin.opener = null;
+                                waOpened = true;
+                            }
                         } catch (err) {}
+                        if (waFlagInput) waFlagInput.value = waOpened ? '1' : '0';
                     }
+
+                    notifyAdminOrdersChanged();
 
                     const btn = formEl.querySelector('button[type="submit"]');
                     if (btn) {

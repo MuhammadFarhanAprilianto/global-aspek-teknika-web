@@ -358,6 +358,17 @@ class CheckoutController extends Controller
                 ->with('po_success', $waResult['message']);
         }
 
+        if ($request->boolean('wa_opened_on_submit')) {
+            $order->update([
+                'whatsapp_contacted_at' => $order->whatsapp_contacted_at ?? now(),
+                'whatsapp_message_log' => 'Pelanggan membuka & mengirim rincian Sales Quote ' . ($order->invoice_number ?: $order->uuid) . ' langsung ke WhatsApp Admin (+' . $adminWaNumber . ') pada ' . now()->format('d M Y, H:i') . ' WIB.',
+            ]);
+
+            return redirect()->to($redirectBackUrl)
+                ->with('wa_flash', 'sent')
+                ->with('po_success', 'Pesanan berhasil dicatat dan tautan WhatsApp Admin telah dibuka.');
+        }
+
         // Gateway otomatis tidak aktif / gagal: catat sebagai manual WA prompt tanpa menyimpan URL besar ke cookie session
         return redirect()->to($redirectBackUrl)
             ->with('wa_flash', 'manual')

@@ -312,11 +312,33 @@
                                     @endif
                                 </td>
 
-                                <!-- Status Dropdown Pill (Modern Corporate Alpine Dropdown) -->
+                                <!-- Status Dropdown Pill (Fixed Viewport Portal - Never Clipped Inside Table) -->
                                 <td class="py-4 px-4 whitespace-nowrap align-middle">
-                                    <div class="relative inline-block text-left" x-data="{ statusOpen: false, openUp: false }">
-                                        <button type="button"
-                                            @click="openUp = ($el.getBoundingClientRect().bottom + 190 > window.innerHeight); statusOpen = !statusOpen"
+                                    <div class="relative inline-block text-left"
+                                         x-data="{
+                                             statusOpen: false,
+                                             openUp: false,
+                                             menuTop: 0,
+                                             menuBottom: 0,
+                                             menuLeft: 0,
+                                             toggleMenu() {
+                                                 if (this.statusOpen) {
+                                                     this.statusOpen = false;
+                                                     return;
+                                                 }
+                                                 const rect = this.$refs.leadStatusBtn.getBoundingClientRect();
+                                                 const spaceBelow = window.innerHeight - rect.bottom;
+                                                 this.openUp = spaceBelow < 190 && rect.top > 190;
+                                                 this.menuTop = rect.bottom + 6;
+                                                 this.menuBottom = window.innerHeight - rect.top + 6;
+                                                 this.menuLeft = Math.max(8, Math.min(window.innerWidth - 216, rect.left));
+                                                 this.statusOpen = true;
+                                             }
+                                         }"
+                                         @scroll.window="statusOpen = false"
+                                         @resize.window="statusOpen = false">
+                                        <button type="button" x-ref="leadStatusBtn"
+                                            @click.stop="toggleMenu()"
                                             class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs hover:scale-[1.02] active:scale-95 {{ $lead->status === 'new' ? 'bg-[#fffbeb] text-[#b45309] border-[#fde68a] hover:bg-[#fef3c7] hover:border-[#fcd34d]' : ($lead->status === 'contacted' ? 'bg-blue-50 text-[#3367A5] border-blue-200 hover:bg-blue-100/80 hover:border-blue-300' : 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100/80 hover:border-emerald-300') }}">
                                             <span class="w-2 h-2 rounded-full shrink-0 {{ $lead->status === 'new' ? 'bg-amber-500' : ($lead->status === 'contacted' ? 'bg-[#3367A5]' : 'bg-emerald-500') }}"></span>
                                             <span>{{ $lead->status === 'new' ? 'New' : ($lead->status === 'contacted' ? 'Contacted' : 'Closed') }}</span>
@@ -327,15 +349,17 @@
                                             </svg>
                                         </button>
 
-                                        <div x-cloak x-show="statusOpen" @click.outside="statusOpen = false"
-                                            x-transition:enter="transition ease-out duration-150"
-                                            x-transition:enter-start="opacity-0 translate-y-1 scale-95"
-                                            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                                            x-transition:leave="transition ease-in duration-100"
-                                            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                                            x-transition:leave-end="opacity-0 translate-y-1 scale-95"
-                                            :class="openUp ? 'bottom-full mb-2' : 'top-full mt-2'"
-                                            class="absolute left-0 w-52 bg-white rounded-2xl shadow-2xl border border-slate-200/90 py-1.5 z-50 text-slate-700 font-['Questrial',sans-serif] overflow-hidden">
+                                        <template x-teleport="body">
+                                            <div x-cloak x-show="statusOpen"
+                                                @click.outside="if (!$refs.leadStatusBtn?.contains($event.target)) statusOpen = false"
+                                                x-transition:enter="transition ease-out duration-150"
+                                                x-transition:enter-start="opacity-0 scale-95"
+                                                x-transition:enter-end="opacity-100 scale-100"
+                                                x-transition:leave="transition ease-in duration-100"
+                                                x-transition:leave-start="opacity-100 scale-100"
+                                                x-transition:leave-end="opacity-0 scale-95"
+                                                :style="openUp ? `position: fixed; left: ${menuLeft}px; bottom: ${menuBottom}px;` : `position: fixed; left: ${menuLeft}px; top: ${menuTop}px;`"
+                                                class="w-52 bg-white rounded-2xl shadow-2xl border border-slate-200/90 py-1.5 z-[9990] text-slate-700 font-['Questrial',sans-serif] overflow-hidden">
 
                                             <form id="leadStatusForm_{{ $lead->id }}" method="POST"
                                                 action="{{ route('admin.leads.status', $lead->id) }}">
@@ -392,6 +416,7 @@
                                                 </button>
                                             </form>
                                         </div>
+                                        </template>
                                     </div>
                                 </td>
 

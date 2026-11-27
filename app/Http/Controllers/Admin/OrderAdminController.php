@@ -19,7 +19,50 @@ use Symfony\Component\HttpFoundation\Response;
 
 class OrderAdminController extends Controller
 {
-    public function index(Request $request): View
+    public static function transformOrder(Order $o): array
+    {
+        return [
+            'id' => $o->id,
+            'uuid' => $o->uuid,
+            'invoice_number' => $o->invoice_number,
+            'status' => $o->status,
+            'status_label' => strtoupper(str_replace('_', ' ', $o->status)),
+            'created_at_formatted' => $o->created_at->format('d M Y, H:i') . ' WIB',
+            'pic_name' => $o->pic_name,
+            'company_name' => $o->company_name,
+            'company_email' => $o->company_email,
+            'company_phone' => $o->company_phone,
+            'company_address' => $o->company_address ?: '-',
+            'npwp' => $o->npwp ?: '-',
+            'notes' => $o->notes ?: '',
+            'subtotal_formatted' => 'Rp ' . number_format($o->subtotal, 0, ',', '.'),
+            'tax_rate' => $o->tax_rate,
+            'tax_amount_formatted' => 'Rp ' . number_format($o->tax_amount, 0, ',', '.'),
+            'pph23_rate' => $o->pph23_rate,
+            'pph23_amount_formatted' => 'Rp ' . number_format($o->pph23_amount, 0, ',', '.'),
+            'grand_total_formatted' => 'Rp ' . number_format($o->grand_total, 0, ',', '.'),
+            'po_number' => $o->po_number,
+            'has_po_file' => !empty($o->po_document_path),
+            'po_file_url' => !empty($o->po_document_path) ? route('admin.orders.po-file', $o->uuid) : null,
+            'quote_pdf_url' => route('admin.orders.pdf', $o->uuid),
+            'whatsapp_contacted_at' => $o->whatsapp_contacted_at ? $o->whatsapp_contacted_at->format('d M Y, H:i') . ' WIB' : null,
+            'whatsapp_contacted_diff' => $o->whatsapp_contacted_at ? $o->whatsapp_contacted_at->diffForHumans() : null,
+            'whatsapp_message_log' => $o->whatsapp_message_log,
+            'items' => $o->items->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'product_name' => $item->product_name,
+                    'sku' => $item->sku,
+                    'quantity' => $item->quantity,
+                    'unit_price_formatted' => 'Rp ' . number_format($item->unit_price, 0, ',', '.'),
+                    'line_total_formatted' => 'Rp ' . number_format($item->line_total, 0, ',', '.'),
+                    'specifications' => $item->resolvedSpecifications(),
+                ];
+            })->values()->all(),
+        ];
+    }
+
+    public function index(Request $request): View|JsonResponse
     {
         $status = $request->query('status', 'all');
         $search = trim($request->query('search', ''));
@@ -40,22 +83,48 @@ class OrderAdminController extends Controller
         }
 
         $orders = $query->paginate(15)->withQueryString();
-        $totalOrders = Order::count();
-        $totalRevenue = Order::sum('grand_total');
-        $awaitingPoCount = Order::where('status', 'awaiting_po')->count();
-        $poSubmittedCount = Order::where('status', 'po_submitted')->count();
-        $completedCount = Order::where('status', 'completed')->count();
-        $cancelledCount = Order::where('status', 'cancelled')->count();
+        $agg = Order::selectRaw("
+            COUNT(*) as total_orders,
+            COALESCE(SUM(grand_total), 0) as total_revenue,
+            SUM(CASE WHEN status = 'awaiting_po' THEN 1 ELSE 0 END) as awaiting_po_count,
+            SUM(CASE WHEN status = 'po_submitted' THEN 1 ELSE 0 END) as po_submitted_count,
+            SUM(CASE WHEN status = 'completed' THEN 1 ELSE 0 END) as completed_count,
+            SUM(CASE WHEN status = 'cancelled' THEN 1 ELSE 0 END) as cancelled_count
+        ")->first();
+
+        $totalOrders = (int) ($agg->total_orders ?? 0);
+        $totalRevenue = (float) ($agg->total_revenue ?? 0);
+        $awaitingPoCount = (int) ($agg->awaiting_po_count ?? 0);
+        $poSubmittedCount = (int) ($agg->po_submitted_count ?? 0);
+        $completedCount = (int) ($agg->completed_count ?? 0);
+        $cancelledCount = (int) ($agg->cancelled_count ?? 0);
+
+        $ordersJson = $orders->getCollection()->map(fn (Order $o) => self::transformOrder($o))->values();
+
+        if ($request->expectsJson() || $request->query('format') === 'json') {
+            return response()->json([
+                'orders' => $ordersJson,
+                'stats' => [
+                    'total_orders' => $totalOrders,
+                    'awaiting_po' => $awaitingPoCount,
+                    'po_submitted' => $poSubmittedCount,
+                    'completed' => $completedCount,
+                    'cancelled' => $cancelledCount,
+                    'total_revenue_formatted' => 'Rp ' . number_format($totalRevenue, 0, ',', '.'),
+                ],
+            ]);
+        }
 
         return view('admin.orders.index', compact(
-            'orders', 
-            'totalOrders', 
-            'totalRevenue', 
-            'awaitingPoCount', 
-            'poSubmittedCount', 
-            'completedCount', 
+            'orders',
+            'ordersJson',
+            'totalOrders',
+            'totalRevenue',
+            'awaitingPoCount',
+            'poSubmittedCount',
+            'completedCount',
             'cancelledCount',
-            'status', 
+            'status',
             'search'
         ));
     }

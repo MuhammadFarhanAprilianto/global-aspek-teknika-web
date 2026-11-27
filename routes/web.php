@@ -521,6 +521,8 @@ if (!function_exists('buildAdminDashboardSnapshot')) {
                     'items_count' => (int) ($o->items_count ?? 0),
                     'date_formatted' => $o->created_at ? $o->created_at->format('d M Y, H:i') : '-',
                     'time_ago' => $o->created_at ? $o->created_at->diffForHumans() : 'Baru saja',
+                    'whatsapp_contacted' => ! empty($o->whatsapp_contacted_at),
+                    'wa_status_label' => $o->whatsapp_contacted_at ? 'WA · ' . $o->whatsapp_contacted_at->diffForHumans() : 'Belum WA',
                     'detail_url' => route('admin.orders.show', $o->uuid),
                     'pdf_url' => route('admin.orders.pdf', $o->uuid),
                 ];

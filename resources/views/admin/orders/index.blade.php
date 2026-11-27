@@ -13,59 +13,69 @@
         ];
         $activeOrderStatus = $orderStatusOptions[$status] ?? $orderStatusOptions['all'];
         $isOrderFiltered = $status !== 'all' || !empty($search);
-
-        $ordersJson = $orders->map(function ($o) {
-            return [
-                'id' => $o->id,
-                'uuid' => $o->uuid,
-                'invoice_number' => $o->invoice_number,
-                'status' => $o->status,
-                'status_label' => strtoupper(str_replace('_', ' ', $o->status)),
-                'created_at_formatted' => $o->created_at->format('d M Y, H:i') . ' WIB',
-                'pic_name' => $o->pic_name,
-                'company_name' => $o->company_name,
-                'company_email' => $o->company_email,
-                'company_phone' => $o->company_phone,
-                'company_address' => $o->company_address ?: '-',
-                'npwp' => $o->npwp ?: '-',
-                'notes' => $o->notes ?: '',
-                'subtotal_formatted' => 'Rp ' . number_format($o->subtotal, 0, ',', '.'),
-                'tax_rate' => $o->tax_rate,
-                'tax_amount_formatted' => 'Rp ' . number_format($o->tax_amount, 0, ',', '.'),
-                'pph23_rate' => $o->pph23_rate,
-                'pph23_amount_formatted' => 'Rp ' . number_format($o->pph23_amount, 0, ',', '.'),
-                'grand_total_formatted' => 'Rp ' . number_format($o->grand_total, 0, ',', '.'),
-                'po_number' => $o->po_number,
-                'has_po_file' => !empty($o->po_document_path),
-                'po_file_url' => !empty($o->po_document_path) ? route('admin.orders.po-file', $o->uuid) : null,
-                'quote_pdf_url' => route('admin.orders.pdf', $o->uuid),
-                'whatsapp_contacted_at' => $o->whatsapp_contacted_at ? $o->whatsapp_contacted_at->format('d M Y, H:i') . ' WIB' : null,
-                'whatsapp_contacted_diff' => $o->whatsapp_contacted_at ? $o->whatsapp_contacted_at->diffForHumans() : null,
-                'whatsapp_message_log' => $o->whatsapp_message_log,
-                'items' => $o->items->map(function ($item) {
-                    return [
-                        'id' => $item->id,
-                        'product_name' => $item->product_name,
-                        'sku' => $item->sku,
-                        'quantity' => $item->quantity,
-                        'unit_price_formatted' => 'Rp ' . number_format($item->unit_price, 0, ',', '.'),
-                        'line_total_formatted' => 'Rp ' . number_format($item->line_total, 0, ',', '.'),
-                        'specifications' => $item->resolvedSpecifications(),
-                    ];
-                }),
-            ];
-        });
+        $ordersJson = $ordersJson ?? $orders->getCollection()->map(fn ($o) => \App\Http\Controllers\Admin\OrderAdminController::transformOrder($o))->values();
     @endphp
 
     <div class="space-y-6" x-data="{
         detailModalOpen: false,
         selectedOrder: null,
         ordersData: {{ json_encode($ordersJson) }},
+        stats: {
+            total_orders: {{ (int) $totalOrders }},
+            awaiting_po: {{ (int) $awaitingPoCount }},
+            po_submitted: {{ (int) $poSubmittedCount }},
+            total_revenue_formatted: 'Rp {{ number_format($totalRevenue, 0, ',', '.') }}'
+        },
+        ordersPollTimer: null,
+        getOrder(orderId) {
+            return this.ordersData.find(o => o.id === orderId) || null;
+        },
         openDetail(orderId) {
-            this.selectedOrder = this.ordersData.find(o => o.id === orderId) || null;
+            this.selectedOrder = this.getOrder(orderId);
             if (this.selectedOrder) {
                 this.detailModalOpen = true;
             }
+        },
+        syncOrders() {
+            const url = new URL(window.location.href);
+            url.searchParams.set('format', 'json');
+            fetch(url.toString(), {
+                headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                cache: 'no-store'
+            }).then(r => {
+                if (r.status === 401) {
+                    window.location.href = '{{ route('login') }}';
+                    return null;
+                }
+                return r.ok ? r.json() : null;
+            }).then(data => {
+                if (!data) return;
+                if (Array.isArray(data.orders)) {
+                    this.ordersData = data.orders;
+                    if (this.selectedOrder) {
+                        const updated = this.getOrder(this.selectedOrder.id);
+                        if (updated) this.selectedOrder = updated;
+                    }
+                }
+                if (data.stats) {
+                    this.stats = data.stats;
+                }
+            }).catch(() => {});
+        },
+        init() {
+            this.ordersPollTimer = setInterval(() => {
+                if (!document.hidden) this.syncOrders();
+            }, 6000);
+            try {
+                if (typeof BroadcastChannel !== 'undefined') {
+                    const ch = new BroadcastChannel('gat_cms_sync');
+                    ch.onmessage = (ev) => {
+                        if (ev?.data?.type === 'public_submission') {
+                            this.syncOrders();
+                        }
+                    };
+                }
+            } catch (e) {}
         },
         getWhatsAppUrl(order) {
             if (!order || !order.company_phone) return '#';
@@ -92,9 +102,14 @@
                 }
             }).then(r => r.json()).then(res => {
                 if (res.success) {
-                    order.whatsapp_contacted_at = res.timestamp;
-                    order.whatsapp_contacted_diff = 'Baru saja';
-                    order.whatsapp_message_log = res.message;
+                    const target = (order.id ? this.getOrder(order.id) : null) || order;
+                    target.whatsapp_contacted_at = res.timestamp;
+                    target.whatsapp_contacted_diff = 'Baru saja';
+                    target.whatsapp_message_log = res.message;
+                    if (this.selectedOrder && this.selectedOrder.id === target.id) {
+                        this.selectedOrder = { ...target };
+                    }
+                    this.syncOrders();
                 }
             }).catch(e => console.log(e));
         },
@@ -122,19 +137,19 @@
             <div class="flex flex-wrap items-center gap-2.5 shrink-0">
                 <div class="h-11 px-3.5 rounded-2xl bg-[#f8fafd] border border-slate-200/80 inline-flex flex-col items-center justify-center text-center shadow-2xs min-w-[90px]">
                     <span class="text-[10px] text-slate-400 block font-semibold font-['Questrial',sans-serif] leading-tight">Total Pengajuan</span>
-                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-slate-900 leading-tight mt-0.5">{{ $totalOrders }}</span>
+                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-slate-900 leading-tight mt-0.5" x-text="stats.total_orders">{{ $totalOrders }}</span>
                 </div>
                 <div class="h-11 px-3.5 rounded-2xl bg-amber-50 border border-amber-100 inline-flex flex-col items-center justify-center text-center shadow-2xs min-w-[90px]">
                     <span class="text-[10px] text-amber-700 block font-semibold font-['Questrial',sans-serif] leading-tight">Menunggu PO</span>
-                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-amber-800 leading-tight mt-0.5">{{ $awaitingPoCount }}</span>
+                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-amber-800 leading-tight mt-0.5" x-text="stats.awaiting_po">{{ $awaitingPoCount }}</span>
                 </div>
                 <div class="h-11 px-3.5 rounded-2xl bg-emerald-50 border border-emerald-100 inline-flex flex-col items-center justify-center text-center shadow-2xs min-w-[90px]">
                     <span class="text-[10px] text-emerald-700 block font-semibold font-['Questrial',sans-serif] leading-tight">PO Terkonfirmasi</span>
-                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-emerald-800 leading-tight mt-0.5">{{ $poSubmittedCount }}</span>
+                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-emerald-800 leading-tight mt-0.5" x-text="stats.po_submitted">{{ $poSubmittedCount }}</span>
                 </div>
                 <div class="h-11 px-3.5 rounded-2xl bg-blue-50 border border-blue-100 inline-flex flex-col items-center justify-center text-center shadow-2xs min-w-[110px]">
                     <span class="text-[10px] text-[#3367A5] block font-semibold font-['Questrial',sans-serif] leading-tight">Total Transaksi</span>
-                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-[#3367A5] leading-tight mt-0.5">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</span>
+                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-[#3367A5] leading-tight mt-0.5" x-text="stats.total_revenue_formatted">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</span>
                 </div>
             </div>
         </div>
@@ -290,120 +305,151 @@
                                     </button>
                                 </td>
 
-                                <!-- Status Pesanan (Single Interactive Dropdown, No Duplicate Badges) -->
-                                <td class="py-4 px-4 whitespace-nowrap align-middle">
-                                    <div class="relative inline-block text-left" x-data="{ statusOpen: false, openUp: false }">
-                                        <button type="button"
-                                            @click="openUp = ($el.getBoundingClientRect().bottom + 190 > window.innerHeight); statusOpen = !statusOpen"
-                                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs hover:scale-[1.02] active:scale-95 {{ $order->status === 'po_submitted' ? 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100/80 hover:border-emerald-300' : ($order->status === 'awaiting_po' ? 'bg-[#fffbeb] text-[#b45309] border-[#fde68a] hover:bg-[#fef3c7] hover:border-[#fcd34d]' : ($order->status === 'completed' ? 'bg-blue-50 text-[#3367A5] border-blue-200 hover:bg-blue-100/80' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100')) }}">
-                                            <span class="w-2 h-2 rounded-full shrink-0 {{ $order->status === 'po_submitted' ? 'bg-emerald-500' : ($order->status === 'awaiting_po' ? 'bg-amber-500' : ($order->status === 'completed' ? 'bg-[#3367A5]' : 'bg-slate-400')) }}"></span>
-                                            <span>{{ $order->status === 'po_submitted' ? 'PO Submitted' : ($order->status === 'awaiting_po' ? 'Awaiting PO' : ($order->status === 'completed' ? 'Completed' : 'Cancelled')) }}</span>
-                                            <svg class="w-3 h-3 transition-transform duration-200 {{ $order->status === 'po_submitted' ? 'text-emerald-700' : ($order->status === 'awaiting_po' ? 'text-[#b45309]' : 'text-[#3367A5]') }}"
-                                                :class="{ 'rotate-180': statusOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <!-- Status Pesanan (Fixed Viewport Portal - Never Clipped Inside Table) -->
+                                <td class="py-4 px-4 whitespace-nowrap align-middle"
+                                    x-data="{
+                                        statusOpen: false,
+                                        openUp: false,
+                                        menuTop: 0,
+                                        menuBottom: 0,
+                                        menuLeft: 0,
+                                        get rowOrder() { return getOrder({{ $order->id }}) || { status: '{{ $order->status }}' }; },
+                                        toggleMenu() {
+                                            if (this.statusOpen) {
+                                                this.statusOpen = false;
+                                                return;
+                                            }
+                                            const rect = this.$refs.orderStatusBtn.getBoundingClientRect();
+                                            const spaceBelow = window.innerHeight - rect.bottom;
+                                            this.openUp = spaceBelow < 220 && rect.top > 220;
+                                            this.menuTop = rect.bottom + 6;
+                                            this.menuBottom = window.innerHeight - rect.top + 6;
+                                            this.menuLeft = Math.max(8, Math.min(window.innerWidth - 216, rect.left));
+                                            this.statusOpen = true;
+                                        }
+                                    }"
+                                    @scroll.window="statusOpen = false"
+                                    @resize.window="statusOpen = false">
+                                    <div class="relative inline-block text-left">
+                                        <button type="button" x-ref="orderStatusBtn"
+                                            @click.stop="toggleMenu()"
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs hover:scale-[1.02] active:scale-95"
+                                            :class="rowOrder.status === 'po_submitted' ? 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100/80 hover:border-emerald-300' : (rowOrder.status === 'awaiting_po' ? 'bg-[#fffbeb] text-[#b45309] border-[#fde68a] hover:bg-[#fef3c7] hover:border-[#fcd34d]' : (rowOrder.status === 'completed' ? 'bg-blue-50 text-[#3367A5] border-blue-200 hover:bg-blue-100/80' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'))">
+                                            <span class="w-2 h-2 rounded-full shrink-0"
+                                                  :class="rowOrder.status === 'po_submitted' ? 'bg-emerald-500' : (rowOrder.status === 'awaiting_po' ? 'bg-amber-500' : (rowOrder.status === 'completed' ? 'bg-[#3367A5]' : 'bg-slate-400'))"></span>
+                                            <span x-text="rowOrder.status === 'po_submitted' ? 'PO Submitted' : (rowOrder.status === 'awaiting_po' ? 'Awaiting PO' : (rowOrder.status === 'completed' ? 'Completed' : 'Cancelled'))">{{ $order->status === 'po_submitted' ? 'PO Submitted' : ($order->status === 'awaiting_po' ? 'Awaiting PO' : ($order->status === 'completed' ? 'Completed' : 'Cancelled')) }}</span>
+                                            <svg class="w-3 h-3 transition-transform duration-200"
+                                                :class="[rowOrder.status === 'po_submitted' ? 'text-emerald-700' : (rowOrder.status === 'awaiting_po' ? 'text-[#b45309]' : 'text-[#3367A5]'), { 'rotate-180': statusOpen }]"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                                             </svg>
                                         </button>
 
-                                        <div x-cloak x-show="statusOpen" @click.outside="statusOpen = false"
-                                            x-transition:enter="transition ease-out duration-150"
-                                            x-transition:enter-start="opacity-0 translate-y-1 scale-95"
-                                            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                                            x-transition:leave="transition ease-in duration-100"
-                                            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                                            x-transition:leave-end="opacity-0 translate-y-1 scale-95"
-                                            :class="openUp ? 'bottom-full mb-2' : 'top-full mt-2'"
-                                            class="absolute left-0 w-52 bg-white rounded-2xl shadow-2xl border border-slate-200/90 py-1.5 z-50 text-slate-700 font-['Questrial',sans-serif] overflow-hidden">
+                                        <template x-teleport="body">
+                                            <div x-cloak x-show="statusOpen"
+                                                @click.outside="if (!$refs.orderStatusBtn?.contains($event.target)) statusOpen = false"
+                                                x-transition:enter="transition ease-out duration-150"
+                                                x-transition:enter-start="opacity-0 scale-95"
+                                                x-transition:enter-end="opacity-100 scale-100"
+                                                x-transition:leave="transition ease-in duration-100"
+                                                x-transition:leave-start="opacity-100 scale-100"
+                                                x-transition:leave-end="opacity-0 scale-95"
+                                                :style="openUp ? `position: fixed; left: ${menuLeft}px; bottom: ${menuBottom}px;` : `position: fixed; left: ${menuLeft}px; top: ${menuTop}px;`"
+                                                class="w-52 bg-white rounded-2xl shadow-2xl border border-slate-200/90 py-1.5 z-[9990] text-slate-700 font-['Questrial',sans-serif] overflow-hidden">
 
+                                                <form id="orderStatusForm_{{ $order->id }}" method="POST" action="{{ route('admin.orders.status', $order->id) }}">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="status" id="orderStatusInput_{{ $order->id }}" value="{{ $order->status }}">
 
-                                            <form id="orderStatusForm_{{ $order->id }}" method="POST" action="{{ route('admin.orders.status', $order->id) }}">
-                                                @csrf
-                                                @method('PATCH')
-                                                <input type="hidden" name="status" id="orderStatusInput_{{ $order->id }}" value="{{ $order->status }}">
-
-                                                <!-- Option Awaiting PO -->
-                                                <button type="button"
-                                                    @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'awaiting_po'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
-                                                    class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-amber-50/70 transition cursor-pointer {{ $order->status === 'awaiting_po' ? 'bg-amber-50/90 text-amber-900 font-bold' : 'text-slate-700' }}">
-                                                    <div class="flex items-center gap-2.5">
-                                                        <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
-                                                        <div>
-                                                            <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Awaiting PO</span>
-                                                            <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Menunggu Kontak / PO</span>
+                                                    <!-- Option Awaiting PO -->
+                                                    <button type="button"
+                                                        @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'awaiting_po'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
+                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-amber-50/70 transition cursor-pointer {{ $order->status === 'awaiting_po' ? 'bg-amber-50/90 text-amber-900 font-bold' : 'text-slate-700' }}">
+                                                        <div class="flex items-center gap-2.5">
+                                                            <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
+                                                            <div>
+                                                                <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Awaiting PO</span>
+                                                                <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Menunggu Kontak / PO</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    @if ($order->status === 'awaiting_po')
-                                                        <i class="fa-solid fa-check text-amber-600 text-xs"></i>
-                                                    @endif
-                                                </button>
+                                                        @if ($order->status === 'awaiting_po')
+                                                            <i class="fa-solid fa-check text-amber-600 text-xs"></i>
+                                                        @endif
+                                                    </button>
 
-                                                <!-- Option PO Submitted -->
-                                                <button type="button"
-                                                    @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'po_submitted'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
-                                                    class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-emerald-50/70 transition cursor-pointer {{ $order->status === 'po_submitted' ? 'bg-emerald-50/90 text-emerald-800 font-bold' : 'text-slate-700' }}">
-                                                    <div class="flex items-center gap-2.5">
-                                                        <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-                                                        <div>
-                                                            <span class="font-['Agrandir',sans-serif] font-bold block leading-none">PO Submitted</span>
-                                                            <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">PO Masuk / Terkonfirmasi</span>
+                                                    <!-- Option PO Submitted -->
+                                                    <button type="button"
+                                                        @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'po_submitted'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
+                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-emerald-50/70 transition cursor-pointer {{ $order->status === 'po_submitted' ? 'bg-emerald-50/90 text-emerald-800 font-bold' : 'text-slate-700' }}">
+                                                        <div class="flex items-center gap-2.5">
+                                                            <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                                                            <div>
+                                                                <span class="font-['Agrandir',sans-serif] font-bold block leading-none">PO Submitted</span>
+                                                                <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">PO Masuk / Terkonfirmasi</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    @if ($order->status === 'po_submitted')
-                                                        <i class="fa-solid fa-check text-emerald-600 text-xs"></i>
-                                                    @endif
-                                                </button>
+                                                        @if ($order->status === 'po_submitted')
+                                                            <i class="fa-solid fa-check text-emerald-600 text-xs"></i>
+                                                        @endif
+                                                    </button>
 
-                                                <!-- Option Completed -->
-                                                <button type="button"
-                                                    @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'completed'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
-                                                    class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer {{ $order->status === 'completed' ? 'bg-blue-50/90 text-[#3367A5] font-bold' : 'text-slate-700' }}">
-                                                    <div class="flex items-center gap-2.5">
-                                                        <span class="w-2 h-2 rounded-full bg-[#3367A5] shrink-0"></span>
-                                                        <div>
-                                                            <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Completed</span>
-                                                            <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Pesanan Selesai / Terkirim</span>
+                                                    <!-- Option Completed -->
+                                                    <button type="button"
+                                                        @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'completed'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
+                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer {{ $order->status === 'completed' ? 'bg-blue-50/90 text-[#3367A5] font-bold' : 'text-slate-700' }}">
+                                                        <div class="flex items-center gap-2.5">
+                                                            <span class="w-2 h-2 rounded-full bg-[#3367A5] shrink-0"></span>
+                                                            <div>
+                                                                <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Completed</span>
+                                                                <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Pesanan Selesai / Terkirim</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    @if ($order->status === 'completed')
-                                                        <i class="fa-solid fa-check text-[#3367A5] text-xs"></i>
-                                                    @endif
-                                                </button>
+                                                        @if ($order->status === 'completed')
+                                                            <i class="fa-solid fa-check text-[#3367A5] text-xs"></i>
+                                                        @endif
+                                                    </button>
 
-                                                <!-- Option Cancelled -->
-                                                <button type="button"
-                                                    @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'cancelled'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
-                                                    class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-rose-50/70 transition cursor-pointer {{ $order->status === 'cancelled' ? 'bg-rose-50 text-rose-700 font-bold' : 'text-slate-700' }}">
-                                                    <div class="flex items-center gap-2.5">
-                                                        <span class="w-2 h-2 rounded-full bg-rose-500 shrink-0"></span>
-                                                        <div>
-                                                            <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Cancelled</span>
-                                                            <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Dibatalkan</span>
+                                                    <!-- Option Cancelled -->
+                                                    <button type="button"
+                                                        @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'cancelled'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
+                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-rose-50/70 transition cursor-pointer {{ $order->status === 'cancelled' ? 'bg-rose-50 text-rose-700 font-bold' : 'text-slate-700' }}">
+                                                        <div class="flex items-center gap-2.5">
+                                                            <span class="w-2 h-2 rounded-full bg-rose-500 shrink-0"></span>
+                                                            <div>
+                                                                <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Cancelled</span>
+                                                                <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Dibatalkan</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    @if ($order->status === 'cancelled')
-                                                        <i class="fa-solid fa-check text-rose-600 text-xs"></i>
-                                                    @endif
-                                                </button>
-                                            </form>
-                                        </div>
+                                                        @if ($order->status === 'cancelled')
+                                                            <i class="fa-solid fa-check text-rose-600 text-xs"></i>
+                                                        @endif
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </template>
                                     </div>
                                 </td>
 
-                                <!-- Log Interaksi WhatsApp -->
-                                <td class="py-4 px-4 align-middle max-w-xs">
-                                    @if ($order->whatsapp_contacted_at)
-                                        <div class="flex items-center gap-1.5 text-emerald-700 font-bold text-[11px]">
-                                            <i class="fa-brands fa-whatsapp text-sm"></i>
-                                            <span>Dihubungi {{ $order->whatsapp_contacted_at->diffForHumans() }}</span>
+                                <!-- Log Interaksi WhatsApp (Reaktif Real-Time) -->
+                                <td class="py-4 px-4 align-middle max-w-xs"
+                                    x-data="{ get rowOrder() { return getOrder({{ $order->id }}) || { whatsapp_contacted_at: @json($order->whatsapp_contacted_at ? $order->whatsapp_contacted_at->format('d M Y, H:i') . ' WIB' : null), whatsapp_contacted_diff: @json($order->whatsapp_contacted_at ? $order->whatsapp_contacted_at->diffForHumans() : null), whatsapp_message_log: @json($order->whatsapp_message_log) }; } }">
+                                    <template x-if="rowOrder.whatsapp_contacted_at">
+                                        <div>
+                                            <div class="flex items-center gap-1.5 text-emerald-700 font-bold text-[11px]">
+                                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                                <span x-text="'Dihubungi ' + (rowOrder.whatsapp_contacted_diff || rowOrder.whatsapp_contacted_at)"></span>
+                                            </div>
+                                            <p class="text-[10px] text-slate-500 truncate mt-0.5 font-['Questrial',sans-serif]"
+                                               :title="rowOrder.whatsapp_message_log || ''"
+                                               x-text="rowOrder.whatsapp_message_log || ''"></p>
                                         </div>
-                                        <p class="text-[10px] text-slate-500 truncate mt-0.5 font-['Questrial',sans-serif]"
-                                            title="{{ $order->whatsapp_message_log }}">
-                                            {{ $order->whatsapp_message_log }}
-                                        </p>
-                                    @else
+                                    </template>
+                                    <template x-if="!rowOrder.whatsapp_contacted_at">
                                         <span class="inline-flex items-center gap-1 text-[10px] text-slate-400 italic font-['Questrial',sans-serif]">
                                             <i class="fa-regular fa-clock text-[9px]"></i> Belum mengklik tombol WA
                                         </span>
-                                    @endif
+                                    </template>
                                 </td>
 
                                 <!-- Aksi (Clean, Functional, All Work!) -->

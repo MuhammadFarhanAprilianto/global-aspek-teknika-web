@@ -501,8 +501,13 @@
                                             <span class="text-xs font-bold font-['Agrandir',sans-serif] text-slate-800 group-hover:text-[#3367A5] truncate" x-text="ord.company_name"></span>
                                             <span class="text-[10px] text-slate-400 font-mono shrink-0" x-text="'#' + ord.order_number"></span>
                                         </div>
-                                        <p class="text-[11px] text-slate-400 font-['Questrial',sans-serif] truncate"
-                                           x-text="ord.customer_name + ' · ' + ord.date_formatted"></p>
+                                        <p class="text-[11px] text-slate-400 font-['Questrial',sans-serif] truncate">
+                                            <span x-text="ord.customer_name + ' · ' + ord.date_formatted"></span>
+                                            <span class="mx-1">·</span>
+                                            <span class="font-semibold"
+                                                  :class="ord.whatsapp_contacted ? 'text-emerald-600' : 'text-slate-400'"
+                                                  x-text="ord.wa_status_label || (ord.whatsapp_contacted ? 'WA Terkirim' : 'Belum WA')"></span>
+                                        </p>
                                     </div>
                                 </div>
 
@@ -875,6 +880,16 @@
                 this.trafficPollTimer = setInterval(() => {
                     if (!document.hidden) this.pollTraffic();
                 }, 12000);
+                try {
+                    if (typeof BroadcastChannel !== 'undefined') {
+                        const ch = new BroadcastChannel('gat_cms_sync');
+                        ch.onmessage = (ev) => {
+                            if (ev?.data?.type === 'public_submission') {
+                                this.pollTraffic();
+                            }
+                        };
+                    }
+                } catch (e) {}
             }
         };
     }
