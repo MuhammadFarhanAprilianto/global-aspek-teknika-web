@@ -4091,72 +4091,91 @@
             switchEisTab('summary');
         }
 
-        function exportEisToExcel() {
+        async function exportEisToExcel() {
             const pName = document.getElementById('eis-project-name')?.value || 'EIS PLANT 1';
             const pLoc = document.getElementById('eis-project-location')?.value || 'Cikarang';
             const devices = document.getElementById('eis-devices-count')?.value || '120';
-            const daily = document.getElementById('eis-res-daily')?.textContent || '-';
-            const retention = document.getElementById('eis-res-retention')?.textContent || '-';
-            const cost = document.getElementById('eis-res-cost')?.textContent || '-';
+            const daily = document.getElementById('eis-res-daily')?.textContent?.trim() || '-';
+            const retention = document.getElementById('eis-res-retention')?.textContent?.trim() || '-';
+            const cost = document.getElementById('eis-res-cost')?.textContent?.trim() || '-';
+            const retentionDays = document.getElementById('eis-cap-retention-header-days')?.textContent?.trim() || '360 hari';
 
             const checkedParams = Array.from(document.querySelectorAll('.eis-param:checked')).map(cb => cb.getAttribute(
-                'data-name')).join('; ');
+                'data-name')).join(', ');
 
-            let csv = "Item,Nilai\n";
-            csv += `Nama Proyek,${pName}\n`;
-            csv += `Lokasi,${pLoc}\n`;
-            csv += `Jumlah Device,${devices}\n`;
-            csv += `Parameter Terpilih,"${checkedParams || 'None'}"\n`;
-            csv += `Estimasi Data per Hari,${daily}\n`;
-            csv += `Estimasi Data Total Retention,${retention}\n`;
-            csv += `Estimasi Total Biaya,"${cost}"\n\n`;
-
-            // Append Kapasitas rows if table populated
-            const capRows = document.querySelectorAll('#eis-cap-table-body tr');
-            if (capRows.length > 0 && !capRows[0].textContent.includes('Pilih setidaknya')) {
-                csv += "Rincian Kapasitas Storage per Parameter\n";
-                csv += "Parameter,Sampling (detik),Byte/baris,Per Day,Per Month,Per Year,Total Retention\n";
-                capRows.forEach(tr => {
-                    const cols = Array.from(tr.querySelectorAll('td')).map(td => td.textContent.trim());
+            const capRows = [];
+            const capTrs = document.querySelectorAll('#eis-cap-table-body tr');
+            if (capTrs.length > 0 && !capTrs[0].textContent.includes('Pilih setidaknya') && !capTrs[0].textContent.includes('Belum ada kalkulasi')) {
+                capTrs.forEach(tr => {
+                    const cols = Array.from(tr.querySelectorAll('td')).map(td => td.textContent.replace(/\s+/g, ' ').trim());
                     if (cols.length >= 7) {
-                        csv +=
-                            `"${cols[0]}","${cols[1]}","${cols[2]}","${cols[3]}","${cols[4]}","${cols[5]}","${cols[6]}"\n`;
+                        capRows.push(cols.slice(0, 7));
                     }
                 });
-                const tDay = document.getElementById('eis-cap-total-day')?.textContent || '-';
-                const tMonth = document.getElementById('eis-cap-total-month')?.textContent || '-';
-                const tYear = document.getElementById('eis-cap-total-year')?.textContent || '-';
-                const tRet = document.getElementById('eis-cap-total-retention')?.textContent || '-';
-                csv += `TOTAL,,,${tDay},${tMonth},${tYear},${tRet}\n\n`;
             }
 
-            // Append Biaya CapEx & OpEx rows
-            const costRows = document.querySelectorAll('#eis-cost-table-body tr');
-            if (costRows.length > 0) {
-                csv += "Rincian Biaya CapEx & OpEx\n";
-                csv += "Komponen,Qty,Unit Price,Subtotal\n";
-                costRows.forEach(tr => {
-                    const cols = Array.from(tr.querySelectorAll('td')).map(td => td.textContent.trim());
+            const capacityTotals = [
+                document.getElementById('eis-cap-total-day')?.textContent?.trim() || daily,
+                document.getElementById('eis-cap-total-month')?.textContent?.trim() || '-',
+                document.getElementById('eis-cap-total-year')?.textContent?.trim() || '-',
+                document.getElementById('eis-cap-total-retention')?.textContent?.trim() || retention,
+            ];
+
+            const costRows = [];
+            const costTrs = document.querySelectorAll('#eis-cost-table-body tr');
+            if (costTrs.length > 0 && !costTrs[0].textContent.includes('Belum ada kalkulasi')) {
+                costTrs.forEach(tr => {
+                    const cols = Array.from(tr.querySelectorAll('td')).map(td => td.textContent.replace(/\s+/g, ' ').trim());
                     if (cols.length >= 4) {
-                        csv += `"${cols[0]}","${cols[1]}","${cols[2]}","${cols[3]}"\n`;
+                        costRows.push(cols.slice(0, 4));
                     }
                 });
-                const capex = document.getElementById('eis-cost-capex')?.textContent || '-';
-                const opex = document.getElementById('eis-cost-opex')?.textContent || '-';
-                csv += `Initial CapEx,,,${capex}\n`;
-                csv += `Yearly OpEx,,,${opex}\n`;
             }
 
-            const blob = new Blob([csv], {
-                type: 'text/csv;charset=utf-8;'
-            });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', `EIS_Calculation_${pName.replace(/\s+/g, '_')}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            const capex = document.getElementById('eis-cost-capex')?.textContent?.trim() || cost;
+            const opex = document.getElementById('eis-cost-opex')?.textContent?.trim() || 'Rp 0';
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+
+            try {
+                const res = await fetch('{{ route("simulator.export-eis-excel") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    body: JSON.stringify({
+                        project_name: pName,
+                        location: pLoc,
+                        devices: String(devices),
+                        retention_days: retentionDays,
+                        selected_params: checkedParams || 'None',
+                        daily_data: daily,
+                        total_retention: retention,
+                        total_cost: cost,
+                        capacity_rows: capRows,
+                        capacity_totals: capacityTotals,
+                        cost_rows: costRows,
+                        initial_capex: capex,
+                        yearly_opex: opex,
+                    })
+                });
+
+                if (!res.ok) throw new Error('Export failed: ' + res.status);
+
+                const blob = await res.blob();
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                const safeSlug = pName.trim().replace(/[^A-Za-z0-9_\-]+/g, '_').replace(/^_+|_+$/g, '') || 'EIS_Plant';
+                link.setAttribute('href', url);
+                link.setAttribute('download', `EIS_Calculation_${safeSlug}.xlsx`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            } catch (err) {
+                console.error('Export EIS Excel error:', err);
+                alert('Gagal mengekspor file Excel. Pastikan data sudah dihitung lalu coba lagi.');
+            }
         }
 
         /* ========================================================================= */

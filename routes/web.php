@@ -216,9 +216,10 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
-// API Endpoint: Lead Simulator & Public CMS Live Version Check (registered with & without /api prefix for Vercel serverless)
+// API Endpoint: Lead Simulator, EIS Excel Workbook Export & Public CMS Live Version Check (registered with & without /api prefix for Vercel serverless)
 Route::post('/simulation-lead', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'storePublic'])->name('simulation-lead');
 Route::post('/api/simulation-lead', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'storePublic'])->name('api.simulation-lead');
+Route::post('/simulator/export-eis-excel', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'exportEisExcel'])->name('simulator.export-eis-excel');
 
 $cmsVersionHandler = function () {
     $parts = [
