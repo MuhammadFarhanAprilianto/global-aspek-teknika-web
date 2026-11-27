@@ -261,35 +261,39 @@
 
         $didAdminMutate = session()->has('success') || session()->has('admin_toast');
 
-        $todayStart = today()->startOfDay()->toDateTimeString();
-        $badgeRow = \Illuminate\Support\Facades\DB::selectOne(
-            "SELECT
-                (SELECT COUNT(*) FROM visitor_logs WHERE created_at >= ?) as today_visitors,
-                (SELECT COUNT(*) FROM simulation_leads) as total_leads,
-                (SELECT COUNT(*) FROM simulation_leads WHERE status = 'new') as new_leads,
-                (SELECT COUNT(*) FROM products) as total_products,
-                (SELECT COUNT(*) FROM orders) as total_orders,
-                (SELECT COUNT(*) FROM orders WHERE status = 'awaiting_po') as new_orders,
-                (SELECT COUNT(*) FROM solutions) as total_solutions,
-                (SELECT COUNT(*) FROM projects) as total_projects,
-                (SELECT COUNT(*) FROM contact_us) as total_inquiries,
-                (SELECT COUNT(*) FROM contact_us WHERE status = 'unread') as unread_inquiries",
-            [$todayStart]
-        );
+        if (isset($precomputedSidebarBadges) && is_array($precomputedSidebarBadges)) {
+            $sidebarBadges = $precomputedSidebarBadges;
+        } else {
+            $todayStart = today()->startOfDay()->toDateTimeString();
+            $badgeRow = \Illuminate\Support\Facades\DB::selectOne(
+                "SELECT
+                    (SELECT COUNT(*) FROM visitor_logs WHERE created_at >= ?) as today_visitors,
+                    (SELECT COUNT(*) FROM simulation_leads) as total_leads,
+                    (SELECT COUNT(*) FROM simulation_leads WHERE status = 'new') as new_leads,
+                    (SELECT COUNT(*) FROM products) as total_products,
+                    (SELECT COUNT(*) FROM orders) as total_orders,
+                    (SELECT COUNT(*) FROM orders WHERE status = 'awaiting_po') as new_orders,
+                    (SELECT COUNT(*) FROM solutions) as total_solutions,
+                    (SELECT COUNT(*) FROM projects) as total_projects,
+                    (SELECT COUNT(*) FROM contact_us) as total_inquiries,
+                    (SELECT COUNT(*) FROM contact_us WHERE status = 'unread') as unread_inquiries",
+                [$todayStart]
+            );
 
-        $sidebarBadges = [
-            'today_visitors' => (int) ($badgeRow->today_visitors ?? 0),
-            'total_leads' => (int) ($badgeRow->total_leads ?? 0),
-            'new_leads' => (int) ($badgeRow->new_leads ?? 0),
-            'total_products' => (int) ($badgeRow->total_products ?? 0),
-            'total_orders' => (int) ($badgeRow->total_orders ?? 0),
-            'new_orders' => (int) ($badgeRow->new_orders ?? 0),
-            'total_solutions' => (int) ($badgeRow->total_solutions ?? 0),
-            'total_projects' => (int) ($badgeRow->total_projects ?? 0),
-            'total_inquiries' => (int) ($badgeRow->total_inquiries ?? 0),
-            'unread_inquiries' => (int) ($badgeRow->unread_inquiries ?? 0),
-            'active_channels' => \App\Models\SiteSetting::activeChannelsCount(),
-        ];
+            $sidebarBadges = [
+                'today_visitors' => (int) ($badgeRow->today_visitors ?? 0),
+                'total_leads' => (int) ($badgeRow->total_leads ?? 0),
+                'new_leads' => (int) ($badgeRow->new_leads ?? 0),
+                'total_products' => (int) ($badgeRow->total_products ?? 0),
+                'total_orders' => (int) ($badgeRow->total_orders ?? 0),
+                'new_orders' => (int) ($badgeRow->new_orders ?? 0),
+                'total_solutions' => (int) ($badgeRow->total_solutions ?? 0),
+                'total_projects' => (int) ($badgeRow->total_projects ?? 0),
+                'total_inquiries' => (int) ($badgeRow->total_inquiries ?? 0),
+                'unread_inquiries' => (int) ($badgeRow->unread_inquiries ?? 0),
+                'active_channels' => \App\Models\SiteSetting::activeChannelsCount(),
+            ];
+        }
     @endphp
 
     <script>

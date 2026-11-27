@@ -378,16 +378,34 @@ if (!function_exists('buildAdminDashboardSnapshot')) {
         $todayStart = today()->startOfDay()->toDateTimeString();
         $fiveMinsAgo = now()->subMinutes(5)->toDateTimeString();
 
-        $visitorAgg = \Illuminate\Support\Facades\DB::selectOne(
-            'SELECT COUNT(*) as total_all,
-                    SUM(CASE WHEN created_at >= ? THEN 1 ELSE 0 END) as today_hits,
-                    COUNT(DISTINCT CASE WHEN created_at >= ? THEN ip_address END) as online_now
-             FROM visitor_logs',
+        $agg = \Illuminate\Support\Facades\DB::selectOne(
+            "SELECT
+                (SELECT COUNT(*) FROM visitor_logs) as total_all,
+                (SELECT COUNT(*) FROM visitor_logs WHERE created_at >= ?) as today_hits,
+                (SELECT COUNT(DISTINCT ip_address) FROM visitor_logs WHERE created_at >= ?) as online_now,
+                (SELECT COUNT(*) FROM simulation_leads) as total_leads,
+                (SELECT COUNT(*) FROM simulation_leads WHERE status = 'new') as new_leads,
+                (SELECT COUNT(*) FROM contact_us) as total_inquiries,
+                (SELECT COUNT(*) FROM contact_us WHERE status = 'unread') as unread_inquiries,
+                (SELECT COUNT(*) FROM products) as total_products,
+                (SELECT COUNT(*) FROM products WHERE status = 'published') as published_products,
+                (SELECT COUNT(*) FROM solutions) as total_solutions,
+                (SELECT COUNT(*) FROM solutions WHERE show_in_navbar = true) as shown_solutions,
+                (SELECT COUNT(*) FROM projects) as total_projects,
+                (SELECT COUNT(*) FROM projects WHERE is_featured = true) as shown_projects,
+                (SELECT COUNT(*) FROM orders) as total_orders,
+                (SELECT COALESCE(SUM(grand_total), 0) FROM orders) as total_revenue,
+                (SELECT COUNT(*) FROM orders WHERE status IN ('po_submitted', 'confirmed', 'processing', 'completed')) as po_submitted_count,
+                (SELECT COALESCE(SUM(grand_total), 0) FROM orders WHERE status IN ('po_submitted', 'confirmed', 'processing', 'completed')) as po_submitted_total,
+                (SELECT COUNT(*) FROM orders WHERE status = 'awaiting_po') as awaiting_po_count,
+                (SELECT COALESCE(SUM(grand_total), 0) FROM orders WHERE status = 'awaiting_po') as awaiting_po_total,
+                (SELECT COALESCE(SUM(line_total), 0) FROM order_items WHERE product_name LIKE '%Inspection%' OR product_name LIKE '%Pengukuran%' OR product_name LIKE '%Kamera%' OR product_name LIKE '%Vision%' OR product_name LIKE '%Sensor%') as inspection_total,
+                (SELECT COALESCE(SUM(line_total), 0) FROM order_items WHERE product_name LIKE '%Panel%' OR product_name LIKE '%Otomasi%' OR product_name LIKE '%Kontrol%' OR product_name LIKE '%Strapping%' OR product_name LIKE '%Inkjet%' OR product_name LIKE '%Printer%') as automation_total",
             [$todayStart, $fiveMinsAgo]
         );
-        $todayVisitors = (int) ($visitorAgg->today_hits ?? 0);
-        $totalVisitors = (int) ($visitorAgg->total_all ?? 0);
-        $onlineNow = (int) ($visitorAgg->online_now ?? 0);
+        $todayVisitors = (int) ($agg->today_hits ?? 0);
+        $totalVisitors = (int) ($agg->total_all ?? 0);
+        $onlineNow = (int) ($agg->online_now ?? 0);
 
         $recentVisitors = \App\Models\VisitorLog::latest()->take(8)->get();
         $latest = $recentVisitors->first();
@@ -419,55 +437,27 @@ if (!function_exists('buildAdminDashboardSnapshot')) {
             ];
         })->values()->all();
 
-        $crmCounts = \Illuminate\Support\Facades\DB::selectOne(
-            "SELECT
-                (SELECT COUNT(*) FROM simulation_leads) as total_leads,
-                (SELECT COUNT(*) FROM simulation_leads WHERE status = 'new') as new_leads,
-                (SELECT COUNT(*) FROM contact_us) as total_inquiries,
-                (SELECT COUNT(*) FROM contact_us WHERE status = 'unread') as unread_inquiries,
-                (SELECT COUNT(*) FROM products) as total_products,
-                (SELECT COUNT(*) FROM products WHERE status = 'published') as published_products,
-                (SELECT COUNT(*) FROM solutions) as total_solutions,
-                (SELECT COUNT(*) FROM solutions WHERE show_in_navbar = true) as shown_solutions,
-                (SELECT COUNT(*) FROM projects) as total_projects,
-                (SELECT COUNT(*) FROM projects WHERE is_featured = true) as shown_projects"
-        );
+        $totalLeads = (int) ($agg->total_leads ?? 0);
+        $newLeads = (int) ($agg->new_leads ?? 0);
+        $totalInquiries = (int) ($agg->total_inquiries ?? 0);
+        $unreadInquiries = (int) ($agg->unread_inquiries ?? 0);
+        $totalProducts = (int) ($agg->total_products ?? 0);
+        $publishedProducts = (int) ($agg->published_products ?? 0);
+        $totalSolutions = (int) ($agg->total_solutions ?? 0);
+        $shownSolutions = (int) ($agg->shown_solutions ?? 0);
+        $totalProjects = (int) ($agg->total_projects ?? 0);
+        $shownProjects = (int) ($agg->shown_projects ?? 0);
 
-        $totalLeads = (int) ($crmCounts->total_leads ?? 0);
-        $newLeads = (int) ($crmCounts->new_leads ?? 0);
-        $totalInquiries = (int) ($crmCounts->total_inquiries ?? 0);
-        $unreadInquiries = (int) ($crmCounts->unread_inquiries ?? 0);
-        $totalProducts = (int) ($crmCounts->total_products ?? 0);
-        $publishedProducts = (int) ($crmCounts->published_products ?? 0);
-        $totalSolutions = (int) ($crmCounts->total_solutions ?? 0);
-        $shownSolutions = (int) ($crmCounts->shown_solutions ?? 0);
-        $totalProjects = (int) ($crmCounts->total_projects ?? 0);
-        $shownProjects = (int) ($crmCounts->shown_projects ?? 0);
-
-        $orderAgg = \App\Models\Order::selectRaw("
-            COUNT(*) as total_orders,
-            COALESCE(SUM(grand_total), 0) as total_revenue,
-            SUM(CASE WHEN status IN ('po_submitted', 'confirmed', 'processing', 'completed') THEN 1 ELSE 0 END) as po_submitted_count,
-            COALESCE(SUM(CASE WHEN status IN ('po_submitted', 'confirmed', 'processing', 'completed') THEN grand_total ELSE 0 END), 0) as po_submitted_total,
-            SUM(CASE WHEN status = 'awaiting_po' THEN 1 ELSE 0 END) as awaiting_po_count,
-            COALESCE(SUM(CASE WHEN status = 'awaiting_po' THEN grand_total ELSE 0 END), 0) as awaiting_po_total
-        ")->first();
-
-        $totalOrders = (int) ($orderAgg->total_orders ?? 0);
-        $totalRevenue = (float) ($orderAgg->total_revenue ?? 0);
-        $poSubmittedCount = (int) ($orderAgg->po_submitted_count ?? 0);
-        $poSubmittedTotal = (float) ($orderAgg->po_submitted_total ?? 0);
-        $awaitingPoCount = (int) ($orderAgg->awaiting_po_count ?? 0);
-        $awaitingPoTotal = (float) ($orderAgg->awaiting_po_total ?? 0);
+        $totalOrders = (int) ($agg->total_orders ?? 0);
+        $totalRevenue = (float) ($agg->total_revenue ?? 0);
+        $poSubmittedCount = (int) ($agg->po_submitted_count ?? 0);
+        $poSubmittedTotal = (float) ($agg->po_submitted_total ?? 0);
+        $awaitingPoCount = (int) ($agg->awaiting_po_count ?? 0);
+        $awaitingPoTotal = (float) ($agg->awaiting_po_total ?? 0);
         $newOrders = $awaitingPoCount;
 
-        $itemAgg = \App\Models\OrderItem::selectRaw("
-            COALESCE(SUM(CASE WHEN product_name LIKE '%Inspection%' OR product_name LIKE '%Pengukuran%' OR product_name LIKE '%Kamera%' OR product_name LIKE '%Vision%' OR product_name LIKE '%Sensor%' THEN line_total ELSE 0 END), 0) as inspection_total,
-            COALESCE(SUM(CASE WHEN product_name LIKE '%Panel%' OR product_name LIKE '%Otomasi%' OR product_name LIKE '%Kontrol%' OR product_name LIKE '%Strapping%' OR product_name LIKE '%Inkjet%' OR product_name LIKE '%Printer%' THEN line_total ELSE 0 END), 0) as automation_total
-        ")->first();
-
-        $inspectionTotal = (float) ($itemAgg->inspection_total ?? 0);
-        $automationTotal = (float) ($itemAgg->automation_total ?? 0);
+        $inspectionTotal = (float) ($agg->inspection_total ?? 0);
+        $automationTotal = (float) ($agg->automation_total ?? 0);
 
         $formatShort = function ($val) {
             if ($val >= 1000000000) return 'Rp ' . number_format($val / 1000000000, 1, ',', '.') . ' M';
@@ -584,6 +574,20 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
         $snap = buildAdminDashboardSnapshot();
         $isEphemeralSqlite = (! empty($_SERVER['VERCEL']) || getenv('VERCEL') === '1')
             && config('database.default') === 'sqlite';
+
+        \Illuminate\Support\Facades\View::share('precomputedSidebarBadges', [
+            'today_visitors' => $snap['todayVisitors'],
+            'total_leads' => $snap['totalLeads'],
+            'new_leads' => $snap['newLeads'],
+            'total_products' => $snap['totalProducts'],
+            'total_orders' => $snap['totalOrders'],
+            'new_orders' => $snap['newOrders'],
+            'total_solutions' => $snap['totalSolutions'],
+            'total_projects' => $snap['totalProjects'],
+            'total_inquiries' => $snap['totalInquiries'],
+            'unread_inquiries' => $snap['unreadInquiries'],
+            'active_channels' => \App\Models\SiteSetting::activeChannelsCount(),
+        ]);
 
         return view('admin.dashboard', [
             'totalOrders' => $snap['totalOrders'],
