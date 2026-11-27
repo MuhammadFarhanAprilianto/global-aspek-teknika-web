@@ -235,16 +235,16 @@
 
         <!-- Orders Table Card -->
         <div class="bg-white rounded-[24px] border border-[#3367A5]/15 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full min-w-[1050px] text-left border-collapse text-xs">
+            <div class="overflow-x-auto admin-table-scroll">
+                <table class="w-full min-w-[820px] text-left border-collapse text-xs">
                     <thead>
-                        <tr class="bg-[#f8fafd] border-b border-slate-100 text-slate-500 font-['Agrandir',sans-serif] text-[11px] uppercase tracking-wider">
-                            <th class="py-4 px-4 font-bold whitespace-nowrap w-[170px]">No. Invoice &amp; Waktu</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap min-w-[220px]">Perusahaan &amp; PIC</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap w-[170px]">Item &amp; Total Nilai</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap w-[170px]">Status Pesanan</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap min-w-[200px]">Log WhatsApp</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap text-right w-[180px]">Aksi</th>
+                        <tr class="bg-[#f8fafd] border-b border-slate-100 text-slate-500 font-['Agrandir',sans-serif] text-[10.5px] uppercase tracking-wider">
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">No. Invoice &amp; Waktu</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Perusahaan &amp; PIC</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Item &amp; Total Nilai</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Status Pesanan</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Log WhatsApp</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap text-right">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 text-slate-700">
@@ -258,33 +258,32 @@
                                 }
                                 $waText = urlencode("Halo Bapak/Ibu {$order->pic_name} ({$order->company_name}), kami dari Tim Sales PT Global Aspect Technology menindaklanjuti pesanan Sales Quote #{$order->invoice_number} senilai Rp " . number_format($order->grand_total, 0, ',', '.') . ". Apakah ada dokumen atau hal teknis yang perlu kami bantu proseskan? Terima kasih.");
                                 $waDirectUrl = !empty($cleanPhone) ? "https://api.whatsapp.com/send?phone={$cleanPhone}&text={$waText}" : '#';
-                                $orderItemJs = $ordersJson->firstWhere('id', $order->id);
                             @endphp
                             <tr class="hover:bg-[#f8fafd]/80 transition duration-150">
                                 <!-- No. Invoice & Waktu -->
-                                <td class="py-4 px-4 whitespace-nowrap align-middle">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
                                     <button type="button" @click="openDetail({{ $order->id }})" 
                                             class="font-bold text-[#3367A5] hover:underline font-mono text-xs flex items-center gap-1.5 cursor-pointer text-left"
                                             title="Klik untuk melihat detail lengkap">
                                         <i class="fa-solid fa-receipt text-[#3367A5]/70 text-[11px]"></i>
                                         <span>{{ $order->invoice_number }}</span>
                                     </button>
-                                    <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1.5 mt-0.5">
+                                    <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5">
                                         <i class="fa-regular fa-clock text-[10px] text-slate-300"></i>
                                         <span>{{ $order->created_at->format('d M Y, H:i') }} WIB</span>
                                     </div>
                                 </td>
 
                                 <!-- Perusahaan & PIC -->
-                                <td class="py-4 px-4 align-middle">
-                                    <div class="font-bold text-slate-900 font-['Agrandir',sans-serif] text-xs whitespace-nowrap">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 align-middle max-w-[200px]">
+                                    <div class="font-bold text-slate-900 font-['Agrandir',sans-serif] text-xs truncate" title="{{ $order->company_name }}">
                                         {{ $order->company_name }}
                                     </div>
                                     <div class="text-[11px] text-slate-500 font-['Questrial',sans-serif] flex items-center gap-1.5 mt-0.5 whitespace-nowrap">
-                                        <span class="text-[#3367A5] font-semibold">PIC: {{ $order->pic_name }}</span>
+                                        <span class="text-[#3367A5] font-semibold truncate max-w-[90px]" title="PIC: {{ $order->pic_name }}">PIC: {{ $order->pic_name }}</span>
                                         <span class="text-slate-300">•</span>
                                         <a href="{{ $waDirectUrl }}" target="_blank" rel="noopener noreferrer"
-                                           @click="logWhatsAppInteraction({{ json_encode($orderItemJs ?? ['uuid' => $order->uuid]) }})"
+                                           @click="logWhatsAppInteraction(getOrder({{ $order->id }}) || { id: {{ $order->id }}, uuid: '{{ $order->uuid }}' })"
                                            class="font-mono text-slate-500 hover:text-emerald-600 hover:underline inline-flex items-center gap-1 transition"
                                            title="Langsung chat WhatsApp ke {{ $order->company_phone }}">
                                             <i class="fa-brands fa-whatsapp text-emerald-500 text-xs"></i>
@@ -294,7 +293,7 @@
                                 </td>
 
                                 <!-- Item & Total Nilai -->
-                                <td class="py-4 px-4 whitespace-nowrap align-middle">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
                                     <div class="font-bold font-['Agrandir',sans-serif] text-slate-900 text-xs">
                                         Rp {{ number_format($order->grand_total, 0, ',', '.') }}
                                     </div>
@@ -306,7 +305,7 @@
                                 </td>
 
                                 <!-- Status Pesanan (Fixed Viewport Portal - Never Clipped Inside Table) -->
-                                <td class="py-4 px-4 whitespace-nowrap align-middle"
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle"
                                     x-data="{
                                         statusOpen: false,
                                         openUp: false,
@@ -432,41 +431,40 @@
                                 </td>
 
                                 <!-- Log Interaksi WhatsApp (Reaktif Real-Time) -->
-                                <td class="py-4 px-4 align-middle max-w-xs"
-                                    x-data="{ get rowOrder() { return getOrder({{ $order->id }}) || { whatsapp_contacted_at: @json($order->whatsapp_contacted_at ? $order->whatsapp_contacted_at->format('d M Y, H:i') . ' WIB' : null), whatsapp_contacted_diff: @json($order->whatsapp_contacted_at ? $order->whatsapp_contacted_at->diffForHumans() : null), whatsapp_message_log: @json($order->whatsapp_message_log) }; } }">
-                                    <template x-if="rowOrder.whatsapp_contacted_at">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 align-middle max-w-[175px]">
+                                    <template x-if="(getOrder({{ $order->id }}) || {}).whatsapp_contacted_at">
                                         <div>
-                                            <div class="flex items-center gap-1.5 text-emerald-700 font-bold text-[11px]">
+                                            <div class="flex items-center gap-1.5 text-emerald-700 font-bold text-[11px] whitespace-nowrap">
                                                 <i class="fa-brands fa-whatsapp text-sm"></i>
-                                                <span x-text="'Dihubungi ' + (rowOrder.whatsapp_contacted_diff || rowOrder.whatsapp_contacted_at)"></span>
+                                                <span x-text="'Dihubungi ' + ((getOrder({{ $order->id }}) || {}).whatsapp_contacted_diff || (getOrder({{ $order->id }}) || {}).whatsapp_contacted_at)"></span>
                                             </div>
                                             <p class="text-[10px] text-slate-500 truncate mt-0.5 font-['Questrial',sans-serif]"
-                                               :title="rowOrder.whatsapp_message_log || ''"
-                                               x-text="rowOrder.whatsapp_message_log || ''"></p>
+                                               :title="(getOrder({{ $order->id }}) || {}).whatsapp_message_log || ''"
+                                               x-text="(getOrder({{ $order->id }}) || {}).whatsapp_message_log || ''"></p>
                                         </div>
                                     </template>
-                                    <template x-if="!rowOrder.whatsapp_contacted_at">
-                                        <span class="inline-flex items-center gap-1 text-[10px] text-slate-400 italic font-['Questrial',sans-serif]">
+                                    <template x-if="!(getOrder({{ $order->id }}) || {}).whatsapp_contacted_at">
+                                        <span class="inline-flex items-center gap-1 text-[10px] text-slate-400 italic font-['Questrial',sans-serif] whitespace-nowrap">
                                             <i class="fa-regular fa-clock text-[9px]"></i> Belum mengklik tombol WA
                                         </span>
                                     </template>
                                 </td>
 
                                 <!-- Aksi (Clean, Functional, All Work!) -->
-                                <td class="py-4 px-4 whitespace-nowrap text-right align-middle">
-                                    <div class="inline-flex items-center gap-1.5">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap text-right align-middle">
+                                    <div class="inline-flex items-center gap-1">
                                         <!-- Detail Button -->
                                         <button type="button" @click="openDetail({{ $order->id }})"
-                                                class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#3367A5] font-bold text-[11px] font-['Agrandir',sans-serif] transition shadow-2xs cursor-pointer"
+                                                class="inline-flex items-center gap-1 px-2 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#3367A5] font-bold text-[11px] font-['Agrandir',sans-serif] transition shadow-2xs cursor-pointer"
                                                 title="Lihat Detail Pesanan">
-                                            <i class="fa-solid fa-eye text-xs"></i>
+                                            <i class="fa-solid fa-eye text-[11px]"></i>
                                             <span>Detail</span>
                                         </button>
 
                                         <!-- Chat WhatsApp Button -->
                                         <a href="{{ $waDirectUrl }}" target="_blank" rel="noopener noreferrer"
-                                           @click="logWhatsAppInteraction({{ json_encode($orderItemJs ?? ['uuid' => $order->uuid]) }})"
-                                           class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] font-['Agrandir',sans-serif] transition shadow-2xs hover:shadow-xs cursor-pointer"
+                                           @click="logWhatsAppInteraction(getOrder({{ $order->id }}) || { id: {{ $order->id }}, uuid: '{{ $order->uuid }}' })"
+                                           class="inline-flex items-center gap-1 px-2 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] font-['Agrandir',sans-serif] transition shadow-2xs hover:shadow-xs cursor-pointer"
                                            title="Langsung chat WhatsApp ke {{ $order->company_phone }} &amp; Catat Log">
                                             <i class="fa-brands fa-whatsapp text-xs"></i>
                                             <span>Chat WA</span>

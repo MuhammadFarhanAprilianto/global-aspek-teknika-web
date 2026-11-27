@@ -164,7 +164,7 @@
             font-family: 'Questrial', sans-serif !important;
         }
 
-        /* Sembunyikan visual scrollbar bar/thumb namun pertahankan fungsi scroll sepenuhnya */
+        /* Sembunyikan visual scrollbar vertikal/halaman utama namun pertahankan fungsi scroll */
         * {
             scrollbar-width: none !important;
             /* Firefox */
@@ -179,6 +179,39 @@
             width: 0 !important;
             height: 0 !important;
             background: transparent !important;
+        }
+
+        /* Tampilkan scrollbar horizontal tipis & rapi khusus untuk tabel admin yang melebar */
+        .admin-table-scroll,
+        .overflow-x-auto {
+            scrollbar-width: thin !important;
+            scrollbar-color: rgba(51, 103, 165, 0.38) #f1f5f9 !important;
+            -ms-overflow-style: auto !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .admin-table-scroll::-webkit-scrollbar,
+        .overflow-x-auto::-webkit-scrollbar {
+            display: block !important;
+            height: 7px !important;
+            width: 7px !important;
+        }
+
+        .admin-table-scroll::-webkit-scrollbar-track,
+        .overflow-x-auto::-webkit-scrollbar-track {
+            background: #f1f5f9 !important;
+            border-radius: 9999px !important;
+        }
+
+        .admin-table-scroll::-webkit-scrollbar-thumb,
+        .overflow-x-auto::-webkit-scrollbar-thumb {
+            background: rgba(51, 103, 165, 0.35) !important;
+            border-radius: 9999px !important;
+        }
+
+        .admin-table-scroll::-webkit-scrollbar-thumb:hover,
+        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+            background: rgba(51, 103, 165, 0.6) !important;
         }
 
         /* Cegah overscroll / elastic bounce / rubber-band saat mentok ke atas atau ke bawah */

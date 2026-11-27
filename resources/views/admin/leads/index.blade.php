@@ -216,17 +216,17 @@
 
         <!-- Leads Table Card -->
         <div class="bg-white rounded-[24px] border border-[#3367A5]/15 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full min-w-[1150px] text-left border-collapse text-xs">
+            <div class="overflow-x-auto admin-table-scroll">
+                <table class="w-full min-w-[860px] text-left border-collapse text-xs">
                     <thead>
-                        <tr class="bg-[#f8fafd] border-b border-slate-100 text-slate-500 font-['Agrandir',sans-serif] text-[11px] uppercase tracking-wider">
-                            <th class="py-4 px-4 font-bold whitespace-nowrap w-[140px]">Tanggal</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap min-w-[220px]">Nama PIC &amp; Perusahaan</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap w-[180px]">Domain Simulasi</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap w-[190px]">Kontak WhatsApp / Email</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap min-w-[240px]">Catatan / Kebutuhan</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap w-[130px]">Status</th>
-                            <th class="py-4 px-4 font-bold whitespace-nowrap text-right w-[150px]">Aksi Cepat</th>
+                        <tr class="bg-[#f8fafd] border-b border-slate-100 text-slate-500 font-['Agrandir',sans-serif] text-[10.5px] uppercase tracking-wider">
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Tanggal</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Nama PIC &amp; Perusahaan</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Domain Simulasi</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Kontak WhatsApp / Email</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Catatan / Kebutuhan</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Status</th>
+                            <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap text-right">Aksi Cepat</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 text-slate-700">
@@ -250,61 +250,61 @@
                             @endphp
                             <tr class="hover:bg-[#f8fafd]/80 transition duration-150">
                                 <!-- Tanggal -->
-                                <td class="py-4 px-4 whitespace-nowrap align-middle">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
                                     <div class="font-bold text-slate-800 text-xs font-['Agrandir',sans-serif]">
                                         {{ ($lead->simulation_date ?? $lead->created_at)->format('d M Y') }}
                                     </div>
-                                    <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1.5 mt-0.5">
+                                    <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5">
                                         <i class="fa-regular fa-clock text-[10px] text-slate-300"></i>
                                         <span>{{ $lead->created_at->format('H:i') }} WIB</span>
                                     </div>
                                 </td>
 
                                 <!-- Nama PIC, Jabatan & Perusahaan -->
-                                <td class="py-4 px-4 align-middle">
-                                    <div class="font-bold text-slate-900 font-['Agrandir',sans-serif] text-xs whitespace-nowrap flex items-center gap-1.5">
-                                        <span>{{ $lead->pic_name }}</span>
+                                <td class="py-3.5 px-2.5 xl:px-3.5 align-middle max-w-[195px]">
+                                    <div class="font-bold text-slate-900 font-['Agrandir',sans-serif] text-xs flex items-center gap-1.5 min-w-0">
+                                        <span class="truncate" title="{{ $lead->pic_name }}">{{ $lead->pic_name }}</span>
                                         @if ($lead->job_title)
-                                            <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold font-['Questrial',sans-serif] bg-slate-100 text-slate-600">
+                                            <span class="px-1.5 py-0.5 rounded-full text-[9.5px] font-semibold font-['Questrial',sans-serif] bg-slate-100 text-slate-600 shrink-0">
                                                 {{ $lead->job_title }}
                                             </span>
                                         @endif
                                     </div>
-                                    <div class="text-[11px] text-[#3367A5] font-semibold font-['Questrial',sans-serif] flex items-center gap-1.5 mt-0.5 whitespace-nowrap">
+                                    <div class="text-[11px] text-[#3367A5] font-semibold font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5 min-w-0">
                                         <i class="fa-regular fa-building text-[10px] text-slate-400 shrink-0"></i>
-                                        <span>{{ $lead->company_name }}</span>
+                                        <span class="truncate" title="{{ $lead->company_name }}">{{ $lead->company_name }}</span>
                                     </div>
                                 </td>
 
                                 <!-- Domain Simulasi -->
-                                <td class="py-4 px-4 whitespace-nowrap align-middle">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-blue-50 text-[#3367A5] border border-blue-100 uppercase tracking-wider font-['Agrandir',sans-serif]">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-50 text-[#3367A5] border border-blue-100 uppercase tracking-wider font-['Agrandir',sans-serif]">
                                         <i class="{{ $leadDomain['icon'] }} text-[10px] {{ $leadDomain['color'] }}"></i>
                                         <span>{{ $leadDomain['label'] }}</span>
                                     </span>
                                 </td>
 
                                 <!-- Kontak WhatsApp / Email -->
-                                <td class="py-4 px-4 whitespace-nowrap align-middle">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle max-w-[175px]">
                                     <div class="font-bold text-slate-800 text-xs flex items-center gap-1.5 font-mono">
                                         <a href="https://wa.me/{{ $waClean }}?text={{ $waMsg }}"
                                             target="_blank"
-                                            class="font-bold text-slate-800 hover:text-emerald-700 text-xs flex items-center gap-1.5 font-mono group transition"
+                                            class="font-bold text-slate-800 hover:text-emerald-700 text-xs flex items-center gap-1 font-mono group transition"
                                             title="Kirim pesan WhatsApp langsung ke {{ $lead->pic_name }} ({{ $lead->phone }})">
                                             <i class="fa-brands fa-whatsapp text-emerald-600 text-sm group-hover:scale-110 transition-transform"></i>
                                             <span>{{ $lead->phone }}</span>
                                         </a>
                                     </div>
-                                    <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1.5 mt-0.5">
-                                        <i class="fa-regular fa-envelope text-[10px] text-slate-400"></i>
-                                        <a href="mailto:{{ $lead->email }}" class="hover:text-[#3367A5] transition" title="Kirim email">{{ $lead->email }}</a>
+                                    <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5 min-w-0">
+                                        <i class="fa-regular fa-envelope text-[10px] text-slate-400 shrink-0"></i>
+                                        <a href="mailto:{{ $lead->email }}" class="hover:text-[#3367A5] transition truncate" title="{{ $lead->email }}">{{ $lead->email }}</a>
                                     </div>
                                 </td>
 
                                 <!-- Catatan / Kebutuhan -->
-                                <td class="py-4 px-4 align-middle text-slate-600 font-['Questrial',sans-serif]">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 align-middle text-slate-600 font-['Questrial',sans-serif] max-w-[175px]">
                                     @if ($lead->notes)
-                                        <div class="max-w-[280px] line-clamp-2 text-xs leading-relaxed" title="{{ $lead->notes }}">
+                                        <div class="line-clamp-2 text-xs leading-relaxed" title="{{ $lead->notes }}">
                                             {{ $lead->notes }}
                                         </div>
                                     @else
@@ -313,7 +313,7 @@
                                 </td>
 
                                 <!-- Status Dropdown Pill (Fixed Viewport Portal - Never Clipped Inside Table) -->
-                                <td class="py-4 px-4 whitespace-nowrap align-middle">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
                                     <div class="relative inline-block text-left"
                                          x-data="{
                                              statusOpen: false,
@@ -421,11 +421,11 @@
                                 </td>
 
                                 <!-- Aksi Cepat -->
-                                <td class="py-4 px-4 whitespace-nowrap text-right align-middle space-x-1.5">
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap text-right align-middle space-x-1">
                                     <a href="https://wa.me/{{ $waClean }}?text={{ $waMsg }}" target="_blank"
-                                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] font-['Agrandir',sans-serif] shadow-xs transition hover:shadow-sm active:scale-95"
+                                        class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] font-['Agrandir',sans-serif] shadow-xs transition hover:shadow-sm active:scale-95"
                                         title="Buka WhatsApp langsung ke nomor {{ $lead->phone }} ({{ $lead->pic_name }})">
-                                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                                        <i class="fa-brands fa-whatsapp text-xs"></i>
                                         <span>Hubungi WA</span>
                                     </a>
 

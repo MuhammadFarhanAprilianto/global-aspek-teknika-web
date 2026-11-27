@@ -240,17 +240,17 @@
     </div>
 
     <!-- Messages Table Card -->
-    <div class="bg-white rounded-[24px] border border-[#3367A5]/15 shadow-sm overflow-visible">
-        <div class="overflow-x-auto overflow-y-visible">
-            <table class="w-full min-w-[820px] text-left border-collapse text-xs">
+    <div class="bg-white rounded-[24px] border border-[#3367A5]/15 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto admin-table-scroll">
+            <table class="w-full min-w-[780px] text-left border-collapse text-xs">
                 <thead>
-                    <tr class="bg-[#f8fafd] border-b border-slate-100 text-[11px] uppercase tracking-wider text-slate-500 font-['Agrandir',sans-serif]">
-                        <th class="py-3.5 px-4 font-bold rounded-tl-[24px]">Waktu</th>
-                        <th class="py-3.5 px-4 font-bold">Pengirim &amp; Perusahaan</th>
-                        <th class="py-3.5 px-4 font-bold">Layanan / Topik</th>
-                        <th class="py-3.5 px-4 font-bold">Isi Pesan</th>
-                        <th class="py-3.5 px-4 font-bold">Status</th>
-                        <th class="py-3.5 px-4 font-bold text-right rounded-tr-[24px]">Aksi</th>
+                    <tr class="bg-[#f8fafd] border-b border-slate-100 text-[10.5px] uppercase tracking-wider text-slate-500 font-['Agrandir',sans-serif]">
+                        <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Waktu</th>
+                        <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Pengirim &amp; Perusahaan</th>
+                        <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Layanan / Topik</th>
+                        <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Isi Pesan</th>
+                        <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap">Status</th>
+                        <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap text-right">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-slate-700">
@@ -260,7 +260,7 @@
                         @endphp
                         <tr class="hover:bg-[#f8fafd]/80 transition duration-150 {{ $msg->status === 'unread' ? 'bg-blue-50/15' : '' }}">
                             <!-- Waktu -->
-                            <td class="py-4 px-4 whitespace-nowrap align-middle">
+                            <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
                                 <div class="font-bold text-slate-800 font-['Agrandir',sans-serif] text-xs">
                                     {{ $msg->created_at->format('d M Y') }}
                                 </div>
@@ -271,21 +271,21 @@
                             </td>
 
                             <!-- Pengirim & Perusahaan -->
-                            <td class="py-4 px-4 align-middle">
+                            <td class="py-3.5 px-2.5 xl:px-3.5 align-middle max-w-[210px]">
                                 <button type="button" @click="openDetail({{ $msg->id }})"
-                                        class="font-bold text-slate-900 hover:text-[#3367A5] font-['Agrandir',sans-serif] text-xs text-left cursor-pointer transition">
+                                        class="font-bold text-slate-900 hover:text-[#3367A5] font-['Agrandir',sans-serif] text-xs text-left cursor-pointer transition truncate block max-w-full">
                                     {{ $msg->name }}
                                 </button>
-                                <div class="text-[11px] text-[#3367A5] font-semibold mt-0.5">
+                                <div class="text-[11px] text-[#3367A5] font-semibold mt-0.5 truncate">
                                     {{ $msg->company ?: 'Individu / Perusahaan' }}
                                 </div>
-                                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-0.5 mt-1 text-[11px] font-['Questrial',sans-serif]">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1 text-[11px] font-['Questrial',sans-serif]">
                                     @if ($msg->email)
                                         <a href="{{ $rowData['mailto_url'] }}"
-                                           class="text-slate-400 hover:text-[#3367A5] hover:underline inline-flex items-center gap-1 transition"
+                                           class="text-slate-400 hover:text-[#3367A5] hover:underline inline-flex items-center gap-1 transition truncate max-w-[160px]"
                                            title="Kirim email ke {{ $msg->email }}">
-                                            <i class="fa-regular fa-envelope text-[10px]"></i>
-                                            <span class="font-mono text-[10px]">{{ $msg->email }}</span>
+                                            <i class="fa-regular fa-envelope text-[10px] shrink-0"></i>
+                                            <span class="font-mono text-[10px] truncate">{{ $msg->email }}</span>
                                         </a>
                                     @endif
                                     @if (!empty($rowData['wa_url']))
@@ -301,14 +301,14 @@
                             </td>
 
                             <!-- Layanan / Topik -->
-                            <td class="py-4 px-4 whitespace-nowrap align-middle">
+                            <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
                                 <span class="h-6 px-2.5 inline-flex items-center justify-center rounded-lg text-[10px] font-bold font-['Agrandir',sans-serif] bg-slate-100 text-slate-700 leading-none">
                                     {{ $msg->service ?: 'General Inquiry' }}
                                 </span>
                             </td>
 
                             <!-- Isi Pesan -->
-                            <td class="py-4 px-4 max-w-sm align-middle">
+                            <td class="py-3.5 px-2.5 xl:px-3.5 max-w-[190px] align-middle">
                                 <button type="button" @click="openDetail({{ $msg->id }})"
                                         class="text-left text-[11px] text-slate-600 hover:text-slate-900 leading-relaxed line-clamp-2 cursor-pointer transition"
                                         title="Klik untuk membaca pesan selengkapnya">
@@ -316,11 +316,33 @@
                                 </button>
                             </td>
 
-                            <!-- Interactive Status Dropdown (Tanpa Buletan Clutter, Rata Tengah) -->
-                            <td class="py-4 px-4 whitespace-nowrap align-middle">
-                                <div class="relative inline-block text-left" x-data="{ statusOpen: false, openUp: false }">
-                                    <button type="button"
-                                        @click="openUp = ($el.getBoundingClientRect().bottom + 150 > window.innerHeight); statusOpen = !statusOpen"
+                            <!-- Interactive Status Dropdown (Fixed Viewport Portal - Never Clipped Inside Table) -->
+                            <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
+                                <div class="relative inline-block text-left"
+                                     x-data="{
+                                         statusOpen: false,
+                                         openUp: false,
+                                         menuTop: 0,
+                                         menuBottom: 0,
+                                         menuLeft: 0,
+                                         toggleMenu() {
+                                             if (this.statusOpen) {
+                                                 this.statusOpen = false;
+                                                 return;
+                                             }
+                                             const rect = this.$refs.contactStatusBtn.getBoundingClientRect();
+                                             const spaceBelow = window.innerHeight - rect.bottom;
+                                             this.openUp = spaceBelow < 165 && rect.top > 165;
+                                             this.menuTop = rect.bottom + 6;
+                                             this.menuBottom = window.innerHeight - rect.top + 6;
+                                             this.menuLeft = Math.max(8, Math.min(window.innerWidth - 172, rect.left));
+                                             this.statusOpen = true;
+                                         }
+                                     }"
+                                     @scroll.window="statusOpen = false"
+                                     @resize.window="statusOpen = false">
+                                    <button type="button" x-ref="contactStatusBtn"
+                                        @click.stop="toggleMenu()"
                                         class="h-7 px-3 inline-flex items-center justify-center gap-1.5 rounded-lg text-[11px] font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs active:scale-95 leading-none {{ $msg->status === 'unread' ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100' : ($msg->status === 'contacted' ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100' : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200/70') }}">
                                         <span>{{ $msg->status === 'unread' ? 'Baru' : ($msg->status === 'contacted' ? 'Dihubungi' : 'Dibaca') }}</span>
                                         <svg class="w-3 h-3 transition-transform duration-200" :class="{ 'rotate-180': statusOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -328,33 +350,36 @@
                                         </svg>
                                     </button>
 
-                                    <div x-cloak x-show="statusOpen" @click.outside="statusOpen = false"
-                                        x-transition:enter="transition ease-out duration-150"
-                                        x-transition:enter-start="opacity-0 translate-y-1 scale-95"
-                                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                                        :class="openUp ? 'bottom-full mb-1.5' : 'top-full mt-1.5'"
-                                        class="absolute left-0 w-40 bg-white rounded-2xl shadow-xl border border-slate-200/90 py-1.5 z-50 overflow-hidden">
-                                        @foreach (['unread' => 'Baru', 'read' => 'Dibaca', 'contacted' => 'Dihubungi'] as $stKey => $stLabel)
-                                            <form method="POST" action="{{ route('admin.contacts.status', $msg->id) }}" class="m-0">
-                                                @csrf
-                                                @method('PATCH')
-                                                <input type="hidden" name="status" value="{{ $stKey }}">
-                                                <button type="submit"
-                                                    class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer {{ $msg->status === $stKey ? 'bg-blue-50 text-[#3367A5] font-bold' : 'text-slate-700' }}">
-                                                    <span>{{ $stLabel }}</span>
-                                                    @if ($msg->status === $stKey)
-                                                        <i class="fa-solid fa-check text-[#3367A5] text-[10px]"></i>
-                                                    @endif
-                                                </button>
-                                            </form>
-                                        @endforeach
-                                    </div>
+                                    <template x-teleport="body">
+                                        <div x-cloak x-show="statusOpen"
+                                            @click.outside="if (!$refs.contactStatusBtn?.contains($event.target)) statusOpen = false"
+                                            x-transition:enter="transition ease-out duration-150"
+                                            x-transition:enter-start="opacity-0 scale-95"
+                                            x-transition:enter-end="opacity-100 scale-100"
+                                            :style="openUp ? `position: fixed; left: ${menuLeft}px; bottom: ${menuBottom}px;` : `position: fixed; left: ${menuLeft}px; top: ${menuTop}px;`"
+                                            class="w-40 bg-white rounded-2xl shadow-xl border border-slate-200/90 py-1.5 z-[9990] overflow-hidden">
+                                            @foreach (['unread' => 'Baru', 'read' => 'Dibaca', 'contacted' => 'Dihubungi'] as $stKey => $stLabel)
+                                                <form method="POST" action="{{ route('admin.contacts.status', $msg->id) }}" class="m-0">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="status" value="{{ $stKey }}">
+                                                    <button type="submit"
+                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer {{ $msg->status === $stKey ? 'bg-blue-50 text-[#3367A5] font-bold' : 'text-slate-700' }}">
+                                                        <span>{{ $stLabel }}</span>
+                                                        @if ($msg->status === $stKey)
+                                                            <i class="fa-solid fa-check text-[#3367A5] text-[10px]"></i>
+                                                        @endif
+                                                    </button>
+                                                </form>
+                                            @endforeach
+                                        </div>
+                                    </template>
                                 </div>
                             </td>
 
                             <!-- Aksi -->
-                            <td class="py-4 px-4 whitespace-nowrap text-right align-middle">
-                                <div class="inline-flex items-center gap-1.5">
+                            <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap text-right align-middle">
+                                <div class="inline-flex items-center gap-1">
                                     <!-- Detail -->
                                     <button type="button" @click="openDetail({{ $msg->id }})"
                                             class="h-8 px-2.5 inline-flex items-center justify-center gap-1 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#3367A5] font-bold text-[11px] font-['Agrandir',sans-serif] transition cursor-pointer leading-none"
