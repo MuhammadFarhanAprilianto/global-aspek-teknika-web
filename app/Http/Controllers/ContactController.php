@@ -14,6 +14,11 @@ class ContactController extends Controller
 
     public function send(Request $request)
     {
+        // Honeypot anti-bot
+        if (! empty($request->input('company_website_trap'))) {
+            return redirect()->back()->with('success', 'Pesan Anda berhasil dikirim! Tim kami akan segera menghubungi Anda.');
+        }
+
         // Validasi input
         $data = $request->validate([
             'name' => 'required|string|min:2|max:255',

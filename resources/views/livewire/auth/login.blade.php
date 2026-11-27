@@ -72,12 +72,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
                 if (
                     is_array($decoded)
                     && ! empty($decoded['email'])
-                    && ! empty($decoded['password'])
                     && is_string($decoded['email'])
-                    && is_string($decoded['password'])
                 ) {
                     $this->email = $decoded['email'];
-                    $this->password = $decoded['password'];
                     $this->remember = true;
                 }
             } catch (\Throwable $e) {
@@ -240,10 +237,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
     {
         Auth::login($user, $this->remember);
 
-        if ($this->remember && is_string($plainPassword) && $plainPassword !== '') {
+        if ($this->remember) {
             $encryptedPayload = Crypt::encryptString(json_encode([
                 'email' => $user->email,
-                'password' => $plainPassword,
             ]));
 
             Cookie::queue(cookie(

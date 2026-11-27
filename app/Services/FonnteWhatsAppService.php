@@ -354,7 +354,7 @@ class FonnteWhatsAppService
     {
         $settings = $settings ?? SiteSetting::allMerged();
         $webhookUrl = trim((string) ($settings['wa_webhook_url'] ?? ''));
-        if ($webhookUrl === '' || ! filter_var($webhookUrl, FILTER_VALIDATE_URL)) {
+        if ($webhookUrl === '' || ! SiteSetting::isSafeExternalUrl($webhookUrl, false)) {
             return;
         }
 

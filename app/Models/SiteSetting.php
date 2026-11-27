@@ -180,4 +180,58 @@ class SiteSetting extends Model
 
         return array_filter($map, fn (array $item) => $item['visible'] && $item['url'] !== '');
     }
+
+    /**
+     * Validate outbound webhook/gateway URLs against SSRF (blocks private/loopback/link-local IPs unless local daemon mode explicitly permits it).
+     */
+    public static function isSafeExternalUrl(string $url, bool $allowLocalhost = false): bool
+    {
+        $url = trim($url);
+        if ($url === '' || strlen($url) > 500) {
+            return false;
+        }
+
+        $parts = parse_url($url);
+        if (! is_array($parts)) {
+            return false;
+        }
+
+        $scheme = strtolower((string) ($parts['scheme'] ?? ''));
+        if (! in_array($scheme, ['http', 'https'], true)) {
+            return false;
+        }
+
+        if (isset($parts['user']) || isset($parts['pass'])) {
+            return false;
+        }
+
+        $host = strtolower(trim((string) ($parts['host'] ?? ''), '[]'));
+        if ($host === '') {
+            return false;
+        }
+
+        $isLoopbackHost = in_array($host, ['localhost', '127.0.0.1', '::1'], true);
+        if ($isLoopbackHost) {
+            return $allowLocalhost;
+        }
+
+        if (filter_var($host, FILTER_VALIDATE_IP)) {
+            return (bool) filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+        }
+
+        if (str_ends_with($host, '.local') || str_ends_with($host, '.internal')) {
+            return false;
+        }
+
+        $ips = @gethostbynamel($host);
+        if (is_array($ips) && ! empty($ips)) {
+            foreach ($ips as $ip) {
+                if (! filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }

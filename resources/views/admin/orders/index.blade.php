@@ -26,7 +26,28 @@
             po_submitted: {{ (int) $poSubmittedCount }},
             total_revenue_formatted: 'Rp {{ number_format($totalRevenue, 0, ',', '.') }}'
         },
+        isFirstPage: {{ $orders->currentPage() === 1 ? 'true' : 'false' }},
         ordersPollTimer: null,
+        statusMenuOrder: null,
+        statusMenuTop: 0,
+        statusMenuBottom: 0,
+        statusMenuLeft: 0,
+        statusMenuUp: false,
+        statusTriggerEl: null,
+        openStatusMenu(ord, btnEl) {
+            if (this.statusMenuOrder && this.statusMenuOrder.id === ord.id) {
+                this.statusMenuOrder = null;
+                return;
+            }
+            const rect = btnEl.getBoundingClientRect();
+            const spaceBelow = window.innerHeight - rect.bottom;
+            this.statusMenuUp = spaceBelow < 220 && rect.top > 220;
+            this.statusMenuTop = rect.bottom + 6;
+            this.statusMenuBottom = window.innerHeight - rect.top + 6;
+            this.statusMenuLeft = Math.max(8, Math.min(window.innerWidth - 216, rect.left));
+            this.statusTriggerEl = btnEl;
+            this.statusMenuOrder = ord;
+        },
         getOrder(orderId) {
             return this.ordersData.find(o => o.id === orderId) || null;
         },
@@ -51,10 +72,19 @@
             }).then(data => {
                 if (!data) return;
                 if (Array.isArray(data.orders)) {
-                    this.ordersData = data.orders;
+                    if (this.isFirstPage) {
+                        this.ordersData = data.orders;
+                    } else {
+                        const byId = Object.fromEntries(data.orders.map(o => [o.id, o]));
+                        this.ordersData = this.ordersData.map(o => byId[o.id] || o);
+                    }
                     if (this.selectedOrder) {
                         const updated = this.getOrder(this.selectedOrder.id);
                         if (updated) this.selectedOrder = updated;
+                    }
+                    if (this.statusMenuOrder) {
+                        const updatedMenu = this.getOrder(this.statusMenuOrder.id);
+                        if (updatedMenu) this.statusMenuOrder = updatedMenu;
                     }
                 }
                 if (data.stats) {
@@ -247,248 +277,123 @@
                             <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap text-right">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100 text-slate-700">
-                        @forelse ($orders as $order)
-                            @php
-                                $cleanPhone = preg_replace('/[^0-9]/', '', $order->company_phone ?? '');
-                                if (str_starts_with($cleanPhone, '0')) {
-                                    $cleanPhone = '62' . substr($cleanPhone, 1);
-                                } elseif (str_starts_with($cleanPhone, '8')) {
-                                    $cleanPhone = '62' . $cleanPhone;
-                                }
-                                $waText = urlencode("Halo Bapak/Ibu {$order->pic_name} ({$order->company_name}), kami dari Tim Sales PT Global Aspect Technology menindaklanjuti pesanan Sales Quote #{$order->invoice_number} senilai Rp " . number_format($order->grand_total, 0, ',', '.') . ". Apakah ada dokumen atau hal teknis yang perlu kami bantu proseskan? Terima kasih.");
-                                $waDirectUrl = !empty($cleanPhone) ? "https://api.whatsapp.com/send?phone={$cleanPhone}&text={$waText}" : '#';
-                            @endphp
+                    <tbody class="divide-y divide-slate-100 text-slate-700"
+                           @scroll.window="statusMenuOrder = null"
+                           @resize.window="statusMenuOrder = null">
+                        <template x-for="ord in ordersData" :key="ord.id">
                             <tr class="hover:bg-[#f8fafd]/80 transition duration-150">
                                 <!-- No. Invoice & Waktu -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
-                                    <button type="button" @click="openDetail({{ $order->id }})" 
+                                    <button type="button" @click="openDetail(ord.id)"
                                             class="font-bold text-[#3367A5] hover:underline font-mono text-xs flex items-center gap-1.5 cursor-pointer text-left"
                                             title="Klik untuk melihat detail lengkap">
                                         <i class="fa-solid fa-receipt text-[#3367A5]/70 text-[11px]"></i>
-                                        <span>{{ $order->invoice_number }}</span>
+                                        <span x-text="ord.invoice_number"></span>
                                     </button>
                                     <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5">
                                         <i class="fa-regular fa-clock text-[10px] text-slate-300"></i>
-                                        <span>{{ $order->created_at->format('d M Y, H:i') }} WIB</span>
+                                        <span x-text="ord.created_at_formatted"></span>
                                     </div>
                                 </td>
 
                                 <!-- Perusahaan & PIC -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 align-middle max-w-[200px]">
-                                    <div class="font-bold text-slate-900 font-['Agrandir',sans-serif] text-xs truncate" title="{{ $order->company_name }}">
-                                        {{ $order->company_name }}
-                                    </div>
+                                    <div class="font-bold text-slate-900 font-['Agrandir',sans-serif] text-xs truncate" :title="ord.company_name" x-text="ord.company_name"></div>
                                     <div class="text-[11px] text-slate-500 font-['Questrial',sans-serif] flex items-center gap-1.5 mt-0.5 whitespace-nowrap">
-                                        <span class="text-[#3367A5] font-semibold truncate max-w-[90px]" title="PIC: {{ $order->pic_name }}">PIC: {{ $order->pic_name }}</span>
+                                        <span class="text-[#3367A5] font-semibold truncate max-w-[90px]" :title="'PIC: ' + ord.pic_name" x-text="'PIC: ' + ord.pic_name"></span>
                                         <span class="text-slate-300">•</span>
-                                        <a href="{{ $waDirectUrl }}" target="_blank" rel="noopener noreferrer"
-                                           @click="logWhatsAppInteraction(getOrder({{ $order->id }}) || { id: {{ $order->id }}, uuid: '{{ $order->uuid }}' })"
+                                        <a :href="ord.wa_direct_url" target="_blank" rel="noopener noreferrer"
+                                           @click="logWhatsAppInteraction(ord)"
                                            class="font-mono text-slate-500 hover:text-emerald-600 hover:underline inline-flex items-center gap-1 transition"
-                                           title="Langsung chat WhatsApp ke {{ $order->company_phone }}">
+                                           :title="'Langsung chat WhatsApp ke ' + ord.company_phone">
                                             <i class="fa-brands fa-whatsapp text-emerald-500 text-xs"></i>
-                                            <span>{{ $order->company_phone }}</span>
+                                            <span x-text="ord.company_phone"></span>
                                         </a>
                                     </div>
                                 </td>
 
                                 <!-- Item & Total Nilai -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
-                                    <div class="font-bold font-['Agrandir',sans-serif] text-slate-900 text-xs">
-                                        Rp {{ number_format($order->grand_total, 0, ',', '.') }}
-                                    </div>
-                                    <button type="button" @click="openDetail({{ $order->id }})"
+                                    <div class="font-bold font-['Agrandir',sans-serif] text-slate-900 text-xs" x-text="ord.grand_total_formatted"></div>
+                                    <button type="button" @click="openDetail(ord.id)"
                                             class="text-[11px] text-[#3367A5] hover:underline font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5 cursor-pointer">
                                         <i class="fa-solid fa-box text-[10px]"></i>
-                                        <span>{{ $order->items ? $order->items->count() : 0 }} Item Produk</span>
+                                        <span x-text="(ord.items_count || (ord.items ? ord.items.length : 0)) + ' Item Produk'"></span>
                                     </button>
                                 </td>
 
-                                <!-- Status Pesanan (Fixed Viewport Portal - Never Clipped Inside Table) -->
-                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle"
-                                    x-data="{
-                                        statusOpen: false,
-                                        openUp: false,
-                                        menuTop: 0,
-                                        menuBottom: 0,
-                                        menuLeft: 0,
-                                        get rowOrder() { return getOrder({{ $order->id }}) || { status: '{{ $order->status }}' }; },
-                                        toggleMenu() {
-                                            if (this.statusOpen) {
-                                                this.statusOpen = false;
-                                                return;
-                                            }
-                                            const rect = this.$refs.orderStatusBtn.getBoundingClientRect();
-                                            const spaceBelow = window.innerHeight - rect.bottom;
-                                            this.openUp = spaceBelow < 220 && rect.top > 220;
-                                            this.menuTop = rect.bottom + 6;
-                                            this.menuBottom = window.innerHeight - rect.top + 6;
-                                            this.menuLeft = Math.max(8, Math.min(window.innerWidth - 216, rect.left));
-                                            this.statusOpen = true;
-                                        }
-                                    }"
-                                    @scroll.window="statusOpen = false"
-                                    @resize.window="statusOpen = false">
-                                    <div class="relative inline-block text-left">
-                                        <button type="button" x-ref="orderStatusBtn"
-                                            @click.stop="toggleMenu()"
-                                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs hover:scale-[1.02] active:scale-95"
-                                            :class="rowOrder.status === 'po_submitted' ? 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100/80 hover:border-emerald-300' : (rowOrder.status === 'awaiting_po' ? 'bg-[#fffbeb] text-[#b45309] border-[#fde68a] hover:bg-[#fef3c7] hover:border-[#fcd34d]' : (rowOrder.status === 'completed' ? 'bg-blue-50 text-[#3367A5] border-blue-200 hover:bg-blue-100/80' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'))">
-                                            <span class="w-2 h-2 rounded-full shrink-0"
-                                                  :class="rowOrder.status === 'po_submitted' ? 'bg-emerald-500' : (rowOrder.status === 'awaiting_po' ? 'bg-amber-500' : (rowOrder.status === 'completed' ? 'bg-[#3367A5]' : 'bg-slate-400'))"></span>
-                                            <span x-text="rowOrder.status === 'po_submitted' ? 'PO Submitted' : (rowOrder.status === 'awaiting_po' ? 'Awaiting PO' : (rowOrder.status === 'completed' ? 'Completed' : 'Cancelled'))">{{ $order->status === 'po_submitted' ? 'PO Submitted' : ($order->status === 'awaiting_po' ? 'Awaiting PO' : ($order->status === 'completed' ? 'Completed' : 'Cancelled')) }}</span>
-                                            <svg class="w-3 h-3 transition-transform duration-200"
-                                                :class="[rowOrder.status === 'po_submitted' ? 'text-emerald-700' : (rowOrder.status === 'awaiting_po' ? 'text-[#b45309]' : 'text-[#3367A5]'), { 'rotate-180': statusOpen }]"
-                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                        </button>
-
-                                        <template x-teleport="body">
-                                            <div x-cloak x-show="statusOpen"
-                                                @click.outside="if (!$refs.orderStatusBtn?.contains($event.target)) statusOpen = false"
-                                                x-transition:enter="transition ease-out duration-150"
-                                                x-transition:enter-start="opacity-0 scale-95"
-                                                x-transition:enter-end="opacity-100 scale-100"
-                                                x-transition:leave="transition ease-in duration-100"
-                                                x-transition:leave-start="opacity-100 scale-100"
-                                                x-transition:leave-end="opacity-0 scale-95"
-                                                :style="openUp ? `position: fixed; left: ${menuLeft}px; bottom: ${menuBottom}px;` : `position: fixed; left: ${menuLeft}px; top: ${menuTop}px;`"
-                                                class="w-52 bg-white rounded-2xl shadow-2xl border border-slate-200/90 py-1.5 z-[9990] text-slate-700 font-['Questrial',sans-serif] overflow-hidden">
-
-                                                <form id="orderStatusForm_{{ $order->id }}" method="POST" action="{{ route('admin.orders.status', $order->id) }}">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <input type="hidden" name="status" id="orderStatusInput_{{ $order->id }}" value="{{ $order->status }}">
-
-                                                    <!-- Option Awaiting PO -->
-                                                    <button type="button"
-                                                        @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'awaiting_po'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
-                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-amber-50/70 transition cursor-pointer {{ $order->status === 'awaiting_po' ? 'bg-amber-50/90 text-amber-900 font-bold' : 'text-slate-700' }}">
-                                                        <div class="flex items-center gap-2.5">
-                                                            <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
-                                                            <div>
-                                                                <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Awaiting PO</span>
-                                                                <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Menunggu Kontak / PO</span>
-                                                            </div>
-                                                        </div>
-                                                        @if ($order->status === 'awaiting_po')
-                                                            <i class="fa-solid fa-check text-amber-600 text-xs"></i>
-                                                        @endif
-                                                    </button>
-
-                                                    <!-- Option PO Submitted -->
-                                                    <button type="button"
-                                                        @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'po_submitted'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
-                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-emerald-50/70 transition cursor-pointer {{ $order->status === 'po_submitted' ? 'bg-emerald-50/90 text-emerald-800 font-bold' : 'text-slate-700' }}">
-                                                        <div class="flex items-center gap-2.5">
-                                                            <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-                                                            <div>
-                                                                <span class="font-['Agrandir',sans-serif] font-bold block leading-none">PO Submitted</span>
-                                                                <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">PO Masuk / Terkonfirmasi</span>
-                                                            </div>
-                                                        </div>
-                                                        @if ($order->status === 'po_submitted')
-                                                            <i class="fa-solid fa-check text-emerald-600 text-xs"></i>
-                                                        @endif
-                                                    </button>
-
-                                                    <!-- Option Completed -->
-                                                    <button type="button"
-                                                        @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'completed'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
-                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer {{ $order->status === 'completed' ? 'bg-blue-50/90 text-[#3367A5] font-bold' : 'text-slate-700' }}">
-                                                        <div class="flex items-center gap-2.5">
-                                                            <span class="w-2 h-2 rounded-full bg-[#3367A5] shrink-0"></span>
-                                                            <div>
-                                                                <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Completed</span>
-                                                                <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Pesanan Selesai / Terkirim</span>
-                                                            </div>
-                                                        </div>
-                                                        @if ($order->status === 'completed')
-                                                            <i class="fa-solid fa-check text-[#3367A5] text-xs"></i>
-                                                        @endif
-                                                    </button>
-
-                                                    <!-- Option Cancelled -->
-                                                    <button type="button"
-                                                        @click="document.getElementById('orderStatusInput_{{ $order->id }}').value = 'cancelled'; document.getElementById('orderStatusForm_{{ $order->id }}').submit()"
-                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-rose-50/70 transition cursor-pointer {{ $order->status === 'cancelled' ? 'bg-rose-50 text-rose-700 font-bold' : 'text-slate-700' }}">
-                                                        <div class="flex items-center gap-2.5">
-                                                            <span class="w-2 h-2 rounded-full bg-rose-500 shrink-0"></span>
-                                                            <div>
-                                                                <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Cancelled</span>
-                                                                <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Dibatalkan</span>
-                                                            </div>
-                                                        </div>
-                                                        @if ($order->status === 'cancelled')
-                                                            <i class="fa-solid fa-check text-rose-600 text-xs"></i>
-                                                        @endif
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </template>
-                                    </div>
+                                <!-- Status Pesanan -->
+                                <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
+                                    <button type="button"
+                                        @click.stop="openStatusMenu(ord, $el)"
+                                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs hover:scale-[1.02] active:scale-95"
+                                        :class="ord.status === 'po_submitted' ? 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100/80 hover:border-emerald-300' : (ord.status === 'awaiting_po' ? 'bg-[#fffbeb] text-[#b45309] border-[#fde68a] hover:bg-[#fef3c7] hover:border-[#fcd34d]' : (ord.status === 'completed' ? 'bg-blue-50 text-[#3367A5] border-blue-200 hover:bg-blue-100/80' : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'))">
+                                        <span class="w-2 h-2 rounded-full shrink-0"
+                                              :class="ord.status === 'po_submitted' ? 'bg-emerald-500' : (ord.status === 'awaiting_po' ? 'bg-amber-500' : (ord.status === 'completed' ? 'bg-[#3367A5]' : 'bg-slate-400'))"></span>
+                                        <span x-text="ord.status === 'po_submitted' ? 'PO Submitted' : (ord.status === 'awaiting_po' ? 'Awaiting PO' : (ord.status === 'completed' ? 'Completed' : 'Cancelled'))"></span>
+                                        <svg class="w-3 h-3 transition-transform duration-200"
+                                            :class="[ord.status === 'po_submitted' ? 'text-emerald-700' : (ord.status === 'awaiting_po' ? 'text-[#b45309]' : 'text-[#3367A5]'), { 'rotate-180': statusMenuOrder && statusMenuOrder.id === ord.id }]"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
                                 </td>
 
                                 <!-- Log Interaksi WhatsApp (Reaktif Real-Time) -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 align-middle max-w-[175px]">
-                                    <template x-if="(getOrder({{ $order->id }}) || {}).whatsapp_contacted_at">
+                                    <template x-if="ord.whatsapp_contacted_at">
                                         <div>
                                             <div class="flex items-center gap-1.5 text-emerald-700 font-bold text-[11px] whitespace-nowrap">
                                                 <i class="fa-brands fa-whatsapp text-sm"></i>
-                                                <span x-text="'Dihubungi ' + ((getOrder({{ $order->id }}) || {}).whatsapp_contacted_diff || (getOrder({{ $order->id }}) || {}).whatsapp_contacted_at)"></span>
+                                                <span x-text="'Dihubungi ' + (ord.whatsapp_contacted_diff || ord.whatsapp_contacted_at)"></span>
                                             </div>
                                             <p class="text-[10px] text-slate-500 truncate mt-0.5 font-['Questrial',sans-serif]"
-                                               :title="(getOrder({{ $order->id }}) || {}).whatsapp_message_log || ''"
-                                               x-text="(getOrder({{ $order->id }}) || {}).whatsapp_message_log || ''"></p>
+                                               :title="ord.whatsapp_message_log || ''"
+                                               x-text="ord.whatsapp_message_log || ''"></p>
                                         </div>
                                     </template>
-                                    <template x-if="!(getOrder({{ $order->id }}) || {}).whatsapp_contacted_at">
+                                    <template x-if="!ord.whatsapp_contacted_at">
                                         <span class="inline-flex items-center gap-1 text-[10px] text-slate-400 italic font-['Questrial',sans-serif] whitespace-nowrap">
                                             <i class="fa-regular fa-clock text-[9px]"></i> Belum mengklik tombol WA
                                         </span>
                                     </template>
                                 </td>
 
-                                <!-- Aksi (Clean, Functional, All Work!) -->
+                                <!-- Aksi -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap text-right align-middle">
                                     <div class="inline-flex items-center gap-1">
-                                        <!-- Detail Button -->
-                                        <button type="button" @click="openDetail({{ $order->id }})"
+                                        <button type="button" @click="openDetail(ord.id)"
                                                 class="inline-flex items-center gap-1 px-2 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#3367A5] font-bold text-[11px] font-['Agrandir',sans-serif] transition shadow-2xs cursor-pointer"
                                                 title="Lihat Detail Pesanan">
                                             <i class="fa-solid fa-eye text-[11px]"></i>
                                             <span>Detail</span>
                                         </button>
 
-                                        <!-- Chat WhatsApp Button -->
-                                        <a href="{{ $waDirectUrl }}" target="_blank" rel="noopener noreferrer"
-                                           @click="logWhatsAppInteraction(getOrder({{ $order->id }}) || { id: {{ $order->id }}, uuid: '{{ $order->uuid }}' })"
+                                        <a :href="ord.wa_direct_url" target="_blank" rel="noopener noreferrer"
+                                           @click="logWhatsAppInteraction(ord)"
                                            class="inline-flex items-center gap-1 px-2 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] font-['Agrandir',sans-serif] transition shadow-2xs hover:shadow-xs cursor-pointer"
-                                           title="Langsung chat WhatsApp ke {{ $order->company_phone }} &amp; Catat Log">
+                                           :title="'Langsung chat WhatsApp ke ' + ord.company_phone + ' & Catat Log'">
                                             <i class="fa-brands fa-whatsapp text-xs"></i>
                                             <span>Chat WA</span>
                                         </a>
 
-                                        <!-- Download Sales Quote PDF -->
-                                        <a href="{{ route('admin.orders.pdf', $order->uuid) }}" target="_blank"
+                                        <a :href="ord.quote_pdf_url" target="_blank"
                                            class="p-1.5 text-purple-600 hover:text-purple-800 rounded-xl hover:bg-purple-50 transition border border-transparent hover:border-purple-200 cursor-pointer"
                                            title="Unduh Surat Penawaran Resmi (Sales Quote PDF)">
                                             <i class="fa-solid fa-file-pdf text-xs"></i>
                                         </a>
 
-                                        <!-- Download PO File if customer uploaded -->
-                                        @if ($order->po_document_path)
-                                            <a href="{{ route('admin.orders.po-file', $order->uuid) }}" target="_blank"
+                                        <template x-if="ord.has_po_file && ord.po_file_url">
+                                            <a :href="ord.po_file_url" target="_blank"
                                                class="p-1.5 text-amber-600 hover:text-amber-800 rounded-xl hover:bg-amber-50 transition border border-transparent hover:border-amber-200 cursor-pointer"
-                                               title="Unduh Dokumen PO Pelanggan ({{ $order->po_number ?: 'PO File' }})">
+                                               :title="'Unduh Dokumen PO Pelanggan (' + (ord.po_number || 'PO File') + ')'">
                                                 <i class="fa-solid fa-file-lines text-xs"></i>
                                             </a>
-                                        @endif
+                                        </template>
 
-                                        <!-- Delete Order -->
-                                        <form method="POST" action="{{ route('admin.orders.destroy', $order->id) }}"
-                                              class="inline-block" onsubmit="return confirm('Apakah Anda yakin ingin menghapus arsip pesanan {{ $order->invoice_number }}?')">
+                                        <form method="POST" :action="ord.destroy_url"
+                                              class="inline-block"
+                                              @submit="if (!confirm('Apakah Anda yakin ingin menghapus arsip pesanan ' + ord.invoice_number + '?')) $event.preventDefault()">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
@@ -500,17 +405,96 @@
                                     </div>
                                 </td>
                             </tr>
-                        @empty
+                        </template>
+
+                        <template x-if="ordersData.length === 0">
                             <tr>
                                 <td colspan="6" class="py-12 text-center text-slate-400 font-['Questrial',sans-serif]">
                                     <i class="fa-solid fa-inbox text-3xl mb-2 text-slate-300 block"></i>
                                     Belum ada pengajuan pesanan B2B yang tercatat.
                                 </td>
                             </tr>
-                        @endforelse
+                        </template>
                     </tbody>
                 </table>
             </div>
+
+            <!-- Shared Fixed Viewport Status Menu (Never Clipped Inside Table) -->
+            <template x-teleport="body">
+                <div x-cloak x-show="statusMenuOrder !== null"
+                    @click.outside="if (!statusTriggerEl || !statusTriggerEl.contains($event.target)) statusMenuOrder = null"
+                    x-transition:enter="transition ease-out duration-150"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-100"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-95"
+                    :style="statusMenuUp ? `position: fixed; left: ${statusMenuLeft}px; bottom: ${statusMenuBottom}px;` : `position: fixed; left: ${statusMenuLeft}px; top: ${statusMenuTop}px;`"
+                    class="w-52 bg-white rounded-2xl shadow-2xl border border-slate-200/90 py-1.5 z-[9990] text-slate-700 font-['Questrial',sans-serif] overflow-hidden">
+
+                    <form id="sharedOrderStatusForm" method="POST" :action="statusMenuOrder ? statusMenuOrder.status_url : '#'">
+                        @csrf
+                        @method('PATCH')
+                        <input type="hidden" name="status" id="sharedOrderStatusInput" value="">
+
+                        <button type="button"
+                            @click="document.getElementById('sharedOrderStatusInput').value = 'awaiting_po'; document.getElementById('sharedOrderStatusForm').submit()"
+                            :class="statusMenuOrder?.status === 'awaiting_po' ? 'bg-amber-50/90 text-amber-900 font-bold' : 'text-slate-700'"
+                            class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-amber-50/70 transition cursor-pointer">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
+                                <div>
+                                    <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Awaiting PO</span>
+                                    <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Menunggu Kontak / PO</span>
+                                </div>
+                            </div>
+                            <i x-show="statusMenuOrder?.status === 'awaiting_po'" class="fa-solid fa-check text-amber-600 text-xs"></i>
+                        </button>
+
+                        <button type="button"
+                            @click="document.getElementById('sharedOrderStatusInput').value = 'po_submitted'; document.getElementById('sharedOrderStatusForm').submit()"
+                            :class="statusMenuOrder?.status === 'po_submitted' ? 'bg-emerald-50/90 text-emerald-800 font-bold' : 'text-slate-700'"
+                            class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-emerald-50/70 transition cursor-pointer">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                                <div>
+                                    <span class="font-['Agrandir',sans-serif] font-bold block leading-none">PO Submitted</span>
+                                    <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">PO Masuk / Terkonfirmasi</span>
+                                </div>
+                            </div>
+                            <i x-show="statusMenuOrder?.status === 'po_submitted'" class="fa-solid fa-check text-emerald-600 text-xs"></i>
+                        </button>
+
+                        <button type="button"
+                            @click="document.getElementById('sharedOrderStatusInput').value = 'completed'; document.getElementById('sharedOrderStatusForm').submit()"
+                            :class="statusMenuOrder?.status === 'completed' ? 'bg-blue-50/90 text-[#3367A5] font-bold' : 'text-slate-700'"
+                            class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-2 h-2 rounded-full bg-[#3367A5] shrink-0"></span>
+                                <div>
+                                    <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Completed</span>
+                                    <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Pesanan Selesai / Terkirim</span>
+                                </div>
+                            </div>
+                            <i x-show="statusMenuOrder?.status === 'completed'" class="fa-solid fa-check text-[#3367A5] text-xs"></i>
+                        </button>
+
+                        <button type="button"
+                            @click="document.getElementById('sharedOrderStatusInput').value = 'cancelled'; document.getElementById('sharedOrderStatusForm').submit()"
+                            :class="statusMenuOrder?.status === 'cancelled' ? 'bg-rose-50 text-rose-700 font-bold' : 'text-slate-700'"
+                            class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-rose-50/70 transition cursor-pointer">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-2 h-2 rounded-full bg-rose-500 shrink-0"></span>
+                                <div>
+                                    <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Cancelled</span>
+                                    <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Dibatalkan</span>
+                                </div>
+                            </div>
+                            <i x-show="statusMenuOrder?.status === 'cancelled'" class="fa-solid fa-check text-rose-600 text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </template>
 
             <!-- Pagination only when pages exist -->
             @if ($orders->hasPages())

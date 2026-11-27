@@ -600,7 +600,8 @@ it('shows direct wa.me fallback and avoids false confirmed status when WhatsApp 
         ->assertSee('Pesanan Tersimpan — Belum Terkirim ke WA')
         ->assertSee('https://wa.me/6285732021121?text=', false);
 
-    $this->post(route('checkout.log-whatsapp-click', ['order' => $order->uuid]), [
+    $signedLogWaUrl = URL::temporarySignedRoute('checkout.log-whatsapp-click', now()->addDays(14), ['order' => $order->uuid]);
+    $this->post($signedLogWaUrl, [
         'message' => 'Manual WA sent',
     ])->assertOk();
 
@@ -732,6 +733,59 @@ it('records whatsapp_contacted_at immediately when browser opens direct wa.me on
     $this->actingAs($admin)
         ->get(route('admin.orders.index'))
         ->assertOk()
+        ->assertHeader('X-Frame-Options', 'SAMEORIGIN')
+        ->assertHeader('X-Content-Type-Options', 'nosniff')
         ->assertSee('x-teleport="body"', false)
         ->assertSee('position: fixed;', false);
+
+    // Unsigned log-whatsapp-click must be blocked with 403
+    $this->post(route('checkout.log-whatsapp-click', ['order' => $order->uuid]), [
+        'message' => 'Tampered',
+    ])->assertStatus(403);
+
+    // Order status_url and destroy_url must resolve by UUID properly
+    $this->actingAs($admin)
+        ->patch($jsonRes->json('orders.0.status_url'), ['status' => 'completed'])
+        ->assertRedirect();
+    expect($order->fresh()->status)->toBe('completed');
+
+    $this->actingAs($admin)
+        ->delete($jsonRes->json('orders.0.destroy_url'))
+        ->assertRedirect();
+    expect(Order::where('uuid', $order->uuid)->exists())->toBeFalse();
+});
+
+it('enforces SSRF URL guards, SVG sanitization, contact honeypot, and real-time leads/contacts JSON feeds', function () {
+    expect(\App\Models\SiteSetting::isSafeExternalUrl('http://169.254.169.254/latest/meta-data', false))->toBeFalse()
+        ->and(\App\Models\SiteSetting::isSafeExternalUrl('http://127.0.0.1:3001/send', false))->toBeFalse()
+        ->and(\App\Models\SiteSetting::isSafeExternalUrl('http://127.0.0.1:3001/send', true))->toBeTrue()
+        ->and(\App\Models\SiteSetting::isSafeExternalUrl('https://api.fonnte.com/send', false))->toBeTrue();
+
+    $sol = new \App\Models\Solution([
+        'name' => 'Test Sol',
+        'icon_svg' => '<svg viewBox="0 0 24 24" onload="alert(1)"><script>alert(2)</script><circle cx="12" cy="12" r="8"/></svg>',
+    ]);
+    $safeSvg = $sol->safeIconHtml();
+    expect($safeSvg)->not->toContain('<script')
+        ->and($safeSvg)->not->toContain('onload')
+        ->and($safeSvg)->toContain('<circle');
+
+    // Honeypot on contact form silently drops spam
+    $this->post('/contact', [
+        'name' => 'Bot',
+        'email' => 'bot@spam.example',
+        'message' => 'Buy links',
+        'company_website_trap' => 'http://spam.example',
+    ])->assertRedirect();
+    expect(\App\Models\ContactMessage::count())->toBe(0);
+
+    // Real-time JSON endpoints for Leads and Contacts
+    $admin = \App\Models\User::factory()->create(['role' => 'admin']);
+    $this->actingAs($admin)->getJson(route('admin.leads.index', ['format' => 'json']))
+        ->assertOk()
+        ->assertJsonStructure(['leads', 'stats' => ['total_leads', 'new_leads']]);
+
+    $this->actingAs($admin)->getJson(route('admin.contacts.index', ['format' => 'json']))
+        ->assertOk()
+        ->assertJsonStructure(['messages', 'stats' => ['total_messages', 'unread_messages', 'contacted_messages']]);
 });

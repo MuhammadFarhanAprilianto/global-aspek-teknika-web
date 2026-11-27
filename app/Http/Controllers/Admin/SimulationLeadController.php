@@ -58,10 +58,51 @@ class SimulationLeadController extends Controller
         ]);
     }
 
+    public static function transformLead(SimulationLead $lead): array
+    {
+        $domainOptions = [
+            'manufacturing' => ['label' => 'Manufacturing & FMCG', 'icon' => 'fa-solid fa-industry', 'color' => 'text-[#3367A5]'],
+            'automotive' => ['label' => 'Automotive Assembly', 'icon' => 'fa-solid fa-gears', 'color' => 'text-[#3367A5]'],
+            'pharma' => ['label' => 'Pharma & Vision', 'icon' => 'fa-solid fa-microscope', 'color' => 'text-[#3367A5]'],
+            'bms' => ['label' => 'BMS & Telemetri', 'icon' => 'fa-solid fa-building-shield', 'color' => 'text-[#3367A5]'],
+            'logistics' => ['label' => 'Logistics & Conveyor', 'icon' => 'fa-solid fa-boxes-packing', 'color' => 'text-[#3367A5]'],
+            'enpi' => ['label' => 'EnPI Energy SCADA', 'icon' => 'fa-solid fa-bolt', 'color' => 'text-[#3367A5]'],
+        ];
+        $meta = $domainOptions[$lead->domain] ?? ['label' => ucfirst((string) $lead->domain), 'icon' => 'fa-solid fa-shapes', 'color' => 'text-[#3367A5]'];
+
+        $waClean = preg_replace('/[^0-9]/', '', (string) $lead->phone);
+        if (str_starts_with($waClean, '0')) {
+            $waClean = '62' . substr($waClean, 1);
+        } elseif (str_starts_with($waClean, '8')) {
+            $waClean = '62' . $waClean;
+        }
+        $waMsg = urlencode("Halo Bapak/Ibu {$lead->pic_name} ({$lead->company_name}), kami dari Tim Otomasi PT Global Aspect Technology menindaklanjuti data simulasi mesin {$meta['label']} yang Anda jalankan di website kami.");
+
+        return [
+            'id' => $lead->id,
+            'pic_name' => $lead->pic_name,
+            'job_title' => $lead->job_title,
+            'company_name' => $lead->company_name,
+            'domain' => $lead->domain,
+            'domain_label' => $meta['label'],
+            'domain_icon' => $meta['icon'],
+            'domain_color' => $meta['color'],
+            'email' => $lead->email,
+            'phone' => $lead->phone,
+            'notes' => $lead->notes ?: '',
+            'status' => $lead->status ?: 'new',
+            'date_formatted' => ($lead->simulation_date ?? $lead->created_at)->format('d M Y'),
+            'time_formatted' => $lead->created_at->format('H:i') . ' WIB',
+            'wa_url' => "https://wa.me/{$waClean}?text={$waMsg}",
+            'status_url' => route('admin.leads.status', $lead->id),
+            'destroy_url' => route('admin.leads.destroy', $lead->id),
+        ];
+    }
+
     /**
      * Halaman manajemen Simulation Leads di Admin Dashboard
      */
-    public function index(Request $request): View
+    public function index(Request $request): View|JsonResponse
     {
         $domain = $request->query('domain', 'all');
         $status = $request->query('status', 'all');
@@ -87,10 +128,26 @@ class SimulationLeadController extends Controller
         }
 
         $leads = $query->paginate(15)->withQueryString();
-        $totalLeads = SimulationLead::count();
-        $newLeads = SimulationLead::where('status', 'new')->count();
+        $agg = SimulationLead::selectRaw("
+            COUNT(*) as total_leads,
+            SUM(CASE WHEN status = 'new' THEN 1 ELSE 0 END) as new_leads
+        ")->first();
+        $totalLeads = (int) ($agg->total_leads ?? 0);
+        $newLeads = (int) ($agg->new_leads ?? 0);
 
-        return view('admin.leads.index', compact('leads', 'totalLeads', 'newLeads', 'domain', 'status', 'search'));
+        $leadsJson = $leads->getCollection()->map(fn (SimulationLead $l) => self::transformLead($l))->values();
+
+        if ($request->expectsJson() || $request->query('format') === 'json') {
+            return response()->json([
+                'leads' => $leadsJson,
+                'stats' => [
+                    'total_leads' => $totalLeads,
+                    'new_leads' => $newLeads,
+                ],
+            ]);
+        }
+
+        return view('admin.leads.index', compact('leads', 'leadsJson', 'totalLeads', 'newLeads', 'domain', 'status', 'search'));
     }
 
     /**
@@ -102,7 +159,13 @@ class SimulationLeadController extends Controller
             'status' => 'required|in:new,contacted,closed',
         ]);
 
+        $oldStatus = $lead->status;
         $lead->update(['status' => $validated['status']]);
+
+        try {
+            \App\Models\AdminSecurityLog::record('lead_status_updated', 'info', $request->user(), $request->user()?->email, "Status prospek {$lead->pic_name} ({$lead->company_name}) diubah dari {$oldStatus} ke {$validated['status']}.");
+        } catch (\Throwable $e) {
+        }
 
         return back()->with('success', 'Status prospek berhasil diperbarui.');
     }
@@ -110,9 +173,17 @@ class SimulationLeadController extends Controller
     /**
      * Hapus lead
      */
-    public function destroy(SimulationLead $lead): RedirectResponse
+    public function destroy(Request $request, SimulationLead $lead): RedirectResponse
     {
+        $pic = $lead->pic_name;
+        $company = $lead->company_name;
         $lead->delete();
+
+        try {
+            \App\Models\AdminSecurityLog::record('lead_deleted', 'warning', $request->user(), $request->user()?->email, "Menghapus data prospek {$pic} ({$company}).");
+        } catch (\Throwable $e) {
+        }
+
         return back()->with('success', 'Data prospek simulasi berhasil dihapus.');
     }
 

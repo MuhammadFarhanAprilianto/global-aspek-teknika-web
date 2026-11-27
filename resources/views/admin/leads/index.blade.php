@@ -65,9 +65,82 @@
         $activeStatus = $statusOptions[$status] ?? $statusOptions['all'];
         $search = $search ?? '';
         $isFiltered = $domain !== 'all' || $status !== 'all' || !empty($search);
+        $leadsJson = $leadsJson ?? $leads->getCollection()->map(fn ($l) => \App\Http\Controllers\Admin\SimulationLeadController::transformLead($l))->values();
     @endphp
 
-    <div class="space-y-6">
+    <div class="space-y-6" x-data="{
+        leadsData: {{ json_encode($leadsJson) }},
+        stats: {
+            total_leads: {{ (int) $totalLeads }},
+            new_leads: {{ (int) $newLeads }}
+        },
+        isFirstPage: {{ $leads->currentPage() === 1 ? 'true' : 'false' }},
+        leadsPollTimer: null,
+        statusMenuLead: null,
+        statusMenuTop: 0,
+        statusMenuBottom: 0,
+        statusMenuLeft: 0,
+        statusMenuUp: false,
+        statusTriggerEl: null,
+        openStatusMenu(lead, btnEl) {
+            if (this.statusMenuLead && this.statusMenuLead.id === lead.id) {
+                this.statusMenuLead = null;
+                return;
+            }
+            const rect = btnEl.getBoundingClientRect();
+            const spaceBelow = window.innerHeight - rect.bottom;
+            this.statusMenuUp = spaceBelow < 190 && rect.top > 190;
+            this.statusMenuTop = rect.bottom + 6;
+            this.statusMenuBottom = window.innerHeight - rect.top + 6;
+            this.statusMenuLeft = Math.max(8, Math.min(window.innerWidth - 216, rect.left));
+            this.statusTriggerEl = btnEl;
+            this.statusMenuLead = lead;
+        },
+        syncLeads() {
+            const url = new URL(window.location.href);
+            url.searchParams.set('format', 'json');
+            fetch(url.toString(), {
+                headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                cache: 'no-store'
+            }).then(r => {
+                if (r.status === 401) {
+                    window.location.href = '{{ route('login') }}';
+                    return null;
+                }
+                return r.ok ? r.json() : null;
+            }).then(data => {
+                if (!data) return;
+                if (Array.isArray(data.leads)) {
+                    if (this.isFirstPage) {
+                        this.leadsData = data.leads;
+                    } else {
+                        const byId = Object.fromEntries(data.leads.map(l => [l.id, l]));
+                        this.leadsData = this.leadsData.map(l => byId[l.id] || l);
+                    }
+                    if (this.statusMenuLead) {
+                        const updated = data.leads.find(l => l.id === this.statusMenuLead.id);
+                        if (updated) this.statusMenuLead = updated;
+                    }
+                }
+                if (data.stats) this.stats = data.stats;
+            }).catch(() => {});
+        },
+        init() {
+            this.leadsPollTimer = setInterval(() => {
+                if (!document.hidden) this.syncLeads();
+            }, 8000);
+            try {
+                if (typeof BroadcastChannel !== 'undefined') {
+                    const ch = new BroadcastChannel('gat_cms_sync');
+                    ch.onmessage = (ev) => {
+                        if (ev?.data?.type === 'public_submission') {
+                            this.syncLeads();
+                        }
+                    };
+                }
+            } catch (e) {}
+        }
+    }">
 
         <!-- Top Action & Stat Bar -->
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white px-6 py-4.5 rounded-[24px] border border-[#3367A5]/15 shadow-sm min-h-[76px]">
@@ -83,11 +156,11 @@
             <div class="flex items-center gap-3 shrink-0">
                 <div class="h-11 px-4 rounded-2xl bg-[#f8fafd] border border-slate-200/80 inline-flex flex-col items-center justify-center text-center shadow-2xs min-w-[96px]">
                     <span class="text-[10px] text-slate-400 font-semibold font-['Questrial',sans-serif] leading-tight block">Total Prospek</span>
-                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-slate-900 leading-tight block mt-0.5">{{ $totalLeads }}</span>
+                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-slate-900 leading-tight block mt-0.5" x-text="stats.total_leads">{{ $totalLeads }}</span>
                 </div>
                 <div class="h-11 px-4 rounded-2xl bg-blue-50 border border-blue-100 inline-flex flex-col items-center justify-center text-center shadow-2xs min-w-[96px]">
                     <span class="text-[10px] text-[#3367A5] font-semibold font-['Questrial',sans-serif] leading-tight block">Prospek Baru</span>
-                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-[#3367A5] leading-tight block mt-0.5">{{ $newLeads }}</span>
+                    <span class="text-sm font-bold font-['Agrandir',sans-serif] text-[#3367A5] leading-tight block mt-0.5" x-text="stats.new_leads">{{ $newLeads }}</span>
                 </div>
             </div>
         </div>
@@ -229,208 +302,97 @@
                             <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap text-right">Aksi Cepat</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100 text-slate-700">
-                        @forelse ($leads as $lead)
-                            @php
-                                $leadDomain = $domainOptions[$lead->domain] ?? [
-                                    'label' => ucfirst($lead->domain),
-                                    'icon' => 'fa-solid fa-shapes',
-                                    'color' => 'text-[#3367A5]',
-                                ];
-                                $waClean = preg_replace('/[^0-9]/', '', (string) $lead->phone);
-                                if (str_starts_with($waClean, '0')) {
-                                    $waClean = '62' . substr($waClean, 1);
-                                } elseif (str_starts_with($waClean, '8')) {
-                                    $waClean = '62' . $waClean;
-                                }
-                                $domainLabel = $leadDomain['label'] ?? ucfirst($lead->domain);
-                                $waMsg = urlencode(
-                                    "Halo Bapak/Ibu {$lead->pic_name} ({$lead->company_name}), kami dari Tim Otomasi PT Global Aspect Technology menindaklanjuti data simulasi mesin {$domainLabel} yang Anda jalankan di website kami."
-                                );
-                            @endphp
+                    <tbody class="divide-y divide-slate-100 text-slate-700"
+                           @scroll.window="statusMenuLead = null"
+                           @resize.window="statusMenuLead = null">
+                        <template x-for="lead in leadsData" :key="lead.id">
                             <tr class="hover:bg-[#f8fafd]/80 transition duration-150">
                                 <!-- Tanggal -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
-                                    <div class="font-bold text-slate-800 text-xs font-['Agrandir',sans-serif]">
-                                        {{ ($lead->simulation_date ?? $lead->created_at)->format('d M Y') }}
-                                    </div>
+                                    <div class="font-bold text-slate-800 text-xs font-['Agrandir',sans-serif]" x-text="lead.date_formatted"></div>
                                     <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5">
                                         <i class="fa-regular fa-clock text-[10px] text-slate-300"></i>
-                                        <span>{{ $lead->created_at->format('H:i') }} WIB</span>
+                                        <span x-text="lead.time_formatted"></span>
                                     </div>
                                 </td>
 
                                 <!-- Nama PIC, Jabatan & Perusahaan -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 align-middle max-w-[195px]">
                                     <div class="font-bold text-slate-900 font-['Agrandir',sans-serif] text-xs flex items-center gap-1.5 min-w-0">
-                                        <span class="truncate" title="{{ $lead->pic_name }}">{{ $lead->pic_name }}</span>
-                                        @if ($lead->job_title)
-                                            <span class="px-1.5 py-0.5 rounded-full text-[9.5px] font-semibold font-['Questrial',sans-serif] bg-slate-100 text-slate-600 shrink-0">
-                                                {{ $lead->job_title }}
-                                            </span>
-                                        @endif
+                                        <span class="truncate" :title="lead.pic_name" x-text="lead.pic_name"></span>
+                                        <template x-if="lead.job_title">
+                                            <span class="px-1.5 py-0.5 rounded-full text-[9.5px] font-semibold font-['Questrial',sans-serif] bg-slate-100 text-slate-600 shrink-0" x-text="lead.job_title"></span>
+                                        </template>
                                     </div>
                                     <div class="text-[11px] text-[#3367A5] font-semibold font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5 min-w-0">
                                         <i class="fa-regular fa-building text-[10px] text-slate-400 shrink-0"></i>
-                                        <span class="truncate" title="{{ $lead->company_name }}">{{ $lead->company_name }}</span>
+                                        <span class="truncate" :title="lead.company_name" x-text="lead.company_name"></span>
                                     </div>
                                 </td>
 
                                 <!-- Domain Simulasi -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
                                     <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-50 text-[#3367A5] border border-blue-100 uppercase tracking-wider font-['Agrandir',sans-serif]">
-                                        <i class="{{ $leadDomain['icon'] }} text-[10px] {{ $leadDomain['color'] }}"></i>
-                                        <span>{{ $leadDomain['label'] }}</span>
+                                        <i :class="[lead.domain_icon, 'text-[10px]', lead.domain_color]"></i>
+                                        <span x-text="lead.domain_label"></span>
                                     </span>
                                 </td>
 
                                 <!-- Kontak WhatsApp / Email -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle max-w-[175px]">
                                     <div class="font-bold text-slate-800 text-xs flex items-center gap-1.5 font-mono">
-                                        <a href="https://wa.me/{{ $waClean }}?text={{ $waMsg }}"
+                                        <a :href="lead.wa_url"
                                             target="_blank"
                                             class="font-bold text-slate-800 hover:text-emerald-700 text-xs flex items-center gap-1 font-mono group transition"
-                                            title="Kirim pesan WhatsApp langsung ke {{ $lead->pic_name }} ({{ $lead->phone }})">
+                                            :title="'Kirim pesan WhatsApp langsung ke ' + lead.pic_name + ' (' + lead.phone + ')'">
                                             <i class="fa-brands fa-whatsapp text-emerald-600 text-sm group-hover:scale-110 transition-transform"></i>
-                                            <span>{{ $lead->phone }}</span>
+                                            <span x-text="lead.phone"></span>
                                         </a>
                                     </div>
                                     <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5 min-w-0">
                                         <i class="fa-regular fa-envelope text-[10px] text-slate-400 shrink-0"></i>
-                                        <a href="mailto:{{ $lead->email }}" class="hover:text-[#3367A5] transition truncate" title="{{ $lead->email }}">{{ $lead->email }}</a>
+                                        <a :href="'mailto:' + lead.email" class="hover:text-[#3367A5] transition truncate" :title="lead.email" x-text="lead.email"></a>
                                     </div>
                                 </td>
 
                                 <!-- Catatan / Kebutuhan -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 align-middle text-slate-600 font-['Questrial',sans-serif] max-w-[175px]">
-                                    @if ($lead->notes)
-                                        <div class="line-clamp-2 text-xs leading-relaxed" title="{{ $lead->notes }}">
-                                            {{ $lead->notes }}
-                                        </div>
-                                    @else
+                                    <template x-if="lead.notes">
+                                        <div class="line-clamp-2 text-xs leading-relaxed" :title="lead.notes" x-text="lead.notes"></div>
+                                    </template>
+                                    <template x-if="!lead.notes">
                                         <span class="text-[11px] text-slate-400 italic font-['Questrial',sans-serif]">Tidak ada catatan</span>
-                                    @endif
+                                    </template>
                                 </td>
 
-                                <!-- Status Dropdown Pill (Fixed Viewport Portal - Never Clipped Inside Table) -->
+                                <!-- Status Pill -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
-                                    <div class="relative inline-block text-left"
-                                         x-data="{
-                                             statusOpen: false,
-                                             openUp: false,
-                                             menuTop: 0,
-                                             menuBottom: 0,
-                                             menuLeft: 0,
-                                             toggleMenu() {
-                                                 if (this.statusOpen) {
-                                                     this.statusOpen = false;
-                                                     return;
-                                                 }
-                                                 const rect = this.$refs.leadStatusBtn.getBoundingClientRect();
-                                                 const spaceBelow = window.innerHeight - rect.bottom;
-                                                 this.openUp = spaceBelow < 190 && rect.top > 190;
-                                                 this.menuTop = rect.bottom + 6;
-                                                 this.menuBottom = window.innerHeight - rect.top + 6;
-                                                 this.menuLeft = Math.max(8, Math.min(window.innerWidth - 216, rect.left));
-                                                 this.statusOpen = true;
-                                             }
-                                         }"
-                                         @scroll.window="statusOpen = false"
-                                         @resize.window="statusOpen = false">
-                                        <button type="button" x-ref="leadStatusBtn"
-                                            @click.stop="toggleMenu()"
-                                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs hover:scale-[1.02] active:scale-95 {{ $lead->status === 'new' ? 'bg-[#fffbeb] text-[#b45309] border-[#fde68a] hover:bg-[#fef3c7] hover:border-[#fcd34d]' : ($lead->status === 'contacted' ? 'bg-blue-50 text-[#3367A5] border-blue-200 hover:bg-blue-100/80 hover:border-blue-300' : 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100/80 hover:border-emerald-300') }}">
-                                            <span class="w-2 h-2 rounded-full shrink-0 {{ $lead->status === 'new' ? 'bg-amber-500' : ($lead->status === 'contacted' ? 'bg-[#3367A5]' : 'bg-emerald-500') }}"></span>
-                                            <span>{{ $lead->status === 'new' ? 'New' : ($lead->status === 'contacted' ? 'Contacted' : 'Closed') }}</span>
-                                            <svg class="w-3 h-3 transition-transform duration-200 {{ $lead->status === 'new' ? 'text-[#b45309]' : ($lead->status === 'contacted' ? 'text-[#3367A5]' : 'text-emerald-700') }}"
-                                                :class="{ 'rotate-180': statusOpen }" fill="none" stroke="currentColor"
-                                                viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                        </button>
-
-                                        <template x-teleport="body">
-                                            <div x-cloak x-show="statusOpen"
-                                                @click.outside="if (!$refs.leadStatusBtn?.contains($event.target)) statusOpen = false"
-                                                x-transition:enter="transition ease-out duration-150"
-                                                x-transition:enter-start="opacity-0 scale-95"
-                                                x-transition:enter-end="opacity-100 scale-100"
-                                                x-transition:leave="transition ease-in duration-100"
-                                                x-transition:leave-start="opacity-100 scale-100"
-                                                x-transition:leave-end="opacity-0 scale-95"
-                                                :style="openUp ? `position: fixed; left: ${menuLeft}px; bottom: ${menuBottom}px;` : `position: fixed; left: ${menuLeft}px; top: ${menuTop}px;`"
-                                                class="w-52 bg-white rounded-2xl shadow-2xl border border-slate-200/90 py-1.5 z-[9990] text-slate-700 font-['Questrial',sans-serif] overflow-hidden">
-
-                                            <form id="leadStatusForm_{{ $lead->id }}" method="POST"
-                                                action="{{ route('admin.leads.status', $lead->id) }}">
-                                                @csrf
-                                                @method('PATCH')
-                                                <input type="hidden" name="status" id="leadStatusInput_{{ $lead->id }}" value="{{ $lead->status }}">
-
-                                                <!-- Option New -->
-                                                <button type="button"
-                                                    @click="document.getElementById('leadStatusInput_{{ $lead->id }}').value = 'new'; document.getElementById('leadStatusForm_{{ $lead->id }}').submit()"
-                                                    class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-amber-50/70 transition cursor-pointer {{ $lead->status === 'new' ? 'bg-amber-50/90 text-amber-900 font-bold' : 'text-slate-700' }}">
-                                                    <div class="flex items-center gap-2.5">
-                                                        <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
-                                                        <div>
-                                                            <span class="font-['Agrandir',sans-serif] font-bold block leading-none">New</span>
-                                                            <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Prospek Baru Masuk</span>
-                                                        </div>
-                                                    </div>
-                                                    @if ($lead->status === 'new')
-                                                        <i class="fa-solid fa-check text-amber-600 text-xs"></i>
-                                                    @endif
-                                                </button>
-
-                                                <!-- Option Contacted -->
-                                                <button type="button"
-                                                    @click="document.getElementById('leadStatusInput_{{ $lead->id }}').value = 'contacted'; document.getElementById('leadStatusForm_{{ $lead->id }}').submit()"
-                                                    class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer {{ $lead->status === 'contacted' ? 'bg-blue-50/90 text-[#3367A5] font-bold' : 'text-slate-700' }}">
-                                                    <div class="flex items-center gap-2.5">
-                                                        <span class="w-2 h-2 rounded-full bg-[#3367A5] shrink-0"></span>
-                                                        <div>
-                                                            <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Contacted</span>
-                                                            <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Sudah Dihubungi PIC</span>
-                                                        </div>
-                                                    </div>
-                                                    @if ($lead->status === 'contacted')
-                                                        <i class="fa-solid fa-check text-[#3367A5] text-xs"></i>
-                                                    @endif
-                                                </button>
-
-                                                <!-- Option Closed -->
-                                                <button type="button"
-                                                    @click="document.getElementById('leadStatusInput_{{ $lead->id }}').value = 'closed'; document.getElementById('leadStatusForm_{{ $lead->id }}').submit()"
-                                                    class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-emerald-50/70 transition cursor-pointer {{ $lead->status === 'closed' ? 'bg-emerald-50/90 text-emerald-800 font-bold' : 'text-slate-700' }}">
-                                                    <div class="flex items-center gap-2.5">
-                                                        <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-                                                        <div>
-                                                            <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Closed</span>
-                                                            <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Deal / PO Terbit</span>
-                                                        </div>
-                                                    </div>
-                                                    @if ($lead->status === 'closed')
-                                                        <i class="fa-solid fa-check text-emerald-600 text-xs"></i>
-                                                    @endif
-                                                </button>
-                                            </form>
-                                        </div>
-                                        </template>
-                                    </div>
+                                    <button type="button"
+                                        @click.stop="openStatusMenu(lead, $el)"
+                                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs hover:scale-[1.02] active:scale-95"
+                                        :class="lead.status === 'new' ? 'bg-[#fffbeb] text-[#b45309] border-[#fde68a] hover:bg-[#fef3c7] hover:border-[#fcd34d]' : (lead.status === 'contacted' ? 'bg-blue-50 text-[#3367A5] border-blue-200 hover:bg-blue-100/80 hover:border-blue-300' : 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100/80 hover:border-emerald-300')">
+                                        <span class="w-2 h-2 rounded-full shrink-0"
+                                              :class="lead.status === 'new' ? 'bg-amber-500' : (lead.status === 'contacted' ? 'bg-[#3367A5]' : 'bg-emerald-500')"></span>
+                                        <span x-text="lead.status === 'new' ? 'New' : (lead.status === 'contacted' ? 'Contacted' : 'Closed')"></span>
+                                        <svg class="w-3 h-3 transition-transform duration-200"
+                                            :class="[lead.status === 'new' ? 'text-[#b45309]' : (lead.status === 'contacted' ? 'text-[#3367A5]' : 'text-emerald-700'), { 'rotate-180': statusMenuLead && statusMenuLead.id === lead.id }]"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
                                 </td>
 
                                 <!-- Aksi Cepat -->
                                 <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap text-right align-middle space-x-1">
-                                    <a href="https://wa.me/{{ $waClean }}?text={{ $waMsg }}" target="_blank"
+                                    <a :href="lead.wa_url" target="_blank"
                                         class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] font-['Agrandir',sans-serif] shadow-xs transition hover:shadow-sm active:scale-95"
-                                        title="Buka WhatsApp langsung ke nomor {{ $lead->phone }} ({{ $lead->pic_name }})">
+                                        :title="'Buka WhatsApp langsung ke nomor ' + lead.phone + ' (' + lead.pic_name + ')'">
                                         <i class="fa-brands fa-whatsapp text-xs"></i>
                                         <span>Hubungi WA</span>
                                     </a>
 
-                                    <form method="POST" action="{{ route('admin.leads.destroy', $lead->id) }}"
-                                        class="inline-block" onsubmit="return confirm('Hapus data prospek ini?')">
+                                    <form method="POST" :action="lead.destroy_url"
+                                        class="inline-block" @submit="if (!confirm('Hapus data prospek ini?')) $event.preventDefault()">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
@@ -441,17 +403,81 @@
                                     </form>
                                 </td>
                             </tr>
-                        @empty
+                        </template>
+
+                        <template x-if="leadsData.length === 0">
                             <tr>
                                 <td colspan="7" class="py-12 text-center text-slate-400 font-['Questrial',sans-serif]">
                                     <i class="fa-solid fa-users-slash text-3xl mb-2 text-slate-300 block"></i>
                                     Belum ada prospek simulasi yang tercatat.
                                 </td>
                             </tr>
-                        @endforelse
+                        </template>
                     </tbody>
                 </table>
             </div>
+
+            <template x-teleport="body">
+                <div x-cloak x-show="statusMenuLead !== null"
+                    @click.outside="if (!statusTriggerEl || !statusTriggerEl.contains($event.target)) statusMenuLead = null"
+                    x-transition:enter="transition ease-out duration-150"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-100"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-95"
+                    :style="statusMenuUp ? `position: fixed; left: ${statusMenuLeft}px; bottom: ${statusMenuBottom}px;` : `position: fixed; left: ${statusMenuLeft}px; top: ${statusMenuTop}px;`"
+                    class="w-52 bg-white rounded-2xl shadow-2xl border border-slate-200/90 py-1.5 z-[9990] text-slate-700 font-['Questrial',sans-serif] overflow-hidden">
+
+                    <form id="sharedLeadStatusForm" method="POST" :action="statusMenuLead ? statusMenuLead.status_url : '#'">
+                        @csrf
+                        @method('PATCH')
+                        <input type="hidden" name="status" id="sharedLeadStatusInput" value="">
+
+                        <button type="button"
+                            @click="document.getElementById('sharedLeadStatusInput').value = 'new'; document.getElementById('sharedLeadStatusForm').submit()"
+                            :class="statusMenuLead?.status === 'new' ? 'bg-amber-50/90 text-amber-900 font-bold' : 'text-slate-700'"
+                            class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-amber-50/70 transition cursor-pointer">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
+                                <div>
+                                    <span class="font-['Agrandir',sans-serif] font-bold block leading-none">New</span>
+                                    <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Prospek Baru Masuk</span>
+                                </div>
+                            </div>
+                            <i x-show="statusMenuLead?.status === 'new'" class="fa-solid fa-check text-amber-600 text-xs"></i>
+                        </button>
+
+                        <button type="button"
+                            @click="document.getElementById('sharedLeadStatusInput').value = 'contacted'; document.getElementById('sharedLeadStatusForm').submit()"
+                            :class="statusMenuLead?.status === 'contacted' ? 'bg-blue-50/90 text-[#3367A5] font-bold' : 'text-slate-700'"
+                            class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-2 h-2 rounded-full bg-[#3367A5] shrink-0"></span>
+                                <div>
+                                    <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Contacted</span>
+                                    <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Sudah Dihubungi PIC</span>
+                                </div>
+                            </div>
+                            <i x-show="statusMenuLead?.status === 'contacted'" class="fa-solid fa-check text-[#3367A5] text-xs"></i>
+                        </button>
+
+                        <button type="button"
+                            @click="document.getElementById('sharedLeadStatusInput').value = 'closed'; document.getElementById('sharedLeadStatusForm').submit()"
+                            :class="statusMenuLead?.status === 'closed' ? 'bg-emerald-50/90 text-emerald-800 font-bold' : 'text-slate-700'"
+                            class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-emerald-50/70 transition cursor-pointer">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                                <div>
+                                    <span class="font-['Agrandir',sans-serif] font-bold block leading-none">Closed</span>
+                                    <span class="text-[10px] text-slate-400 font-['Questrial',sans-serif] block mt-0.5">Deal / PO Terbit</span>
+                                </div>
+                            </div>
+                            <i x-show="statusMenuLead?.status === 'closed'" class="fa-solid fa-check text-emerald-600 text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </template>
 
             @if ($leads->hasPages())
                 <div class="p-4 border-t border-slate-100">

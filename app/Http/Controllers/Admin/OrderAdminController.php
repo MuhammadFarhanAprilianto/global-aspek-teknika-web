@@ -21,6 +21,14 @@ class OrderAdminController extends Controller
 {
     public static function transformOrder(Order $o): array
     {
+        $cleanPhone = preg_replace('/[^0-9]/', '', $o->company_phone ?? '');
+        if (str_starts_with($cleanPhone, '0')) {
+            $cleanPhone = '62' . substr($cleanPhone, 1);
+        } elseif (str_starts_with($cleanPhone, '8')) {
+            $cleanPhone = '62' . $cleanPhone;
+        }
+        $waText = urlencode("Halo Bapak/Ibu {$o->pic_name} ({$o->company_name}), kami dari Tim Sales PT Global Aspect Technology menindaklanjuti pesanan Sales Quote #{$o->invoice_number} senilai Rp " . number_format($o->grand_total, 0, ',', '.') . ". Apakah ada dokumen atau hal teknis yang perlu kami bantu proseskan? Terima kasih.");
+
         return [
             'id' => $o->id,
             'uuid' => $o->uuid,
@@ -45,6 +53,11 @@ class OrderAdminController extends Controller
             'has_po_file' => !empty($o->po_document_path),
             'po_file_url' => !empty($o->po_document_path) ? route('admin.orders.po-file', $o->uuid) : null,
             'quote_pdf_url' => route('admin.orders.pdf', $o->uuid),
+            'detail_url' => route('admin.orders.show', $o->uuid),
+            'status_url' => route('admin.orders.status', $o->uuid),
+            'destroy_url' => route('admin.orders.destroy', $o->uuid),
+            'wa_direct_url' => !empty($cleanPhone) ? "https://api.whatsapp.com/send?phone={$cleanPhone}&text={$waText}" : '#',
+            'items_count' => $o->items ? $o->items->count() : 0,
             'whatsapp_contacted_at' => $o->whatsapp_contacted_at ? $o->whatsapp_contacted_at->format('d M Y, H:i') . ' WIB' : null,
             'whatsapp_contacted_diff' => $o->whatsapp_contacted_at ? $o->whatsapp_contacted_at->diffForHumans() : null,
             'whatsapp_message_log' => $o->whatsapp_message_log,
@@ -141,7 +154,19 @@ class OrderAdminController extends Controller
             'status' => 'required|in:awaiting_po,po_submitted,confirmed,completed,cancelled',
         ]);
 
+        $oldStatus = $order->status;
         $order->update(['status' => $validated['status']]);
+
+        try {
+            \App\Models\AdminSecurityLog::record(
+                'order_status_updated',
+                'info',
+                $request->user(),
+                $request->user()?->email,
+                "Status pesanan {$order->invoice_number} diubah dari {$oldStatus} ke {$validated['status']}."
+            );
+        } catch (\Throwable $e) {
+        }
 
         return back()->with('success', 'Status pesanan ' . $order->invoice_number . ' berhasil diperbarui.');
     }
@@ -196,11 +221,23 @@ class OrderAdminController extends Controller
         ]);
     }
 
-    public function destroy(Order $order): RedirectResponse
+    public function destroy(Request $request, Order $order): RedirectResponse
     {
         $invoice = $order->invoice_number;
+        $company = $order->company_name;
         $order->items()->delete();
         $order->delete();
+
+        try {
+            \App\Models\AdminSecurityLog::record(
+                'order_deleted',
+                'warning',
+                $request->user(),
+                $request->user()?->email,
+                "Menghapus pesanan {$invoice} ({$company})."
+            );
+        } catch (\Throwable $e) {
+        }
 
         return back()->with('success', 'Pesanan ' . $invoice . ' berhasil dihapus.');
     }

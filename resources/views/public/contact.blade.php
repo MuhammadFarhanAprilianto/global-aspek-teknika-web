@@ -161,6 +161,9 @@
                 <div class="lg:col-span-7 flex flex-col justify-between reveal-on-scroll reveal-stagger-1">
                     <form action="{{ route('contact') }}" method="POST" class="space-y-5">
                         @csrf
+                        <div class="hidden" aria-hidden="true">
+                            <input type="text" name="company_website_trap" value="" tabindex="-1" autocomplete="off">
+                        </div>
 
                         <!-- Row 1: Name & Email -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">

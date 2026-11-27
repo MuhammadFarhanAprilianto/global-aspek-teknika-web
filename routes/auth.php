@@ -8,7 +8,7 @@ Route::middleware('guest')->group(function () {
     Volt::route('login', 'auth.login')
         ->name('login');
 
-    // Standard HTML POST login (Triggers native Edge/Chrome Password Manager + reliable serverless redirect)
+    // Standard HTML POST login (Triggers native Edge/Chrome Password Manager + Rate Limited + No Plaintext Password Cookie)
     Route::post('login', function (\Illuminate\Http\Request $request) {
         $credentials = $request->validate([
             'email' => ['required', 'string', 'email'],
@@ -20,9 +20,24 @@ Route::middleware('guest')->group(function () {
         ]);
 
         $email = \Illuminate\Support\Str::lower(trim($credentials['email']));
+        $throttleKey = \Illuminate\Support\Str::transliterate($email . '|' . $request->ip());
+
+        if (\Illuminate\Support\Facades\RateLimiter::tooManyAttempts($throttleKey, 5)) {
+            $seconds = \Illuminate\Support\Facades\RateLimiter::availableIn($throttleKey);
+            $minutes = (int) ceil($seconds / 60);
+            try {
+                \App\Models\AdminSecurityLog::record('login_locked', 'danger', null, $email, "Terlalu banyak percobaan login. Terkunci selama {$seconds} detik.");
+            } catch (\Throwable $e) {
+            }
+            return back()
+                ->withErrors(['email' => "Terlalu banyak percobaan gagal. Coba lagi dalam {$minutes} menit ({$seconds} detik)."])
+                ->withInput($request->only('email'));
+        }
+
         $user = \App\Models\User::where('email', $email)->first();
 
         if (! $user || ! \Illuminate\Support\Facades\Hash::check($credentials['password'], $user->password)) {
+            \Illuminate\Support\Facades\RateLimiter::hit($throttleKey, 300);
             try {
                 \App\Models\AdminSecurityLog::record('login_failed', 'danger', $user, $email, 'Percobaan login gagal (email atau kata sandi salah).');
             } catch (\Throwable $e) {
@@ -31,13 +46,15 @@ Route::middleware('guest')->group(function () {
         }
 
         if ($user->role !== 'admin' && ! ($user->is_admin ?? false)) {
+            \Illuminate\Support\Facades\RateLimiter::hit($throttleKey, 300);
             return back()->withErrors(['email' => 'Akses ditolak. Portal ini khusus untuk Administrator PT Global Aspect Technology.'])->withInput($request->only('email'));
         }
+
+        \Illuminate\Support\Facades\RateLimiter::clear($throttleKey);
 
         // Jika akun mengaktifkan 2FA, alihkan ke tantangan 2FA Livewire
         if ($user->hasTwoFactorEnabled()) {
             $request->session()->put('gat_pending_2fa_user_id', $user->id);
-            $request->session()->put('gat_pending_2fa_pass', \Illuminate\Support\Facades\Crypt::encryptString($credentials['password']));
             $request->session()->put('gat_pending_2fa_remember', $request->boolean('remember'));
             return redirect()->route('login');
         }
@@ -48,7 +65,6 @@ Route::middleware('guest')->group(function () {
         if ($remember) {
             $encryptedPayload = \Illuminate\Support\Facades\Crypt::encryptString(json_encode([
                 'email' => $user->email,
-                'password' => $credentials['password'],
             ]));
             \Illuminate\Support\Facades\Cookie::queue(cookie(
                 name: 'gat_saved_credentials',

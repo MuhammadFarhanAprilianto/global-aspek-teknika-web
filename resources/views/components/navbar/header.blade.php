@@ -294,20 +294,7 @@
                                         @endphp
                                         <a href="{{ $link }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
                                             <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                @if (!empty($sol->icon_svg))
-                                                    @if (str_contains($sol->icon_svg, '<svg'))
-                                                        {!! $sol->icon_svg !!}
-                                                    @else
-                                                        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                            {!! $sol->icon_svg !!}
-                                                        </svg>
-                                                    @endif
-                                                @else
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                                                        <path stroke-linecap="round" d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
-                                                    </svg>
-                                                @endif
+                                                {!! $sol->safeIconHtml() !!}
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
@@ -329,20 +316,7 @@
                                         @endphp
                                         <a href="{{ $link }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
                                             <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                @if (!empty($sol->icon_svg))
-                                                    @if (str_contains($sol->icon_svg, '<svg'))
-                                                        {!! $sol->icon_svg !!}
-                                                    @else
-                                                        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                            {!! $sol->icon_svg !!}
-                                                        </svg>
-                                                    @endif
-                                                @else
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                                                        <path stroke-linecap="round" d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
-                                                    </svg>
-                                                @endif
+                                                {!! $sol->safeIconHtml() !!}
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
@@ -627,20 +601,7 @@
                                         @endphp
                                         <a href="{{ $link }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
                                             <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                @if (!empty($sol->icon_svg))
-                                                    @if (str_contains($sol->icon_svg, '<svg'))
-                                                        {!! $sol->icon_svg !!}
-                                                    @else
-                                                        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                            {!! $sol->icon_svg !!}
-                                                        </svg>
-                                                    @endif
-                                                @else
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                                                        <path stroke-linecap="round" d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
-                                                    </svg>
-                                                @endif
+                                                {!! $sol->safeIconHtml() !!}
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">
@@ -662,20 +623,7 @@
                                         @endphp
                                         <a href="{{ $link }}" class="group/item flex items-start gap-3.5 p-2 rounded-2xl hover:bg-neutral-50 transition-colors">
                                             <div class="w-9 h-9 rounded-full bg-neutral-900 flex items-center justify-center shrink-0 shadow-sm group-hover/item:bg-[#3367A5] transition-colors">
-                                                @if (!empty($sol->icon_svg))
-                                                    @if (str_contains($sol->icon_svg, '<svg'))
-                                                        {!! $sol->icon_svg !!}
-                                                    @else
-                                                        <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                            {!! $sol->icon_svg !!}
-                                                        </svg>
-                                                    @endif
-                                                @else
-                                                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                                                        <path stroke-linecap="round" d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
-                                                    </svg>
-                                                @endif
+                                                {!! $sol->safeIconHtml() !!}
                                             </div>
                                             <div class="space-y-0.5">
                                                 <h4 class="text-sm font-bold text-neutral-900 font-['Agrandir',sans-serif] group-hover/item:text-[#3367A5] transition-colors">

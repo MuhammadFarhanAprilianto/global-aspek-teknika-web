@@ -1,8 +1,9 @@
 <?php
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+$appDebug = filter_var($_ENV['APP_DEBUG'] ?? $_SERVER['APP_DEBUG'] ?? getenv('APP_DEBUG') ?: 'false', FILTER_VALIDATE_BOOLEAN);
+ini_set('display_errors', $appDebug ? '1' : '0');
+ini_set('display_startup_errors', $appDebug ? '1' : '0');
+error_reporting($appDebug ? E_ALL : (E_ALL & ~E_DEPRECATED & ~E_STRICT));
 
 // Ensure serverless storage directories exist in writable /tmp directory
 $storageDirs = [
@@ -42,9 +43,11 @@ if ((isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PRO
     $_SERVER['HTTPS'] = 'on';
     $_SERVER['SERVER_PORT'] = '443';
 }
-putenv('APP_DEBUG=true');
-$_ENV['APP_DEBUG'] = 'true';
-$_SERVER['APP_DEBUG'] = 'true';
+if (getenv('APP_DEBUG') === false) {
+    putenv('APP_DEBUG=false');
+    $_ENV['APP_DEBUG'] = 'false';
+    $_SERVER['APP_DEBUG'] = 'false';
+}
 putenv('APP_STORAGE=/tmp/storage');
 putenv('APP_CONFIG_CACHE=/tmp/bootstrap/cache/config.php');
 putenv('APP_EVENTS_CACHE=/tmp/bootstrap/cache/events.php');
@@ -145,7 +148,7 @@ if ($cloudDbUrl !== '') {
 }
 
 // If DB_HOST is 127.0.0.1 (local MySQL) or empty, fallback to SQLite + cookie sessions;
-// when connected to Cloud DB (Supabase/PostgreSQL/MySQL), use database sessions so cookies stay tiny and never hit 419!
+// when connected to Cloud DB (Supabase/PostgreSQL/MySQL), use database sessions & cache so rate limits and cookies persist across lambdas!
 $dbHost = $readEnv('DB_HOST');
 if ($dbHost === '127.0.0.1' || $dbHost === 'localhost' || empty($dbHost)) {
     putenv('DB_CONNECTION=sqlite');
@@ -158,22 +161,36 @@ if ($dbHost === '127.0.0.1' || $dbHost === 'localhost' || empty($dbHost)) {
     putenv('SESSION_DRIVER=database');
     $_ENV['SESSION_DRIVER'] = 'database';
     $_SERVER['SESSION_DRIVER'] = 'database';
+    if ($readEnv('CACHE_STORE') === '' || $readEnv('CACHE_STORE') === 'array') {
+        putenv('CACHE_STORE=database');
+        $_ENV['CACHE_STORE'] = 'database';
+        $_SERVER['CACHE_STORE'] = 'database';
+        putenv('CACHE_DRIVER=database');
+        $_ENV['CACHE_DRIVER'] = 'database';
+        $_SERVER['CACHE_DRIVER'] = 'database';
+    }
 }
 
-// Fallback APP_KEY if not explicitly provided
+// Require explicit APP_KEY in production so repo never acts as a static key oracle
 if (empty($_ENV['APP_KEY']) && empty($_SERVER['APP_KEY']) && !getenv('APP_KEY')) {
-    $fallbackKey = 'base64:xlyOaE4f8tKH9+30kajfb9mrGivyFNUouVKaslw0Jio=';
-    putenv("APP_KEY={$fallbackKey}");
-    $_ENV['APP_KEY'] = $fallbackKey;
-    $_SERVER['APP_KEY'] = $fallbackKey;
+    if (($readEnv('APP_ENV') ?: 'production') === 'production') {
+        error_log('FATAL: APP_KEY environment variable is missing in production runtime.');
+        http_response_code(500);
+        echo 'Konfigurasi keamanan aplikasi belum lengkap (APP_KEY).';
+        exit;
+    }
+    $devKey = 'base64:xlyOaE4f8tKH9+30kajfb9mrGivyFNUouVKaslw0Jio=';
+    putenv("APP_KEY={$devKey}");
+    $_ENV['APP_KEY'] = $devKey;
+    $_SERVER['APP_KEY'] = $devKey;
 }
 
-// Serve static files from public/ or storage/app/public/ if requested
+// Serve static files from public/ or storage/app/public/ safely (with strict realpath traversal guard)
 $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
 $parsedPath = parse_url($requestUri, PHP_URL_PATH);
 $uriPath = urldecode($parsedPath ?: '/');
 
-if ($uriPath !== '/') {
+if ($uriPath !== '/' && !str_contains($uriPath, "\0") && !str_contains($uriPath, '..')) {
     $mimeTypes = [
         'css'   => 'text/css',
         'js'    => 'application/javascript',
@@ -193,14 +210,23 @@ if ($uriPath !== '/') {
         'ttf'   => 'font/ttf',
     ];
 
-    $publicFile = __DIR__ . '/../public' . $uriPath;
-    $storageFile = (str_starts_with($uriPath, '/storage/'))
-        ? __DIR__ . '/../storage/app/public/' . substr($uriPath, strlen('/storage/'))
-        : null;
+    $publicRoot = realpath(__DIR__ . '/../public');
+    $storageRoot = realpath(__DIR__ . '/../storage/app/public');
 
-    $targetFile = (file_exists($publicFile) && !is_dir($publicFile))
-        ? $publicFile
-        : (($storageFile && file_exists($storageFile) && !is_dir($storageFile)) ? $storageFile : null);
+    $targetFile = null;
+    if ($publicRoot) {
+        $cand = realpath($publicRoot . DIRECTORY_SEPARATOR . ltrim($uriPath, '/\\'));
+        if ($cand && is_file($cand) && str_starts_with($cand, $publicRoot . DIRECTORY_SEPARATOR)) {
+            $targetFile = $cand;
+        }
+    }
+    if (!$targetFile && $storageRoot && str_starts_with($uriPath, '/storage/')) {
+        $rel = ltrim(substr($uriPath, strlen('/storage/')), '/\\');
+        $cand = realpath($storageRoot . DIRECTORY_SEPARATOR . $rel);
+        if ($cand && is_file($cand) && str_starts_with($cand, $storageRoot . DIRECTORY_SEPARATOR)) {
+            $targetFile = $cand;
+        }
+    }
 
     if ($targetFile) {
         $ext = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -287,9 +313,14 @@ try {
     // Forward Vercel requests to public/index.php
     require __DIR__ . '/../public/index.php';
 } catch (\Throwable $e) {
+    error_log('[GAT Serverless Fatal] ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
     http_response_code(500);
-    echo "<h1>Application Error</h1>";
-    echo "<p><strong>Message:</strong> " . htmlspecialchars($e->getMessage()) . "</p>";
-    echo "<p><strong>File:</strong> " . htmlspecialchars($e->getFile()) . ":" . $e->getLine() . "</p>";
-    echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
+    if (filter_var($_ENV['APP_DEBUG'] ?? $_SERVER['APP_DEBUG'] ?? getenv('APP_DEBUG') ?: 'false', FILTER_VALIDATE_BOOLEAN)) {
+        echo "<h1>Application Error</h1>";
+        echo "<p><strong>Message:</strong> " . htmlspecialchars($e->getMessage()) . "</p>";
+        echo "<p><strong>File:</strong> " . htmlspecialchars($e->getFile()) . ":" . $e->getLine() . "</p>";
+        echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
+    } else {
+        echo "<h1>Layanan Sedang Memuat Ulang</h1><p>Terjadi kendala sementara pada server. Silakan muat ulang halaman beberapa saat lagi.</p>";
+    }
 }

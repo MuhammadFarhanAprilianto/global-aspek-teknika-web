@@ -12,46 +12,93 @@
     ];
     $activeStatus = $statusOptions[$status] ?? $statusOptions['all'];
     $isContactFiltered = ($status !== 'all' && !empty($status)) || !empty($search);
-
-    $messagesData = $messages->getCollection()->mapWithKeys(function ($msg) {
-        $waClean = preg_replace('/[^0-9]/', '', $msg->phone ?? '');
-        if (str_starts_with($waClean, '0')) {
-            $waClean = '62' . substr($waClean, 1);
-        } elseif (str_starts_with($waClean, '8')) {
-            $waClean = '62' . $waClean;
-        }
-        $companyLabel = $msg->company ? " ({$msg->company})" : '';
-        $serviceLabel = $msg->service ?: 'layanan otomasi industri';
-        $waText = urlencode("Halo Bapak/Ibu {$msg->name}{$companyLabel}, terima kasih telah menghubungi PT Global Aspect Technology mengenai {$serviceLabel}. Tim teknis kami siap membantu kebutuhan Anda. Apakah ada informasi tambahan yang bisa kami diskusikan?");
-        $waUrl = !empty($waClean) ? "https://api.whatsapp.com/send?phone={$waClean}&text={$waText}" : '';
-
-        return [
-            $msg->id => [
-                'id' => $msg->id,
-                'name' => $msg->name,
-                'company' => $msg->company ?: 'Individu / Perusahaan',
-                'email' => $msg->email,
-                'phone' => $msg->phone ?: '',
-                'service' => $msg->service ?: 'General Inquiry',
-                'message' => $msg->message,
-                'status' => $msg->status,
-                'created_at_formatted' => $msg->created_at->format('d M Y, H:i') . ' WIB',
-                'wa_url' => $waUrl,
-                'mailto_url' => !empty($msg->email) ? 'mailto:' . $msg->email . '?subject=' . rawurlencode('Re: ' . ($msg->service ?: 'Pertanyaan Website PT Global Aspect Technology')) : '',
-            ],
-        ];
-    });
+    $messagesList = $messagesList ?? $messages->getCollection()->map(fn ($m) => \App\Http\Controllers\Admin\ContactAdminController::transformMessage($m))->values();
 @endphp
 
 <div class="space-y-6" x-data="{
     detailModalOpen: false,
     selectedMsg: null,
-    messagesMap: @js($messagesData),
+    messagesList: @js($messagesList),
+    stats: {
+        total_messages: {{ (int) $totalMessages }},
+        unread_messages: {{ (int) $unreadMessages }},
+        contacted_messages: {{ (int) $contactedMessages }}
+    },
+    isFirstPage: {{ $messages->currentPage() === 1 ? 'true' : 'false' }},
+    contactsPollTimer: null,
+    statusMenuMsg: null,
+    statusMenuTop: 0,
+    statusMenuBottom: 0,
+    statusMenuLeft: 0,
+    statusMenuUp: false,
+    statusTriggerEl: null,
+    openStatusMenu(msg, btnEl) {
+        if (this.statusMenuMsg && this.statusMenuMsg.id === msg.id) {
+            this.statusMenuMsg = null;
+            return;
+        }
+        const rect = btnEl.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        this.statusMenuUp = spaceBelow < 165 && rect.top > 165;
+        this.statusMenuTop = rect.bottom + 6;
+        this.statusMenuBottom = window.innerHeight - rect.top + 6;
+        this.statusMenuLeft = Math.max(8, Math.min(window.innerWidth - 172, rect.left));
+        this.statusTriggerEl = btnEl;
+        this.statusMenuMsg = msg;
+    },
     openDetail(id) {
-        this.selectedMsg = this.messagesMap[id] || null;
+        this.selectedMsg = this.messagesList.find(m => m.id === id) || null;
         if (this.selectedMsg) {
             this.detailModalOpen = true;
         }
+    },
+    syncMessages() {
+        const url = new URL(window.location.href);
+        url.searchParams.set('format', 'json');
+        fetch(url.toString(), {
+            headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+            cache: 'no-store'
+        }).then(r => {
+            if (r.status === 401) {
+                window.location.href = '{{ route('login') }}';
+                return null;
+            }
+            return r.ok ? r.json() : null;
+        }).then(data => {
+            if (!data) return;
+            if (Array.isArray(data.messages)) {
+                if (this.isFirstPage) {
+                    this.messagesList = data.messages;
+                } else {
+                    const byId = Object.fromEntries(data.messages.map(m => [m.id, m]));
+                    this.messagesList = this.messagesList.map(m => byId[m.id] || m);
+                }
+                if (this.selectedMsg) {
+                    const updated = this.messagesList.find(m => m.id === this.selectedMsg.id);
+                    if (updated) this.selectedMsg = updated;
+                }
+                if (this.statusMenuMsg) {
+                    const updatedMenu = this.messagesList.find(m => m.id === this.statusMenuMsg.id);
+                    if (updatedMenu) this.statusMenuMsg = updatedMenu;
+                }
+            }
+            if (data.stats) this.stats = data.stats;
+        }).catch(() => {});
+    },
+    init() {
+        this.contactsPollTimer = setInterval(() => {
+            if (!document.hidden) this.syncMessages();
+        }, 8000);
+        try {
+            if (typeof BroadcastChannel !== 'undefined') {
+                const ch = new BroadcastChannel('gat_cms_sync');
+                ch.onmessage = (ev) => {
+                    if (ev?.data?.type === 'public_submission') {
+                        this.syncMessages();
+                    }
+                };
+            }
+        } catch (e) {}
     },
     markContactedAsync(id) {
         fetch(`{{ url('admin/contacts') }}/${id}/contacted`, {
@@ -62,11 +109,13 @@
                 'Accept': 'application/json'
             }
         }).then(r => r.json()).then(res => {
-            if (res.success && this.messagesMap[id]) {
-                this.messagesMap[id].status = 'contacted';
+            if (res.success) {
+                const target = this.messagesList.find(m => m.id === id);
+                if (target) target.status = 'contacted';
                 if (this.selectedMsg && this.selectedMsg.id === id) {
                     this.selectedMsg.status = 'contacted';
                 }
+                this.syncMessages();
             }
         }).catch(() => {});
     },
@@ -127,19 +176,19 @@
                class="h-11 px-4 rounded-2xl bg-[#f8fafd] hover:bg-slate-100 border {{ $status === 'all' && empty($search) ? 'border-[#3367A5]/40 ring-2 ring-[#3367A5]/10' : 'border-slate-200/80' }} inline-flex flex-col items-center justify-center text-center shadow-2xs min-w-[92px] transition"
                title="Tampilkan semua pesan">
                 <span class="text-[10px] text-slate-400 font-semibold font-['Questrial',sans-serif] leading-tight block">Total Pesan</span>
-                <span class="text-sm font-bold font-['Agrandir',sans-serif] text-slate-900 leading-tight block mt-0.5">{{ $totalMessages }}</span>
+                <span class="text-sm font-bold font-['Agrandir',sans-serif] text-slate-900 leading-tight block mt-0.5" x-text="stats.total_messages">{{ $totalMessages }}</span>
             </a>
             <a href="{{ route('admin.contacts.index', ['status' => 'unread']) }}"
                class="h-11 px-4 rounded-2xl bg-rose-50 hover:bg-rose-100/80 border {{ $status === 'unread' ? 'border-rose-400 ring-2 ring-rose-500/15' : 'border-rose-200/80' }} inline-flex flex-col items-center justify-center text-center shadow-2xs min-w-[92px] transition"
                title="Filter pesan belum dibaca">
                 <span class="text-[10px] text-rose-600 font-semibold font-['Questrial',sans-serif] leading-tight block">Belum Dibaca</span>
-                <span class="text-sm font-bold font-['Agrandir',sans-serif] text-rose-600 leading-tight block mt-0.5">{{ $unreadMessages }}</span>
+                <span class="text-sm font-bold font-['Agrandir',sans-serif] text-rose-600 leading-tight block mt-0.5" x-text="stats.unread_messages">{{ $unreadMessages }}</span>
             </a>
             <a href="{{ route('admin.contacts.index', ['status' => 'contacted']) }}"
                class="hidden md:inline-flex h-11 px-4 rounded-2xl bg-emerald-50 hover:bg-emerald-100/80 border {{ $status === 'contacted' ? 'border-emerald-400 ring-2 ring-emerald-500/15' : 'border-emerald-200/80' }} flex-col items-center justify-center text-center shadow-2xs min-w-[92px] transition"
                title="Filter pesan yang sudah dihubungi">
                 <span class="text-[10px] text-emerald-700 font-semibold font-['Questrial',sans-serif] leading-tight block">Dihubungi</span>
-                <span class="text-sm font-bold font-['Agrandir',sans-serif] text-emerald-700 leading-tight block mt-0.5">{{ $contactedMessages }}</span>
+                <span class="text-sm font-bold font-['Agrandir',sans-serif] text-emerald-700 leading-tight block mt-0.5" x-text="stats.contacted_messages">{{ $contactedMessages }}</span>
             </a>
 
             @if ($unreadMessages > 0)
@@ -253,164 +302,106 @@
                         <th class="py-3.5 px-2.5 xl:px-3.5 font-bold whitespace-nowrap text-right">Aksi</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-slate-100 text-slate-700">
-                    @forelse ($messages as $msg)
-                        @php
-                            $rowData = $messagesData[$msg->id];
-                        @endphp
-                        <tr class="hover:bg-[#f8fafd]/80 transition duration-150 {{ $msg->status === 'unread' ? 'bg-blue-50/15' : '' }}">
+                <tbody class="divide-y divide-slate-100 text-slate-700"
+                       @scroll.window="statusMenuMsg = null"
+                       @resize.window="statusMenuMsg = null">
+                    <template x-for="msg in messagesList" :key="msg.id">
+                        <tr class="hover:bg-[#f8fafd]/80 transition duration-150"
+                            :class="msg.status === 'unread' ? 'bg-blue-50/15' : ''">
                             <!-- Waktu -->
                             <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
-                                <div class="font-bold text-slate-800 font-['Agrandir',sans-serif] text-xs">
-                                    {{ $msg->created_at->format('d M Y') }}
-                                </div>
+                                <div class="font-bold text-slate-800 font-['Agrandir',sans-serif] text-xs" x-text="msg.date_formatted"></div>
                                 <div class="text-[11px] text-slate-400 font-['Questrial',sans-serif] flex items-center gap-1 mt-0.5">
                                     <i class="fa-regular fa-clock text-[10px] text-slate-300"></i>
-                                    <span>{{ $msg->created_at->format('H:i') }} WIB</span>
+                                    <span x-text="msg.time_formatted"></span>
                                 </div>
                             </td>
 
                             <!-- Pengirim & Perusahaan -->
                             <td class="py-3.5 px-2.5 xl:px-3.5 align-middle max-w-[210px]">
-                                <button type="button" @click="openDetail({{ $msg->id }})"
-                                        class="font-bold text-slate-900 hover:text-[#3367A5] font-['Agrandir',sans-serif] text-xs text-left cursor-pointer transition truncate block max-w-full">
-                                    {{ $msg->name }}
-                                </button>
-                                <div class="text-[11px] text-[#3367A5] font-semibold mt-0.5 truncate">
-                                    {{ $msg->company ?: 'Individu / Perusahaan' }}
-                                </div>
+                                <button type="button" @click="openDetail(msg.id)"
+                                        class="font-bold text-slate-900 hover:text-[#3367A5] font-['Agrandir',sans-serif] text-xs text-left cursor-pointer transition truncate block max-w-full"
+                                        x-text="msg.name"></button>
+                                <div class="text-[11px] text-[#3367A5] font-semibold mt-0.5 truncate" x-text="msg.company"></div>
                                 <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1 text-[11px] font-['Questrial',sans-serif]">
-                                    @if ($msg->email)
-                                        <a href="{{ $rowData['mailto_url'] }}"
+                                    <template x-if="msg.email">
+                                        <a :href="msg.mailto_url"
                                            class="text-slate-400 hover:text-[#3367A5] hover:underline inline-flex items-center gap-1 transition truncate max-w-[160px]"
-                                           title="Kirim email ke {{ $msg->email }}">
+                                           :title="'Kirim email ke ' + msg.email">
                                             <i class="fa-regular fa-envelope text-[10px] shrink-0"></i>
-                                            <span class="font-mono text-[10px] truncate">{{ $msg->email }}</span>
+                                            <span class="font-mono text-[10px] truncate" x-text="msg.email"></span>
                                         </a>
-                                    @endif
-                                    @if (!empty($rowData['wa_url']))
-                                        <a href="{{ $rowData['wa_url'] }}" target="_blank" rel="noopener noreferrer"
-                                           @click="markContactedAsync({{ $msg->id }})"
+                                    </template>
+                                    <template x-if="msg.wa_url">
+                                        <a :href="msg.wa_url" target="_blank" rel="noopener noreferrer"
+                                           @click="markContactedAsync(msg.id)"
                                            class="text-slate-500 hover:text-emerald-600 hover:underline inline-flex items-center gap-1 transition"
-                                           title="Chat WhatsApp langsung ke {{ $msg->phone }}">
+                                           :title="'Chat WhatsApp langsung ke ' + msg.phone">
                                             <i class="fa-brands fa-whatsapp text-emerald-500 text-xs"></i>
-                                            <span class="font-mono text-[10px]">{{ $msg->phone }}</span>
+                                            <span class="font-mono text-[10px]" x-text="msg.phone"></span>
                                         </a>
-                                    @endif
+                                    </template>
                                 </div>
                             </td>
 
                             <!-- Layanan / Topik -->
                             <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
-                                <span class="h-6 px-2.5 inline-flex items-center justify-center rounded-lg text-[10px] font-bold font-['Agrandir',sans-serif] bg-slate-100 text-slate-700 leading-none">
-                                    {{ $msg->service ?: 'General Inquiry' }}
-                                </span>
+                                <span class="h-6 px-2.5 inline-flex items-center justify-center rounded-lg text-[10px] font-bold font-['Agrandir',sans-serif] bg-slate-100 text-slate-700 leading-none"
+                                      x-text="msg.service"></span>
                             </td>
 
                             <!-- Isi Pesan -->
                             <td class="py-3.5 px-2.5 xl:px-3.5 max-w-[190px] align-middle">
-                                <button type="button" @click="openDetail({{ $msg->id }})"
+                                <button type="button" @click="openDetail(msg.id)"
                                         class="text-left text-[11px] text-slate-600 hover:text-slate-900 leading-relaxed line-clamp-2 cursor-pointer transition"
-                                        title="Klik untuk membaca pesan selengkapnya">
-                                    {{ $msg->message }}
-                                </button>
+                                        title="Klik untuk membaca pesan selengkapnya"
+                                        x-text="msg.message"></button>
                             </td>
 
-                            <!-- Interactive Status Dropdown (Fixed Viewport Portal - Never Clipped Inside Table) -->
+                            <!-- Status Pill -->
                             <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap align-middle">
-                                <div class="relative inline-block text-left"
-                                     x-data="{
-                                         statusOpen: false,
-                                         openUp: false,
-                                         menuTop: 0,
-                                         menuBottom: 0,
-                                         menuLeft: 0,
-                                         toggleMenu() {
-                                             if (this.statusOpen) {
-                                                 this.statusOpen = false;
-                                                 return;
-                                             }
-                                             const rect = this.$refs.contactStatusBtn.getBoundingClientRect();
-                                             const spaceBelow = window.innerHeight - rect.bottom;
-                                             this.openUp = spaceBelow < 165 && rect.top > 165;
-                                             this.menuTop = rect.bottom + 6;
-                                             this.menuBottom = window.innerHeight - rect.top + 6;
-                                             this.menuLeft = Math.max(8, Math.min(window.innerWidth - 172, rect.left));
-                                             this.statusOpen = true;
-                                         }
-                                     }"
-                                     @scroll.window="statusOpen = false"
-                                     @resize.window="statusOpen = false">
-                                    <button type="button" x-ref="contactStatusBtn"
-                                        @click.stop="toggleMenu()"
-                                        class="h-7 px-3 inline-flex items-center justify-center gap-1.5 rounded-lg text-[11px] font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs active:scale-95 leading-none {{ $msg->status === 'unread' ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100' : ($msg->status === 'contacted' ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100' : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200/70') }}">
-                                        <span>{{ $msg->status === 'unread' ? 'Baru' : ($msg->status === 'contacted' ? 'Dihubungi' : 'Dibaca') }}</span>
-                                        <svg class="w-3 h-3 transition-transform duration-200" :class="{ 'rotate-180': statusOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </button>
-
-                                    <template x-teleport="body">
-                                        <div x-cloak x-show="statusOpen"
-                                            @click.outside="if (!$refs.contactStatusBtn?.contains($event.target)) statusOpen = false"
-                                            x-transition:enter="transition ease-out duration-150"
-                                            x-transition:enter-start="opacity-0 scale-95"
-                                            x-transition:enter-end="opacity-100 scale-100"
-                                            :style="openUp ? `position: fixed; left: ${menuLeft}px; bottom: ${menuBottom}px;` : `position: fixed; left: ${menuLeft}px; top: ${menuTop}px;`"
-                                            class="w-40 bg-white rounded-2xl shadow-xl border border-slate-200/90 py-1.5 z-[9990] overflow-hidden">
-                                            @foreach (['unread' => 'Baru', 'read' => 'Dibaca', 'contacted' => 'Dihubungi'] as $stKey => $stLabel)
-                                                <form method="POST" action="{{ route('admin.contacts.status', $msg->id) }}" class="m-0">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <input type="hidden" name="status" value="{{ $stKey }}">
-                                                    <button type="submit"
-                                                        class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer {{ $msg->status === $stKey ? 'bg-blue-50 text-[#3367A5] font-bold' : 'text-slate-700' }}">
-                                                        <span>{{ $stLabel }}</span>
-                                                        @if ($msg->status === $stKey)
-                                                            <i class="fa-solid fa-check text-[#3367A5] text-[10px]"></i>
-                                                        @endif
-                                                    </button>
-                                                </form>
-                                            @endforeach
-                                        </div>
-                                    </template>
-                                </div>
+                                <button type="button"
+                                    @click.stop="openStatusMenu(msg, $el)"
+                                    class="h-7 px-3 inline-flex items-center justify-center gap-1.5 rounded-lg text-[11px] font-bold font-['Agrandir',sans-serif] border transition cursor-pointer shadow-2xs active:scale-95 leading-none"
+                                    :class="msg.status === 'unread' ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100' : (msg.status === 'contacted' ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100' : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200/70')">
+                                    <span x-text="getStatusLabel(msg.status)"></span>
+                                    <svg class="w-3 h-3 transition-transform duration-200" :class="{ 'rotate-180': statusMenuMsg && statusMenuMsg.id === msg.id }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
                             </td>
 
                             <!-- Aksi -->
                             <td class="py-3.5 px-2.5 xl:px-3.5 whitespace-nowrap text-right align-middle">
                                 <div class="inline-flex items-center gap-1">
-                                    <!-- Detail -->
-                                    <button type="button" @click="openDetail({{ $msg->id }})"
+                                    <button type="button" @click="openDetail(msg.id)"
                                             class="h-8 px-2.5 inline-flex items-center justify-center gap-1 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#3367A5] font-bold text-[11px] font-['Agrandir',sans-serif] transition cursor-pointer leading-none"
                                             title="Baca detail pesan lengkap">
                                         <i class="fa-solid fa-eye text-[11px]"></i>
                                         <span>Detail</span>
                                     </button>
 
-                                    <!-- Direct WhatsApp Reply + Auto Mark Contacted -->
-                                    @if (!empty($rowData['wa_url']))
-                                        <a href="{{ $rowData['wa_url'] }}" target="_blank" rel="noopener noreferrer"
-                                           @click="markContactedAsync({{ $msg->id }})"
+                                    <template x-if="msg.wa_url">
+                                        <a :href="msg.wa_url" target="_blank" rel="noopener noreferrer"
+                                           @click="markContactedAsync(msg.id)"
                                            class="h-8 px-2.5 inline-flex items-center justify-center gap-1 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] font-['Agrandir',sans-serif] shadow-2xs transition cursor-pointer leading-none"
                                            title="Langsung balas via WhatsApp &amp; ubah status menjadi Dihubungi">
                                             <i class="fa-brands fa-whatsapp text-xs"></i>
                                             <span>Balas WA</span>
                                         </a>
-                                    @endif
+                                    </template>
 
-                                    <!-- Direct Email Reply -->
-                                    @if (!empty($rowData['mailto_url']))
-                                        <a href="{{ $rowData['mailto_url'] }}"
-                                           @click="markContactedAsync({{ $msg->id }})"
+                                    <template x-if="msg.mailto_url">
+                                        <a :href="msg.mailto_url"
+                                           @click="markContactedAsync(msg.id)"
                                            class="w-8 h-8 inline-flex items-center justify-center rounded-xl text-slate-500 hover:text-[#3367A5] hover:bg-blue-50 transition"
                                            title="Balas via Email">
                                             <i class="fa-regular fa-envelope text-xs"></i>
                                         </a>
-                                    @endif
+                                    </template>
 
-                                    <!-- Delete -->
-                                    <form method="POST" action="{{ route('admin.contacts.destroy', $msg->id) }}" class="inline-flex m-0 p-0" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pesan dari {{ addslashes($msg->name) }}?')">
+                                    <form method="POST" :action="msg.destroy_url" class="inline-flex m-0 p-0"
+                                          @submit="if (!confirm('Apakah Anda yakin ingin menghapus pesan dari ' + msg.name + '?')) $event.preventDefault()">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
@@ -422,7 +413,9 @@
                                 </div>
                             </td>
                         </tr>
-                    @empty
+                    </template>
+
+                    <template x-if="messagesList.length === 0">
                         <tr>
                             <td colspan="6" class="py-16 text-center text-slate-400 font-['Questrial',sans-serif]">
                                 <i class="fa-solid fa-envelope-open text-3xl mb-2 text-slate-300 block"></i>
@@ -437,10 +430,35 @@
                                 @endif
                             </td>
                         </tr>
-                    @endforelse
+                    </template>
                 </tbody>
             </table>
         </div>
+
+        <template x-teleport="body">
+            <div x-cloak x-show="statusMenuMsg !== null"
+                @click.outside="if (!statusTriggerEl || !statusTriggerEl.contains($event.target)) statusMenuMsg = null"
+                x-transition:enter="transition ease-out duration-150"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                :style="statusMenuUp ? `position: fixed; left: ${statusMenuLeft}px; bottom: ${statusMenuBottom}px;` : `position: fixed; left: ${statusMenuLeft}px; top: ${statusMenuTop}px;`"
+                class="w-40 bg-white rounded-2xl shadow-xl border border-slate-200/90 py-1.5 z-[9990] overflow-hidden">
+                <form id="sharedContactStatusForm" method="POST" :action="statusMenuMsg ? statusMenuMsg.status_url : '#'" class="m-0">
+                    @csrf
+                    @method('PATCH')
+                    <input type="hidden" name="status" id="sharedContactStatusInput" value="">
+                    @foreach (['unread' => 'Baru', 'read' => 'Dibaca', 'contacted' => 'Dihubungi'] as $stKey => $stLabel)
+                        <button type="button"
+                            @click="document.getElementById('sharedContactStatusInput').value = '{{ $stKey }}'; document.getElementById('sharedContactStatusForm').submit()"
+                            :class="statusMenuMsg?.status === '{{ $stKey }}' ? 'bg-blue-50 text-[#3367A5] font-bold' : 'text-slate-700'"
+                            class="w-full px-3.5 py-2 text-left text-xs flex items-center justify-between hover:bg-blue-50/70 transition cursor-pointer">
+                            <span>{{ $stLabel }}</span>
+                            <i x-show="statusMenuMsg?.status === '{{ $stKey }}'" class="fa-solid fa-check text-[#3367A5] text-[10px]"></i>
+                        </button>
+                    @endforeach
+                </form>
+            </div>
+        </template>
 
         @if ($messages->hasPages())
             <div class="px-5 py-3.5 border-t border-slate-100">

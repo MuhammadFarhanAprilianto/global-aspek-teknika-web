@@ -82,7 +82,8 @@ Route::get('/verify-invoice/{uuid}/{hash}', [CheckoutController::class, 'verify'
 
 // Contact Form
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::post('/contact', [ContactController::class, 'send']);
+Route::post('/contact', [ContactController::class, 'send'])
+    ->middleware('throttle:10,1');
 
 // About Us Sub-Pages (Separated Views: Vision & Mission, Applications, Projects)
 Route::get('/vision-mission', function () {
@@ -217,9 +218,15 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // API Endpoint: Lead Simulator, EIS Excel Workbook Export & Public CMS Live Version Check (registered with & without /api prefix for Vercel serverless)
-Route::post('/simulation-lead', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'storePublic'])->name('simulation-lead');
-Route::post('/api/simulation-lead', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'storePublic'])->name('api.simulation-lead');
-Route::post('/simulator/export-eis-excel', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'exportEisExcel'])->name('simulator.export-eis-excel');
+Route::post('/simulation-lead', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'storePublic'])
+    ->middleware('throttle:20,1')
+    ->name('simulation-lead');
+Route::post('/api/simulation-lead', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'storePublic'])
+    ->middleware('throttle:20,1')
+    ->name('api.simulation-lead');
+Route::post('/simulator/export-eis-excel', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'exportEisExcel'])
+    ->middleware('throttle:15,1')
+    ->name('simulator.export-eis-excel');
 
 $cmsVersionHandler = function () {
     $parts = [
@@ -237,7 +244,9 @@ $cmsVersionHandler = function () {
 };
 Route::get('/cms-version', $cmsVersionHandler)->name('api.cms-version');
 Route::get('/api/cms-version', $cmsVersionHandler);
-Route::post('/checkout/{order:uuid}/log-whatsapp-click', [\App\Http\Controllers\CheckoutController::class, 'logWhatsAppClick'])->name('checkout.log-whatsapp-click');
+Route::post('/checkout/{order:uuid}/log-whatsapp-click', [\App\Http\Controllers\CheckoutController::class, 'logWhatsAppClick'])
+    ->middleware(['signed', 'throttle:20,1'])
+    ->name('checkout.log-whatsapp-click');
 
 // Admin Console Area (PT Global Aspect Technology)
 Route::redirect('/admin', '/admin/dashboard');

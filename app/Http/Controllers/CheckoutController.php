@@ -242,7 +242,7 @@ class CheckoutController extends Controller
         $adminWaNumber = SiteSetting::adminWaNumber();
         $directWaText = $whatsappService->buildDirectWhatsAppCaption($order, $quotePdfUrl);
         $directWaUrl = 'https://wa.me/' . $adminWaNumber . '?text=' . rawurlencode($directWaText);
-        $logWaUrl = route('checkout.log-whatsapp-click', ['order' => $order->uuid]);
+        $logWaUrl = URL::temporarySignedRoute('checkout.log-whatsapp-click', $expiresAt, ['order' => $order->uuid]);
         $canAutoSendWa = $whatsappService->isGatewayReachableForAutoSend();
 
         return view('public.checkout', [

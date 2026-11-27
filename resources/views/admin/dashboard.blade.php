@@ -868,6 +868,12 @@
                     } else if (data.series) {
                         this.trafficSeries = data.series;
                     }
+
+                    try {
+                        if (window.Alpine && Alpine.store('admin')?.applyLiveBadgesPayload) {
+                            Alpine.store('admin').applyLiveBadgesPayload(data);
+                        }
+                    } catch (e) {}
                 })
                 .catch(() => {})
                 .finally(() => {
@@ -876,10 +882,10 @@
             },
 
             init() {
-                this.pollTraffic();
+                window.__gatDashboardOwnsPoll = true;
                 this.trafficPollTimer = setInterval(() => {
                     if (!document.hidden) this.pollTraffic();
-                }, 12000);
+                }, 10000);
                 try {
                     if (typeof BroadcastChannel !== 'undefined') {
                         const ch = new BroadcastChannel('gat_cms_sync');

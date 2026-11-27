@@ -64,6 +64,29 @@ class Solution extends Model
     }
 
     /**
+     * Sanitize stored icon_svg to prevent script/event-handler XSS when rendered inline.
+     */
+    public function safeIconHtml(): string
+    {
+        $raw = trim((string) $this->icon_svg);
+        if ($raw === '') {
+            return '<svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path stroke-linecap="round" d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path></svg>';
+        }
+
+        // Strip dangerous elements and inline event/script URIs
+        $clean = preg_replace('#<\s*(script|foreignObject|iframe|object|embed|style|link|meta)[^>]*>.*?<\s*/\s*\1\s*>#is', '', $raw) ?? '';
+        $clean = preg_replace('#<\s*(script|foreignObject|iframe|object|embed|style|link|meta)[^>]*\/?>#is', '', $clean) ?? '';
+        $clean = preg_replace('#\s+on[a-z0-9_-]+\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s>]+)#is', '', $clean) ?? '';
+        $clean = preg_replace('#(?:javascript|vbscript|data)\s*:#is', 'blocked:', $clean) ?? '';
+
+        if (str_contains(strtolower($clean), '<svg')) {
+            return $clean;
+        }
+
+        return '<svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">' . $clean . '</svg>';
+    }
+
+    /**
      * Normalized page content structure with clean defaults
      */
     public function resolvedPageContent(): array

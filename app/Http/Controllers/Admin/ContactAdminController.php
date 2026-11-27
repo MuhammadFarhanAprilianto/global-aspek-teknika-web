@@ -14,7 +14,39 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ContactAdminController extends Controller
 {
-    public function index(Request $request): View
+    public static function transformMessage(ContactMessage $msg): array
+    {
+        $waClean = preg_replace('/[^0-9]/', '', $msg->phone ?? '');
+        if (str_starts_with($waClean, '0')) {
+            $waClean = '62' . substr($waClean, 1);
+        } elseif (str_starts_with($waClean, '8')) {
+            $waClean = '62' . $waClean;
+        }
+        $companyLabel = $msg->company ? " ({$msg->company})" : '';
+        $serviceLabel = $msg->service ?: 'layanan otomasi industri';
+        $waText = urlencode("Halo Bapak/Ibu {$msg->name}{$companyLabel}, terima kasih telah menghubungi PT Global Aspect Technology mengenai {$serviceLabel}. Tim teknis kami siap membantu kebutuhan Anda. Apakah ada informasi tambahan yang bisa kami diskusikan?");
+        $waUrl = !empty($waClean) ? "https://api.whatsapp.com/send?phone={$waClean}&text={$waText}" : '';
+
+        return [
+            'id' => $msg->id,
+            'name' => $msg->name,
+            'company' => $msg->company ?: 'Individu / Perusahaan',
+            'email' => $msg->email,
+            'phone' => $msg->phone ?: '',
+            'service' => $msg->service ?: 'General Inquiry',
+            'message' => $msg->message,
+            'status' => $msg->status ?: 'unread',
+            'date_formatted' => $msg->created_at->format('d M Y'),
+            'time_formatted' => $msg->created_at->format('H:i') . ' WIB',
+            'created_at_formatted' => $msg->created_at->format('d M Y, H:i') . ' WIB',
+            'wa_url' => $waUrl,
+            'mailto_url' => !empty($msg->email) ? 'mailto:' . $msg->email . '?subject=' . rawurlencode('Re: ' . ($msg->service ?: 'Pertanyaan Website PT Global Aspect Technology')) : '',
+            'status_url' => route('admin.contacts.status', $msg->id),
+            'destroy_url' => route('admin.contacts.destroy', $msg->id),
+        ];
+    }
+
+    public function index(Request $request): View|JsonResponse
     {
         $status = $request->query('status', 'all');
         $search = trim($request->query('search', ''));
@@ -36,12 +68,31 @@ class ContactAdminController extends Controller
         }
 
         $messages = $query->paginate(15)->withQueryString();
-        $totalMessages = ContactMessage::count();
-        $unreadMessages = ContactMessage::where('status', 'unread')->count();
-        $contactedMessages = ContactMessage::where('status', 'contacted')->count();
+        $agg = ContactMessage::selectRaw("
+            COUNT(*) as total_messages,
+            SUM(CASE WHEN status = 'unread' THEN 1 ELSE 0 END) as unread_messages,
+            SUM(CASE WHEN status = 'contacted' THEN 1 ELSE 0 END) as contacted_messages
+        ")->first();
+        $totalMessages = (int) ($agg->total_messages ?? 0);
+        $unreadMessages = (int) ($agg->unread_messages ?? 0);
+        $contactedMessages = (int) ($agg->contacted_messages ?? 0);
+
+        $messagesList = $messages->getCollection()->map(fn (ContactMessage $m) => self::transformMessage($m))->values();
+
+        if ($request->expectsJson() || $request->query('format') === 'json') {
+            return response()->json([
+                'messages' => $messagesList,
+                'stats' => [
+                    'total_messages' => $totalMessages,
+                    'unread_messages' => $unreadMessages,
+                    'contacted_messages' => $contactedMessages,
+                ],
+            ]);
+        }
 
         return view('admin.contacts.index', compact(
             'messages',
+            'messagesList',
             'totalMessages',
             'unreadMessages',
             'contactedMessages',
@@ -104,10 +155,16 @@ class ContactAdminController extends Controller
         return back()->with('success', $updated > 0 ? "{$updated} pesan belum dibaca telah ditandai dibaca." : 'Semua pesan sudah dibaca.');
     }
 
-    public function destroy(ContactMessage $contact): RedirectResponse
+    public function destroy(Request $request, ContactMessage $contact): RedirectResponse
     {
         $name = $contact->name;
+        $email = $contact->email;
         $contact->delete();
+
+        try {
+            \App\Models\AdminSecurityLog::record('contact_deleted', 'warning', $request->user(), $request->user()?->email, "Menghapus pesan kontak dari {$name} ({$email}).");
+        } catch (\Throwable $e) {
+        }
 
         return back()->with('success', 'Pesan dari "' . $name . '" berhasil dihapus.');
     }

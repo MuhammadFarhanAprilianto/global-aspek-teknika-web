@@ -92,3 +92,22 @@ test('remember me saves encrypted device credentials cookie and pre-fills login 
 
     $uncheckResponse->assertHasNoErrors();
 });
+
+test('standard POST login applies rate limiting after repeated failed attempts', function () {
+    $user = User::factory()->create(['role' => 'admin']);
+
+    for ($i = 0; $i < 5; $i++) {
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'wrong-pass-' . $i,
+        ]);
+    }
+
+    $blocked = $this->post('/login', [
+        'email' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $blocked->assertSessionHasErrors('email');
+    $this->assertGuest();
+});

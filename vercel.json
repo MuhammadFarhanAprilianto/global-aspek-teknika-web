@@ -40,7 +40,7 @@
     "env": {
         "APP_NAME": "PT Global Aspect Technology",
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_STORAGE": "/tmp/storage",
         "APP_CONFIG_CACHE": "/tmp/bootstrap/cache/config.php",
         "APP_EVENTS_CACHE": "/tmp/bootstrap/cache/events.php",
@@ -48,10 +48,21 @@
         "APP_ROUTES_CACHE": "/tmp/bootstrap/cache/routes.php",
         "APP_SERVICES_CACHE": "/tmp/bootstrap/cache/services.php",
         "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
-        "CACHE_STORE": "array",
+        "CACHE_STORE": "database",
         "SESSION_COOKIE": "gat_session",
         "SESSION_LIFETIME": "1440",
         "SESSION_SECURE_COOKIE": "true",
         "LOG_CHANNEL": "stderr"
-    }
+    },
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+                { "key": "X-Content-Type-Options", "value": "nosniff" },
+                { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+                { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+            ]
+        }
+    ]
 }

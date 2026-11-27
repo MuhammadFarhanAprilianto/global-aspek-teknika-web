@@ -385,9 +385,9 @@
                         }
                     } catch (e) {}
 
-                    // Global real-time badge & incoming alert poller across ALL 7 admin pages (every 8s)
+                    // Global real-time badge & incoming alert poller across sub-pages (skipped on dashboard where dashboard poll owns live-traffic)
                     setInterval(() => {
-                        if (!document.hidden) {
+                        if (!document.hidden && !window.__gatDashboardOwnsPoll) {
                             this.syncLiveBadges();
                         }
                     }, 8000);
@@ -481,12 +481,46 @@
                         window.location.href = '{{ route('login') }}';
                     }
                 },
+                applyLiveBadgesPayload(data) {
+                    if (!data) return;
+                    const prev = this.badges;
+                    const next = {
+                        today_visitors: Number(data.today ?? prev.today_visitors),
+                        total_leads: Number(data.total_leads ?? prev.total_leads),
+                        new_leads: Number(data.new_leads ?? prev.new_leads),
+                        total_products: Number(data.total_products ?? prev.total_products),
+                        total_orders: Number(data.total_orders ?? prev.total_orders),
+                        new_orders: Number(data.new_orders ?? prev.new_orders),
+                        total_solutions: Number(data.total_solutions ?? prev.total_solutions),
+                        total_projects: Number(data.total_projects ?? prev.total_projects),
+                        total_inquiries: Number(data.total_inquiries ?? prev.total_inquiries),
+                        unread_inquiries: Number(data.unread_inquiries ?? prev.unread_inquiries),
+                        active_channels: Number(data.active_channels ?? prev.active_channels),
+                    };
+
+                    if (next.new_orders > prev.new_orders) {
+                        this.showToast(
+                            'Ada pengajuan pesanan / Sales Quote B2B baru masuk dari website.',
+                            'Pesanan B2B Baru', 'info');
+                    } else if (next.unread_inquiries > prev.unread_inquiries) {
+                        this.showToast(
+                            'Ada pesan formulir kontak baru masuk dari pengunjung website.',
+                            'Pesan Kontak Baru', 'info');
+                    } else if (next.new_leads > prev.new_leads) {
+                        this.showToast(
+                            'Ada prospek baru yang menjalankan simulator otomasi di website.',
+                            'Prospek Simulator Baru', 'info');
+                    }
+
+                    this.badges = next;
+                },
                 syncLiveBadges() {
                     fetch('{{ route('admin.api.live-traffic') }}', {
                             headers: {
                                 'Accept': 'application/json',
                                 'X-Requested-With': 'XMLHttpRequest'
-                            }
+                            },
+                            cache: 'no-store'
                         })
                         .then(r => {
                             if (r.status === 401) {
@@ -495,43 +529,7 @@
                             }
                             return r.ok ? r.json() : null;
                         })
-                        .then(data => {
-                            if (!data) return;
-                            const prev = this.badges;
-                            const next = {
-                                today_visitors: Number(data.today ?? prev.today_visitors),
-                                total_leads: Number(data.total_leads ?? prev.total_leads),
-                                new_leads: Number(data.new_leads ?? prev.new_leads),
-                                total_products: Number(data.total_products ?? prev.total_products),
-                                total_orders: Number(data.total_orders ?? prev.total_orders),
-                                new_orders: Number(data.new_orders ?? prev.new_orders),
-                                total_solutions: Number(data.total_solutions ?? prev
-                                    .total_solutions),
-                                total_projects: Number(data.total_projects ?? prev.total_projects),
-                                total_inquiries: Number(data.total_inquiries ?? prev
-                                    .total_inquiries),
-                                unread_inquiries: Number(data.unread_inquiries ?? prev
-                                    .unread_inquiries),
-                                active_channels: Number(data.active_channels ?? prev
-                                    .active_channels),
-                            };
-
-                            if (next.new_orders > prev.new_orders) {
-                                this.showToast(
-                                    'Ada pengajuan pesanan / Sales Quote B2B baru masuk dari website.',
-                                    'Pesanan B2B Baru', 'info');
-                            } else if (next.unread_inquiries > prev.unread_inquiries) {
-                                this.showToast(
-                                    'Ada pesan formulir kontak baru masuk dari pengunjung website.',
-                                    'Pesan Kontak Baru', 'info');
-                            } else if (next.new_leads > prev.new_leads) {
-                                this.showToast(
-                                    'Ada prospek baru yang menjalankan simulator otomasi di website.',
-                                    'Prospek Simulator Baru', 'info');
-                            }
-
-                            this.badges = next;
-                        })
+                        .then(data => this.applyLiveBadgesPayload(data))
                         .catch(() => {});
                 },
                 showToast(message, title = 'Berhasil', type = 'success') {

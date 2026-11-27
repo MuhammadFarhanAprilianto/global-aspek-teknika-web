@@ -69,6 +69,11 @@ class IntegrationAdminController extends Controller
         ];
 
         if ($mode === 'cloud' && $endpoint !== '') {
+            if (! SiteSetting::isSafeExternalUrl($endpoint, false)) {
+                return back()->withErrors([
+                    'wa_gateway_endpoint' => 'URL Cloud Gateway harus menggunakan domain/IP publik yang valid (bukan localhost atau jaringan privat/internal).',
+                ]);
+            }
             $pairs['wa_gateway_endpoint'] = $endpoint;
             if ($token !== '') {
                 $pairs['wa_gateway_token'] = $token;
@@ -78,6 +83,17 @@ class IntegrationAdminController extends Controller
         }
 
         SiteSetting::setMany('whatsapp', $pairs);
+
+        try {
+            \App\Models\AdminSecurityLog::record(
+                'wa_settings_updated',
+                'info',
+                $request->user(),
+                $request->user()?->email,
+                "Pengaturan WhatsApp diperbarui (Admin: {$adminPhone}, Marketing: {$publicPhone}, Mode: {$mode})."
+            );
+        } catch (\Throwable $e) {
+        }
 
         return back()->with('admin_toast', [
             'type' => 'success',
@@ -222,6 +238,19 @@ class IntegrationAdminController extends Controller
         $baseUrl = preg_replace('#/send/?$#i', '', $endpoint);
         $statusUrl = rtrim((string) $baseUrl, '/') . '/status';
 
+        if (! SiteSetting::isSafeExternalUrl($statusUrl, ! $this->isServerlessRuntime())) {
+            return response()->json([
+                'reachable' => false,
+                'local_supported' => false,
+                'mode' => 'blocked',
+                'device_status' => 'offline',
+                'state' => 'offline',
+                'device' => null,
+                'qr' => null,
+                'message' => 'Endpoint gateway tidak valid.',
+            ]);
+        }
+
         try {
             $res = Http::timeout(4)->get($statusUrl);
             if ($res->successful()) {
@@ -320,6 +349,10 @@ class IntegrationAdminController extends Controller
         $endpoint = trim((string) ($settings['wa_gateway_endpoint'] ?? 'http://127.0.0.1:3001/send'));
         $baseUrl = preg_replace('#/send/?$#i', '', $endpoint);
         $logoutUrl = rtrim((string) $baseUrl, '/') . '/logout';
+
+        if (! SiteSetting::isSafeExternalUrl($logoutUrl, ! $this->isServerlessRuntime())) {
+            return response()->json(['ok' => false, 'message' => 'Endpoint gateway tidak diizinkan.'], 422);
+        }
 
         try {
             $res = Http::timeout(6)->post($logoutUrl);
