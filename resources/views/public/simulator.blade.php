@@ -1522,15 +1522,6 @@
 
                                 <!-- Filled Recommendations Matching Gambar 2 -->
                                 <div id="eis-summary-details-wrap" class="hidden space-y-3.5 pt-1">
-                                    <!-- Light Blue DB & Mode Box -->
-                                    <div
-                                        class="p-3.5 sm:p-4 rounded-xl bg-[#f0f6ff] text-xs text-gray-700 leading-relaxed space-y-1 font-['Questrial']">
-                                        <div id="eis-db-arch-text">DB: PostgreSQL + TimescaleDB (hypertable, chunk per
-                                            hari, compress/retention).</div>
-                                        <div id="eis-mode-retention-text">Mode: Historian (12 months) + Report ·
-                                            Retention: 360 hari</div>
-                                    </div>
-
                                     <!-- Spesifikasi PC/Server Minimum -->
                                     <div class="space-y-1 text-xs text-gray-700 leading-relaxed font-['Questrial']">
                                         <div class="font-bold text-gray-900 text-xs sm:text-sm font-['Agrandir'] mb-1">
@@ -3755,22 +3746,6 @@
             if (dailyEl) dailyEl.textContent = dailyFormatted;
             if (retentionEl) retentionEl.textContent = retentionFormatted;
             if (costEl) costEl.textContent = costFormatted;
-
-            // Update DB & Mode Text matching Gambar 2
-            const modeRetentionEl = document.getElementById('eis-mode-retention-text');
-            if (modeRetentionEl) {
-                if (modeHist && modeRep) {
-                    modeRetentionEl.textContent =
-                        `Mode: Historian (${retentionMonths} months) + Report · Retention: ${retentionDays} hari`;
-                } else if (modeHist) {
-                    modeRetentionEl.textContent =
-                        `Mode: Historian (${retentionMonths} months) · Retention: ${retentionDays} hari`;
-                } else if (modeRt) {
-                    modeRetentionEl.textContent = `Mode: Realtime · Retention: 30 hari`;
-                } else {
-                    modeRetentionEl.textContent = `Mode: Tidak Aktif`;
-                }
-            }
 
             // Update PC Specs matching Gambar 2
             let cpuSpec = "Intel Core i5 / Xeon Quad-Core";
