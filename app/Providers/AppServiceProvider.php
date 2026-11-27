@@ -19,7 +19,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (app()->environment('production') || isset($_SERVER['VERCEL']) || getenv('VERCEL')) {
+        $forwardedProto = strtolower((string) request()->header('X-Forwarded-Proto', ''));
+        $cfVisitor = strtolower((string) request()->header('CF-Visitor', ''));
+
+        if (
+            app()->environment('production')
+            || isset($_SERVER['VERCEL'])
+            || getenv('VERCEL')
+            || $forwardedProto === 'https'
+            || str_contains($cfVisitor, '"https"')
+        ) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
     }
