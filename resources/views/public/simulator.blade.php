@@ -4676,7 +4676,7 @@
             try {
                 const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
                 const currentDomain = activeSimDomain || "{{ $currentDomain }}";
-                const res = await fetch('/api/simulation-lead', {
+                const res = await fetch('{{ route("simulation-lead") }}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

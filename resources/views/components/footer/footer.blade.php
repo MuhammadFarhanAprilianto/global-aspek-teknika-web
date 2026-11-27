@@ -204,7 +204,7 @@
             const url = typeof input === 'string' ? input : (input && input.url ? input.url : '');
             const method = ((init && init.method) || (input && input.method) || 'GET').toUpperCase();
             return origFetch(input, init).then((res) => {
-                if (res && res.ok && method === 'POST' && (url.includes('/api/simulation-lead') || url.includes('/checkout/'))) {
+                if (res && res.ok && method === 'POST' && (url.includes('simulation-lead') || url.includes('/checkout/'))) {
                     notifyAdminTabs(url);
                 }
                 return res;

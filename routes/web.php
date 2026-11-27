@@ -216,10 +216,11 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
-// API Endpoint: Lead Simulator & Public CMS Live Version Check
+// API Endpoint: Lead Simulator & Public CMS Live Version Check (registered with & without /api prefix for Vercel serverless)
+Route::post('/simulation-lead', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'storePublic'])->name('simulation-lead');
 Route::post('/api/simulation-lead', [\App\Http\Controllers\Admin\SimulationLeadController::class, 'storePublic'])->name('api.simulation-lead');
 
-Route::get('/api/cms-version', function () {
+$cmsVersionHandler = function () {
     $parts = [
         \App\Models\Product::count() . ':' . (\App\Models\Product::max('updated_at') ?? ''),
         \App\Models\ProductCategory::count() . ':' . (\App\Models\ProductCategory::max('updated_at') ?? ''),
@@ -232,7 +233,9 @@ Route::get('/api/cms-version', function () {
         'version' => md5(implode('|', $parts)),
         'timestamp' => now()->toIso8601String(),
     ])->header('Cache-Control', 'no-store, no-cache, must-revalidate');
-})->name('api.cms-version');
+};
+Route::get('/cms-version', $cmsVersionHandler)->name('api.cms-version');
+Route::get('/api/cms-version', $cmsVersionHandler);
 Route::post('/checkout/{order:uuid}/log-whatsapp-click', [\App\Http\Controllers\CheckoutController::class, 'logWhatsAppClick'])->name('checkout.log-whatsapp-click');
 
 // Admin Console Area (PT Global Aspect Technology)
