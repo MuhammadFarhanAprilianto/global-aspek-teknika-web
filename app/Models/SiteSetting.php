@@ -59,10 +59,6 @@ class SiteSetting extends Model
         $defaults = self::defaults();
 
         try {
-            if (! Schema::hasTable('site_settings')) {
-                return $defaults;
-            }
-
             $stored = Cache::remember(self::CACHE_KEY, 300, function () {
                 return static::query()->pluck('value', 'key')->all();
             });

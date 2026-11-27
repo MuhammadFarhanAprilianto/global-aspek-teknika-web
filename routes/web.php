@@ -428,7 +428,9 @@ if (!function_exists('buildAdminDashboardSnapshot')) {
                 (SELECT COUNT(*) FROM products) as total_products,
                 (SELECT COUNT(*) FROM products WHERE status = 'published') as published_products,
                 (SELECT COUNT(*) FROM solutions) as total_solutions,
-                (SELECT COUNT(*) FROM projects) as total_projects"
+                (SELECT COUNT(*) FROM solutions WHERE show_in_navbar = true) as shown_solutions,
+                (SELECT COUNT(*) FROM projects) as total_projects,
+                (SELECT COUNT(*) FROM projects WHERE is_featured = true) as shown_projects"
         );
 
         $totalLeads = (int) ($crmCounts->total_leads ?? 0);
@@ -438,9 +440,9 @@ if (!function_exists('buildAdminDashboardSnapshot')) {
         $totalProducts = (int) ($crmCounts->total_products ?? 0);
         $publishedProducts = (int) ($crmCounts->published_products ?? 0);
         $totalSolutions = (int) ($crmCounts->total_solutions ?? 0);
-        $shownSolutions = \App\Models\Solution::where('show_in_navbar', true)->count();
+        $shownSolutions = (int) ($crmCounts->shown_solutions ?? 0);
         $totalProjects = (int) ($crmCounts->total_projects ?? 0);
-        $shownProjects = \App\Models\Project::where('is_featured', true)->count();
+        $shownProjects = (int) ($crmCounts->shown_projects ?? 0);
 
         $orderAgg = \App\Models\Order::selectRaw("
             COUNT(*) as total_orders,
