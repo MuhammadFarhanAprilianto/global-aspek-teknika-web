@@ -91,34 +91,61 @@ foreach ($driverDefaults as $key => $default) {
     }
 }
 
+// Helper to read environment variable reliably across getenv / $_ENV / $_SERVER on Vercel PHP runtime
+$readEnv = static function (string $name): string {
+    $val = getenv($name);
+    if ($val !== false && trim((string) $val) !== '') {
+        return trim((string) $val);
+    }
+    $alt = $_ENV[$name] ?? $_SERVER[$name] ?? '';
+    return is_string($alt) ? trim($alt) : '';
+};
+
 // Support single-string Cloud Database URLs (DATABASE_URL / POSTGRES_URL / MYSQL_URL) on Vercel
-$cloudDbUrl = getenv('DATABASE_URL') ?: (getenv('POSTGRES_URL') ?: (getenv('MYSQL_URL') ?: (getenv('DB_URL') ?: '')));
-if (!empty($cloudDbUrl) && ($parts = parse_url($cloudDbUrl)) && !empty($parts['host'])) {
-    $scheme = strtolower((string) ($parts['scheme'] ?? ''));
-    $driver = match (true) {
-        str_contains($scheme, 'postgres') || $scheme === 'pgsql' => 'pgsql',
-        str_contains($scheme, 'mysql') || str_contains($scheme, 'mariadb') => 'mysql',
-        default => getenv('DB_CONNECTION') ?: 'mysql',
-    };
-    $dbEnv = [
-        'DB_CONNECTION' => $driver,
-        'DB_HOST' => $parts['host'],
-        'DB_PORT' => (string) ($parts['port'] ?? ($driver === 'pgsql' ? '5432' : '3306')),
-        'DB_DATABASE' => ltrim((string) ($parts['path'] ?? ''), '/'),
-        'DB_USERNAME' => urldecode((string) ($parts['user'] ?? '')),
-        'DB_PASSWORD' => urldecode((string) ($parts['pass'] ?? '')),
-    ];
-    foreach ($dbEnv as $k => $v) {
-        if ($v !== '') {
-            putenv("{$k}={$v}");
-            $_ENV[$k] = $v;
-            $_SERVER[$k] = $v;
+$cloudDbUrl = $readEnv('DATABASE_URL') ?: ($readEnv('POSTGRES_URL') ?: ($readEnv('MYSQL_URL') ?: $readEnv('DB_URL')));
+if ($cloudDbUrl !== '') {
+    $parts = parse_url($cloudDbUrl);
+    if ((! $parts || empty($parts['host'])) && preg_match('#^(postgres(?:ql)?|pgsql|mysql|mariadb)://([^:]+):(.+)@([^:/]+)(?::(\d+))?/([^?]+)#i', $cloudDbUrl, $m)) {
+        $parts = [
+            'scheme' => $m[1],
+            'user' => $m[2],
+            'pass' => $m[3],
+            'host' => $m[4],
+            'port' => $m[5] !== '' ? (int) $m[5] : null,
+            'path' => '/' . $m[6],
+        ];
+    }
+
+    if (is_array($parts) && ! empty($parts['host'])) {
+        $scheme = strtolower((string) ($parts['scheme'] ?? ''));
+        $driver = match (true) {
+            str_contains($scheme, 'postgres') || $scheme === 'pgsql' => 'pgsql',
+            str_contains($scheme, 'mysql') || str_contains($scheme, 'mariadb') => 'mysql',
+            default => $readEnv('DB_CONNECTION') ?: 'mysql',
+        };
+        $dbEnv = [
+            'DB_CONNECTION' => $driver,
+            'DB_HOST' => $parts['host'],
+            'DB_PORT' => (string) ($parts['port'] ?? ($driver === 'pgsql' ? '5432' : '3306')),
+            'DB_DATABASE' => ltrim((string) ($parts['path'] ?? ''), '/'),
+            'DB_USERNAME' => rawurldecode((string) ($parts['user'] ?? '')),
+            'DB_PASSWORD' => rawurldecode((string) ($parts['pass'] ?? '')),
+        ];
+        if (str_contains($parts['host'], 'supabase')) {
+            $dbEnv['DB_SSLMODE'] = 'require';
+        }
+        foreach ($dbEnv as $k => $v) {
+            if ($v !== '') {
+                putenv("{$k}={$v}");
+                $_ENV[$k] = $v;
+                $_SERVER[$k] = $v;
+            }
         }
     }
 }
 
 // If DB_HOST is 127.0.0.1 (local MySQL) or empty, fallback to SQLite to prevent connection refused errors
-$dbHost = getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? $_SERVER['DB_HOST'] ?? '');
+$dbHost = $readEnv('DB_HOST');
 if ($dbHost === '127.0.0.1' || $dbHost === 'localhost' || empty($dbHost)) {
     putenv('DB_CONNECTION=sqlite');
     putenv('DB_DATABASE=/tmp/database.sqlite');
