@@ -144,7 +144,8 @@ if ($cloudDbUrl !== '') {
     }
 }
 
-// If DB_HOST is 127.0.0.1 (local MySQL) or empty, fallback to SQLite to prevent connection refused errors
+// If DB_HOST is 127.0.0.1 (local MySQL) or empty, fallback to SQLite + cookie sessions;
+// when connected to Cloud DB (Supabase/PostgreSQL/MySQL), use database sessions so cookies stay tiny and never hit 419!
 $dbHost = $readEnv('DB_HOST');
 if ($dbHost === '127.0.0.1' || $dbHost === 'localhost' || empty($dbHost)) {
     putenv('DB_CONNECTION=sqlite');
@@ -153,6 +154,10 @@ if ($dbHost === '127.0.0.1' || $dbHost === 'localhost' || empty($dbHost)) {
     $_ENV['DB_DATABASE'] = '/tmp/database.sqlite';
     $_SERVER['DB_CONNECTION'] = 'sqlite';
     $_SERVER['DB_DATABASE'] = '/tmp/database.sqlite';
+} else {
+    putenv('SESSION_DRIVER=database');
+    $_ENV['SESSION_DRIVER'] = 'database';
+    $_SERVER['SESSION_DRIVER'] = 'database';
 }
 
 // Fallback APP_KEY if not explicitly provided
