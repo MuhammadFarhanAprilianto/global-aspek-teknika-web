@@ -44,10 +44,11 @@ class AdminProfileController extends Controller
         ]);
 
         if ($request->hasFile('avatar')) {
-            if ($user->avatar && str_starts_with($user->avatar, 'avatars/') && Storage::disk('public')->exists($user->avatar)) {
-                Storage::disk('public')->delete($user->avatar);
+            $cloudStorage = app(\App\Services\SupabaseStorageService::class);
+            if ($user->avatar && (str_starts_with($user->avatar, 'avatars/') || str_contains($user->avatar, '/storage/v1/object/public/'))) {
+                $cloudStorage->deleteStoredPath($user->avatar, 'public');
             }
-            $user->avatar = $request->file('avatar')->store('avatars', 'public');
+            $user->avatar = $cloudStorage->storeUploadedFile($request->file('avatar'), 'avatars', 'public');
         }
 
         $user->name = $validated['name'];
@@ -130,17 +131,18 @@ class AdminProfileController extends Controller
         }
 
         if ($request->boolean('remove_avatar') && $user->avatar) {
-            if (str_starts_with($user->avatar, 'avatars/') && Storage::disk('public')->exists($user->avatar)) {
-                Storage::disk('public')->delete($user->avatar);
+            if (str_starts_with($user->avatar, 'avatars/') || str_contains($user->avatar, '/storage/v1/object/public/')) {
+                app(\App\Services\SupabaseStorageService::class)->deleteStoredPath($user->avatar, 'public');
             }
             $user->avatar = null;
         }
 
         if ($request->hasFile('avatar')) {
-            if ($user->avatar && str_starts_with($user->avatar, 'avatars/') && Storage::disk('public')->exists($user->avatar)) {
-                Storage::disk('public')->delete($user->avatar);
+            $cloudStorage = app(\App\Services\SupabaseStorageService::class);
+            if ($user->avatar && (str_starts_with($user->avatar, 'avatars/') || str_contains($user->avatar, '/storage/v1/object/public/'))) {
+                $cloudStorage->deleteStoredPath($user->avatar, 'public');
             }
-            $user->avatar = $request->file('avatar')->store('avatars', 'public');
+            $user->avatar = $cloudStorage->storeUploadedFile($request->file('avatar'), 'avatars', 'public');
         }
 
         $oldEmail = $user->email;

@@ -79,7 +79,11 @@ class ProductAdminController extends Controller
 
         $imagePath = 'products/default.jpg';
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('products', 'public');
+            $imagePath = app(\App\Services\SupabaseStorageService::class)->storeUploadedFile(
+                $request->file('image'),
+                'products',
+                'public'
+            );
         }
 
         // Parse specifications: prioritas dari input baris terstruktur (specs_keys & specs_values)
@@ -128,10 +132,11 @@ class ProductAdminController extends Controller
 
         $imagePath = $product->image;
         if ($request->hasFile('image')) {
-            if ($product->image && !str_starts_with($product->image, 'http') && Storage::disk('public')->exists($product->image)) {
-                Storage::disk('public')->delete($product->image);
+            $cloudStorage = app(\App\Services\SupabaseStorageService::class);
+            if ($product->image && $product->image !== 'products/default.jpg') {
+                $cloudStorage->deleteStoredPath($product->image, 'public');
             }
-            $imagePath = $request->file('image')->store('products', 'public');
+            $imagePath = $cloudStorage->storeUploadedFile($request->file('image'), 'products', 'public');
         }
 
         // Parse specifications (termasuk spec_groups_json dari modal edit modern)
@@ -181,8 +186,8 @@ class ProductAdminController extends Controller
     public function destroy(Product $product): RedirectResponse
     {
         $name = $product->name;
-        if ($product->image && !str_starts_with($product->image, 'http') && Storage::disk('public')->exists($product->image)) {
-            Storage::disk('public')->delete($product->image);
+        if ($product->image && $product->image !== 'products/default.jpg') {
+            app(\App\Services\SupabaseStorageService::class)->deleteStoredPath($product->image, 'public');
         }
         $product->delete();
 

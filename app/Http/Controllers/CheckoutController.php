@@ -240,7 +240,7 @@ class CheckoutController extends Controller
         ]);
 
         $adminWaNumber = SiteSetting::adminWaNumber();
-        $directWaText = $whatsappService->buildAdminCaption($order);
+        $directWaText = $whatsappService->buildDirectWhatsAppCaption($order, $quotePdfUrl);
         $directWaUrl = 'https://wa.me/' . $adminWaNumber . '?text=' . rawurlencode($directWaText);
         $logWaUrl = route('checkout.log-whatsapp-click', ['order' => $order->uuid]);
         $canAutoSendWa = $whatsappService->isGatewayReachableForAutoSend();
@@ -320,10 +320,11 @@ class CheckoutController extends Controller
 
             $extension = strtolower($file->getClientOriginalExtension() ?: $file->extension() ?: 'pdf');
             $filename = 'PO-' . $order->uuid . '-' . now()->format('YmdHis') . '.' . $extension;
-            $newPath = $file->storeAs('po_documents/' . now()->format('Y-m'), $filename, 'local');
+            $cloudStorage = app(\App\Services\SupabaseStorageService::class);
+            $newPath = $cloudStorage->storeUploadedFile($file, 'po_documents/' . now()->format('Y-m'), 'local', $filename, true);
 
-            if ($order->po_document_path && Storage::disk('local')->exists($order->po_document_path)) {
-                Storage::disk('local')->delete($order->po_document_path);
+            if ($order->po_document_path) {
+                $cloudStorage->deleteStoredPath($order->po_document_path, 'local');
             }
 
             $privatePath = $newPath;
@@ -339,8 +340,6 @@ class CheckoutController extends Controller
 
         $order->loadMissing(['items.product:id,sku,name,specifications']);
         $adminWaNumber = SiteSetting::adminWaNumber();
-        $directWaText = $whatsappService->buildAdminCaption($order);
-        $directWaUrl = 'https://wa.me/' . $adminWaNumber . '?text=' . rawurlencode($directWaText);
 
         $waResult = $whatsappService->sendOrderConfirmationPdf($order);
         $expiresAt = $order->expires_at ?? now()->addDays(14);
@@ -398,11 +397,15 @@ class CheckoutController extends Controller
      */
     public function downloadPoDocument(Request $request, Order $order, string $filename): Response
     {
-        if (! $order->po_document_path || ! Storage::disk('local')->exists($order->po_document_path)) {
+        if (! $order->po_document_path) {
             abort(404, 'Lampiran dokumen PO tidak ditemukan.');
         }
 
-        return Storage::disk('local')->response($order->po_document_path, basename($order->po_document_path));
+        return app(\App\Services\SupabaseStorageService::class)->downloadResponse(
+            $order->po_document_path,
+            basename($order->po_document_path),
+            'local'
+        );
     }
 
     /**

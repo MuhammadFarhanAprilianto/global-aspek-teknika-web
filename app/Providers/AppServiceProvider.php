@@ -31,5 +31,30 @@ class AppServiceProvider extends ServiceProvider
         ) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
+
+        // Bootstrap schema & initial catalog automatically when Vercel connects to a brand-new Cloud DB (Supabase/MySQL)
+        if (
+            (isset($_SERVER['VERCEL']) || getenv('VERCEL') === '1')
+            && ! app()->runningInConsole()
+            && ! app()->runningUnitTests()
+            && config('database.default') !== 'sqlite'
+        ) {
+            $hostKey = md5((string) config('database.connections.' . config('database.default') . '.host', 'cloud'));
+            $marker = '/tmp/.gat_db_booted_' . $hostKey;
+            if (! is_file($marker)) {
+                try {
+                    if (! \Illuminate\Support\Facades\Schema::hasTable('users')) {
+                        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+                        \Illuminate\Support\Facades\Artisan::call('db:seed', [
+                            '--class' => \Database\Seeders\CatalogBootstrapSeeder::class,
+                            '--force' => true,
+                        ]);
+                    }
+                    @file_put_contents($marker, (string) time());
+                } catch (\Throwable $e) {
+                    \Illuminate\Support\Facades\Log::warning('Cloud DB auto-bootstrap skipped: ' . $e->getMessage());
+                }
+            }
+        }
     }
 }

@@ -612,3 +612,66 @@ it('shows direct wa.me fallback and avoids false confirmed status when WhatsApp 
         ->assertSee('Diproses Tim GAT')
         ->assertDontSee('Pesanan Tersimpan — Belum Terkirim ke WA');
 });
+
+it('includes official signed PDF link in direct wa.me URL and integrates Supabase Storage uploads cleanly', function () {
+    $category = ProductCategory::create([
+        'name' => 'Coding & Marking',
+        'slug' => 'coding-marking-test',
+        'sort_order' => 1,
+    ]);
+
+    $product = Product::create([
+        'category_id' => $category->id,
+        'sku' => 'GAT-TEST-PDF-WA',
+        'name' => 'Inkjet Printer G0510',
+        'slug' => 'inkjet-printer-g0510-test',
+        'price' => 12000000,
+        'is_rfq_only' => true,
+        'stock' => 4,
+        'min_order_quantity' => 1,
+        'status' => 'published',
+    ]);
+
+    $initRes = $this->post(route('checkout.initiate'), [
+        'cart_items_json' => json_encode([['id' => $product->id, 'qty' => 1]]),
+        'pic_name' => 'Rina Putri',
+        'company_name' => 'PT Nusantara Pack',
+        'company_email' => 'rina@nusantarapack.co.id',
+        'company_phone' => '081233445566',
+    ]);
+
+    $showHtml = $this->get($initRes->headers->get('Location'))->assertOk()->getContent();
+    expect($showHtml)->toContain('Dokumen%20PDF%20Sales%20Quote%20Resmi')
+        ->and($showHtml)->toContain('Sales-Quote-pt-nusantara-pack.pdf');
+
+    // Test SupabaseStorageService HTTP upload, private download, and deletion
+    config([
+        'services.supabase.url' => 'https://demo-proj.supabase.co',
+        'services.supabase.service_key' => 'sb-secret-key-test',
+        'services.supabase.bucket' => 'gat-uploads',
+    ]);
+
+    Http::fake([
+        'https://demo-proj.supabase.co/storage/v1/object/gat-uploads/*' => Http::response(['Key' => 'gat-uploads/products/test.png'], 200),
+        'https://demo-proj.supabase.co/storage/v1/object/gat-uploads' => Http::response([], 200),
+    ]);
+
+    $supa = new \App\Services\SupabaseStorageService();
+    $fakeImg = UploadedFile::fake()->image('sample.png', 100, 100);
+    $publicUrl = $supa->storeUploadedFile($fakeImg, 'products', 'public', 'custom-sample.png', false);
+    expect($publicUrl)->toBe('https://demo-proj.supabase.co/storage/v1/object/public/gat-uploads/products/custom-sample.png');
+
+    $fakePdf = UploadedFile::fake()->createWithContent('po.pdf', '%PDF-1.4 Test');
+    $privateRef = $supa->storeUploadedFile($fakePdf, 'po_documents/2026-11', 'local', 'PO-test.pdf', true);
+    expect($privateRef)->toBe('supabase://po_documents/2026-11/PO-test.pdf');
+
+    $supa->deleteStoredPath($publicUrl);
+    Http::assertSent(fn ($req) => $req->method() === 'DELETE' && str_contains($req->url(), '/storage/v1/object/gat-uploads'));
+
+    // Test CatalogBootstrapSeeder leaves visitor logs / leads / contact messages untouched
+    $visitorsBefore = \App\Models\VisitorLog::count();
+    $this->seed(\Database\Seeders\CatalogBootstrapSeeder::class);
+    expect(\App\Models\Project::count())->toBe(10)
+        ->and(\App\Models\Solution::count())->toBe(6)
+        ->and(\App\Models\VisitorLog::count())->toBe($visitorsBefore);
+});

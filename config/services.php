@@ -42,4 +42,10 @@ return [
         'send_copy_to_buyer' => env('WHATSAPP_SEND_COPY_TO_BUYER', true),
     ],
 
+    'supabase' => [
+        'url' => rtrim((string) env('SUPABASE_URL', ''), '/'),
+        'service_key' => (string) env('SUPABASE_SERVICE_KEY', ''),
+        'bucket' => trim((string) env('SUPABASE_BUCKET', 'gat-uploads')),
+    ],
+
 ];

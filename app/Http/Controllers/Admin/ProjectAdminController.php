@@ -83,7 +83,11 @@ class ProjectAdminController extends Controller
 
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('projects', 'public');
+            $imagePath = app(\App\Services\SupabaseStorageService::class)->storeUploadedFile(
+                $request->file('image'),
+                'projects',
+                'public'
+            );
         }
 
         $nextOrder = Project::max('sort_order') + 1;
@@ -117,10 +121,11 @@ class ProjectAdminController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            if ($project->image && str_starts_with($project->image, 'projects/') && Storage::disk('public')->exists($project->image)) {
-                Storage::disk('public')->delete($project->image);
+            $cloudStorage = app(\App\Services\SupabaseStorageService::class);
+            if ($project->image && (str_starts_with($project->image, 'projects/') || str_contains($project->image, '/storage/v1/object/public/'))) {
+                $cloudStorage->deleteStoredPath($project->image, 'public');
             }
-            $project->image = $request->file('image')->store('projects', 'public');
+            $project->image = $cloudStorage->storeUploadedFile($request->file('image'), 'projects', 'public');
         }
 
         $project->update([
@@ -150,8 +155,8 @@ class ProjectAdminController extends Controller
     public function destroy(Project $project): RedirectResponse
     {
         $title = $project->title;
-        if ($project->image && str_starts_with($project->image, 'projects/') && Storage::disk('public')->exists($project->image)) {
-            Storage::disk('public')->delete($project->image);
+        if ($project->image && (str_starts_with($project->image, 'projects/') || str_contains($project->image, '/storage/v1/object/public/'))) {
+            app(\App\Services\SupabaseStorageService::class)->deleteStoredPath($project->image, 'public');
         }
         $project->delete();
 

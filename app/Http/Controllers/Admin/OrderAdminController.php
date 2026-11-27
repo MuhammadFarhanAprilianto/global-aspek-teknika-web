@@ -102,11 +102,15 @@ class OrderAdminController extends Controller
 
     public function downloadPoDocument(Order $order): Response
     {
-        if (! $order->po_document_path || ! Storage::disk('local')->exists($order->po_document_path)) {
+        if (! $order->po_document_path) {
             abort(404, 'Lampiran dokumen PO tidak ditemukan atau belum diunggah.');
         }
 
-        return Storage::disk('local')->response($order->po_document_path, basename($order->po_document_path));
+        return app(\App\Services\SupabaseStorageService::class)->downloadResponse(
+            $order->po_document_path,
+            basename($order->po_document_path),
+            'local'
+        );
     }
 
     public function logWhatsApp(Order $order): JsonResponse

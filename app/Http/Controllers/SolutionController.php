@@ -184,7 +184,11 @@ class SolutionController extends Controller
 
         $imagePath = 'solution_default.jpg';
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('solutions', 'public');
+            $imagePath = app(\App\Services\SupabaseStorageService::class)->storeUploadedFile(
+                $request->file('image'),
+                'solutions',
+                'public'
+            );
         }
 
         $baseSlug = Str::slug($validated['name']);
@@ -228,10 +232,11 @@ class SolutionController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            if ($solution->image && $solution->image !== 'solution_default.jpg' && Storage::disk('public')->exists($solution->image)) {
-                Storage::disk('public')->delete($solution->image);
+            $cloudStorage = app(\App\Services\SupabaseStorageService::class);
+            if ($solution->image && $solution->image !== 'solution_default.jpg') {
+                $cloudStorage->deleteStoredPath($solution->image, 'public');
             }
-            $solution->image = $request->file('image')->store('solutions', 'public');
+            $solution->image = $cloudStorage->storeUploadedFile($request->file('image'), 'solutions', 'public');
         }
 
         $coreSlugs = ['plc-progamming', 'inspection', 'software', 'intergrator', 'laser-marking', 'strapping'];
@@ -317,8 +322,8 @@ class SolutionController extends Controller
     public function destroy(Solution $solution): RedirectResponse
     {
         $name = $solution->name;
-        if ($solution->image && $solution->image !== 'solution_default.jpg' && Storage::disk('public')->exists($solution->image)) {
-            Storage::disk('public')->delete($solution->image);
+        if ($solution->image && $solution->image !== 'solution_default.jpg') {
+            app(\App\Services\SupabaseStorageService::class)->deleteStoredPath($solution->image, 'public');
         }
         $solution->delete();
 

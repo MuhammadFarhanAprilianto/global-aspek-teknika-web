@@ -158,8 +158,8 @@ class FonnteWhatsAppService
             }
 
             // 2. Jika pembeli mengunggah file PO resmi (opsional), kirimkan juga file fisiknya ke WA Admin
-            if (! empty($order->po_document_path) && Storage::disk('local')->exists($order->po_document_path)) {
-                $poBytes = (string) Storage::disk('local')->get($order->po_document_path);
+            if (! empty($order->po_document_path)) {
+                $poBytes = (string) (app(SupabaseStorageService::class)->getBytes($order->po_document_path, 'local') ?? '');
                 if ($poBytes !== '') {
                     $poExt = pathinfo($order->po_document_path, PATHINFO_EXTENSION) ?: 'pdf';
                     $poFilename = 'PO_' . Str::slug($order->company_name ?: 'Korporat', '_') . '.' . $poExt;
@@ -258,6 +258,28 @@ class FonnteWhatsAppService
         $lines[] = 'Terlampir di atas dokumen *PDF Sales Quote* pengajuan kami. Mohon dibantu tindak lanjut serta penerbitan Nomor Quote resminya. Terima kasih.';
 
         return implode("\n", $lines);
+    }
+
+    /**
+     * Caption untuk tautan langsung wa.me (saat Gateway PDF otomatis belum aktif),
+     * menyertakan link resmi unduh/buka PDF Sales Quote.
+     */
+    public function buildDirectWhatsAppCaption(Order $order, ?string $quotePdfUrl = null): string
+    {
+        $baseCaption = $this->buildAdminCaption($order);
+        if (! $quotePdfUrl) {
+            return $baseCaption;
+        }
+
+        $tail = 'Terlampir di atas dokumen *PDF Sales Quote* pengajuan kami. Mohon dibantu tindak lanjut serta penerbitan Nomor Quote resminya. Terima kasih.';
+        $replacement = "*Dokumen PDF Sales Quote Resmi:*\n" . $quotePdfUrl
+            . "\n\nMohon dibantu tindak lanjut serta penerbitan Nomor Quote resminya. Terima kasih.";
+
+        if (str_contains($baseCaption, $tail)) {
+            return str_replace($tail, $replacement, $baseCaption);
+        }
+
+        return $baseCaption . "\n\n" . $replacement;
     }
 
     /**
