@@ -247,16 +247,27 @@ if (!function_exists('buildAdminTrafficSeries')) {
     {
         $today = today();
         $dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+        $monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
 
-        // Pre-aggregate 60 days of REAL visitor logs in 1 single fast SQL query (no fake random numbers!)
-        $startDate60 = $today->copy()->subDays(59)->startOfDay();
-        $dailyAgg = \App\Models\VisitorLog::where('created_at', '>=', $startDate60)
-            ->selectRaw('DATE(created_at) as d, COUNT(*) as total_hits, COUNT(DISTINCT ip_address) as unique_ips')
-            ->groupBy('d')
-            ->get()
-            ->keyBy('d');
+        // 1 single aggregated SQL query across past 4 years (replaces 57 sequential queries for fast Supabase/cloud speed)
+        $start4y = $today->copy()->subYears(3)->startOfYear();
+        $rawBuckets = \App\Models\VisitorLog::where('created_at', '>=', $start4y)
+            ->selectRaw('DATE(created_at) as d, ip_address, COUNT(*) as hits')
+            ->groupByRaw('DATE(created_at), ip_address')
+            ->get();
 
-        // 1. Daily series for past 60 days strictly ending TODAY (100% Real DB Data)
+        $dailyHits = [];
+        $dailyIps = [];
+        foreach ($rawBuckets as $row) {
+            $d = (string) $row->d;
+            $ip = (string) ($row->ip_address ?? '');
+            $dailyHits[$d] = ($dailyHits[$d] ?? 0) + (int) $row->hits;
+            if ($ip !== '') {
+                $dailyIps[$d][$ip] = true;
+            }
+        }
+
+        // 1. Daily series for past 60 days strictly ending TODAY
         $dailySeries = [];
         for ($i = 59; $i >= 0; $i--) {
             $date = $today->copy()->subDays($i);
@@ -264,9 +275,8 @@ if (!function_exists('buildAdminTrafficSeries')) {
             $dayOfWeek = (int) $date->format('w');
             $isToday = ($i === 0);
 
-            $row = $dailyAgg->get($dateStr);
-            $report = $isToday ? (int) $todayVisitors : (int) ($row->total_hits ?? 0);
-            $unique = (int) ($row->unique_ips ?? 0);
+            $report = $isToday ? (int) $todayVisitors : (int) ($dailyHits[$dateStr] ?? 0);
+            $unique = isset($dailyIps[$dateStr]) ? count($dailyIps[$dateStr]) : 0;
 
             $dailySeries[] = [
                 'date' => $dateStr,
@@ -280,62 +290,75 @@ if (!function_exists('buildAdminTrafficSeries')) {
             ];
         }
 
-        // 2. Weekly series for past 12 weeks strictly ending at CURRENT WEEK (100% Real DB Data)
+        // 2. Weekly series for past 12 weeks strictly ending at CURRENT WEEK (computed in RAM)
         $weeklySeries = [];
         for ($w = 11; $w >= 0; $w--) {
             $startOfWeek = $today->copy()->subWeeks($w)->startOfWeek();
             $endOfWeek = $w === 0 ? $today->copy() : $startOfWeek->copy()->endOfWeek();
-            $wRange = [$startOfWeek, $endOfWeek->copy()->endOfDay()];
-            $wCount = \App\Models\VisitorLog::whereBetween('created_at', $wRange)->count();
-            $wUnique = \App\Models\VisitorLog::whereBetween('created_at', $wRange)->distinct('ip_address')->count('ip_address');
+            $wHits = 0;
+            $wIpSet = [];
+            for ($cursor = $startOfWeek->copy(); $cursor->lte($endOfWeek); $cursor->addDay()) {
+                $ds = $cursor->format('Y-m-d');
+                $wHits += (int) ($dailyHits[$ds] ?? 0);
+                if (! empty($dailyIps[$ds])) {
+                    $wIpSet += $dailyIps[$ds];
+                }
+            }
             $weeklySeries[] = [
                 'date' => $startOfWeek->format('Y-m-d'),
                 'label' => 'Mgg ' . (12 - $w),
                 'full_label' => $startOfWeek->format('j M') . ' - ' . $endOfWeek->format('j M Y'),
                 'is_today' => ($w === 0),
-                'report' => (int) $wCount,
-                'noReport' => (int) $wUnique,
+                'report' => $wHits,
+                'noReport' => count($wIpSet),
             ];
         }
 
-        // 3. Monthly series for past 12 months strictly ending at CURRENT MONTH (100% Real DB Data)
+        // Pre-index monthly & yearly totals in RAM from $dailyHits / $dailyIps
+        $monthlyHits = [];
+        $monthlyIps = [];
+        $yearlyHits = [];
+        $yearlyIps = [];
+        foreach ($dailyHits as $dateStr => $hits) {
+            $ym = substr($dateStr, 0, 7);
+            $yr = substr($dateStr, 0, 4);
+            $monthlyHits[$ym] = ($monthlyHits[$ym] ?? 0) + $hits;
+            $yearlyHits[$yr] = ($yearlyHits[$yr] ?? 0) + $hits;
+            if (! empty($dailyIps[$dateStr])) {
+                $monthlyIps[$ym] = ($monthlyIps[$ym] ?? []) + $dailyIps[$dateStr];
+                $yearlyIps[$yr] = ($yearlyIps[$yr] ?? []) + $dailyIps[$dateStr];
+            }
+        }
+
+        // 3. Monthly series for past 12 months strictly ending at CURRENT MONTH
         $monthlySeries = [];
-        $monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
         for ($m = 11; $m >= 0; $m--) {
             $mDate = $today->copy()->subMonths($m);
+            $ym = $mDate->format('Y-m');
             $mYear = (int) $mDate->format('Y');
             $mMonth = (int) $mDate->format('n');
-            $mCount = \App\Models\VisitorLog::whereYear('created_at', $mYear)
-                ->whereMonth('created_at', $mMonth)
-                ->count();
-            $mUnique = \App\Models\VisitorLog::whereYear('created_at', $mYear)
-                ->whereMonth('created_at', $mMonth)
-                ->distinct('ip_address')
-                ->count('ip_address');
             $monthlySeries[] = [
-                'date' => $mDate->format('Y-m'),
+                'date' => $ym,
                 'label' => $monthNames[$mMonth],
                 'full_label' => $monthNames[$mMonth] . ' ' . $mYear,
                 'is_today' => ($m === 0),
-                'report' => (int) $mCount,
-                'noReport' => (int) $mUnique,
+                'report' => (int) ($monthlyHits[$ym] ?? 0),
+                'noReport' => isset($monthlyIps[$ym]) ? count($monthlyIps[$ym]) : 0,
             ];
         }
 
-        // 4. Yearly series for past 4 years strictly ending at CURRENT YEAR (100% Real DB Data)
+        // 4. Yearly series for past 4 years strictly ending at CURRENT YEAR
         $yearlySeries = [];
         $currYear = (int) $today->format('Y');
         for ($y = 3; $y >= 0; $y--) {
-            $yr = $currYear - $y;
-            $yCount = \App\Models\VisitorLog::whereYear('created_at', $yr)->count();
-            $yUnique = \App\Models\VisitorLog::whereYear('created_at', $yr)->distinct('ip_address')->count('ip_address');
+            $yr = (string) ($currYear - $y);
             $yearlySeries[] = [
-                'date' => (string) $yr,
-                'label' => (string) $yr,
+                'date' => $yr,
+                'label' => $yr,
                 'full_label' => 'Tahun ' . $yr,
                 'is_today' => ($y === 0),
-                'report' => (int) $yCount,
-                'noReport' => (int) $yUnique,
+                'report' => (int) ($yearlyHits[$yr] ?? 0),
+                'noReport' => isset($yearlyIps[$yr]) ? count($yearlyIps[$yr]) : 0,
             ];
         }
 
@@ -352,13 +375,22 @@ if (!function_exists('buildAdminTrafficSeries')) {
 if (!function_exists('buildAdminDashboardSnapshot')) {
     function buildAdminDashboardSnapshot(): array
     {
-        $todayVisitors = \App\Models\VisitorLog::whereDate('created_at', today())->count();
-        $totalVisitors = \App\Models\VisitorLog::count();
-        $onlineNow = \App\Models\VisitorLog::where('created_at', '>=', now()->subMinutes(5))
-            ->distinct('ip_address')
-            ->count('ip_address');
+        $todayStart = today()->startOfDay()->toDateTimeString();
+        $fiveMinsAgo = now()->subMinutes(5)->toDateTimeString();
 
-        $latest = \App\Models\VisitorLog::latest()->first();
+        $visitorAgg = \Illuminate\Support\Facades\DB::selectOne(
+            'SELECT COUNT(*) as total_all,
+                    SUM(CASE WHEN created_at >= ? THEN 1 ELSE 0 END) as today_hits,
+                    COUNT(DISTINCT CASE WHEN created_at >= ? THEN ip_address END) as online_now
+             FROM visitor_logs',
+            [$todayStart, $fiveMinsAgo]
+        );
+        $todayVisitors = (int) ($visitorAgg->today_hits ?? 0);
+        $totalVisitors = (int) ($visitorAgg->total_all ?? 0);
+        $onlineNow = (int) ($visitorAgg->online_now ?? 0);
+
+        $recentVisitors = \App\Models\VisitorLog::latest()->take(8)->get();
+        $latest = $recentVisitors->first();
         $latestVisit = null;
         if ($latest) {
             $pagePath = parse_url($latest->page_url, PHP_URL_PATH) ?: '/';
@@ -375,7 +407,6 @@ if (!function_exists('buildAdminDashboardSnapshot')) {
             ];
         }
 
-        $recentVisitors = \App\Models\VisitorLog::latest()->take(8)->get();
         $recentVisitorsData = $recentVisitors->map(function ($v) {
             return [
                 'id' => $v->id,
@@ -388,49 +419,59 @@ if (!function_exists('buildAdminDashboardSnapshot')) {
             ];
         })->values()->all();
 
-        $totalLeads = \App\Models\SimulationLead::count();
-        $newLeads = \App\Models\SimulationLead::where('status', 'new')->count();
-        $totalOrders = \App\Models\Order::count();
-        $totalRevenue = (float) \App\Models\Order::sum('grand_total');
-        $newOrders = \App\Models\Order::where('status', 'awaiting_po')->count();
-        $totalInquiries = \App\Models\ContactMessage::count();
-        $unreadInquiries = \App\Models\ContactMessage::where('status', 'unread')->count();
-        $totalProducts = \App\Models\Product::count();
-        $publishedProducts = \App\Models\Product::where('status', 'published')->count();
-        $totalSolutions = \App\Models\Solution::count();
+        $crmCounts = \Illuminate\Support\Facades\DB::selectOne(
+            "SELECT
+                (SELECT COUNT(*) FROM simulation_leads) as total_leads,
+                (SELECT COUNT(*) FROM simulation_leads WHERE status = 'new') as new_leads,
+                (SELECT COUNT(*) FROM contact_us) as total_inquiries,
+                (SELECT COUNT(*) FROM contact_us WHERE status = 'unread') as unread_inquiries,
+                (SELECT COUNT(*) FROM products) as total_products,
+                (SELECT COUNT(*) FROM products WHERE status = 'published') as published_products,
+                (SELECT COUNT(*) FROM solutions) as total_solutions,
+                (SELECT COUNT(*) FROM projects) as total_projects"
+        );
+
+        $totalLeads = (int) ($crmCounts->total_leads ?? 0);
+        $newLeads = (int) ($crmCounts->new_leads ?? 0);
+        $totalInquiries = (int) ($crmCounts->total_inquiries ?? 0);
+        $unreadInquiries = (int) ($crmCounts->unread_inquiries ?? 0);
+        $totalProducts = (int) ($crmCounts->total_products ?? 0);
+        $publishedProducts = (int) ($crmCounts->published_products ?? 0);
+        $totalSolutions = (int) ($crmCounts->total_solutions ?? 0);
         $shownSolutions = \App\Models\Solution::where('show_in_navbar', true)->count();
-        $totalProjects = \App\Models\Project::count();
+        $totalProjects = (int) ($crmCounts->total_projects ?? 0);
         $shownProjects = \App\Models\Project::where('is_featured', true)->count();
+
+        $orderAgg = \App\Models\Order::selectRaw("
+            COUNT(*) as total_orders,
+            COALESCE(SUM(grand_total), 0) as total_revenue,
+            SUM(CASE WHEN status IN ('po_submitted', 'confirmed', 'processing', 'completed') THEN 1 ELSE 0 END) as po_submitted_count,
+            COALESCE(SUM(CASE WHEN status IN ('po_submitted', 'confirmed', 'processing', 'completed') THEN grand_total ELSE 0 END), 0) as po_submitted_total,
+            SUM(CASE WHEN status = 'awaiting_po' THEN 1 ELSE 0 END) as awaiting_po_count,
+            COALESCE(SUM(CASE WHEN status = 'awaiting_po' THEN grand_total ELSE 0 END), 0) as awaiting_po_total
+        ")->first();
+
+        $totalOrders = (int) ($orderAgg->total_orders ?? 0);
+        $totalRevenue = (float) ($orderAgg->total_revenue ?? 0);
+        $poSubmittedCount = (int) ($orderAgg->po_submitted_count ?? 0);
+        $poSubmittedTotal = (float) ($orderAgg->po_submitted_total ?? 0);
+        $awaitingPoCount = (int) ($orderAgg->awaiting_po_count ?? 0);
+        $awaitingPoTotal = (float) ($orderAgg->awaiting_po_total ?? 0);
+        $newOrders = $awaitingPoCount;
+
+        $itemAgg = \App\Models\OrderItem::selectRaw("
+            COALESCE(SUM(CASE WHEN product_name LIKE '%Inspection%' OR product_name LIKE '%Pengukuran%' OR product_name LIKE '%Kamera%' OR product_name LIKE '%Vision%' OR product_name LIKE '%Sensor%' THEN line_total ELSE 0 END), 0) as inspection_total,
+            COALESCE(SUM(CASE WHEN product_name LIKE '%Panel%' OR product_name LIKE '%Otomasi%' OR product_name LIKE '%Kontrol%' OR product_name LIKE '%Strapping%' OR product_name LIKE '%Inkjet%' OR product_name LIKE '%Printer%' THEN line_total ELSE 0 END), 0) as automation_total
+        ")->first();
+
+        $inspectionTotal = (float) ($itemAgg->inspection_total ?? 0);
+        $automationTotal = (float) ($itemAgg->automation_total ?? 0);
 
         $formatShort = function ($val) {
             if ($val >= 1000000000) return 'Rp ' . number_format($val / 1000000000, 1, ',', '.') . ' M';
             if ($val >= 1000000) return 'Rp ' . number_format($val / 1000000, 1, ',', '.') . ' Jt';
             return 'Rp ' . number_format($val, 0, ',', '.');
         };
-
-        $submittedStatuses = ['po_submitted', 'confirmed', 'processing', 'completed'];
-        $poSubmittedCount = \App\Models\Order::whereIn('status', $submittedStatuses)->count();
-        $poSubmittedTotal = (float) \App\Models\Order::whereIn('status', $submittedStatuses)->sum('grand_total');
-
-        $awaitingPoCount = \App\Models\Order::where('status', 'awaiting_po')->count();
-        $awaitingPoTotal = (float) \App\Models\Order::where('status', 'awaiting_po')->sum('grand_total');
-
-        $inspectionTotal = (float) \App\Models\OrderItem::where(function ($q) {
-            $q->where('product_name', 'like', '%Inspection%')
-                ->orWhere('product_name', 'like', '%Pengukuran%')
-                ->orWhere('product_name', 'like', '%Kamera%')
-                ->orWhere('product_name', 'like', '%Vision%')
-                ->orWhere('product_name', 'like', '%Sensor%');
-        })->sum('line_total');
-
-        $automationTotal = (float) \App\Models\OrderItem::where(function ($q) {
-            $q->where('product_name', 'like', '%Panel%')
-                ->orWhere('product_name', 'like', '%Otomasi%')
-                ->orWhere('product_name', 'like', '%Kontrol%')
-                ->orWhere('product_name', 'like', '%Strapping%')
-                ->orWhere('product_name', 'like', '%Inkjet%')
-                ->orWhere('product_name', 'like', '%Printer%');
-        })->sum('line_total');
 
         $poSubmittedPct = $totalRevenue > 0 ? round(($poSubmittedTotal / $totalRevenue) * 100, 1) : 0.0;
 

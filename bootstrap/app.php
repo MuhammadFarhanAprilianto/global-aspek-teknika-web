@@ -29,13 +29,11 @@ $app = Application::configure(basePath: dirname(__DIR__))
             }
 
             if ($request->is('login') || $request->routeIs('login', 'login.post')) {
-                return redirect()->route('login')
-                    ->with('status', 'Sesi halaman login telah disegarkan. Silakan klik Masuk kembali.');
+                return redirect()->route('login');
             }
 
             return back()
-                ->withInput($request->except(['password', 'password_confirmation', '_token']))
-                ->with('status', 'Sesi halaman telah disegarkan otomatis. Silakan kirim ulang.');
+                ->withInput($request->except(['password', 'password_confirmation', '_token']));
         };
 
         $exceptions->render(function (\Illuminate\Session\TokenMismatchException $e, \Illuminate\Http\Request $request) use ($handleCsrfExpired) {

@@ -394,7 +394,7 @@
                     <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px]">
                         <span class="inline-flex items-center gap-1.5 text-emerald-700 font-semibold">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                            <span>Real-Time Poll 5s</span>
+                            <span>Real-Time Live</span>
                             <span class="text-[10px] text-slate-400 font-normal" x-show="lastSyncTime" x-text="'· ' + lastSyncTime"></span>
                         </span>
                         <div class="flex items-center gap-2">
@@ -874,7 +874,7 @@
                 this.pollTraffic();
                 this.trafficPollTimer = setInterval(() => {
                     if (!document.hidden) this.pollTraffic();
-                }, 5000);
+                }, 12000);
             }
         };
     }

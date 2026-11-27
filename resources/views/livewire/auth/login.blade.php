@@ -529,6 +529,13 @@ new #[Layout('components.layouts.auth')] class extends Component {
                     </a>
                 </div>
 
+                <script>
+                    window.addEventListener('pageshow', function (event) {
+                        if (event.persisted) {
+                            window.location.reload();
+                        }
+                    });
+                </script>
             </div>
         </div>
 
