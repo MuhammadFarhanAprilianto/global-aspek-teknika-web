@@ -13,11 +13,13 @@
         testSending: false,
 
         // Live WhatsApp Gateway State (Inline QR Scan & 1-Click Start)
+        waGatewayMode: @js(old('wa_gateway_mode', $settings['wa_gateway_mode'] ?? 'local')),
         gwLoading: true,
         gwStarting: false,
         gwLoggingOut: false,
         gwReachable: false,
-        gwState: 'checking', // 'checking' | 'offline' | 'connecting' | 'qr_ready' | 'connected' | 'disconnected'
+        gwLocalSupported: true,
+        gwState: 'checking', // 'checking' | 'offline' | 'connecting' | 'qr_ready' | 'connected' | 'disconnected' | 'serverless' | 'external'
         gwDevice: null,
         gwQr: null,
         _gwTimer: null,
@@ -110,7 +112,24 @@
                 if (res.ok) {
                     const data = await res.json();
                     this.gwReachable = !!data.reachable;
-                    if (!this.gwReachable) {
+                    this.gwLocalSupported = data.local_supported !== false;
+                    if (data.state === 'serverless' || data.device_status === 'serverless') {
+                        this.gwState = 'serverless';
+                        this.gwDevice = null;
+                        this.gwQr = null;
+                        if (this._gwTimer) {
+                            clearInterval(this._gwTimer);
+                            this._gwTimer = null;
+                        }
+                    } else if (data.state === 'external' || data.device_status === 'external') {
+                        this.gwState = 'external';
+                        this.gwDevice = null;
+                        this.gwQr = null;
+                        if (this._gwTimer) {
+                            clearInterval(this._gwTimer);
+                            this._gwTimer = null;
+                        }
+                    } else if (!this.gwReachable) {
                         this.gwState = 'offline';
                         this.gwDevice = null;
                         this.gwQr = null;
@@ -208,8 +227,8 @@
                 return;
             }
 
-            // Jika Gateway sedang Connected, kirim otomatis di belakang layar!
-            if (this.gwState === 'connected') {
+            // Jika Gateway sedang Connected / Cloud API aktif, kirim otomatis di belakang layar!
+            if (this.gwState === 'connected' || this.gwState === 'external') {
                 this.testSending = true;
                 try {
                     const res = await fetch('{{ route('admin.integrations.whatsapp.test') }}', {
@@ -281,13 +300,14 @@
             </div>
             <div class="h-11 px-4 rounded-2xl border inline-flex flex-col items-center justify-center text-center min-w-[128px] transition-colors"
                  :class="{
-                    'bg-emerald-50 border-emerald-200/80 text-emerald-700': gwState === 'connected',
+                    'bg-emerald-50 border-emerald-200/80 text-emerald-700': gwState === 'connected' || gwState === 'external',
+                    'bg-blue-50 border-blue-200/80 text-[#3367A5]': gwState === 'serverless',
                     'bg-amber-50 border-amber-200/80 text-amber-800': gwState === 'qr_ready' || gwState === 'connecting',
                     'bg-slate-50 border-slate-200 text-slate-600': gwState === 'offline' || gwState === 'disconnected' || gwState === 'checking'
                  }">
                 <span class="text-[10px] font-semibold leading-tight opacity-80">WA Gateway PDF</span>
                 <span class="text-xs font-bold font-['Agrandir',sans-serif] leading-tight mt-0.5"
-                      x-text="gwState === 'connected' ? 'Terhubung' : (gwState === 'qr_ready' ? 'Siap Scan QR' : (gwState === 'connecting' ? 'Menghubungkan...' : (gwState === 'checking' ? 'Memeriksa...' : 'Belum Aktif')))">
+                      x-text="gwState === 'connected' ? 'Terhubung' : (gwState === 'external' ? 'Cloud API Aktif' : (gwState === 'serverless' ? 'Mode wa.me' : (gwState === 'qr_ready' ? 'Siap Scan QR' : (gwState === 'connecting' ? 'Menghubungkan...' : (gwState === 'checking' ? 'Memeriksa...' : 'Belum Aktif')))))">
                     Memeriksa...
                 </span>
             </div>
@@ -338,6 +358,41 @@
                                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-[#f8fafd] focus:bg-white text-slate-800 font-semibold outline-none focus:border-[#3367A5] transition">
                     </div>
                 </div>
+
+                <!-- Optional Cloud Gateway Mode (Fonnte / Custom API) -->
+                <details class="rounded-2xl bg-[#f8fafd] border border-slate-200/80 px-4 py-3 text-xs"
+                         @if (($settings['wa_gateway_mode'] ?? 'local') === 'cloud') open @endif>
+                    <summary class="font-bold font-['Agrandir',sans-serif] text-slate-700 cursor-pointer select-none flex items-center justify-between">
+                        <span>Pengaturan Cloud API Gateway / Fonnte (Opsional untuk Auto-PDF)</span>
+                        <span class="text-[10px] font-normal text-slate-500" x-text="waGatewayMode === 'cloud' ? 'Mode Cloud API' : 'Mode Default'"></span>
+                    </summary>
+                    <div class="pt-3 mt-3 border-t border-slate-200/70 space-y-3">
+                        <div>
+                            <label class="block text-slate-700 font-bold mb-1">Mode Pengiriman</label>
+                            <select name="wa_gateway_mode" x-model="waGatewayMode"
+                                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-800 font-semibold outline-none focus:border-[#3367A5]">
+                                <option value="local">Default (Gateway Lokal / Direct wa.me di Vercel)</option>
+                                <option value="cloud">Cloud API Eksternal (Fonnte / Wablas / Custom Endpoint)</option>
+                            </select>
+                        </div>
+                        <div x-show="waGatewayMode === 'cloud'" x-cloak class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-700 font-bold mb-1">Endpoint URL</label>
+                                <input type="url" name="wa_gateway_endpoint"
+                                       value="{{ old('wa_gateway_endpoint', str_contains((string) ($settings['wa_gateway_endpoint'] ?? ''), '127.0.0.1') ? 'https://api.fonnte.com/send' : ($settings['wa_gateway_endpoint'] ?? 'https://api.fonnte.com/send')) }}"
+                                       placeholder="https://api.fonnte.com/send"
+                                       class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-800 outline-none focus:border-[#3367A5]">
+                            </div>
+                            <div>
+                                <label class="block text-slate-700 font-bold mb-1">API Token</label>
+                                <input type="password" name="wa_gateway_token"
+                                       value="{{ old('wa_gateway_token', ($settings['wa_gateway_token'] ?? '') === 'gat-internal-wa-secret-2026' ? '' : ($settings['wa_gateway_token'] ?? '')) }}"
+                                       placeholder="Masukkan Token Fonnte / Cloud API"
+                                       class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-800 outline-none focus:border-[#3367A5]">
+                            </div>
+                        </div>
+                    </div>
+                </details>
 
                 <!-- Submit -->
                 <div class="flex justify-end pt-2 border-t border-slate-100">
@@ -421,7 +476,7 @@
                     <span class="font-semibold">Menghubungkan ke WhatsApp Gateway &amp; menyiapkan QR Code...</span>
                 </div>
 
-                <!-- STATE D: Offline (1-Click Start Button!) -->
+                <!-- STATE D: Offline (1-Click Start Button! Only when local/VPS server.js exists) -->
                 <div x-cloak x-show="gwState === 'offline' || gwState === 'disconnected'"
                      class="p-5 rounded-2xl bg-[#f8fafd] border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div class="flex items-center gap-3.5 text-center sm:text-left">
@@ -443,6 +498,39 @@
                         <i class="fa-solid" :class="gwStarting ? 'fa-circle-notch animate-spin' : 'fa-play'"></i>
                         <span x-text="gwStarting ? 'Menyalakan...' : 'Nyalakan Gateway'"></span>
                     </button>
+                </div>
+
+                <!-- STATE E: Serverless Cloud Hosting (Vercel -> Direct wa.me Active, No Local Node Daemon) -->
+                <div x-cloak x-show="gwState === 'serverless'"
+                     class="p-5 rounded-2xl bg-[#f0f6ff] border border-[#3367A5]/20 flex items-start gap-3.5">
+                    <div class="w-11 h-11 rounded-2xl bg-white text-[#3367A5] border border-[#3367A5]/15 flex items-center justify-center shrink-0">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    </div>
+                    <div class="space-y-1.5 text-left">
+                        <p class="font-bold font-['Agrandir',sans-serif] text-slate-900 text-xs sm:text-sm">
+                            Mode Tautan WhatsApp Langsung (wa.me) Aktif di Cloud Vercel
+                        </p>
+                        <p class="text-[11px] text-slate-600 leading-relaxed">
+                            Serverless Vercel tidak menjalankan mesin Node.js lokal (<code class="px-1 py-0.5 rounded bg-white text-[#3367A5]">whatsapp-gateway/server.js</code>). Pengajuan PO B2B dan tombol Uji Kirim WA otomatis membuka chat WhatsApp Admin dengan draf pesanan siap kirim.
+                        </p>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            Ingin kirim file PDF otomatis di belakang layar? Isi <strong>Cloud API (Fonnte)</strong> pada bagian Pengaturan di atas, atau jalankan website di <strong>VPS</strong> nanti saat Go-Live.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STATE F: Cloud API Active (Fonnte / Custom Endpoint) -->
+                <div x-cloak x-show="gwState === 'external'"
+                     class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                        <i class="fa-solid fa-cloud text-base"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold font-['Agrandir',sans-serif] text-sm text-emerald-900">Cloud WhatsApp API Aktif</span>
+                        <p class="text-xs text-emerald-800/90 mt-0.5">
+                            Pengiriman otomatis Sales Quote PDF ke WhatsApp Admin menggunakan Cloud API eksternal.
+                        </p>
+                    </div>
                 </div>
             </div>
 

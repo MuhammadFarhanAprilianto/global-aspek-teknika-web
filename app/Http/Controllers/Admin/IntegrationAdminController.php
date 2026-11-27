@@ -27,32 +27,62 @@ class IntegrationAdminController extends Controller
     }
 
     /**
-     * Simpan Nomor WhatsApp Admin & Publik (Endpoint/Token Gateway tetap otomatis terjaga di backend)
+     * Cek apakah aplikasi berjalan di lingkungan serverless (Vercel) tanpa daemon Node.js lokal
+     */
+    private function isServerlessRuntime(): bool
+    {
+        $isVercel = ! empty($_SERVER['VERCEL']) || ! empty($_ENV['VERCEL']) || getenv('VERCEL') === '1';
+        $hasGatewayScript = is_file(base_path('whatsapp-gateway' . DIRECTORY_SEPARATOR . 'server.js'));
+
+        return $isVercel || ! $hasGatewayScript;
+    }
+
+    /**
+     * Simpan Nomor WhatsApp Admin & Publik serta opsi Cloud Gateway (Fonnte / Custom API)
      */
     public function updateWhatsApp(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'wa_admin_number' => ['required', 'string', 'max:40'],
             'wa_public_number' => ['required', 'string', 'max:40'],
+            'wa_gateway_mode' => ['nullable', 'in:local,cloud'],
+            'wa_gateway_endpoint' => ['nullable', 'url', 'max:500'],
+            'wa_gateway_token' => ['nullable', 'string', 'max:255'],
         ], [
             'wa_admin_number.required' => 'Nomor WhatsApp Admin Order Quotation wajib diisi.',
             'wa_public_number.required' => 'Nomor WhatsApp Admin Marketing wajib diisi.',
+            'wa_gateway_endpoint.url' => 'URL Endpoint Cloud Gateway harus diawali https:// atau http://.',
         ]);
 
         $adminPhone = SiteSetting::normalizePhone($validated['wa_admin_number']);
         $publicPhone = SiteSetting::normalizePhone($validated['wa_public_number']);
+        $mode = $validated['wa_gateway_mode'] ?? (string) SiteSetting::getValue('wa_gateway_mode', 'local');
+        $endpoint = trim((string) ($validated['wa_gateway_endpoint'] ?? ''));
+        $token = trim((string) ($validated['wa_gateway_token'] ?? ''));
 
-        SiteSetting::setMany('whatsapp', [
+        $pairs = [
             'wa_gateway_enabled' => '1',
             'wa_admin_number' => $adminPhone,
             'wa_public_number' => $publicPhone,
             'wa_send_copy_to_buyer' => '0',
-        ]);
+            'wa_gateway_mode' => $mode,
+        ];
+
+        if ($mode === 'cloud' && $endpoint !== '') {
+            $pairs['wa_gateway_endpoint'] = $endpoint;
+            if ($token !== '') {
+                $pairs['wa_gateway_token'] = $token;
+            }
+        } elseif ($mode === 'local') {
+            $pairs['wa_gateway_endpoint'] = (string) config('services.whatsapp.fonnte_endpoint', 'http://127.0.0.1:3001/send');
+        }
+
+        SiteSetting::setMany('whatsapp', $pairs);
 
         return back()->with('admin_toast', [
             'type' => 'success',
-            'title' => 'Nomor WhatsApp Diperbarui',
-            'message' => "WhatsApp Admin Order Quotation ({$adminPhone}) & WhatsApp Admin Marketing ({$publicPhone}) langsung aktif di seluruh website.",
+            'title' => 'Pengaturan WhatsApp Diperbarui',
+            'message' => "WhatsApp Admin Order Quotation ({$adminPhone}) & Marketing ({$publicPhone}) langsung aktif di seluruh website.",
         ]);
     }
 
@@ -154,22 +184,38 @@ class IntegrationAdminController extends Controller
     }
 
     /**
-     * Proxy status koneksi & QR Code dari WhatsApp Gateway Lokal (http://127.0.0.1:3001/status)
+     * Proxy status koneksi & QR Code dari WhatsApp Gateway Lokal atau Cloud API
      */
     public function gatewayStatus(): JsonResponse
     {
         $settings = SiteSetting::allMerged();
         $endpoint = trim((string) ($settings['wa_gateway_endpoint'] ?? 'http://127.0.0.1:3001/send'));
         $mode = (string) ($settings['wa_gateway_mode'] ?? 'local');
+        $isLocalHost = str_contains($endpoint, '127.0.0.1') || str_contains($endpoint, 'localhost');
 
-        if ($mode !== 'local' && ! str_contains($endpoint, '127.0.0.1') && ! str_contains($endpoint, 'localhost')) {
+        if ($mode === 'cloud' && ! $isLocalHost && $endpoint !== '') {
             return response()->json([
                 'reachable' => true,
-                'mode' => $mode,
+                'local_supported' => false,
+                'mode' => 'cloud',
                 'device_status' => 'external',
+                'state' => 'external',
                 'device' => null,
                 'qr' => null,
-                'message' => 'Menggunakan Cloud / Custom Gateway eksternal.',
+                'message' => 'Menggunakan Cloud WhatsApp Gateway eksternal.',
+            ]);
+        }
+
+        if ($this->isServerlessRuntime()) {
+            return response()->json([
+                'reachable' => false,
+                'local_supported' => false,
+                'mode' => 'wa_me',
+                'device_status' => 'serverless',
+                'state' => 'serverless',
+                'device' => null,
+                'qr' => null,
+                'message' => 'Serverless cloud aktif: pesanan B2B & Uji WA otomatis diarahkan via Tautan WhatsApp Langsung (wa.me).',
             ]);
         }
 
@@ -182,6 +228,7 @@ class IntegrationAdminController extends Controller
                 $json = $res->json();
                 return response()->json([
                     'reachable' => true,
+                    'local_supported' => true,
                     'mode' => 'local',
                     'device_status' => $json['device_status'] ?? 'disconnect',
                     'state' => $json['state'] ?? 'disconnected',
@@ -196,6 +243,7 @@ class IntegrationAdminController extends Controller
 
         return response()->json([
             'reachable' => false,
+            'local_supported' => true,
             'mode' => 'local',
             'device_status' => 'offline',
             'state' => 'offline',
@@ -210,6 +258,14 @@ class IntegrationAdminController extends Controller
      */
     public function gatewayStart(): JsonResponse
     {
+        if ($this->isServerlessRuntime()) {
+            return response()->json([
+                'ok' => false,
+                'serverless' => true,
+                'message' => 'Mesin Gateway Node.js lokal tidak berjalan di cloud Vercel. Di Vercel gunakan mode Tautan Langsung (wa.me), Cloud API (Fonnte), atau pindahkan ke VPS.',
+            ], 422);
+        }
+
         // Cek apakah port 3001 sudah menyala
         $sock = @fsockopen('127.0.0.1', 3001, $errno, $errstr, 0.5);
         if ($sock !== false) {
@@ -298,10 +354,8 @@ class IntegrationAdminController extends Controller
             ]);
         }
 
-        // Cek apakah Gateway lokal menyala & Connected
-        $sock = @fsockopen('127.0.0.1', 3001, $errno, $errstr, 0.4);
-        if ($sock !== false) {
-            fclose($sock);
+        // Cek apakah Gateway aktif (lokal port 3001 atau Cloud API eksternal)
+        if ($waService->isGatewayReachableForAutoSend()) {
             $res = $waService->sendTestMessage($target, $validated['test_message']);
             if ($res['ok']) {
                 if ($request->expectsJson()) {
