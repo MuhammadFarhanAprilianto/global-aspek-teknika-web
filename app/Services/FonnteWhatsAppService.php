@@ -57,7 +57,7 @@ class FonnteWhatsAppService
         $parsedEndpoint = parse_url($endpoint);
         $epHost = $parsedEndpoint['host'] ?? '';
         $epPort = (int) ($parsedEndpoint['port'] ?? (($parsedEndpoint['scheme'] ?? 'http') === 'https' ? 443 : 80));
-        if (in_array($epHost, ['127.0.0.1', 'localhost'], true)) {
+        if (! app()->runningUnitTests() && in_array($epHost, ['127.0.0.1', 'localhost'], true)) {
             $socket = @fsockopen($epHost, $epPort, $errno, $errstr, 0.5);
             if ($socket === false) {
                 return [
@@ -351,6 +351,32 @@ class FonnteWhatsAppService
         } catch (\Throwable $e) {
             Log::warning('External webhook dispatch failed', ['event' => $event, 'error' => $e->getMessage()]);
         }
+    }
+
+    public function isGatewayReachableForAutoSend(): bool
+    {
+        $settings = SiteSetting::allMerged();
+        $enabled = ($settings['wa_gateway_enabled'] ?? '1') === '1';
+        $token = trim((string) ($settings['wa_gateway_token'] ?: config('services.whatsapp.fonnte_token', '')));
+        $endpoint = trim((string) ($settings['wa_gateway_endpoint'] ?: config('services.whatsapp.fonnte_endpoint', 'https://api.fonnte.com/send')));
+
+        if (! $enabled || $token === '' || $endpoint === '') {
+            return false;
+        }
+
+        $parsedEndpoint = parse_url($endpoint);
+        $epHost = $parsedEndpoint['host'] ?? '';
+        $epPort = (int) ($parsedEndpoint['port'] ?? (($parsedEndpoint['scheme'] ?? 'http') === 'https' ? 443 : 80));
+
+        if (in_array($epHost, ['127.0.0.1', 'localhost'], true)) {
+            $socket = @fsockopen($epHost, $epPort, $errno, $errstr, 0.25);
+            if ($socket === false) {
+                return false;
+            }
+            fclose($socket);
+        }
+
+        return true;
     }
 
     public function normalizePhone(string $rawPhone): string

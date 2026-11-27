@@ -548,3 +548,67 @@ it('seeds and verifies KZ-19 Pneumatic Steel Strapping Machine with specs and tr
         ->assertDontSee('14.800.000')
         ->assertDontSee('14800000');
 });
+
+it('shows direct wa.me fallback and avoids false confirmed status when WhatsApp Gateway is unavailable', function () {
+    $category = ProductCategory::create([
+        'name' => 'Packaging System',
+        'slug' => 'packaging-system',
+        'sort_order' => 1,
+    ]);
+
+    $product = Product::create([
+        'category_id' => $category->id,
+        'sku' => 'GAT-TEST-WA',
+        'name' => 'Strapping Machine A25',
+        'slug' => 'strapping-machine-a25',
+        'price' => 9800000,
+        'is_rfq_only' => true,
+        'stock' => 5,
+        'min_order_quantity' => 1,
+        'status' => 'published',
+    ]);
+
+    $initRes = $this->post(route('checkout.initiate'), [
+        'cart_items_json' => json_encode([['id' => $product->id, 'qty' => 1]]),
+        'pic_name' => 'Farhan Aprilianto',
+        'company_name' => 'PT Indonesia Solid Emas',
+        'company_email' => 'admin@admin.com',
+        'company_phone' => '082114254432',
+        'notes' => 'Kebutuhan produksi',
+    ]);
+
+    $order = Order::firstOrFail();
+    $showUrl = $initRes->headers->get('Location');
+    $submitUrl = URL::temporarySignedRoute('checkout.submit-po', now()->addDays(14), ['order' => $order->uuid]);
+
+    Http::fake([
+        '*' => Http::response(['status' => false, 'reason' => 'Device Disconnected'], 503),
+    ]);
+
+    $confirmRes = $this->post($submitUrl);
+    $confirmRes->assertRedirect()
+        ->assertSessionHas('wa_flash', 'manual')
+        ->assertSessionHas('po_success')
+        ->assertSessionMissing('wa_direct_url');
+
+    $order->refresh();
+    expect($order->status)->toBe('po_submitted')
+        ->and($order->whatsapp_contacted_at)->toBeNull();
+
+    $this->get($showUrl)
+        ->assertOk()
+        ->assertSee('Pesanan Tersimpan — Belum Terkirim ke WA')
+        ->assertSee('https://wa.me/6285732021121?text=', false);
+
+    $this->post(route('checkout.log-whatsapp-click', ['order' => $order->uuid]), [
+        'message' => 'Manual WA sent',
+    ])->assertOk();
+
+    $order->refresh();
+    expect($order->whatsapp_contacted_at)->not->toBeNull();
+
+    $this->get($showUrl)
+        ->assertOk()
+        ->assertSee('Diproses Tim GAT')
+        ->assertDontSee('Pesanan Tersimpan — Belum Terkirim ke WA');
+});

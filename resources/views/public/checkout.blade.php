@@ -276,41 +276,49 @@
 
                 <!-- RIGHT COLUMN: Locked Buyer Identity & Order Confirmation Panel (Hidden on Print) -->
                 <div class="lg:col-span-4 no-print space-y-5 lg:sticky lg:top-28">
+                    @php
+                        $isOrderSubmitted = $order->status === 'po_submitted';
+                        $isWaConfirmed = ! empty($order->whatsapp_contacted_at);
+                        $waFlash = session('wa_flash');
+                    @endphp
 
-                    @if (session('po_success'))
-                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs leading-relaxed space-y-3">
+                    @if ($waFlash === 'sent' || ($isOrderSubmitted && $isWaConfirmed))
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs leading-relaxed space-y-2">
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                                 <div>
                                     <p class="font-bold text-emerald-950 mb-1">Pesanan Berhasil Dikonfirmasi</p>
-                                    <p>{{ session('po_success') }}</p>
+                                    <p>Pengajuan Quote perusahaan Anda sudah tercatat di sistem GAT dan diteruskan ke WhatsApp Admin.</p>
                                 </div>
                             </div>
-                            @if (session('wa_direct_url'))
-                                <a href="{{ session('wa_direct_url') }}" target="_blank" rel="noopener noreferrer"
-                                   class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-all shadow-xs">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                        <path d="M12.031 2C6.496 2 2 6.495 2 12.03c0 1.933.551 3.738 1.506 5.275L2 22l4.851-1.467A9.972 9.972 0 0012.03 22C17.565 22 22 17.505 22 12.03 22 6.495 17.565 2 12.031 2zm5.787 14.288c-.243.682-1.205 1.25-1.688 1.332-.472.08-1.077.113-3.486-.884-2.884-1.192-4.738-4.143-4.88-4.336-.144-.191-1.169-1.554-1.169-2.964 0-1.409.734-2.103.996-2.389.261-.285.57-.356.76-.356.19 0 .38.002.546.01.176.009.412-.067.644.49.243.585.831 2.03.903 2.176.072.146.12.316.024.506-.096.19-.144.309-.285.475-.144.167-.302.373-.432.5-.143.14-.293.293-.127.579.166.285.738 1.218 1.583 1.971 1.088.969 2.006 1.269 2.291 1.411.285.143.452.12.619-.071.166-.19.712-.831.902-1.116.19-.285.38-.238.641-.143.261.095 1.662.784 1.947.926.285.143.475.214.546.333.071.119.071.689-.172 1.371z"/>
-                                    </svg>
-                                    <span>Kirim Konfirmasi ke WhatsApp Admin Order Quotation</span>
-                                </a>
-                            @endif
                         </div>
-                    @endif
-
-                    @if (session('whatsapp_warning'))
-                        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
+                    @elseif ($waFlash === 'manual' || ($isOrderSubmitted && ! $isWaConfirmed))
+                        <div id="wa-manual-confirm-card" class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 text-xs leading-relaxed space-y-3">
                             <div class="flex items-start gap-2.5">
                                 <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
                                 </svg>
                                 <div>
-                                    <p class="font-bold text-amber-950 mb-1">Status Pengiriman WhatsApp Gateway</p>
-                                    <p>{{ session('whatsapp_warning') }}</p>
+                                    <p class="font-bold text-amber-950 mb-1">Pesanan Tercatat — Tinggal 1 Klik Kirim ke WhatsApp Admin</p>
+                                    <p class="text-amber-900">
+                                        @if (session('wa_reason'))
+                                            {{ session('wa_reason') }}
+                                        @else
+                                            Pengiriman otomatis WhatsApp Gateway sedang tidak aktif di server ini. Klik tombol WhatsApp di bawah agar rincian pesanan langsung masuk ke WhatsApp Admin (+{{ $adminWaNumber }}).
+                                        @endif
+                                    </p>
                                 </div>
                             </div>
+                            <a href="{{ $directWaUrl }}" target="_blank" rel="noopener noreferrer"
+                               onclick="logWhatsAppInteraction(event, '{{ $logWaUrl }}', 'Customer mengklik tombol Kirim Pesanan ke WhatsApp Admin (+{{ $adminWaNumber }}) untuk Quote {{ $order->invoice_number ?: $order->uuid }}')"
+                               class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-all shadow-xs">
+                                <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                                    <path d="M12.031 2C6.496 2 2 6.495 2 12.03c0 1.933.551 3.738 1.506 5.275L2 22l4.851-1.467A9.972 9.972 0 0012.03 22C17.565 22 22 17.505 22 12.03 22 6.495 17.565 2 12.031 2zm5.787 14.288c-.243.682-1.205 1.25-1.688 1.332-.472.08-1.077.113-3.486-.884-2.884-1.192-4.738-4.143-4.88-4.336-.144-.191-1.169-1.554-1.169-2.964 0-1.409.734-2.103.996-2.389.261-.285.57-.356.76-.356.19 0 .38.002.546.01.176.009.412-.067.644.49.243.585.831 2.03.903 2.176.072.146.12.316.024.506-.096.19-.144.309-.285.475-.144.167-.302.373-.432.5-.143.14-.293.293-.127.579.166.285.738 1.218 1.583 1.971 1.088.969 2.006 1.269 2.291 1.411.285.143.452.12.619-.071.166-.19.712-.831.902-1.116.19-.285.38-.238.641-.143.261.095 1.662.784 1.947.926.285.143.475.214.546.333.071.119.071.689-.172 1.371z"/>
+                                </svg>
+                                <span>Buka &amp; Kirim Pesanan ke WhatsApp Admin</span>
+                            </a>
                         </div>
                     @endif
 
@@ -389,11 +397,15 @@
                             </div>
 
                             <!-- Optional PO Upload + Confirm Order Form -->
-                            <form method="POST" action="{{ $submitPoUrl }}" enctype="multipart/form-data" class="pt-3 border-t border-gray-200 space-y-3.5 js-confirm-order-form">
+                            <form method="POST" action="{{ $submitPoUrl }}" enctype="multipart/form-data"
+                                data-auto-wa="{{ $canAutoSendWa ? '1' : '0' }}"
+                                data-already-submitted="{{ $isOrderSubmitted ? '1' : '0' }}"
+                                data-direct-wa-url="{{ $directWaUrl }}"
+                                class="pt-3 border-t border-gray-200 space-y-3.5 js-confirm-order-form">
                                 @csrf
 
-                                @if ($order->status === 'po_submitted')
-                                    <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-2 text-xs text-emerald-900">
+                                @if ($isOrderSubmitted && $isWaConfirmed)
+                                    <div id="wa-inline-status-badge" class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-2 text-xs text-emerald-900">
                                         <span class="inline-flex items-center gap-1.5 font-bold text-emerald-800">
                                             <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
@@ -401,6 +413,22 @@
                                             Telah Dikonfirmasi ke WhatsApp
                                         </span>
                                         <span class="text-[10px] text-emerald-600 font-medium">Diproses Tim GAT</span>
+                                    </div>
+                                @elseif ($isOrderSubmitted)
+                                    <div id="wa-inline-status-badge" class="p-3 rounded-xl bg-amber-50 border border-amber-200 space-y-2 text-xs text-amber-900">
+                                        <div class="flex items-center justify-between gap-2">
+                                            <span class="inline-flex items-center gap-1.5 font-bold text-amber-900">
+                                                <svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                                Pesanan Tersimpan — Belum Terkirim ke WA
+                                            </span>
+                                        </div>
+                                        <a href="{{ $directWaUrl }}" target="_blank" rel="noopener noreferrer"
+                                           onclick="logWhatsAppInteraction(event, '{{ $logWaUrl }}', 'Customer mengklik tombol Kirim Pesanan ke WhatsApp Admin (+{{ $adminWaNumber }}) untuk Quote {{ $order->invoice_number ?: $order->uuid }}')"
+                                           class="w-full flex items-center justify-center gap-2 py-2.5 px-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors shadow-xs">
+                                            <span>Kirim Pesanan ke WhatsApp Admin</span>
+                                        </a>
                                     </div>
                                 @endif
 
@@ -453,7 +481,7 @@
             clearLocalB2BCart();
         @endif
 
-        function logWhatsAppInteraction(e, logUrl, messageText, directUrl) {
+        function logWhatsAppInteraction(e, logUrl, messageText) {
             try {
                 if (navigator.sendBeacon) {
                     const formData = new FormData();
@@ -463,6 +491,7 @@
                 } else {
                     fetch(logUrl, {
                         method: 'POST',
+                        keepalive: true,
                         headers: {
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -472,6 +501,12 @@
                 }
             } catch (err) {
                 console.warn('WhatsApp log tracking error:', err);
+            }
+
+            const inlineBadge = document.getElementById('wa-inline-status-badge');
+            if (inlineBadge) {
+                inlineBadge.className = 'p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-2 text-xs text-emerald-900';
+                inlineBadge.innerHTML = '<span class="inline-flex items-center gap-1.5 font-bold text-emerald-800"><svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>Telah Dikonfirmasi ke WhatsApp</span><span class="text-[10px] text-emerald-600 font-medium">Diproses Tim GAT</span>';
             }
         }
 
@@ -491,6 +526,21 @@
             document.querySelectorAll('.js-confirm-order-form').forEach(formEl => {
                 formEl.addEventListener('submit', () => {
                     clearLocalB2BCart();
+
+                    // Saat Gateway otomatis tidak aktif (mis. di Vercel cloud), buka WhatsApp Admin langsung di tab baru
+                    // tepat saat klik tombol pertama kali agar pesan benar-benar terbuka di aplikasi WhatsApp.
+                    const autoWa = formEl.getAttribute('data-auto-wa') === '1';
+                    const alreadySubmitted = formEl.getAttribute('data-already-submitted') === '1';
+                    const directWaUrl = formEl.getAttribute('data-direct-wa-url');
+                    const fileInput = formEl.querySelector('#po-document-input');
+                    const fileTooLarge = fileInput && fileInput.files && fileInput.files[0] && fileInput.files[0].size > 5 * 1024 * 1024;
+
+                    if (!autoWa && !alreadySubmitted && directWaUrl && !fileTooLarge) {
+                        try {
+                            window.open(directWaUrl, '_blank', 'noopener,noreferrer');
+                        } catch (err) {}
+                    }
+
                     const btn = formEl.querySelector('button[type="submit"]');
                     if (btn) {
                         btn.disabled = true;

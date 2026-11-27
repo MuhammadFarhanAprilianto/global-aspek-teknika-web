@@ -221,7 +221,7 @@ class CheckoutController extends Controller
      * Halaman Pembayaran / Sales Quote Resmi B2B & Konfirmasi Pesanan.
      * Dilindungi oleh Cryptographic Signed URL agar tidak dapat ditebak publik.
      */
-    public function show(Request $request, Order $order): View
+    public function show(Request $request, Order $order, FonnteWhatsAppService $whatsappService): View
     {
         $order->load(['items.product:id,sku,name,image,slug,specifications']);
 
@@ -239,12 +239,22 @@ class CheckoutController extends Controller
             'hash' => strtolower($shortHash),
         ]);
 
+        $adminWaNumber = SiteSetting::adminWaNumber();
+        $directWaText = $whatsappService->buildAdminCaption($order);
+        $directWaUrl = 'https://wa.me/' . $adminWaNumber . '?text=' . rawurlencode($directWaText);
+        $logWaUrl = route('checkout.log-whatsapp-click', ['order' => $order->uuid]);
+        $canAutoSendWa = $whatsappService->isGatewayReachableForAutoSend();
+
         return view('public.checkout', [
             'order' => $order,
             'shortHash' => $shortHash,
             'submitPoUrl' => $submitPoUrl,
             'quotePdfUrl' => $quotePdfUrl,
             'verifyUrl' => $verifyUrl,
+            'adminWaNumber' => $adminWaNumber,
+            'directWaUrl' => $directWaUrl,
+            'logWaUrl' => $logWaUrl,
+            'canAutoSendWa' => $canAutoSendWa,
         ]);
     }
 
@@ -260,11 +270,11 @@ class CheckoutController extends Controller
             ]);
         }
 
-        // 3. Keamanan Lapis 5: Anti-Replay / Cooldown Proteksi Spam Klik WhatsApp
+        // 3. Keamanan Lapis 5: Anti-Replay / Cooldown Proteksi Spam Klik WhatsApp (hanya jika WA memang sudah terkirim)
         $isAlreadySubmitted = ($order->status === 'po_submitted');
         $hasNewFile = $request->hasFile('po_document');
 
-        if ($isAlreadySubmitted && ! $hasNewFile) {
+        if ($isAlreadySubmitted && ! $hasNewFile && $order->whatsapp_contacted_at !== null) {
             $lastSubmittedAt = $order->po_submitted_at ?? $order->updated_at;
             if ($lastSubmittedAt && $lastSubmittedAt->diffInMinutes(now()) < 5) {
                 $expiresAt = $order->expires_at ?? now()->addDays(14);
@@ -272,10 +282,9 @@ class CheckoutController extends Controller
                     'order' => $order->uuid,
                 ]);
 
-                return redirect()->to($redirectBackUrl)->with(
-                    'po_success',
-                    'Pesanan perusahaan Anda telah berhasil dikonfirmasi ke WhatsApp Admin sebelumnya. Tim PT Global Aspect Technology sedang menindaklanjuti pengajuan ini.'
-                );
+                return redirect()->to($redirectBackUrl)
+                    ->with('wa_flash', 'sent')
+                    ->with('po_success', 'Pesanan perusahaan Anda telah berhasil dikonfirmasi ke WhatsApp Admin sebelumnya.');
             }
         }
 
@@ -345,14 +354,16 @@ class CheckoutController extends Controller
                 'whatsapp_message_log' => 'PDF Sales Quote & rincian pesanan terkirim otomatis via WhatsApp Gateway ke Admin Order Quotation (' . $adminWaNumber . ') pada ' . now()->format('d M Y, H:i') . ' WIB.',
             ]);
 
-            return redirect()->to($redirectBackUrl)->with('po_success', $waResult['message']);
+            return redirect()->to($redirectBackUrl)
+                ->with('wa_flash', 'sent')
+                ->with('po_success', $waResult['message']);
         }
 
-        // Jika WhatsApp Gateway lokal tidak dijalankan, pesanan tetap tersimpan sukses
-        // dan langsung diarahkan ke tombol WhatsApp Admin Order Quotation aktif (wa.me).
+        // Gateway otomatis tidak aktif / gagal: catat sebagai manual WA prompt tanpa menyimpan URL besar ke cookie session
         return redirect()->to($redirectBackUrl)
-            ->with('po_success', 'Pesanan perusahaan Anda berhasil tercatat di sistem PT Global Aspect Technology. Klik tombol WhatsApp di bawah untuk langsung mengirim rincian pesanan ke WhatsApp Admin Order Quotation.')
-            ->with('wa_direct_url', $directWaUrl);
+            ->with('wa_flash', 'manual')
+            ->with('po_success', 'Pesanan tercatat. Silakan klik tombol WhatsApp di bawah untuk mengirim rincian ke WhatsApp Admin.')
+            ->with('wa_reason', Str::limit((string) ($waResult['message'] ?? ''), 140));
     }
 
     /**
