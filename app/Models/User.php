@@ -109,8 +109,16 @@ class User extends Authenticatable
         }
 
         $clean = ltrim($this->avatar, '/');
-        if (file_exists(public_path('storage/' . $clean)) || Storage::disk('public')->exists($clean)) {
-            return asset('storage/' . $clean);
+        if (str_starts_with($clean, 'storage/')) {
+            $clean = substr($clean, 8);
+        }
+
+        if (
+            file_exists(base_path('storage/app/public/' . $clean)) ||
+            file_exists(public_path('storage/' . $clean)) ||
+            Storage::disk('public')->exists($clean)
+        ) {
+            return asset('storage/' . str_replace(' ', '%20', $clean));
         }
 
         return null;

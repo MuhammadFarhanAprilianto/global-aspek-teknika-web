@@ -57,8 +57,12 @@ class Project extends Model
             $cleanPath = substr($cleanPath, 8);
         }
 
-        if (file_exists(public_path('storage/' . $cleanPath)) || Storage::disk('public')->exists($cleanPath)) {
-            return asset('storage/' . $cleanPath);
+        if (
+            file_exists(base_path('storage/app/public/' . $cleanPath)) ||
+            file_exists(public_path('storage/' . $cleanPath)) ||
+            Storage::disk('public')->exists($cleanPath)
+        ) {
+            return asset('storage/' . str_replace(' ', '%20', $cleanPath));
         }
 
         return null;
