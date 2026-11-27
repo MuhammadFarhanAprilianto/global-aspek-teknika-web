@@ -91,6 +91,32 @@ foreach ($driverDefaults as $key => $default) {
     }
 }
 
+// Support single-string Cloud Database URLs (DATABASE_URL / POSTGRES_URL / MYSQL_URL) on Vercel
+$cloudDbUrl = getenv('DATABASE_URL') ?: (getenv('POSTGRES_URL') ?: (getenv('MYSQL_URL') ?: (getenv('DB_URL') ?: '')));
+if (!empty($cloudDbUrl) && ($parts = parse_url($cloudDbUrl)) && !empty($parts['host'])) {
+    $scheme = strtolower((string) ($parts['scheme'] ?? ''));
+    $driver = match (true) {
+        str_contains($scheme, 'postgres') || $scheme === 'pgsql' => 'pgsql',
+        str_contains($scheme, 'mysql') || str_contains($scheme, 'mariadb') => 'mysql',
+        default => getenv('DB_CONNECTION') ?: 'mysql',
+    };
+    $dbEnv = [
+        'DB_CONNECTION' => $driver,
+        'DB_HOST' => $parts['host'],
+        'DB_PORT' => (string) ($parts['port'] ?? ($driver === 'pgsql' ? '5432' : '3306')),
+        'DB_DATABASE' => ltrim((string) ($parts['path'] ?? ''), '/'),
+        'DB_USERNAME' => urldecode((string) ($parts['user'] ?? '')),
+        'DB_PASSWORD' => urldecode((string) ($parts['pass'] ?? '')),
+    ];
+    foreach ($dbEnv as $k => $v) {
+        if ($v !== '') {
+            putenv("{$k}={$v}");
+            $_ENV[$k] = $v;
+            $_SERVER[$k] = $v;
+        }
+    }
+}
+
 // If DB_HOST is 127.0.0.1 (local MySQL) or empty, fallback to SQLite to prevent connection refused errors
 $dbHost = getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? $_SERVER['DB_HOST'] ?? '');
 if ($dbHost === '127.0.0.1' || $dbHost === 'localhost' || empty($dbHost)) {

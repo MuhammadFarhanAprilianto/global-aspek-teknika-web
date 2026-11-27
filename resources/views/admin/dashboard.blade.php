@@ -4,6 +4,17 @@
 
 @section('content')
     <div x-data="dashboardApp()" class="w-full">
+        @if (!empty($isEphemeralSqlite))
+            <div class="mb-4 rounded-2xl border border-amber-200 bg-amber-50/90 px-4 py-3 text-xs text-amber-950 flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-2xs">
+                <div class="flex items-start sm:items-center gap-2.5">
+                    <i class="fa-solid fa-database text-amber-600 text-sm mt-0.5 sm:mt-0 shrink-0"></i>
+                    <div>
+                        <span class="font-bold font-['Agrandir',sans-serif]">Mode Penyimpanan Sementara Vercel (`/tmp/database.sqlite`):</span>
+                        <span class="text-amber-900">Belum ada Database Cloud permanen yang terhubung di Environment Variables Vercel, sehingga visitor, order, leads, &amp; pesan kontak bisa ter-reset saat deploy/pindah kontainer. Hubungkan MySQL/PostgreSQL Cloud (`DATABASE_URL` atau `DB_HOST`) agar seluruh statistik tersimpan 100% permanen.</span>
+                    </div>
+                </div>
+            </div>
+        @endif
 
         <!-- ============================================================== -->
         <!-- ROW 1: EXECUTIVE KPI STRIP (100% REAL-TIME DATABASE TELEMETRY) -->
@@ -113,8 +124,8 @@
                             stroke-linecap="round" stroke-dasharray="44 16 44 16 44 260" transform="rotate(220 90 90)" />
                         <circle cx="90" cy="90" r="66" fill="none" stroke="#3367A5" stroke-width="8"
                             stroke-linecap="round"
-                            :stroke-dasharray="Math.round(192 * (Math.min(100, liveOrderStats.po_submitted_pct || 0) / 73.4)) + ' 414.69'"
-                            stroke-dasharray="192 414.69" transform="rotate(38 90 90)"
+                            :stroke-dasharray="Math.round(192 * (Math.min(100, liveOrderStats.po_submitted_pct || 0) / 100)) + ' 414.69'"
+                            stroke-dasharray="{{ round(192 * (min(100, $orderStats['po_submitted_pct'] ?? 0) / 100)) }} 414.69" transform="rotate(38 90 90)"
                             class="transition-all duration-700 ease-out" />
                         <g class="pointer-events-none select-none">
                             <text x="90" y="83" text-anchor="middle" dominant-baseline="central" fill="#0f172a"
@@ -381,10 +392,18 @@
                     </div>
 
                     <div class="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px]">
-                        <span class="inline-flex items-center text-emerald-700 font-semibold">
-                            <span>Sinkronisasi 2 Arah Aktif</span>
+                        <span class="inline-flex items-center gap-1.5 text-emerald-700 font-semibold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>Real-Time Poll 5s</span>
+                            <span class="text-[10px] text-slate-400 font-normal" x-show="lastSyncTime" x-text="'· ' + lastSyncTime"></span>
                         </span>
-                        <span class="text-slate-400 font-['Questrial',sans-serif]" x-text="onlineNow + ' online'">1 online</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-slate-400 font-['Questrial',sans-serif]" x-text="onlineNow + ' online'">{{ (int) ($onlineNow ?? 0) }} online</span>
+                            <button type="button" @click="pollTraffic()" title="Segarkan Data Dashboard"
+                                class="text-[#3367A5] hover:text-[#244E81] transition cursor-pointer">
+                                <i class="fa-solid fa-rotate text-[10px]" :class="isPolling ? 'animate-spin' : ''"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -537,6 +556,11 @@
                             <span class="text-[10px] text-slate-400 shrink-0" x-text="v.time_ago"></span>
                         </div>
                     </template>
+                    <template x-if="liveRecentVisitors.length === 0">
+                        <div class="py-10 text-center text-xs text-slate-400">
+                            Belum ada kunjungan halaman publik tercatat pada database saat ini.
+                        </div>
+                    </template>
                 </div>
 
                 <!-- TAB 3: REAL-TIME LEADS SIMULATOR -->
@@ -604,7 +628,9 @@
             // Real-Time Integrated Telemetry State
             liveVisitorsToday: {{ (int) ($totalVisitorsToday ?? 0) }},
             liveVisitorsAll: {{ (int) ($totalVisitorsAll ?? 0) }},
-            onlineNow: 0,
+            onlineNow: {{ (int) ($onlineNow ?? 0) }},
+            isPolling: false,
+            lastSyncTime: '{{ now()->format("H:i:s") }}',
             liveLeadsCount: {{ (int) ($totalSimulationLeads ?? 0) }},
             liveNewLeads: {{ (int) ($newSimulationLeads ?? 0) }},
             liveOrdersCount: {{ (int) ($totalOrders ?? 0) }},
@@ -791,8 +817,11 @@
             },
 
             pollTraffic() {
+                if (this.isPolling) return;
+                this.isPolling = true;
                 fetch('{{ route("admin.api.live-traffic") }}', {
-                    headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+                    headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                    cache: 'no-store'
                 })
                 .then(res => {
                     if (res.status === 401) {
@@ -803,6 +832,9 @@
                 })
                 .then(data => {
                     if (!data) return;
+                    if (data.timestamp) {
+                        this.lastSyncTime = String(data.timestamp).slice(11, 19);
+                    }
                     this.liveVisitorsToday = data.today;
                     this.liveVisitorsAll = data.total;
                     this.onlineNow = Number(data.online_now ?? 0);
@@ -832,7 +864,10 @@
                         this.trafficSeries = data.series;
                     }
                 })
-                .catch(() => {});
+                .catch(() => {})
+                .finally(() => {
+                    this.isPolling = false;
+                });
             },
 
             init() {

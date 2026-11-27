@@ -349,30 +349,109 @@ if (!function_exists('buildAdminTrafficSeries')) {
     }
 }
 
-Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        $orders = \App\Models\Order::latest()->take(8)->get();
+if (!function_exists('buildAdminDashboardSnapshot')) {
+    function buildAdminDashboardSnapshot(): array
+    {
+        $todayVisitors = \App\Models\VisitorLog::whereDate('created_at', today())->count();
+        $totalVisitors = \App\Models\VisitorLog::count();
+        $onlineNow = \App\Models\VisitorLog::where('created_at', '>=', now()->subMinutes(5))
+            ->distinct('ip_address')
+            ->count('ip_address');
+
+        $latest = \App\Models\VisitorLog::latest()->first();
+        $latestVisit = null;
+        if ($latest) {
+            $pagePath = parse_url($latest->page_url, PHP_URL_PATH) ?: '/';
+            $latestVisit = [
+                'id' => $latest->id,
+                'ip' => $latest->ip_address,
+                'page' => $pagePath,
+                'full_url' => $latest->page_url,
+                'device' => $latest->device ?? 'Desktop',
+                'browser' => $latest->browser ?? 'Browser',
+                'platform' => $latest->platform ?? 'OS',
+                'time_ago' => $latest->created_at ? $latest->created_at->diffForHumans() : 'Baru saja',
+                'exact_time' => $latest->created_at ? $latest->created_at->format('H:i:s') : now()->format('H:i:s'),
+            ];
+        }
+
+        $recentVisitors = \App\Models\VisitorLog::latest()->take(8)->get();
+        $recentVisitorsData = $recentVisitors->map(function ($v) {
+            return [
+                'id' => $v->id,
+                'ip' => $v->ip_address,
+                'page_url' => $v->page_url,
+                'device' => $v->device ?? 'Desktop',
+                'browser' => $v->browser ?? 'Browser',
+                'platform' => $v->platform ?? 'OS',
+                'time_ago' => $v->created_at ? $v->created_at->diffForHumans() : 'Baru saja',
+            ];
+        })->values()->all();
+
+        $totalLeads = \App\Models\SimulationLead::count();
+        $newLeads = \App\Models\SimulationLead::where('status', 'new')->count();
         $totalOrders = \App\Models\Order::count();
-        $totalRevenue = \App\Models\Order::sum('grand_total');
-        $totalProducts = \App\Models\Product::count();
-
-        // Data Analitik & CRM Terpadu
-        $totalVisitorsToday = \App\Models\VisitorLog::whereDate('created_at', today())->count();
-        $totalVisitorsAll = \App\Models\VisitorLog::count();
-        $recentVisitors = \App\Models\VisitorLog::latest()->take(6)->get();
-
-        $totalSimulationLeads = \App\Models\SimulationLead::count();
-        $newSimulationLeads = \App\Models\SimulationLead::where('status', 'new')->count();
-        $recentLeads = \App\Models\SimulationLead::latest()->take(6)->get();
-
+        $totalRevenue = (float) \App\Models\Order::sum('grand_total');
+        $newOrders = \App\Models\Order::where('status', 'awaiting_po')->count();
         $totalInquiries = \App\Models\ContactMessage::count();
         $unreadInquiries = \App\Models\ContactMessage::where('status', 'unread')->count();
-
-        $totalProjects = \App\Models\Project::count();
-        $shownProjects = \App\Models\Project::where('is_featured', true)->count();
+        $totalProducts = \App\Models\Product::count();
+        $publishedProducts = \App\Models\Product::where('status', 'published')->count();
         $totalSolutions = \App\Models\Solution::count();
         $shownSolutions = \App\Models\Solution::where('show_in_navbar', true)->count();
-        $publishedProducts = \App\Models\Product::where('status', 'published')->count();
+        $totalProjects = \App\Models\Project::count();
+        $shownProjects = \App\Models\Project::where('is_featured', true)->count();
+
+        $formatShort = function ($val) {
+            if ($val >= 1000000000) return 'Rp ' . number_format($val / 1000000000, 1, ',', '.') . ' M';
+            if ($val >= 1000000) return 'Rp ' . number_format($val / 1000000, 1, ',', '.') . ' Jt';
+            return 'Rp ' . number_format($val, 0, ',', '.');
+        };
+
+        $submittedStatuses = ['po_submitted', 'confirmed', 'processing', 'completed'];
+        $poSubmittedCount = \App\Models\Order::whereIn('status', $submittedStatuses)->count();
+        $poSubmittedTotal = (float) \App\Models\Order::whereIn('status', $submittedStatuses)->sum('grand_total');
+
+        $awaitingPoCount = \App\Models\Order::where('status', 'awaiting_po')->count();
+        $awaitingPoTotal = (float) \App\Models\Order::where('status', 'awaiting_po')->sum('grand_total');
+
+        $inspectionTotal = (float) \App\Models\OrderItem::where(function ($q) {
+            $q->where('product_name', 'like', '%Inspection%')
+                ->orWhere('product_name', 'like', '%Pengukuran%')
+                ->orWhere('product_name', 'like', '%Kamera%')
+                ->orWhere('product_name', 'like', '%Vision%')
+                ->orWhere('product_name', 'like', '%Sensor%');
+        })->sum('line_total');
+
+        $automationTotal = (float) \App\Models\OrderItem::where(function ($q) {
+            $q->where('product_name', 'like', '%Panel%')
+                ->orWhere('product_name', 'like', '%Otomasi%')
+                ->orWhere('product_name', 'like', '%Kontrol%')
+                ->orWhere('product_name', 'like', '%Strapping%')
+                ->orWhere('product_name', 'like', '%Inkjet%')
+                ->orWhere('product_name', 'like', '%Printer%');
+        })->sum('line_total');
+
+        $poSubmittedPct = $totalRevenue > 0 ? round(($poSubmittedTotal / $totalRevenue) * 100, 1) : 0.0;
+
+        $orderStats = [
+            'total_orders' => $totalOrders,
+            'total_revenue' => $totalRevenue,
+            'revenue_formatted' => $formatShort($totalRevenue),
+            'full_revenue_formatted' => 'Rp ' . number_format($totalRevenue, 0, ',', '.'),
+            'po_submitted_count' => $poSubmittedCount,
+            'po_submitted_total' => $poSubmittedTotal,
+            'po_submitted_formatted' => $formatShort($poSubmittedTotal),
+            'awaiting_po_count' => $awaitingPoCount,
+            'awaiting_po_total' => $awaitingPoTotal,
+            'awaiting_po_formatted' => $formatShort($awaitingPoTotal),
+            'inspection_total' => $inspectionTotal,
+            'inspection_formatted' => $formatShort($inspectionTotal),
+            'automation_total' => $automationTotal,
+            'automation_formatted' => $formatShort($automationTotal),
+            'po_submitted_pct' => $poSubmittedPct,
+            'stroke_offset' => round(351.86 * (1 - ($poSubmittedPct / 100)), 2),
+        ];
 
         $orderStatusLabels = [
             'awaiting_po' => 'Menunggu PO',
@@ -414,6 +493,7 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
                 ];
             })->values()->all();
 
+        $recentLeads = \App\Models\SimulationLead::latest()->take(8)->get();
         $recentLeadsData = $recentLeads->map(function ($l) use ($leadDomainLabels) {
             $domainKey = strtolower((string) ($l->domain ?: 'manufacturing'));
             return [
@@ -425,254 +505,96 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
             ];
         })->values()->all();
 
-        $formatShort = function ($val) {
-            if ($val >= 1000000000) return 'Rp ' . number_format($val / 1000000000, 1, ',', '.') . ' M';
-            if ($val >= 1000000) return 'Rp ' . number_format($val / 1000000, 1, ',', '.') . ' Jt';
-            return 'Rp ' . number_format($val, 0, ',', '.');
-        };
+        $trafficSeries = buildAdminTrafficSeries($todayVisitors, $totalVisitors, $totalLeads, $totalInquiries, $totalOrders);
 
-        $poSubmittedCount = \App\Models\Order::where('status', 'po_submitted')->count();
-        $poSubmittedTotal = (float) \App\Models\Order::where('status', 'po_submitted')->sum('grand_total');
-
-        $awaitingPoCount = \App\Models\Order::where('status', 'awaiting_po')->count();
-        $awaitingPoTotal = (float) \App\Models\Order::where('status', 'awaiting_po')->sum('grand_total');
-
-        $inspectionTotal = (float) \App\Models\OrderItem::where(function ($q) {
-            $q->where('product_name', 'like', '%Inspection%')
-                ->orWhere('product_name', 'like', '%Pengukuran%')
-                ->orWhere('product_name', 'like', '%Kamera%');
-        })->sum('line_total');
-
-        $automationTotal = (float) \App\Models\OrderItem::where(function ($q) {
-            $q->where('product_name', 'like', '%Panel%')
-                ->orWhere('product_name', 'like', '%Otomasi%')
-                ->orWhere('product_name', 'like', '%Kontrol%');
-        })->sum('line_total');
-
-        $poSubmittedPct = $totalRevenue > 0 ? round(($poSubmittedTotal / $totalRevenue) * 100, 1) : 73.4;
-
-        $orderStats = [
-            'total_orders' => $totalOrders,
-            'total_revenue' => (float) $totalRevenue,
-            'revenue_formatted' => $formatShort($totalRevenue),
-            'full_revenue_formatted' => 'Rp ' . number_format($totalRevenue, 0, ',', '.'),
-            'po_submitted_count' => $poSubmittedCount,
-            'po_submitted_total' => $poSubmittedTotal,
-            'po_submitted_formatted' => $formatShort($poSubmittedTotal),
-            'awaiting_po_count' => $awaitingPoCount,
-            'awaiting_po_total' => $awaitingPoTotal,
-            'awaiting_po_formatted' => $formatShort($awaitingPoTotal),
-            'inspection_total' => $inspectionTotal,
-            'inspection_formatted' => $formatShort($inspectionTotal),
-            'automation_total' => $automationTotal,
-            'automation_formatted' => $formatShort($automationTotal),
-            'po_submitted_pct' => $poSubmittedPct,
-            'stroke_offset' => round(351.86 * (1 - ($poSubmittedPct / 100)), 2),
-        ];
-
-        $allTrafficSeries = buildAdminTrafficSeries($totalVisitorsToday, $totalVisitorsAll, $totalSimulationLeads, $totalInquiries, $totalOrders);
-
-        return view('admin.dashboard', compact(
-            'orders',
+        return compact(
+            'todayVisitors',
+            'totalVisitors',
+            'onlineNow',
+            'latestVisit',
+            'recentVisitors',
+            'recentVisitorsData',
+            'totalLeads',
+            'newLeads',
             'totalOrders',
             'totalRevenue',
-            'totalProducts',
-            'publishedProducts',
-            'orderStats',
-            'allTrafficSeries',
-            'totalVisitorsToday',
-            'totalVisitorsAll',
-            'recentVisitors',
-            'totalSimulationLeads',
-            'newSimulationLeads',
-            'recentLeads',
-            'recentLeadsData',
-            'recentOrdersData',
+            'newOrders',
             'totalInquiries',
             'unreadInquiries',
+            'totalProducts',
+            'publishedProducts',
+            'totalSolutions',
+            'shownSolutions',
             'totalProjects',
             'shownProjects',
-            'totalSolutions',
-            'shownSolutions'
-        ));
+            'orderStats',
+            'recentOrdersData',
+            'recentLeads',
+            'recentLeadsData',
+            'trafficSeries'
+        );
+    }
+}
+
+Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', function () {
+        $snap = buildAdminDashboardSnapshot();
+        $isEphemeralSqlite = (! empty($_SERVER['VERCEL']) || getenv('VERCEL') === '1')
+            && config('database.default') === 'sqlite';
+
+        return view('admin.dashboard', [
+            'totalOrders' => $snap['totalOrders'],
+            'totalRevenue' => $snap['totalRevenue'],
+            'totalProducts' => $snap['totalProducts'],
+            'publishedProducts' => $snap['publishedProducts'],
+            'orderStats' => $snap['orderStats'],
+            'allTrafficSeries' => $snap['trafficSeries'],
+            'totalVisitorsToday' => $snap['todayVisitors'],
+            'totalVisitorsAll' => $snap['totalVisitors'],
+            'onlineNow' => $snap['onlineNow'],
+            'recentVisitors' => $snap['recentVisitors'],
+            'totalSimulationLeads' => $snap['totalLeads'],
+            'newSimulationLeads' => $snap['newLeads'],
+            'recentLeads' => $snap['recentLeads'],
+            'recentLeadsData' => $snap['recentLeadsData'],
+            'recentOrdersData' => $snap['recentOrdersData'],
+            'totalInquiries' => $snap['totalInquiries'],
+            'unreadInquiries' => $snap['unreadInquiries'],
+            'totalProjects' => $snap['totalProjects'],
+            'shownProjects' => $snap['shownProjects'],
+            'totalSolutions' => $snap['totalSolutions'],
+            'shownSolutions' => $snap['shownSolutions'],
+            'isEphemeralSqlite' => $isEphemeralSqlite,
+        ]);
     })->name('dashboard');
 
     // API Real-time Live Traffic & Integrated Telemetry
     Route::get('/api/live-traffic', function () {
-        $todayVisitors = \App\Models\VisitorLog::whereDate('created_at', today())->count();
-        $totalVisitors = \App\Models\VisitorLog::count();
-
-        // Online visitors in the last 5 minutes (100% real, never faked)
-        $onlineNow = \App\Models\VisitorLog::where('created_at', '>=', now()->subMinutes(5))
-            ->distinct('ip_address')
-            ->count('ip_address');
-
-        $latest = \App\Models\VisitorLog::latest()->first();
-        $latestVisit = null;
-        if ($latest) {
-            $pagePath = parse_url($latest->page_url, PHP_URL_PATH) ?: '/';
-            $latestVisit = [
-                'id' => $latest->id,
-                'ip' => $latest->ip_address,
-                'page' => $pagePath,
-                'full_url' => $latest->page_url,
-                'device' => $latest->device ?? 'Desktop',
-                'browser' => $latest->browser ?? 'Browser',
-                'platform' => $latest->platform ?? 'OS',
-                'time_ago' => $latest->created_at->diffForHumans(),
-                'exact_time' => $latest->created_at->format('H:i:s'),
-            ];
-        }
-
-        // Recent 6 visitors for real-time list
-        $recentVisitors = \App\Models\VisitorLog::latest()->take(6)->get()->map(function ($v) {
-            return [
-                'id' => $v->id,
-                'ip' => $v->ip_address,
-                'page_url' => $v->page_url,
-                'device' => $v->device ?? 'Desktop',
-                'browser' => $v->browser ?? 'Browser',
-                'platform' => $v->platform ?? 'OS',
-                'time_ago' => $v->created_at->diffForHumans(),
-            ];
-        });
-
-        // Integrated counts across all modules
-        $totalLeads = \App\Models\SimulationLead::count();
-        $newLeads = \App\Models\SimulationLead::where('status', 'new')->count();
-        $totalOrders = \App\Models\Order::count();
-        $totalRevenue = (float) \App\Models\Order::sum('grand_total');
-        $newOrders = \App\Models\Order::where('status', 'awaiting_po')->count();
-        $totalInquiries = \App\Models\ContactMessage::count();
-        $unreadInquiries = \App\Models\ContactMessage::where('status', 'unread')->count();
-        $totalProducts = \App\Models\Product::count();
-        $publishedProducts = \App\Models\Product::where('status', 'published')->count();
-        $totalSolutions = \App\Models\Solution::count();
-        $shownSolutions = \App\Models\Solution::where('show_in_navbar', true)->count();
-        $totalProjects = \App\Models\Project::count();
-        $shownProjects = \App\Models\Project::where('is_featured', true)->count();
-
-        $formatShort = function ($val) {
-            if ($val >= 1000000000) return 'Rp ' . number_format($val / 1000000000, 1, ',', '.') . ' M';
-            if ($val >= 1000000) return 'Rp ' . number_format($val / 1000000, 1, ',', '.') . ' Jt';
-            return 'Rp ' . number_format($val, 0, ',', '.');
-        };
-
-        $poSubmittedCount = \App\Models\Order::where('status', 'po_submitted')->count();
-        $poSubmittedTotal = (float) \App\Models\Order::where('status', 'po_submitted')->sum('grand_total');
-
-        $awaitingPoCount = \App\Models\Order::where('status', 'awaiting_po')->count();
-        $awaitingPoTotal = (float) \App\Models\Order::where('status', 'awaiting_po')->sum('grand_total');
-
-        $inspectionTotal = (float) \App\Models\OrderItem::where(function ($q) {
-            $q->where('product_name', 'like', '%Inspection%')
-                ->orWhere('product_name', 'like', '%Pengukuran%')
-                ->orWhere('product_name', 'like', '%Kamera%');
-        })->sum('line_total');
-
-        $automationTotal = (float) \App\Models\OrderItem::where(function ($q) {
-            $q->where('product_name', 'like', '%Panel%')
-                ->orWhere('product_name', 'like', '%Otomasi%')
-                ->orWhere('product_name', 'like', '%Kontrol%');
-        })->sum('line_total');
-
-        $poSubmittedPct = $totalRevenue > 0 ? round(($poSubmittedTotal / $totalRevenue) * 100, 1) : 73.4;
-
-        $orderStats = [
-            'total_orders' => $totalOrders,
-            'total_revenue' => (float) $totalRevenue,
-            'revenue_formatted' => $formatShort($totalRevenue),
-            'full_revenue_formatted' => 'Rp ' . number_format($totalRevenue, 0, ',', '.'),
-            'po_submitted_count' => $poSubmittedCount,
-            'po_submitted_total' => $poSubmittedTotal,
-            'po_submitted_formatted' => $formatShort($poSubmittedTotal),
-            'awaiting_po_count' => $awaitingPoCount,
-            'awaiting_po_total' => $awaitingPoTotal,
-            'awaiting_po_formatted' => $formatShort($awaitingPoTotal),
-            'inspection_total' => $inspectionTotal,
-            'inspection_formatted' => $formatShort($inspectionTotal),
-            'automation_total' => $automationTotal,
-            'automation_formatted' => $formatShort($automationTotal),
-            'po_submitted_pct' => $poSubmittedPct,
-            'stroke_offset' => round(351.86 * (1 - ($poSubmittedPct / 100)), 2),
-        ];
-
-        $trafficSeries = buildAdminTrafficSeries($todayVisitors, $totalVisitors, $totalLeads, $totalInquiries, $totalOrders);
-
-        $orderStatusLabels = [
-            'awaiting_po' => 'Menunggu PO',
-            'po_submitted' => 'PO Terkirim',
-            'confirmed' => 'Dikonfirmasi',
-            'processing' => 'Diproses',
-            'completed' => 'Selesai',
-            'cancelled' => 'Dibatalkan',
-        ];
-
-        $leadDomainLabels = [
-            'manufacturing' => 'Manufacturing & FMCG',
-            'automotive' => 'Automotive Assembly',
-            'pharma' => 'Pharma & Vision',
-            'bms' => 'BMS & Telemetri',
-            'logistics' => 'Logistics & Conveyor',
-            'enpi' => 'EnPI Energy SCADA',
-        ];
-
-        $recentOrders = \App\Models\Order::withCount('items')
-            ->latest()
-            ->take(10)
-            ->get()
-            ->map(function ($o) use ($orderStatusLabels) {
-                return [
-                    'id' => $o->id,
-                    'order_number' => $o->invoice_number ?: ('ORD-' . $o->id),
-                    'company_name' => $o->company_name ?: ($o->pic_name ?: 'Klien B2B'),
-                    'customer_name' => $o->pic_name ?: '-',
-                    'status' => $o->status ?: 'awaiting_po',
-                    'status_label' => $orderStatusLabels[$o->status] ?? ucfirst(str_replace('_', ' ', (string) $o->status)),
-                    'grand_total' => (float) $o->grand_total,
-                    'grand_total_formatted' => 'Rp ' . number_format((float) $o->grand_total, 0, ',', '.'),
-                    'items_count' => (int) ($o->items_count ?? 0),
-                    'date_formatted' => $o->created_at ? $o->created_at->format('d M Y, H:i') : '-',
-                    'time_ago' => $o->created_at ? $o->created_at->diffForHumans() : 'Baru saja',
-                    'detail_url' => route('admin.orders.show', $o->uuid),
-                    'pdf_url' => route('admin.orders.pdf', $o->uuid),
-                ];
-            })->values();
-
-        $recentLeads = \App\Models\SimulationLead::latest()->take(8)->get()->map(function ($l) use ($leadDomainLabels) {
-            $domainKey = strtolower((string) ($l->domain ?: 'manufacturing'));
-            return [
-                'id' => $l->id,
-                'company_name' => $l->company_name ?: ($l->pic_name ?: 'Prospek Industri'),
-                'industry_type' => $leadDomainLabels[$domainKey] ?? ucfirst($domainKey),
-                'status' => $l->status ?: 'new',
-                'time_ago' => $l->created_at ? $l->created_at->diffForHumans() : 'Baru saja',
-            ];
-        })->values();
+        $snap = buildAdminDashboardSnapshot();
 
         return response()->json([
-            'today' => $todayVisitors,
-            'total' => $totalVisitors,
-            'online_now' => $onlineNow,
-            'latest_visit' => $latestVisit,
-            'recent_visitors' => $recentVisitors,
-            'recent_orders' => $recentOrders,
-            'recent_leads' => $recentLeads,
-            'total_leads' => $totalLeads,
-            'new_leads' => $newLeads,
-            'total_orders' => $totalOrders,
-            'new_orders' => $newOrders,
-            'total_inquiries' => $totalInquiries,
-            'unread_inquiries' => $unreadInquiries,
-            'total_products' => $totalProducts,
-            'published_products' => $publishedProducts,
-            'total_solutions' => $totalSolutions,
-            'shown_solutions' => $shownSolutions,
-            'total_projects' => $totalProjects,
-            'shown_projects' => $shownProjects,
+            'today' => $snap['todayVisitors'],
+            'total' => $snap['totalVisitors'],
+            'online_now' => $snap['onlineNow'],
+            'latest_visit' => $snap['latestVisit'],
+            'recent_visitors' => $snap['recentVisitorsData'],
+            'recent_orders' => $snap['recentOrdersData'],
+            'recent_leads' => $snap['recentLeadsData'],
+            'total_leads' => $snap['totalLeads'],
+            'new_leads' => $snap['newLeads'],
+            'total_orders' => $snap['totalOrders'],
+            'new_orders' => $snap['newOrders'],
+            'total_inquiries' => $snap['totalInquiries'],
+            'unread_inquiries' => $snap['unreadInquiries'],
+            'total_products' => $snap['totalProducts'],
+            'published_products' => $snap['publishedProducts'],
+            'total_solutions' => $snap['totalSolutions'],
+            'shown_solutions' => $snap['shownSolutions'],
+            'total_projects' => $snap['totalProjects'],
+            'shown_projects' => $snap['shownProjects'],
             'active_channels' => \App\Models\SiteSetting::activeChannelsCount(),
-            'order_stats' => $orderStats,
-            'series' => $trafficSeries,
+            'order_stats' => $snap['orderStats'],
+            'series' => $snap['trafficSeries'],
             'today_date' => today()->format('Y-m-d'),
             'timestamp' => now()->format('Y-m-d H:i:s'),
         ]);
